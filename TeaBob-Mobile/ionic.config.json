@@ -1,0 +1,7 @@
+{
+  "name": "TeaBob-Mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
