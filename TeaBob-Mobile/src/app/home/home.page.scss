@@ -1,4 +1,43 @@
+#logo{
+  height: 50px;
+  
+}
 #container{
   background-color: whitesmoke;
   height: 100%;
 }
+#search{
+  width: 75%;
+  
+}
+
+#cart{
+  float: right;
+  margin-right: 20px;
+  margin-top: -51px;
+  height: 45px;
+  width: 45px;
+  border-radius: 3px;
+}
+
+#addbutton{
+  margin-left: 25%;
+  height: 30px;
+  width: 50%;
+  border-radius: 3px;
+}
+ion-icon{
+  font-size: 1.5rem;
+}
+
+#add-icon{
+  font-size: .5rem;
+}
+
+
+#food{
+  border: black;
+  background-color: whitesmoke;
+  color: black;
+  width: 40%;
+  }

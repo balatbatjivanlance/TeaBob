@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title style="background-color: whitesmoke; color: black;">
+      <img src="assets/tealogo.png" id="logo">
       TeaBob
     </ion-title>
   </ion-toolbar>
@@ -12,7 +13,72 @@
 
   <div id="container">
 
-    <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    <ion-searchbar id="search" showCancelButton="focus"></ion-searchbar>
     
+    <button ion-button icon-only id="cart">
+      <ion-icon name="cart"></ion-icon>
+    </button>
+
+
+    <ion-card id="food">
+      <ion-card-content>
+
+        <img src="assets/shawarma.jpg" style="height: 150px;">
+        <div style="text-align: center;">
+        <ion-label>60</ion-label>
+        </div>
+        <button ion-button icon-only id="addbutton">
+          <ion-icon name="add" id="addicon"></ion-icon>
+        </button>
+
+      </ion-card-content>
+      </ion-card>
+
+      <ion-card style="background-color: whitesmoke; color: black; width: 40%; float: right; margin-top: -245px;">
+        <ion-card-content>
+  
+          <img src="assets/chocolate.jpg" style="height: 150px;">
+          <div style="text-align: center;">
+          <ion-label>50</ion-label>
+          </div>
+          <button ion-button icon-only id="addbutton">
+            <ion-icon name="add" id="addicon"></ion-icon>
+          </button>
+  
+        </ion-card-content>
+        </ion-card>
+
+        <ion-card id="food">
+          <ion-card-content>
+    
+            <img src="assets/nachos.jpg" style="height: 150px;">
+            <div style="text-align: center;">
+            <ion-label>55</ion-label>
+            </div>
+            <button ion-button icon-only id="addbutton">
+              <ion-icon name="add" id="addicon"></ion-icon>
+            </button>
+    
+          </ion-card-content>
+          </ion-card>
+
+          <ion-card style="background-color: whitesmoke; color: black; width: 40%; float: right; margin-top: -245px;">
+            <ion-card-content>
+      
+              <img src="assets/okinawa.jpg" style="height: 150px;">
+              <div style="text-align: center;">
+              <ion-label>50</ion-label>
+              </div>
+              <button ion-button icon-only id="addbutton">
+                <ion-icon name="add" id="addicon"></ion-icon>
+              </button>
+      
+            </ion-card-content>
+            </ion-card>
+
+      
+
    </div>
+
+  
 </ion-content>
