@@ -1,25 +1,19 @@
-#logo{
-  height: 50px;
-  
-}
 #container{
   background-color: whitesmoke;
   height: 100%;
 }
-#search{
-  width: 75%;
+.title{
+  float: right;
+  margin-right: 35%;
+  margin-top: 5%;
+}
+#logo{
+  float: left;
+  margin-right: 40px;
+  margin-top: -10px;
+  height: 60px;
   
 }
-
-#cart{
-  float: right;
-  margin-right: 20px;
-  margin-top: -51px;
-  height: 45px;
-  width: 45px;
-  border-radius: 3px;
-}
-
 #addbutton{
   margin-left: 25%;
   height: 30px;
