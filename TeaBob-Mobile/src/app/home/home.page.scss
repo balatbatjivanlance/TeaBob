@@ -1,37 +1,16 @@
+
+ion-card-content{
+    background-color: #e9e9e9;
+    border-radius: 5px;
+}
+ion-grid{
+    margin-top: 70px;
+}
+p{
+    color: black;
+}
+
 #container{
-  background-color: whitesmoke;
-  height: 100%;
-}
-.title{
-  float: right;
-  margin-right: 35%;
-  margin-top: 5%;
-}
-#logo{
-  float: left;
-  margin-right: 40px;
-  margin-top: -10px;
-  height: 60px;
-  
-}
-#addbutton{
-  margin-left: 25%;
-  height: 30px;
-  width: 50%;
-  border-radius: 3px;
-}
-ion-icon{
-  font-size: 1.5rem;
-}
-
-#add-icon{
-  font-size: .5rem;
-}
-
-
-#food{
-  border: black;
-  background-color: whitesmoke;
-  color: black;
-  width: 40%;
+    background-color: whitesmoke;
+    height: 100%;
   }

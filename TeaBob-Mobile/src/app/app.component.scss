@@ -1,4 +1,31 @@
+ion-content {
+    --background: #e9e9e9;
+}
 
-#nav{
-    width: 60px;
+.active-item{
+    color: #e9e9e9;
+    font-weight: 500;
+    ion-icon {
+        color: #e9e9e9;
+    }
+}
+
+ion-toolbar{ 
+    --background: #b1b1b1;
+    --color: black
+}
+ion-list{
+    --background: #b1b1b1;
+    --color: black
+}
+
+@media(min-width: 768px) {
+    ion-router-outlet{
+        margin-top: 63px;
+    }
+}
+@media(max-width: 768px) {
+    ion-router-outlet{
+        margin-top: 56px;
+    }
 }
