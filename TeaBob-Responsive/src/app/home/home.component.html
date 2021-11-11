@@ -1,1 +1,56 @@
-<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | Side-Project</title>
+</head>
+<body>
+    <header class="nav">
+        <input type="checkbox" id="nav-check">
+        <a routerLink="/home" class="logo">TeaBob</a>
+        <ul>
+            <li routerLink="/home"><a routerLinkActive="active">Home</a></li>
+            <li routerLink="/snacks"><a routerLinkActive="active">Snacks</a></li>
+            <li routerLink="/drinks"><a routerLinkActive="active">Drinks</a></li>
+            <li routerLink="/cart"><a routerLinkActive="active">Cart</a></li>
+            <li routerLink="/status"><a routerLinkActive="active">Status</a></li>
+            <li routerLink="/profile"><a routerLinkActive="active">Profile</a></li>
+            <li><a routerLink="/home"></a>Logout</li>
+        </ul>
+
+        <!-- routerLinkActive="active"-->
+
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </header>
+
+<div class="container">
+
+    <div class="product-container">
+        <div class="prodcard" *ngFor="let food of food">
+            <div class="image-container">
+                <img src="./assets/chocolate.jpg" alt="">
+            </div>
+            <div class="info">
+            <p>
+                <span>{{food.title}}</span>
+                <span>{{food.description}}</span>
+            </p>    
+                <button (click)="delProd(food.id);">ded</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>   
+
+</html>
