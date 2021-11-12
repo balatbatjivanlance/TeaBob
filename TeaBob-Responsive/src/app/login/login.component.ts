@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { DataService } from '../services/data.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
       else{
         localStorage.setItem("Fullname", res.payload.Fullname);
         localStorage.setItem("id", res.payload.user_id);
-        alert('Login Successful');
+        this.router.navigate(['/home']);
       }
     });
   }

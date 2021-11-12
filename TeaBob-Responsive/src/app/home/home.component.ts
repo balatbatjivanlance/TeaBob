@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullFood();
+    this.pullCart();
   }
 
   food: any;
@@ -31,4 +32,51 @@ export class HomeComponent implements OnInit {
 
       this.pullFood();
   }
+
+  prodInfo: any = {};
+  title: any;
+  info: any;
+
+
+  addToCart(food:any) {
+
+
+    this.prodInfo.user_id = localStorage.getItem("id");
+    this.prodInfo.title = food.title;
+    this.prodInfo.description = food.description;
+    this.prodInfo.price = food.price;
+    
+
+    this.ds.sendApiRequest("addCart", JSON.parse(JSON.stringify(this.prodInfo))).subscribe((data: any) => {
+    });
+
+
+    console.log(this.prodInfo);
+
+
+  }
+
+  cartinfo: any={};
+  cart:any;
+  cartCounter: any;
+  
+
+  pullCart() {
+    this.cartinfo.user_id = localStorage.getItem("id");
+    this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.cart = data.payload;
+
+    // this.getTotal();
+
+    // if(this.cart != null){
+
+    for (let i = 0; i <= this.cart.length; i++) {
+      this.cartCounter = i;
+      console.log(this.cartCounter);
+    }
+    }
+    )
+  }
+
+
 }
