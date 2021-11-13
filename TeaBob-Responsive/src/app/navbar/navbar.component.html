@@ -7,14 +7,14 @@
     <title>Landing Page | Side-Project</title>
 </head>
 
-    <header class="nav">
+        <header class="nav">
         <input type="checkbox" id="nav-check">
         <a routerLink="/home" class="logo">TeaBob</a>
         <ul>
             <li routerLink="/home"><a routerLinkActive="active">Home</a></li>
             <li routerLink="/snacks"><a routerLinkActive="active">Snacks</a></li>
             <li routerLink="/drinks"><a routerLinkActive="active">Drinks</a></li>
-            <li routerLink="/cart"><a routerLinkActive="active">Cart</a></li>
+            <li routerLink="/cart"><a routerLinkActive="active" >Cart<span matBadge="{{cartCounter}}" matBadgeOverlap="false"></span></a></li>
             <li routerLink="/status"><a routerLinkActive="active">Status</a></li>
             <li routerLink="/profile"><a routerLinkActive="active">Profile</a></li>
             <li><a routerLink="/home"></a>Logout</li>

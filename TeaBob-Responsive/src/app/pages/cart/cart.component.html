@@ -1,1 +1,21 @@
 <app-navbar></app-navbar>
+
+
+<div class="container">
+    <div class="product-container">
+    <div class="prodcard" *ngFor="let cart of cart">
+        <div class="image-container">
+            <img src="./assets/chocolate.jpg" alt="">
+        </div>
+        <div class="info">
+
+            <p>  {{cart.title}}</p>  
+          <p> {{cart.description}} </p> 
+          <p> {{cart.price}} </p> 
+          
+            <button (click)="delCart(cart.cart_id);">ded</button>
+            
+        </div>
+    </div>
+</div>
+</div>
