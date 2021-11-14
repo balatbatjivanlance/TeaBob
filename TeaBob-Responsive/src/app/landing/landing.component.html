@@ -1,11 +1,10 @@
- <div class="header-title">
-        <h1>Tea-Bob Best Sellers!</h1>
-    </div>
+<app-landing-nav></app-landing-nav>
 
-    <app-navbar></app-navbar>
+<div class="dib">
+    <h1>TEABOB FOOD MENU</h1>
+    <h3>BEST SELLER</h3>
+</div>
 
-   
-    
 <div class="container">
     
     
@@ -15,13 +14,11 @@
                 <img src="./assets/chocolate.jpg" alt="">
             </div>
             <div class="info">
-            
-                <p>  {{food.price}}</p>  
-                <p>  {{food.title}}</p>  
-              <p> {{food.description}} </p> 
+                <p class="ftitle">  {{food.title}}</p>  
+              <p class="fdesc"> {{food.description}} </p> 
               
                 <!-- <button (click)="delProd(food.id);">ded</button> -->
-                <button (click)="addToCart(food)">Add Cart</button>
+
                 
             </div>
         </div>
@@ -29,5 +26,3 @@
     
 
 </div>
-
-

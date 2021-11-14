@@ -6,22 +6,47 @@
 
 
   .container{
-      background-color: #f9f9f9;
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: row;
       width: 100%;
-      height: 100vh;
-      margin-top: 100px;
+      height: 70vh;
   }
   .product-container{
       width: 90%;
       height: 90%;
-      display: flex;
+      display: grid;
       justify-content: center;
       align-items: flex-start;
 
   }
+
+    .dib {
+        margin-top: 100px;
+        height: 150px;
+        display: grid;
+        background-color: rgb(185, 185, 185);
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .dib h1 {
+        font-size: 40px;
+        padding:  20px 0;
+        letter-spacing: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .dib h3 {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
   .product-container > div{
       margin: 10px;
   }
@@ -31,7 +56,7 @@
       background-color: #f9f9f9;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       cursor: pointer;
   }
   .prodcard:hover{
@@ -78,7 +103,7 @@
     align-items: center;
   }
   .image-container img{
-      max-width: 95%;
+      max-width: 100%;
       max-height: 95%;
       border-radius: 5px;
   }
@@ -95,6 +120,15 @@
     align-items: center;
   }
 
+    .ftitle {
+      font-size: 23px;
+      text-align: center;
+  }
+
+    .fdesc {
+        font-size: 15px;
+        text-align: center;
+    }
 
 @media (max-width:600px) {
 

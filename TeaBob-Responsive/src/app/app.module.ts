@@ -11,6 +11,8 @@ import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { LandingComponent } from './landing/landing.component';
+import { LandingNavComponent } from './landing-nav/landing-nav.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     routingComponents,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LandingComponent,
+    LandingNavComponent
   ],
   imports: [
     BrowserModule,

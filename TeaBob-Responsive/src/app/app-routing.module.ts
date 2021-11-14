@@ -8,6 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SnacksComponent } from './pages/snacks/snacks.component';
 import { StatusComponent } from './pages/status/status.component';
 import { RegisterComponent } from './register/register.component';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'status', component: StatusComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'landing', component: LandingComponent},
+
   { path: '', component: LoginComponent}
 ];
 
@@ -31,5 +34,6 @@ export const routingComponents = [
   DrinksComponent,
   CartComponent,
   StatusComponent,
-  ProfileComponent
+  ProfileComponent,
+  
 ]
