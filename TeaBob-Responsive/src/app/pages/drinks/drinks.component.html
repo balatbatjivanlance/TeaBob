@@ -1,3 +1,32 @@
 
+
     <app-navbar></app-navbar>
-<p>drinks works!</p>
+
+   
+    
+    <div class="container">
+        
+        
+        <div class="product-container">
+            <div class="prodcard" *ngFor="let food of food">
+                <div class="image-container">
+                    <img src="./assets/chocolate.jpg" alt="">
+                </div>
+                <div class="info">
+                
+                    <p>  {{food.price}}</p>  
+                    <p>  {{food.title}}</p>  
+                  <p> {{food.description}} </p> 
+                  
+                    <!-- <button (click)="delProd(food.id);">ded</button> -->
+                    <button (click)="addToCart(food)">Add Cart</button>
+                    
+                </div>
+            </div>
+        </div>
+        
+    
+    </div>
+    
+    
+    
