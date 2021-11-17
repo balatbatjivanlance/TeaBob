@@ -1,0 +1,18 @@
+.status-container{
+    margin-top: 10%;
+    margin-left: 25%;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    
+}
+.status-container textarea{
+    font-size: 15px;
+    max-width: 500px;
+    max-height: 250px;
+}
+
+.order-status{
+    font-size: 20px;
+    font-weight: bold;
+}
