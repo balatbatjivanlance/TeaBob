@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   pullFood(){
     this.ds.sendApiRequest("food", null).subscribe((data: { payload: any; }) => {
     this.food = data.payload;
+    console.log(this.food);
     })
   }
   prodinfo: any = {};

@@ -16,9 +16,8 @@
   }
   .dib {
     margin-top: 100px;
-    height: 150px;
+    height: 100px;
     display: grid;
-    background-color: rgb(185, 185, 185);
     justify-content: center;
     align-items: center;
     position: relative;
@@ -119,5 +118,20 @@
     }
     .container{
         height: auto;
+    }
+
+    .dib {
+      height: 0px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .dib h1 {
+        font-size: 30px;
+        opacity: 0;
+        padding:  0px 0;
+        letter-spacing: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 }

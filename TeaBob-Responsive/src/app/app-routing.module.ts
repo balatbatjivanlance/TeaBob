@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'status', component: StatusComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'landing', component: LandingComponent},
-
-  { path: '', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+ 
+  { path: '', component: LandingComponent},
 ];
 
 @NgModule({

@@ -17,9 +17,8 @@
   
   .dib {
     margin-top: 100px;
-    height: 150px;
+    height: 100px;
     display: grid;
-    background-color: rgb(185, 185, 185);
     justify-content: center;
     align-items: center;
     position: relative;
@@ -29,12 +28,10 @@
     font-size: 40px;
     padding:  20px 0;
     letter-spacing: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .dib h3 {
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     font-weight: bold;
 }
@@ -129,4 +126,28 @@
     .container{
         height: auto;
     }
+
+     
+  .dib {
+    margin-top: 100px;
+    height: 60px;
+    display: grid;
+    background-color: rgb(0,0,0,0);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dib h1 {
+    font-size: 30px;
+    font-weight: 500;
+    padding:  20px 0px;
+    letter-spacing: 5px;
+}
+
+.dib h3 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
 }
