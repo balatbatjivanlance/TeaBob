@@ -111,6 +111,16 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($gm->insert("tbl_checkout",$d), JSON_PRETTY_PRINT);
 				break;
+				case 'checkOutAll':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->checkOutAll($d), JSON_PRETTY_PRINT);
+
+				break;
+				case 'checkOutCode':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->checkOutCode($d), JSON_PRETTY_PRINT);
+
+				break;
 				// Add to history
 				case 'addHist':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));

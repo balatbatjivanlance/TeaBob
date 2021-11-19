@@ -136,6 +136,54 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
+
+    public function checkOutAll($d)
+    {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+
+
+
+        $res = $this->gm->insert('tbl_checkout', $d);
+
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res;
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+            // return $this->get->pullCart(null);
+        }
+
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
+    public function checkOutCode($d)
+    {
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+
+
+
+        $res = $this->gm->insert('tbl_cocode', $d);
+
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res;
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+            // return $this->get->pullCart(null);
+        }
+
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
     // Delete Cart
     public function delCarts($d) {
         $data = $d;

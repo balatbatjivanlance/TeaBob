@@ -103,6 +103,11 @@ transform: scale3d(1, 1, 1);
   justify-content: center;
   align-items: center;
 }
+.checkout-but{
+  float: right;
+  margin-right: 20%;
+  margin-bottom: 10%;
+}
 
 @media (max-width:600px) {
     .product-container{
