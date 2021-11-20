@@ -202,14 +202,14 @@ header ul li a {
         display: block;
         width: 25px;
         height: 10px;
-        border-top: 2px solid #000;
+        border-top: 2px solid rgb(255, 255, 255);
     }
 
     .nav>ul {
         position: absolute;
         display: block;
         width: 100%;
-        background-color: #fff;
+        background-color: rgb(0, 0, 0);
         height: 0px;
         transition: all 0.3s ease-in;
         overflow-y: hidden;

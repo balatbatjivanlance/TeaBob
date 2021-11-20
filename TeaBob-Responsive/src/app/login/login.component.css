@@ -15,9 +15,11 @@ width: 70%;
 margin-left: 5%;
 }
 
-.signup{
-    margin-left: 15px;
+img {
+    width: 350px;
+    height: 290px;
 }
+
 
 .reg{
     
@@ -123,10 +125,7 @@ margin-left: 5%;
     border-color: #7a7a7a;
     
 }
-.button{
-    height: 45px;
-    margin: 45px 0;
-}
+
 .button {
     height: 40px;
     width: 30%;
@@ -145,10 +144,44 @@ margin-left: 5%;
     background: #4c88e2;
 }
 @media (max-width: 584px){
+
+    .reg{
+    
+        width: 90%;  
+        border: 1px solid rgb(182, 182, 182);
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        margin-top: 5%;
+    }
+
+    .reg .teabob-logo{
+        margin-top: 5%;
+        width: 90%;
+    }
+
+        img {
+            width: 150px;
+            height: 120px;
+        }
+    
+        .register-title {
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 20px 0 0 0;
+        }
+
     .register-container{
         max-width: 100%;
     }
-    .user-details .input-box{
+    .user-details {
         margin-bottom: 15px;
         width: 100%;
     }

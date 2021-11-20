@@ -1,9 +1,16 @@
-<app-landing-nav></app-landing-nav>
 
-<div class="dib">
-    <h1>TEABOB FOOD MENU</h1>
-    <h3>BEST SELLER</h3>
-</div>
+
+    <app-landing-nav></app-landing-nav>
+
+    <div class="home-container">
+        <div class="menu">
+            <h1>TeaBob On the Go <br> <h2> A Good Place to Eat </h2></h1>
+            <div class="order-button">
+                <button routerLink="/login" class="button" >Order Now</button>
+            </div>
+            
+        </div>
+    </div>
 
 <div class="container">
     
@@ -13,16 +20,19 @@
             <div class="image-container">
                 <img src="./assets/chocolate.jpg" alt="">
             </div>
-            <div class="info">
-                <p class="ftitle">  {{food.title}}</p>  
-              <p class="fdesc"> {{food.description}} </p> 
+            
+            <!-- <div class="info">
+                <p>  {{food.title}}</p>  
+              <p> {{food.description}} </p> 
               
-                <!-- <button (click)="delProd(food.id);">ded</button> -->
-
+                <button (click)="delProd(food.id);">ded</button>
+                <button (click)="addToCart(food)">Add Cart</button>
                 
-            </div>
+            </div> -->
         </div>
     </div>
     
 
 </div>
+
+

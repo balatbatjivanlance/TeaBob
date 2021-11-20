@@ -2,11 +2,16 @@
 
     <app-navbar></app-navbar>
 
-    <div class="dib">
-        <h1>TEABOB FOOD MENU</h1>
-        <h3>BEST SELLERS!</h3>
+    <div class="home-container">
+        <div class="menu">
+            <h1>TeaBob On the Go <br> <h2> A Good Place to Eat </h2></h1>
+            <div class="order-button">
+                <button routerLink="/snacks" class="button" >Order Now</button>
+            </div>
+            
+        </div>
     </div>
-    
+
 <div class="container">
     
     
@@ -15,14 +20,15 @@
             <div class="image-container">
                 <img src="./assets/chocolate.jpg" alt="">
             </div>
-            <div class="info">
+            
+            <!-- <div class="info">
                 <p>  {{food.title}}</p>  
               <p> {{food.description}} </p> 
               
-                <!-- <button (click)="delProd(food.id);">ded</button> -->
-                <!-- <button (click)="addToCart(food)">Add Cart</button> -->
+                <button (click)="delProd(food.id);">ded</button>
+                <button (click)="addToCart(food)">Add Cart</button>
                 
-            </div>
+            </div> -->
         </div>
     </div>
     
