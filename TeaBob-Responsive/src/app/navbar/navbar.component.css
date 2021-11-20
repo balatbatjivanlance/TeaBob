@@ -10,7 +10,7 @@
 
 
 header {
-    background-color: #f9f9f9;
+    background-color: #161e25;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: fixed;
     top: 0;
@@ -28,7 +28,7 @@ header {
 .logo {
     position: relative;
     font-weight: 700;
-    color: #000;
+    color: #ffff;
     text-decoration: none;
     font-size: 2em;
     text-transform: uppercase;
@@ -46,7 +46,7 @@ header ul {
 header ul li {
     position: relative;
     list-style: none;
-    color: #000;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
@@ -88,7 +88,8 @@ header ul li a {
   }
 
   .active{
-      color: rgb(68, 111, 250);
+      color: #4c88e2;
+      font-weight: bold;
   }
   .container{
       background-color: #f9f9f9;

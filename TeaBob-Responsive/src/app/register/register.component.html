@@ -1,10 +1,32 @@
-<div class="reg">
-    <input type="text" placeholder="Name" [(ngModel)]="user_name">
-    <input type="text" placeholder="User Name" [(ngModel)]="user_uname">
-    <input type="number" placeholder="eg.09*********" [(ngModel)]="user_contact">
-    <input type="text" placeholder="Address" [(ngModel)]="user_address">
-    <input type="password" placeholder="Password" [(ngModel)]="user_pword">
+<app-landing-nav></app-landing-nav>
+<body>
+    
 
-    <button (click)="regUser()">Reg</button>
-
+<div class="register-container">
+    <div class="register-title">Registration</div>
+    <div class="user-details">
+    <div class="input-box">
+        <span class="details">Name</span>
+        <input type="text" placeholder="Name" [(ngModel)]="user_name">
+    </div>
+    <div class="input-box">
+        <span class="details">User Name</span>
+        <input type="text" placeholder="User Name" [(ngModel)]="user_uname">
+    </div>
+    <div class="input-box">
+        <span class="details">Contact no.</span>
+        <input type="number" class="input-number" placeholder="eg.09*********" [(ngModel)]="user_contact">
+    </div>
+    <div class="input-box">
+        <span class="details">Address</span>
+        <input type="text" placeholder="Address" [(ngModel)]="user_address">
+    </div>
+    <div class="input-box">
+        <span class="details">Password</span>
+        <input type="password" placeholder="Password" [(ngModel)]="user_pword">
+    </div>
+    
 </div>
+    <button class="button" (click)="regUser()">Register</button>
+
+</div></body>
