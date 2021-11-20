@@ -44,6 +44,7 @@ export class SnacksComponent implements OnInit {
     this.prodInfo.title = food.title;
     this.prodInfo.description = food.description;
     this.prodInfo.price = food.price;
+    this.prodInfo.image_name = food.image_name;
     
 
     this.ds.sendApiRequest("addCart", JSON.parse(JSON.stringify(this.prodInfo))).subscribe((data: any) => {
