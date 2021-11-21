@@ -1,15 +1,22 @@
 <app-navbar></app-navbar>
 <div class="dib">
-    <h1>Food Cart</h1>
-
+    <h1>Food Cart </h1>
+    
+</div>
+<div class="checkout-but">
+    
+    <button (click)="checkOutAll();">Check Out</button>
 </div>
 
 <div class="container">
+
     <div class="product-container">
     <div class="prodcard" *ngFor="let cart of cart">
+        
         <div class="image-container">
             <img src="{{cart.image_name}}" alt="">
         </div>
+        
         <div class="info">
 
             <p>  {{cart.title}}</p>  
@@ -17,13 +24,13 @@
             <p> {{cart.price}} </p> 
             <p>{{totalamount}}</p>
           
-            <button (click)="delCart(cart.cart_id);">Delete to Cart</button>
+            <button (click)="delCart(cart.cart_id);" >Delete to Cart</button>
             
         </div>
+        
     </div>
-</div>
+    
 </div>
 
-<div class="checkout-but">
-    <button (click)="checkOutAll();">Check Out</button>
 </div>
+
