@@ -24,6 +24,11 @@
     background-color: #1a3b6d;
 }
 
+
+img{
+  height: 300px;
+}
+
 .menu {
     display: flex;
     align-items: flex-start;

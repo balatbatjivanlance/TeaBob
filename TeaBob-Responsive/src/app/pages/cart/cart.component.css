@@ -91,6 +91,9 @@ transform: scale3d(1, 1, 1);
     max-height: 95%;
     border-radius: 5px;
 }
+img{
+  height: 300px;
+}
 .info{
   width: 100%;
   height: 20%;
@@ -111,7 +114,6 @@ transform: scale3d(1, 1, 1);
   justify-content: flex-end;
   align-items: flex-end;
   padding-right: 50px;
-
 
 }
 button:hover{
@@ -138,7 +140,9 @@ button {
     .container{
         height: auto;
     }
-
+    img{
+      height: 200px;
+    }
       
 .dib {
   margin-top: 100px;
@@ -170,5 +174,11 @@ button {
 .checkout-but{
   display: flex;
 
+}
+.checkout-but{
+  display: grid;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 50px;
 }
 }

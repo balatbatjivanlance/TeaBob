@@ -4,7 +4,8 @@
     
 </div>
 <div class="checkout-but">
-    
+    <p>Total Amount of Payment</p>
+    <p>₱ {{totalamount}}</p>
     <button (click)="checkOutAll();">Check Out</button>
 </div>
 
@@ -21,8 +22,7 @@
 
             <p>  {{cart.title}}</p>  
             <p> {{cart.description}} </p> 
-            <p> {{cart.price}} </p> 
-            <p>{{totalamount}}</p>
+            <p>₱ {{cart.price}} </p> 
           
             <button (click)="delCart(cart.cart_id);" >Delete to Cart</button>
             

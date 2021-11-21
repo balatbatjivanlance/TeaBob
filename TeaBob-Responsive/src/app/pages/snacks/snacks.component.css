@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 70vh;
+      height: 80vh;
       margin-top: 40px;
   }
   .dib {
@@ -110,6 +110,9 @@
       max-width: 95%;
       max-height: 95%;
       border-radius: 5px;
+  }
+  img{
+    height: 300px;
   }
   .info{
     width: 100%;

@@ -146,6 +146,9 @@
       max-height: 95%;
       border-radius: 5px;
   }
+  img{
+    height: 300px;
+  }
   .info{
     width: 100%;
     height: 20%;
