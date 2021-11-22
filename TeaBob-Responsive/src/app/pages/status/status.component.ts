@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-status',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
+  
+  user_id = localStorage.getItem("UID");
 
-  constructor() { }
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
+    
+    this.pullUsers();
+  }
+
+  userinfo: any = {};
+  user: any;
+  
+  pullUsers() {
+    this.userinfo.user_id = localStorage.getItem("id");
+    this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.user = data.payload;
+
+    console.log(this.user);
+
+    }
+    )
   }
 
 }

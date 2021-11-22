@@ -9,23 +9,23 @@
 
     </div> -->
 
-    <div class="user-details">
+    <div class="user-details" *ngFor="let user of user">
     <div class="input-box">
 
         <span class="details">Name</span>
-        <input disabled type="text" placeholder="Name">
+        <input disabled type="text" placeholder="{{user.user_name}}">
     </div>
     <div class="input-box">
         <span class="details">User Name</span>
-        <input disabled type="text" placeholder="User Name">
+        <input disabled type="text" placeholder="{{user.user_uname}}">
     </div>
     <div class="input-box">
         <span class="details">Contact no.</span>
-        <input disabled type="number" class="input-number" placeholder="eg.09*********">
+        <input disabled type="number" class="input-number" placeholder="{{user.user_contact}}">
     </div>
     <div class="input-box">
         <span class="details">Address</span>
-        <input disabled type="text" placeholder="Address">
+        <input disabled type="text" placeholder="{{user.user_address}}">
     </div>
     
     <button class="button">Update Profile</button>
