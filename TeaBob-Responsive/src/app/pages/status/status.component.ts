@@ -15,6 +15,7 @@ export class StatusComponent implements OnInit {
   ngOnInit(): void {
     
     this.pullUsers();
+    this.pullStatus();
   }
 
   userinfo: any = {};
@@ -26,6 +27,19 @@ export class StatusComponent implements OnInit {
     this.user = data.payload;
 
     console.log(this.user);
+
+    }
+    )
+  }
+
+  statusinfo: any = {};
+  mstatus: any;
+  pullStatus() {
+    this.statusinfo.user_id = localStorage.getItem("id");
+    this.ds.sendApiRequest("status",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.mstatus = data.payload;
+
+    console.log(this.mstatus);
 
     }
     )

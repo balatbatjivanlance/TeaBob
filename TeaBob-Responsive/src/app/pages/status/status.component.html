@@ -35,14 +35,14 @@
 </div>
 
 
-<div class="status2-container">
+<div class="status2-container" *ngFor="let mstatus of mstatus">
     <div class="status2-title">Order Status</div>
 
     <div class="user-details">
         
     <div class="input-box">
         <span class="details">Status</span>
-        <input disabled type="text" placeholder="Ex: Approved!">
+        <input disabled type="text" placeholder="{{mstatus.is_approved}}">
     </div>
     
     </div>

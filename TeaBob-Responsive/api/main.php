@@ -56,6 +56,16 @@
 						echo json_encode($get->pullProduct(null), JSON_PRETTY_PRINT);
 					}
 				break;
+				// Pull data of the status 
+				case 'status':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+                    if(count($req)>1) {
+                       
+						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
+					}
+				break;
 				// Pull data of the users 
 				case 'users':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));

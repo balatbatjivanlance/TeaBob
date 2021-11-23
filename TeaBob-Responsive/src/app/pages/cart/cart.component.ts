@@ -7,6 +7,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  status: string | undefined;
 
   constructor(private ds: DataService) { }
 
@@ -25,7 +26,7 @@ export class CartComponent implements OnInit {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.cart = data.payload;
-      console.log(this.cart);
+    console.log(this.cart);
     this.getTotal();
 
     // if(this.cart != null){
@@ -88,9 +89,13 @@ export class CartComponent implements OnInit {
     
     var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
     this.code = seq;
+    
+    var stat = "Pending";
+    this.status = stat;
 
 
     this.coCode.code = this.code;
+    this.coCode.is_approved = this.status;
 
     this.coCode.user_id = localStorage.getItem("id");
     this.coCode.total_price = this.totalamount;
