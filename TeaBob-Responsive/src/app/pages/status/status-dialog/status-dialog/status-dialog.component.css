@@ -1,0 +1,146 @@
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.status-container{
+    margin-top: 3%;
+    background: #fff;
+    padding-left: 25px 30px;
+
+}
+.status-container .status-title{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 10px 0 0 15px;
+}
+.status-container .status-title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+    left: 0;
+    bottom: 0;
+
+}
+.status-container  .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.status2-container{
+    float: right;
+    margin-top: -20%;
+    margin-right: 5%;
+    max-width: 700px;
+    background: #fff;
+    padding-left: 25px 30px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.status2-container .status2-title{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 10px 0 0 15px;
+}
+.status2-container .status2-title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+    left: 0;
+    bottom: 0;
+
+}
+.status2-container  .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.user-details .input-box{
+    width: calc(100% / 2 - 20px);
+    padding: 0 15px 0 15px;
+    
+}
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+/* animations */
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #7a7a7a;
+    
+}
+.button{
+    height: 45px;
+    margin: 45px 0;
+}
+.button {
+    height: 50px;
+    width: 90%;
+    margin-left: 35px;
+    outline: none;
+    color:#fff;
+    border:none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: #161e25;
+}
+.button:hover{
+    cursor: pointer;
+    background: #4c88e2;
+}
+@media (max-width: 584px){
+    .status-container{
+        max-width: 90%;
+        margin-top: 20%;
+    }
+    .status2-container{
+        max-width: 90%;
+        margin-top: 20%;
+    }
+    .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .status-container  .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+
+    }
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+    .button{
+        margin-right: 7%;
+    }
+}

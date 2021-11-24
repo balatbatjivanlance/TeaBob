@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import {MatDialog} from '@angular/material/dialog';
+import { SnacksDialogComponent } from './snacks-dialog/snacks-dialog/snacks-dialog.component';
+import {MatFormField} from '@angular/material/form-field';
+
 @Component({
   selector: 'app-snacks',
   templateUrl: './snacks.component.html',
@@ -7,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class SnacksComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.pullFood();
@@ -76,6 +80,16 @@ export class SnacksComponent implements OnInit {
     }
     }
     )
+  }
+  
+  snacksModal() {
+    const dialog = this.dialog.open(SnacksDialogComponent, {
+      autoFocus: false, width:"70%", height:"60%"
+    });
+    dialog.afterClosed().subscribe( ()=>{
+      console.log("closed")
+    });
+  
   }
 
 }

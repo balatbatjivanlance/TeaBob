@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import {MatDialog} from '@angular/material/dialog';
+import { CartDialogComponent } from './cart-dialog/cart-dialog/cart-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +11,7 @@ import { DataService } from '../../services/data.service';
 export class CartComponent implements OnInit {
   status: string | undefined;
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.pullCart();
@@ -84,6 +86,7 @@ export class CartComponent implements OnInit {
   checkOutAll()
   {
     this.cartinfo.user_id = localStorage.getItem("id");
+    this.cartinfo.user_name = localStorage.getItem("Fullname");
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
       {
     
@@ -98,6 +101,7 @@ export class CartComponent implements OnInit {
     this.coCode.is_approved = this.status;
 
     this.coCode.user_id = localStorage.getItem("id");
+    this.coCode.user_name = localStorage.getItem("Fullname");
     this.coCode.total_price = this.totalamount;
 
 
@@ -131,5 +135,6 @@ export class CartComponent implements OnInit {
 
 
   }
+
 
 }

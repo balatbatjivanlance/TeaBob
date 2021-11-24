@@ -5,6 +5,14 @@
    
     <div class="dib">
         <h1>Foods</h1>
+
+        <mat-form-field appearance="fill">
+        <mat-label>Select Category</mat-label>
+        <mat-select>
+            <mat-option value="one">Snacks</mat-option>
+            <mat-option value="two">Drinks</mat-option>
+        </mat-select>
+    </mat-form-field>   
     
     </div>
     <div class="container">
@@ -21,8 +29,8 @@
                     <p>  {{food.title}}</p>  
                   <p> {{food.description}} </p> 
                   
-                    <!-- <button (click)="delProd(food.id);">ded</button> -->
                     <button (click)="addToCart(food)">Add Cart</button>
+                    <button (click)="snacksModal()" >Make Order</button>
                     
                 </div>
             </div>

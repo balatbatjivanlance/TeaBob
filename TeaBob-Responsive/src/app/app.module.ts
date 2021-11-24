@@ -13,6 +13,12 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LandingComponent } from './landing/landing.component';
 import { LandingNavComponent } from './landing-nav/landing-nav.component';
+import { CartDialogComponent } from './pages/cart/cart-dialog/cart-dialog/cart-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SnacksDialogComponent } from './pages/snacks/snacks-dialog/snacks-dialog/snacks-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { StatusDialogComponent } from './pages/status/status-dialog/status-dialog/status-dialog.component';
 
 
 @NgModule({
@@ -23,7 +29,10 @@ import { LandingNavComponent } from './landing-nav/landing-nav.component';
     RegisterComponent,
     LoginComponent,
     LandingComponent,
-    LandingNavComponent
+    LandingNavComponent,
+    CartDialogComponent,
+    SnacksDialogComponent,
+    StatusDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,10 @@ import { LandingNavComponent } from './landing-nav/landing-nav.component';
     MatCardModule,
     MatBadgeModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,33 @@
+
+<div class="status-container">
+    <div class="status-title">User Profile</div>
+<!-- 
+    <div class="profile-image">
+
+    </div> -->
+
+    <div class="user-details" *ngFor="let user of user">
+    <div class="input-box">
+
+        <span class="details">Name</span>
+        <input type="text" placeholder="{{user.user_name}}">
+    </div>
+    <div class="input-box">
+        <span class="details">User Name</span>
+        <input type="text" placeholder="{{user.user_uname}}">
+    </div>
+    <div class="input-box">
+        <span class="details">Contact no.</span>
+        <input type="number" class="input-number" placeholder="{{user.user_contact}}">
+    </div>
+    <div class="input-box">
+        <span class="details">Address</span>
+        <input type="text" placeholder="{{user.user_address}}">
+    </div>
+    
+    <button class="button">Save Profile</button>
+    
+</div>
+
+</div>
+
