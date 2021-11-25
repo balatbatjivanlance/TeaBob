@@ -29,6 +29,26 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+	//Pull Food Per Item
+	public function pullFood_perItem ($filter_data) {
+		$this->sql = "SELECT * FROM tbl_food";
+
+		if ($filter_data){
+			$this->sql .= " WHERE food_id = $filter_data";
+		}
+	
+		$res = $this->gm->generalQuery($this->sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
 	
 	//PULL CATEGORIES
 	public function pullCategory ($column) {
@@ -122,7 +142,6 @@ class Get{
 			}
 			return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 		}
-		
 	 //Pull History
 	 public function pullHist ($user_id) {
 
@@ -141,6 +160,23 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+	// public function updateProfile ($user_id) {
+
+	// 	$sql = "UPDATE tbl_user WHERE user_id = '$user_id', user_name = '$user_name', user_uname = '$user_uname', user_pword = '$user_pword', user_contact = '$user_contact', user_address = '$user_address'";
+
+		
+	// 	$res = $this->gm->generalQuery($sql, "No records found");
+	// 	if ($res['code'] == 200) {
+	// 		$payload = $res['data'];
+	// 		$remarks = "success";
+	// 		$message = "Successfully retrieved requested data";
+	// 	} else {
+	// 		$payload = null;
+	// 		$remarks = "failed";
+	// 		$message = $res['errmsg'];
+	// 	}
+	// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	// }
 
 	// pull plants
 	public function pullProduct ($d) {

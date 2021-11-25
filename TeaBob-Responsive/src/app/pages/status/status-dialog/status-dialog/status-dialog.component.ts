@@ -14,6 +14,7 @@ export class StatusDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullUsers();
+    // this.updateProfile();
   }
 
   userinfo: any = {};
@@ -29,5 +30,18 @@ export class StatusDialogComponent implements OnInit {
     }
     )
   }
+  // userinfoupdate: any = {};
+  // userupdate: any;
+  
+  // updateProfile() {
+  //   this.userinfoupdate.user_id = localStorage.getItem("id");
+  //   this.ds.sendApiRequest("updateProfile",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+  //   this.userupdate = data.payload;
+
+  //   console.log(this.userupdate);
+
+  //   }
+  //   )
+  // }
 
 }

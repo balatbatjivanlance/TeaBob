@@ -16,11 +16,11 @@ export class LandingComponent implements OnInit {
     this.pullCart();
   }
   
-  food: any;
+  foods: any[]=[];
 
   pullFood(){
     this.ds.sendApiRequest("food", null).subscribe((data: { payload: any; }) => {
-    this.food = data.payload;
+    this.foods = data.payload;
     })
   }
   prodinfo: any = {};

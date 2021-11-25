@@ -17,6 +17,10 @@
         <input type="text" placeholder="{{user.user_uname}}">
     </div>
     <div class="input-box">
+        <span class="details">Password</span>
+        <input type="password" class="input-number">
+    </div>
+    <div class="input-box">
         <span class="details">Contact no.</span>
         <input type="number" class="input-number" placeholder="{{user.user_contact}}">
     </div>
@@ -25,7 +29,7 @@
         <input type="text" placeholder="{{user.user_address}}">
     </div>
     
-    <button class="button">Save Profile</button>
+    <button class="button" onclick="updateProfile()">Save Profile</button>
     
 </div>
 

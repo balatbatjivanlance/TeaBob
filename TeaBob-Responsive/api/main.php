@@ -26,6 +26,10 @@
 						echo json_encode($get->pullFood($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'food_item':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->pullFood_perItem($d), JSON_PRETTY_PRINT);
+				break;
 				case 'checkout':
 					if(count($req)>1) {
 						echo json_encode($get->pullCheckout($req[1]), JSON_PRETTY_PRINT);
@@ -164,7 +168,11 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($auth->loginUser($d), JSON_PRETTY_PRINT);
 				break;
-			
+				//  Update Profile in status page
+				// case 'updateProfile':
+				// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
+				// 	echo json_encode($auth->updateProfile($d), JSON_PRETTY_PRINT);
+				// break;
 			}
 		break;
 

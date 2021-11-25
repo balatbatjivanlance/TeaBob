@@ -1,6 +1,6 @@
 
 <div class="status-container">
-
+    <a href="#" class="close"></a>
     <div class="status-title">Order Info</div>
 <!-- 
     <div class="profile-image">
@@ -11,18 +11,18 @@
     <div class="input-box">
 
         <span class="details">Food Name</span>
-        <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
+        <input type="text" disabled placeholder="" >
     </div>
 
     <div class="input-box">
-        <span class="details">Quantity</span> 
-        <input disabled class="input-number">
+        <span class="details">Quantity</span>
+        <input type="number" class="input-number" min="0">
         <button class="quan-butt">-</button><button class="quan-butt">+</button>
     </div>
 
     <div class="input-box">
         <span class="details" >Price</span>
-        <input type="number" [(ngModel)]="food_price" disabled class="input-number">
+        <input type="number" disabled class="input-number">
     </div>    
     
 
@@ -33,11 +33,22 @@
     
     <div class="input-box1">
         
-        <label class="container1">Extra Sauce (₱10)
+        
+        <label class="container1">Pearl (₱10)
+            <input type="checkbox"  >
+            <span class="checkmark1"></span>
+        </label>
+
+        <label class="container1">Cream Puff (₱10)
         <input type="checkbox"  >
         <span class="checkmark1"></span>
     </label>
-        <label class="container1">Spicy (free)
+        <label class="container1">Cream Cheese (₱10)
+        <input type="checkbox"  >
+        <span class="checkmark1"></span>
+      </label>
+
+      <label class="container1">Cookies (₱10)
         <input type="checkbox"  >
         <span class="checkmark1"></span>
       </label>
