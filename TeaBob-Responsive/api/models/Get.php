@@ -65,12 +65,16 @@ class Get{
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
     //Pull Cart items
-    public function pullCart ($dt) {
+    public function pullCart ($column, $filter_data) {
+	
+		$this->sql = "SELECT * FROM tbl_$column";
 
-		$sql = "SELECT * FROM tbl_cart WHERE user_id = '$dt'";
+		if($filter_data != null){
+			$this->sql .= "WHERE user_id = '$filter_data'";
+		}
 
 		
-		$res = $this->gm->generalQuery($sql, "No records found");
+		$res = $this->gm->generalQuery($this->sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
 			$remarks = "success";

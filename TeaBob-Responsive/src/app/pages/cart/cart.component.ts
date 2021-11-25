@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
 
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("cart/",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("cart/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.cart = data.payload;
     console.log(this.cart);
     this.getTotal();
@@ -46,11 +46,8 @@ export class CartComponent implements OnInit {
 
   async delCart(e: any) {
     this.prodinfo.cart_id = e;
-
-        this.ds.sendApiRequest("delCarts", JSON.parse(JSON.stringify(this.prodinfo))).subscribe((data: any) => {
-        });
-
-      this.pullCart();
+    await this.ds.sendApiRequest("delCarts",this.prodinfo).subscribe((data: any) => { });
+    this.pullCart();
   }
 
   code: any;
@@ -88,7 +85,7 @@ export class CartComponent implements OnInit {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.cartinfo.user_name = localStorage.getItem("Fullname");
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
-      {
+      // {
     
     var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
     this.code = seq;
@@ -99,17 +96,12 @@ export class CartComponent implements OnInit {
 
     this.coCode.code = this.code;
     this.coCode.is_approved = this.status;
-
     this.coCode.user_id = localStorage.getItem("id");
     this.coCode.user_name = localStorage.getItem("Fullname");
     this.coCode.total_price = this.totalamount;
-
-
   
 
-    for (let i = 0; i < this.cart.length; i++) 
-
-    {
+    for (let i = 0; i < this.cart.length; i++){
 
       this.delCarts.cart_id = this.cart[i].cart_id;
 
@@ -118,21 +110,12 @@ export class CartComponent implements OnInit {
       this.coInfo.prod_price = this.cart[i].price;
       this.coInfo.user_id = localStorage.getItem("id");
 
-
-      console.log(this.coCode);
-
-      this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {
-
-      })
-
-
+      this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})
       this.ds.sendApiRequest("delCarts", this.delCarts).subscribe((data: any) => {})
     }
     this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
 
-    }
-
-
+    // }
 
   }
 

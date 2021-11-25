@@ -83,10 +83,10 @@
 				// Pull cart items function
 				case 'cart':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
-                    if($req == 2) {
-						echo json_encode($get->pullCart($d), JSON_PRETTY_PRINT);
+					if(count($req)>1) {
+						echo json_encode($get->pullCart($req[0], $d), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullCart($d), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullCart($req[0], null), JSON_PRETTY_PRINT);
 					}
                 break;
 				// Pull hist items function

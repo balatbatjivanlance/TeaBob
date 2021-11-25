@@ -180,9 +180,8 @@ class Post{
 
     // Delete Cart
     public function delCarts($d) {
-        $data = $d;
-        $cart_id = $data->cart_id;
-        $res = $this->gm->delete('tbl_cart', $data, "cart_id = '$cart_id'");
+        $res = $this->gm->delete('tbl_cart', $d, "cart_id = '$d->cart_id'");
+        return $res;
         if ($res['code'] == 200) {
 			$payload = $res['data'];
 			$remarks = "success";
