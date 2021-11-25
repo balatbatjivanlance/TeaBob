@@ -3,6 +3,10 @@ import { DataService } from 'src/app/services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { SnacksDialogComponent } from './snacks-dialog/snacks-dialog/snacks-dialog.component';
 import {MatFormField} from '@angular/material/form-field';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MatSelectChange } from '@angular/material/select';
+import { MatOption } from '@angular/material/core';
 
 @Component({
   selector: 'app-snacks',
@@ -11,20 +15,49 @@ import {MatFormField} from '@angular/material/form-field';
 })
 export class SnacksComponent implements OnInit {
 
-  constructor(private ds: DataService, public dialog:MatDialog) { }
+
+  message: any;
+  private subs: Subscription;
+  
+  constructor(private ds: DataService, public dialog:MatDialog,
+    route:ActivatedRoute, ) { 
+      this.subs = this.ds.getUpdate().subscribe(message => {
+        this.message = message;
+          route.params.subscribe(val => {
+            this.ngOnInit();
+          });
+      });
+    }
 
   ngOnInit(): void {
     this.pullFood();
     this.pullCart();
+    this.pullCategory();
   }
   
-  food: any;
-
+  food_info: any[] = [];
+  category_id: any = "";
   pullFood(){
-    this.ds.sendApiRequest("food", null).subscribe((data: { payload: any; }) => {
-    this.food = data.payload;
+    this.ds.sendApiRequest(`food/${this.category_id}`, null).subscribe((data: { payload: any; }) => {
+      this.food_info = data.payload
     })
   }
+  
+  filterFood = (data:any) => {
+    this.category_id = data.value
+    this.category_id  == 0 ? this.category_id = '' : this.pullFood();
+    this.sendMessage();
+  }
+
+  category_info: any [] = [];
+  pullCategory(){
+    this.ds.sendApiRequest("category/", null).subscribe((data: { payload: any; }) => {
+    this.category_info = data.payload;
+    })
+   
+  }
+
+
   prodinfo: any = {};
 
   async delProd(e: any) {
@@ -32,8 +65,7 @@ export class SnacksComponent implements OnInit {
 
         this.ds.sendApiRequest("delProd", JSON.parse(JSON.stringify(this.prodinfo))).subscribe((data: any) => {
         });
-
-      this.pullFood();
+        this.sendMessage();
   }
 
   prodInfo: any = {};
@@ -43,43 +75,25 @@ export class SnacksComponent implements OnInit {
 
   addToCart(food:any) {
 
-
     this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.title = food.title;
+    this.prodInfo.title = food.food_name;
     this.prodInfo.description = food.description;
     this.prodInfo.price = food.price;
     this.prodInfo.image_name = food.image_name;
-    
-
-    this.ds.sendApiRequest("addCart", JSON.parse(JSON.stringify(this.prodInfo))).subscribe((data: any) => {
-    });
-
-
-    console.log(this.prodInfo);
-
-
+  
+    this.ds.sendApiRequest("addCart/", this.prodInfo).subscribe((data: any) => { });
   }
 
   cartinfo: any={};
   cart:any;
-  cartCounter: any;
+  // cartCounter: any;
   
 
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
-    this.cart = data.payload;
-
-    // this.getTotal();
-
-    // if(this.cart != null){
-
-    for (let i = 0; i <= this.cart.length; i++) {
-      this.cartCounter = i;
-      console.log(this.cartCounter);
-    }
-    }
-    )
+      this.cart = data.payload; 
+    });
   }
   
   snacksModal() {
@@ -92,4 +106,7 @@ export class SnacksComponent implements OnInit {
   
   }
 
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
+  }
 }

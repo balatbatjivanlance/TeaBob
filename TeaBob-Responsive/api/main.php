@@ -21,9 +21,9 @@
 				// PULL DATA OF products table
 				case 'food':
 					if(count($req)>1) {
-						echo json_encode($get->pullFood($req[1]), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullFood($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullFood(null), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullFood($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
 				case 'checkout':
@@ -34,7 +34,13 @@
 					}
 				break;
 
-
+				case 'category':
+					if($req[0]) {
+						echo json_encode($get->pullCategory($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullCategory(null), JSON_PRETTY_PRINT);
+					}
+				break;
 				
 				case 'verified':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -60,7 +66,6 @@
 				case 'status':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
                     if(count($req)>1) {
-                       
 						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
 					} else {
 						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
@@ -70,7 +75,6 @@
 				case 'users':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
                     if(count($req)>1) {
-                       
 						echo json_encode($get->pullUsers($d), JSON_PRETTY_PRINT);
 					} else {
 						echo json_encode($get->pullUsers($d), JSON_PRETTY_PRINT);
@@ -79,8 +83,7 @@
 				// Pull cart items function
 				case 'cart':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
-                    if(count($req)>1) {
-                       
+                    if($req == 2) {
 						echo json_encode($get->pullCart($d), JSON_PRETTY_PRINT);
 					} else {
 						echo json_encode($get->pullCart($d), JSON_PRETTY_PRINT);

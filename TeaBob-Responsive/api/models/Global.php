@@ -132,7 +132,7 @@
 			return array(
 				"status"=>$status,
 				"payload"=>$payload,
-				'prepared_by'=>'Unknown Developer',
+				'prepared_by'=>'Austin Ray Aranda - BSIT 4A',
 				"timestamp"=>date_create());
 		} 
 

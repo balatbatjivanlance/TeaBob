@@ -16,25 +16,13 @@ export class NavbarComponent implements OnInit {
 
   
   cartinfo: any={};
-  cart:any;
-  cartCounter: any;
-  
+  cart:any[] = [];
 
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.cart = data.payload;
-
-    // this.getTotal();
-
-    // if(this.cart != null){
-
-    for (let i = 0; i <= this.cart.length; i++) {
-      this.cartCounter = i;
-      console.log(this.cartCounter);
-    }
-    }
-    )
+    })
   }
 
 }

@@ -4,29 +4,30 @@
 
    
     <div class="dib">
-        <h1>Foods</h1>
-
-        <mat-form-field appearance="fill">
-        <mat-label>Select Category</mat-label>
-        <mat-select>
-            <mat-option value="one">Snacks</mat-option>
-            <mat-option value="two">Drinks</mat-option>
-        </mat-select>
-    </mat-form-field>   
-    
+        <h1>Foods</h1>  
+    </div>
+    <div class="category__container">
+        <mat-form-field appearance="outline">
+            <mat-label>Select Category</mat-label>
+                <mat-select (selectionChange)="filterFood($event)">
+                    <mat-option [value]="0">All</mat-option>
+                    <mat-option *ngFor="let category of category_info;" [value]="category.category_id">
+                        <span>{{category.category_name}}</span>
+                    </mat-option>
+                </mat-select>
+        </mat-form-field>
     </div>
     <div class="container">
-        
-        
         <div class="product-container">
-            <div class="prodcard" *ngFor="let food of food">
+            <div class="prodcard" *ngFor="let food of food_info">
+                
                 <div class="image-container">
                     <img src="{{food.image_name}}" alt="">
                 </div>
                 <div class="info">
                 
                     <p>₱  {{food.price}}</p>  
-                    <p>  {{food.title}}</p>  
+                    <p>  {{food.food_name}}</p>  
                   <p> {{food.description}} </p> 
                   
                     <button (click)="addToCart(food)">Add Cart</button>

@@ -22,6 +22,11 @@
     align-items: center;
     position: relative;
   }
+
+  .category__container{
+    display: flex;
+    justify-content: center;
+  }
   .dib h1 {
       font-size: 40px;
       padding:  20px 0;
@@ -133,7 +138,7 @@
 
 @media (max-width:600px) {
 
-    .product-container{
+    .product-container,  .category__container{
         flex-direction: column;
         align-items: center;
     }

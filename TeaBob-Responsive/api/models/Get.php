@@ -10,9 +10,30 @@ class Get{
     }
 
     //Pull Products
-    public function pullFood ($d) {
-		$sql = "SELECT * FROM tbl_food";
-		
+    public function pullFood ($column, $filter_data) {
+		$this->sql = "SELECT * FROM tbl_$column LEFT JOIN tbl_category ON tbl_food.category_id = tbl_category.category_id";
+
+		if ($filter_data){
+			$this->sql .= " WHERE tbl_$column.category_id = $filter_data";
+		}
+	
+		$res = $this->gm->generalQuery($this->sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	
+	//PULL CATEGORIES
+	public function pullCategory ($column) {
+		$sql = "SELECT * FROM tbl_$column";
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -25,7 +46,6 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
-
 
     //Pull User
     public function pullUsers ($user_id) {
@@ -45,9 +65,9 @@ class Get{
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
     //Pull Cart items
-    public function pullCart ($user_id) {
+    public function pullCart ($dt) {
 
-		$sql = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+		$sql = "SELECT * FROM tbl_cart WHERE user_id = '$dt'";
 
 		
 		$res = $this->gm->generalQuery($sql, "No records found");

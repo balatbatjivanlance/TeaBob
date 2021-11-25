@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
 
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("cart/",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.cart = data.payload;
     console.log(this.cart);
     this.getTotal();

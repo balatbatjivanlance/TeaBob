@@ -139,13 +139,10 @@ class Post{
 
     public function checkOutAll($d)
     {
-
         $code = 401;
         $payload = null;
         $remarks = "failed";
         $message = "Unable to retrieve data";
-
-
 
         $res = $this->gm->insert('tbl_checkout', $d);
 
@@ -168,10 +165,7 @@ class Post{
         $remarks = "failed";
         $message = "Unable to retrieve data";
 
-
-
         $res = $this->gm->insert('tbl_cocode', $d);
-
 
         if($res['code']==200) {
             $code = 200;
