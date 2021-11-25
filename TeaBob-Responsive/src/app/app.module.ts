@@ -19,6 +19,7 @@ import { SnacksDialogComponent } from './pages/snacks/snacks-dialog/snacks-dialo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { StatusDialogComponent } from './pages/status/status-dialog/status-dialog/status-dialog.component';
+import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { StatusDialogComponent } from './pages/status/status-dialog/status-dialo
     LandingNavComponent,
     CartDialogComponent,
     SnacksDialogComponent,
-    StatusDialogComponent
+    StatusDialogComponent,
+    DrinksDialogComponent
   ],
   imports: [
     BrowserModule,

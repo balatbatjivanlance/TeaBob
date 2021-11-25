@@ -65,6 +65,11 @@ class Post{
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
     }
+    
+		// Update Profile
+		
+		
+
 //ADD TO CART
     public function addCart($data) {
 
@@ -86,6 +91,27 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
+    
+    // public function updateProfile($data) {
+
+    //     $code = 401;
+    //     $payload = null;
+    //     $remarks = "failed";
+    //     $message = "Unable to retrieve data";
+    //     $userInfo = $data->userInfo;
+
+    //     $res = $this->gm->update('tbl_user', $userInfo);
+
+    //     if($res['code']==200) {
+    //         $code = 200;
+    //         $payload = $res['data'];
+    //         $remarks = "success";
+    //         $message = "Successfully retrieved data";
+    //         return $this->get->updateProfile(null);
+    //     }
+    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
+    // }
 
     //CHECK OUT
     public function addCheck($data) {

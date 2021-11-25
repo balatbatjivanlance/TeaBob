@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MatSelectChange } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
+import { DrinksDialogComponent } from './drinks-dialog/drinks-dialog/drinks-dialog.component';
 
 @Component({
   selector: 'app-snacks',
@@ -95,7 +96,20 @@ export class SnacksComponent implements OnInit {
       this.cart = data.payload; 
     });
   }
+
+  // if category sa taas ay drinks or snacks this.dialog.open(snacks/drinks DialogComponent tulad ng sa baba pero 
+  // di ko alam paano tatawagin kasi isang btn lang yung nasa snacks component
   
+  // drinksModal() {
+  //   const dialog = this.dialog.open(DrinksDialogComponent, {
+  //     autoFocus: false, width:"70%", height:"60%"
+  //   });
+  //   dialog.afterClosed().subscribe( ()=>{
+  //     console.log("closed")
+  //   });
+  
+  // }
+
   snacksModal() {
     const dialog = this.dialog.open(SnacksDialogComponent, {
       autoFocus: false, width:"70%", height:"60%"
