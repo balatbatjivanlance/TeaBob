@@ -29,6 +29,26 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+	//Pull Food Per Item
+	public function pullFood_perItem ($filter_data) {
+		$this->sql = "SELECT * FROM tbl_food";
+
+		if ($filter_data){
+			$this->sql .= " WHERE food_id = $filter_data";
+		}
+	
+		$res = $this->gm->generalQuery($this->sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
 	
 	//PULL CATEGORIES
 	public function pullCategory ($column) {

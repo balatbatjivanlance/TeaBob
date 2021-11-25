@@ -117,6 +117,11 @@
     cursor: pointer;
     background: #4c88e2;
 }
+.quan-butt{
+    width: 25%;
+    height: 30%;
+    font-size: medium;
+}
 
 /* snacks checkbox */
 .container1 {

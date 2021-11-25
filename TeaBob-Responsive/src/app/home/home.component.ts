@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit {
     this.pullCart();
   }
 
-  food: any;
+  foods: any[]=[];
 
   pullFood(){
     this.ds.sendApiRequest("food", null).subscribe((data: { payload: any; }) => {
-    this.food = data.payload;
-    console.log(this.food);
+    this.foods = data.payload;
+    console.log(this.foods);
     })
   }
   prodinfo: any = {};

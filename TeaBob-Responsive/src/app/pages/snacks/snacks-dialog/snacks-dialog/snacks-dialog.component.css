@@ -16,7 +16,7 @@
 .status-container .status-title{
     font-size: 25px;
     font-weight: 500;
-    padding: 10px 0 0 15px;
+    padding: 20px 0 0 15px;
 }
 .status-container .status-title::before{
     content: '';
@@ -71,7 +71,7 @@
 
 .user-details .input-box{
     width: calc(100% / 2 - 20px);
-    padding: 0 15px 0 15px;
+    padding: 50 15px 0 15px;
     
 }
 .user-details .input-box .details{
@@ -116,6 +116,11 @@
 .button:hover{
     cursor: pointer;
     background: #4c88e2;
+}
+.quan-butt{
+    width: 25%;
+    height: 30%;
+    font-size: medium;
 }
 
 /* snacks checkbox */
@@ -206,6 +211,7 @@
     .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
+        padding-top: 10px;
     }
     .status-container  .user-details{
         max-height: 300px;

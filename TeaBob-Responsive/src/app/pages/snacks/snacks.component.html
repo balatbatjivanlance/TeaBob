@@ -22,16 +22,16 @@
             <div class="prodcard" *ngFor="let food of food_info">
                 
                 <div class="image-container">
-                    <img src="{{food.image_name}}" alt="">
+                    <img src="{{food.food_image_name}}" alt="">
                 </div>
                 <div class="info">
                 
-                    <p>₱  {{food.price}}</p>  
+                    <p>₱  {{food.food_price}}</p>  
                     <p>  {{food.food_name}}</p>  
-                  <p> {{food.description}} </p> 
+                  <p> {{food.food_description}} </p> 
                   
                     <!-- <button (click)="addToCart(food)">Add Cart</button> -->
-                    <button (click)="snacksModal()" >Make Order</button>
+                    <button (click)="openModal(food.category_id, food.food_id)" >Make Order</button>
                     
                 </div>
             </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { inject } from '@angular/core/testing';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -9,10 +11,11 @@ import { DataService } from 'src/app/services/data.service';
 export class SnacksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any) { }
 
   ngOnInit(): void {
     this.pullUsers();
+    this.pullFood_perItem();
   }
 
   userinfo: any = {};
@@ -22,12 +25,32 @@ export class SnacksDialogComponent implements OnInit {
     this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.user = data.payload;
 
-    console.log(this.user);
-
     }
     )
   }
 
+
+  foodinfo: any = {};
+  foods: any []=[];
+
+  food_name: any;
+  food_price: any;
+
+  pullFood_perItem() {
+    this.userinfo.user_id = localStorage.getItem("id");
+    this.foodinfo.food_id = this.data.food_id
+    this.ds.sendApiRequest("food_item/", this.foodinfo.food_id).subscribe((data: { payload: any; }) => {
+    this.foods = data.payload;
+
+    this.food_name = this.foods[0].food_name;
+    this.food_price = this.foods[0].food_price;
+
+    console.log(this.foods);
+
+    }
+    )
+    console.log(this.data.food_id)
+  }
 
   
   prodInfo: any = {};

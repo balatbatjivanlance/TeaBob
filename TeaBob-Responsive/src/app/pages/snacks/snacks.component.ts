@@ -100,23 +100,26 @@ export class SnacksComponent implements OnInit {
   // if category sa taas ay drinks or snacks this.dialog.open(snacks/drinks DialogComponent tulad ng sa baba pero 
   // di ko alam paano tatawagin kasi isang btn lang yung nasa snacks component
   
-  // drinksModal() {
-  //   const dialog = this.dialog.open(DrinksDialogComponent, {
-  //     autoFocus: false, width:"70%", height:"60%"
-  //   });
-  //   dialog.afterClosed().subscribe( ()=>{
-  //     console.log("closed")
-  //   });
   
-  // }
 
-  snacksModal() {
-    const dialog = this.dialog.open(SnacksDialogComponent, {
-      autoFocus: false, width:"70%", height:"60%"
-    });
-    dialog.afterClosed().subscribe( ()=>{
-      console.log("closed")
-    });
+
+  openModal(id: any, food_id: any) {
+    if (id == 24) {
+      const dialog = this.dialog.open(SnacksDialogComponent, {
+        autoFocus: false, width:"70%", height:"60%", data:{food_id}
+      });
+      dialog.afterClosed().subscribe( ()=>{
+      });
+    }
+    else if(id == 26){
+      const drinksdialog = this.dialog.open(DrinksDialogComponent, {
+        autoFocus: false, width:"70%", height:"60%", data: {food_id}
+      });
+      drinksdialog.afterClosed().subscribe( ()=>{
+      });
+    }  
+
+    
   
   }
 

@@ -75,7 +75,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
-    width: 1050px;
+    width: 100%;
 }
 
 .user-details .input-box{
