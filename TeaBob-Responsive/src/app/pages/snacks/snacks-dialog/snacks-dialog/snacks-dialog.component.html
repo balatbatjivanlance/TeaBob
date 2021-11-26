@@ -16,8 +16,8 @@
 
     <div class="input-box">
         <span class="details">Quantity</span> 
-        <input disabled class="input-number">
-        <button class="quan-butt">-</button><button class="quan-butt">+</button>
+        <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
+        <button class="quan-butt" (click)="minusQty()">-</button><button (click)="plusQty()" class="quan-butt">+</button>
     </div>
 
     <div class="input-box">
@@ -28,13 +28,13 @@
 
     <div class="input-box">
         <span class="details">Total Price</span>
-        <input type="number" class="input-number" disabled placeholder="">
+        <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
     </div>
     
     <div class="input-box1">
         
         <label class="container1">Extra Sauce (₱10)
-        <input type="checkbox"  >
+        <input type="checkbox" (click)="addExtra()" id ="extraSauce" >
         <span class="checkmark1"></span>
     </label>
         <label class="container1">Spicy (free)
@@ -44,7 +44,7 @@
 
     </div>
 
-    <button class="button" >Add to Cart</button>
+    <button class="button"(click)="addToCart()">Add to Cart</button>
 </div>
 
 </div>

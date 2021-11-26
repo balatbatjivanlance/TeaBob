@@ -34,7 +34,10 @@ export class SnacksDialogComponent implements OnInit {
   foods: any []=[];
 
   food_name: any;
-  food_price: any;
+  food_price: number = 0;
+  food_qty: number = 1;
+  food_total: number  = 0 ;
+
 
   pullFood_perItem() {
     this.userinfo.user_id = localStorage.getItem("id");
@@ -44,36 +47,63 @@ export class SnacksDialogComponent implements OnInit {
 
     this.food_name = this.foods[0].food_name;
     this.food_price = this.foods[0].food_price;
+    this.food_total = this.food_price;
 
-    console.log(this.foods);
+    });
 
-    }
-    )
-    console.log(this.data.food_id)
   }
 
+  plusQty = () =>{
+    this.food_qty += 1;
+    if (this.food_qty > 10){
+      alert('You have reeached the maximum order');
+      this.food_qty -= 1;
+    }else{
+      this.food_total =  this.food_qty * this.food_price;
+    }
+    this.sendMessage();
+  }
+
+
+  
+  minusQty = () =>{
+    if (this.food_qty > 1){
+      this.food_qty -= 1;
+      this.food_total =  this.food_qty * this.food_price;
+      this.sendMessage();
+    }
+  }
+
+  addExtra = () =>{
+    var element = <HTMLInputElement> document.getElementById("extraSauce");
+    var isChecked = element.checked;
+  
+    if (isChecked == true){
+      let addSauce = 10;
+      this.food_total = this.food_total + addSauce;
+      console.log(this.food_total);
+    }else if (isChecked == false){
+        let addSauce =  10;
+        this.food_total =  this.food_total - addSauce;
+    }
+    this.sendMessage();
+  }
   
   prodInfo: any = {};
   title: any;
   info: any;
 
 
-  addToCart(food:any) {
-
-
+  addToCart() {
     this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.title = food.title;
-    this.prodInfo.description = food.description;
-    this.prodInfo.price = food.price;
-    this.prodInfo.image_name = food.image_name;
-    
-
-    this.ds.sendApiRequest("addCart", JSON.parse(JSON.stringify(this.prodInfo))).subscribe((data: any) => {
-    });
-
-
+    this.prodInfo.title = this.food_name;
+    // this.prodInfo.description = fooddescription;
+    this.prodInfo.price = this.food_price;
+    this.prodInfo.cart_total = this.food_total;
     console.log(this.prodInfo);
+  }
 
-
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 }
