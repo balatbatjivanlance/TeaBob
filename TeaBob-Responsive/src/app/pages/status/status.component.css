@@ -114,18 +114,22 @@
     width: 90%;
     margin-left: 35px;
     outline: none;
-    color:#fff;
+    color: #ffffff;
+    background: #4B1F0E ;
     border:none;
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-    background: #161e25;
+
 }
 .button:hover{
     cursor: pointer;
-    background: #4c88e2;
+    background: #efc3a4;
+    color:rgb(0, 0, 0);
 }
+
+
 @media (max-width: 584px){
     .status-container{
         max-width: 90%;
@@ -134,13 +138,14 @@
     .status2-container{
         max-width: 90%;
         margin-top: 20%;
+        
     }
     .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
     }
     .status-container  .user-details{
-        max-height: 300px;
+        max-height: 450px;
         overflow-y: scroll;
 
     }

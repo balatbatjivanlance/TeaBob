@@ -29,7 +29,7 @@ export class StatusComponent implements OnInit {
     this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.user = data.payload;
 
-    console.log(this.user);
+    // console.log(this.user);
 
     }
     )

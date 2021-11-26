@@ -131,17 +131,19 @@ img {
     width: 30%;
     margin-left: 25%;
     outline: none;
-    color:#fff;
+    color: #Fff;
+    background: #4B1F0E ;
     border:none;
     font-size: 15px;
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-    background: #161e25;
+ 
 }
 .button:hover{
     cursor: pointer;
-    background: #4c88e2;
+    background: #efc3a4;
+    color:rgb(0, 0, 0);
 }
 @media (max-width: 584px){
 

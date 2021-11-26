@@ -118,14 +118,15 @@ img{
 }
 button:hover{
   cursor: pointer;
-  background: #4c88e2;
+  background: #efc3a4;
+  color:rgb(0, 0, 0);
 }
 button {
   border: none;
   outline: 0;
   padding: 12px;
-  color: white;
-  background: #161e25;
+  color: #ffffff;
+  background: #4B1F0E ;
   text-align: center;
   cursor: pointer;
   width: 100%;
