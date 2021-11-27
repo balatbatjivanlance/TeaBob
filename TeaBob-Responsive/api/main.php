@@ -26,6 +26,20 @@
 						echo json_encode($get->pullFood($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'foodfeatured':
+					if(count($req)>1) {
+						echo json_encode($get->pullFoodFeatured($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullFoodFeatured($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'foodactive':
+					if(count($req)>1) {
+						echo json_encode($get->pullFoodActive($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullFoodActive($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'food_item':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($get->pullFood_perItem($d), JSON_PRETTY_PRINT);

@@ -34,7 +34,7 @@ class Get{
 		$this->sql = "SELECT * FROM tbl_food";
 
 		if ($filter_data){
-			$this->sql .= " WHERE food_id = $filter_data";
+			$this->sql .= " WHERE food_id = $filter_data" ;
 		}
 	
 		$res = $this->gm->generalQuery($this->sql, "No records found");
@@ -84,6 +84,25 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+
+    //Pull food by featured or not
+    public function pullFoodFeatured ($food_id) {
+
+		$sql = "SELECT * FROM tbl_food WHERE food_featured = 'Yes'";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+
     //Pull Cart items
     public function pullCart ($column, $filter_data) {
 	
