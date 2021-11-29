@@ -156,3 +156,30 @@
         margin-right: 7%;
     }
 }
+
+@media (max-width: 1024px){
+    .status-container{
+        max-width: 90%;
+        margin-top: 20%;
+    }
+    .status2-container{
+        max-width: 90%;
+        margin-top: 20%;
+        
+    }
+    .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .status-container  .user-details{
+        max-height: 450px;
+        overflow-y: scroll;
+
+    }
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+    .button{
+        margin-right: 7%;
+    }
+}

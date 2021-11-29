@@ -183,8 +183,215 @@ header ul li a {
     align-items: center;
   }
 
+  @media screen and (max-width: 768px){
+    .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
 
-@media (max-width:600px) {
+    .nav-btn>label {
+        display: inline-block;
+
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+
+
+    .nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid rgb(255, 255, 255);
+    }
+
+    .nav>ul {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #4B1F0E ;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 70px;
+        left: 0px;
+    }
+
+    .nav>ul>li {
+        display: block;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .nav>#nav-check:not(:checked)~ul {
+        height: 0px;
+    }
+
+    .nav>#nav-check:checked~ul {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+
+   
+
+    header{
+     padding: 25px 20px;
+    }
+
+
+    .banner {
+        width: 100%;
+    }
+    .product-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        height: auto;
+    }
+  }
+  @media screen and (max-width:600px) {
+    .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .nav-btn>label {
+        display: inline-block;
+
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+
+
+    .nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid rgb(255, 255, 255);
+    }
+
+    .nav>ul {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #4B1F0E ;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 70px;
+        left: 0px;
+    }
+
+    .nav>ul>li {
+        display: block;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .nav>#nav-check:not(:checked)~ul {
+        height: 0px;
+    }
+
+    .nav>#nav-check:checked~ul {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+
+   
+
+    header{
+     padding: 25px 20px;
+    }
+
+
+    .banner {
+        width: 100%;
+    }
+    .product-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        height: auto;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .nav-btn>label {
+        display: inline-block;
+
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+
+
+    .nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid rgb(255, 255, 255);
+    }
+
+    .nav>ul {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #4B1F0E ;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 70px;
+        left: 0px;
+    }
+
+    .nav>ul>li {
+        display: block;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .nav>#nav-check:not(:checked)~ul {
+        height: 0px;
+    }
+
+    .nav>#nav-check:checked~ul {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+
+   
+
+    header{
+     padding: 25px 20px;
+    }
+
+
+    .banner {
+        width: 100%;
+    }
+    .product-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        height: auto;
+    }
+}
+@media screen and (max-width:450px) {
     .nav-btn {
         display: inline-block;
         position: absolute;
