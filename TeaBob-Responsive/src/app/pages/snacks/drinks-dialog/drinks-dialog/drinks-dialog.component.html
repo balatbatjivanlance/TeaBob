@@ -8,48 +8,48 @@
     </div> -->
 
     <div class="user-details">
-    <div class="input-box">
-
-        <span class="details">Food Name</span>
-        <input type="text" disabled placeholder="" >
-    </div>
-
-    <div class="input-box">
-        <span class="details">Quantity</span>
-        <input type="number" class="input-number" min="0">
-        <button class="quan-butt">-</button><button class="quan-butt">+</button>
-    </div>
-
-    <div class="input-box">
-        <span class="details" >Price</span>
-        <input type="number" disabled class="input-number">
-    </div>    
+        <div class="input-box">
     
-
-    <div class="input-box">
-        <span class="details">Total Price</span>
-        <input type="number" class="input-number" disabled placeholder="">
-    </div>
+            <span class="details">Food Name</span>
+            <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
+        </div>
+    
+        <div class="input-box">
+            <span class="details">Quantity</span> 
+            <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
+            <button class="quan-butt" (click)="minusQty()">-</button><button (click)="plusQty()" class="quan-butt">+</button>
+        </div>
+    
+        <div class="input-box">
+            <span class="details" >Price</span>
+            <input type="number" [(ngModel)]="food_price" disabled class="input-number">
+        </div>    
+        
+    
+        <div class="input-box">
+            <span class="details">Total Price</span>
+            <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
+        </div>
     
     <div class="input-box1">
         
         
         <label class="container1">Pearl (₱10)
-            <input type="checkbox"  >
+            <input type="checkbox" (click)="addPearl()" id ="extraPearl" >
             <span class="checkmark1"></span>
         </label>
 
         <label class="container1">Cream Puff (₱10)
-        <input type="checkbox"  >
+        <input type="checkbox" (click)="addCPuff()" id ="extraCPuff" >
         <span class="checkmark1"></span>
     </label>
         <label class="container1">Cream Cheese (₱10)
-        <input type="checkbox"  >
+        <input type="checkbox" (click)="addCcheese()" id ="extraCcheese" >
         <span class="checkmark1"></span>
       </label>
 
       <label class="container1">Cookies (₱10)
-        <input type="checkbox"  >
+        <input type="checkbox" (click)="addCookies()" id ="extraCookies" >
         <span class="checkmark1"></span>
       </label>
 
