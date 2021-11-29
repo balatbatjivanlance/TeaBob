@@ -116,3 +116,26 @@ body{
         margin-left: 15px;
     }
 }
+
+@media (max-width: 1024px){
+    .register-container{
+        max-height: 80%;
+        max-width: 80%;
+    }
+    .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .register-container  .user-details{
+        max-height:450px;
+        overflow-y: scroll;
+
+    }
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+    .button{
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+}
