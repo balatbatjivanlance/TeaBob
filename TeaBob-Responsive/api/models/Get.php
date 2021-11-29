@@ -11,10 +11,11 @@ class Get{
 
     //Pull Products
     public function pullFood ($column, $filter_data) {
-		$this->sql = "SELECT * FROM tbl_$column LEFT JOIN tbl_category ON tbl_food.category_id = tbl_category.category_id";
+		$this->sql = "SELECT * FROM tbl_$column LEFT JOIN tbl_category ON tbl_food.category_id = tbl_category.category_id WHERE food_active = 'Yes'";
 
 		if ($filter_data){
-			$this->sql .= " WHERE tbl_$column.category_id = $filter_data";
+			$this->sql .= " AND tbl_$column.category_id = $filter_data";
+			return $this->sql;
 		}
 	
 		$res = $this->gm->generalQuery($this->sql, "No records found");
@@ -86,9 +87,10 @@ class Get{
 	}
 
     //Pull food by featured or not
-    public function pullFoodFeatured ($food_id) {
+    public function pullFoodFeatured ($table) {
 
-		$sql = "SELECT * FROM tbl_food WHERE food_featured = 'Yes'";
+		$sql = "SELECT * FROM $table WHERE food_featured = 'Yes'";
+		return $sql;
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -144,10 +146,13 @@ class Get{
 	}
 
 		//Pull Status
-		public function pullStatus ($user_id) {
+		public function pullStatus ($table, $user_id) {
 
-			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id'";
-	
+			$sql = "SELECT $table.* FROM $table";
+
+			if($user_id){
+				$sql .= " WHERE user_id = '$user_id'";
+			}
 			
 			$res = $this->gm->generalQuery($sql, "No records found");
 			if ($res['code'] == 200) {
@@ -166,7 +171,6 @@ class Get{
 
 		$sql = "SELECT * FROM tbl_history WHERE user_id = '$user_id'";
 
-		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -179,6 +183,8 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+
+
 	// public function updateProfile ($user_id) {
 
 	// 	$sql = "UPDATE tbl_user WHERE user_id = '$user_id', user_name = '$user_name', user_uname = '$user_uname', user_pword = '$user_pword', user_contact = '$user_contact', user_address = '$user_address'";
@@ -197,7 +203,7 @@ class Get{
 	// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	// }
 
-	// pull plants
+	// pull
 	public function pullProduct ($d) {
 		$sql = "SELECT * FROM tbl_products";
 		

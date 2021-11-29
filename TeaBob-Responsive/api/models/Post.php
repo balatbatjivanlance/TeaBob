@@ -46,7 +46,7 @@ class Post{
 
 
 
-// ADD PRODUCT
+    // ADD PRODUCT
     public function addProduct($data) {
 
         $code = 401;
@@ -66,11 +66,10 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
     }
     
-		// Update Profile
 		
 		
 
-//ADD TO CART
+    //ADD TO CART
     public function addCart($data) {
 
         $code = 401;
@@ -86,32 +85,30 @@ class Post{
             $payload = $res['data'];
             $remarks = "success";
             $message = "Successfully retrieved data";
-            return $this->get->pullCart(null);
+            // return $this->get->pullCart(null);
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
     
-    // public function updateProfile($data) {
+    // Update Profile
+    public function updateProfile($dt) {
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
 
-    //     $code = 401;
-    //     $payload = null;
-    //     $remarks = "failed";
-    //     $message = "Unable to retrieve data";
-    //     $userInfo = $data->userInfo;
-
-    //     $res = $this->gm->update('tbl_user', $userInfo);
-
-    //     if($res['code']==200) {
-    //         $code = 200;
-    //         $payload = $res['data'];
-    //         $remarks = "success";
-    //         $message = "Successfully retrieved data";
-    //         return $this->get->updateProfile(null);
-    //     }
-    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+        $res = $this->gm->update('tbl_user', $dt, "user_id = '$dt->user_id'");
+        return $res;
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['payload'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
-    // }
+    }
 
     //CHECK OUT
     public function addCheck($data) {

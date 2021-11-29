@@ -18,30 +18,42 @@ export class StatusDialogComponent implements OnInit {
   }
 
   userinfo: any = {};
-  user: any;
-  
+  user_payload: any [] = []; 
+
+  user_name: any;
+  user_uname: any;
+  user_contact: any;
+  user_address: any;
+
   pullUsers() {
-    this.userinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
-    this.user = data.payload;
-
-    console.log(this.user);
-
+    this.ds.sendApiRequest("users/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.user_payload = data.payload;
+    
+    this.user_name = this.user_payload[0].user_name;
+    this.user_uname = this.user_payload[0].user_uname;
+    this.user_contact = this.user_payload[0].user_contact;
+    this.user_address = this.user_payload[0].user_address;
     }
     )
   }
-  // userinfoupdate: any = {};
-  // userupdate: any;
+
+
+  userupdate: any [] = [];
   
-  // updateProfile() {
-  //   this.userinfoupdate.user_id = localStorage.getItem("id");
-  //   this.ds.sendApiRequest("updateProfile",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
-  //   this.userupdate = data.payload;
+  updateProfile() {
+   let id  = localStorage.getItem("id");
 
-  //   console.log(this.userupdate);
-
-  //   }
-  //   )
-  // }
-
+   this.userinfo.user_id =  id;
+   this.userinfo.user_name =  this.user_name
+   this.userinfo.user_uname =  this.user_uname
+   this.userinfo.user_contact = this.user_contact
+   this.userinfo.user_address = this.user_address
+    this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
+    this.sendMessage();
+  }
+  
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
+  }
+  
 }

@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
       alert('Incorrect Credentials')
       }
       else{
-        localStorage.setItem("Fullname", res.payload.Fullname);
-        localStorage.setItem("id", res.payload.user_id);
+        window.localStorage.setItem("Fullname", res.payload.Fullname);
+        window.localStorage.setItem("id", res.payload.user_id);
         this.router.navigate(['/home']);
       }
     });

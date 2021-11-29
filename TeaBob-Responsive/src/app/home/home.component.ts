@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   foods: any[]=[];
 
   pullFoodFeatured(){
-    this.ds.sendApiRequest("foodfeatured", null).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("foodfeatured/", null).subscribe((data: { payload: any; }) => {
     this.foods = data.payload;
     console.log(this.foods);
     })

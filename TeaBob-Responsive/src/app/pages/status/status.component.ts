@@ -3,6 +3,8 @@ import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { StatusDialogComponent } from './status-dialog/status-dialog/status-dialog.component';
 import {MatFormField} from '@angular/material/form-field';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-status',
@@ -13,7 +15,17 @@ export class StatusComponent implements OnInit {
   
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, public dialog:MatDialog) { }
+  message: any;
+  private subs: Subscription;
+  
+  constructor(private ds: DataService, route:ActivatedRoute, public dialog: MatDialog ) { 
+      this.subs = this.ds.getUpdate().subscribe(message => {
+        this.message = message;
+          route.params.subscribe(val => {
+            this.ngOnInit();
+          });
+      });
+    }
 
   ngOnInit(): void {
     
@@ -26,24 +38,18 @@ export class StatusComponent implements OnInit {
   
   pullUsers() {
     this.userinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("users/",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.user = data.payload;
-
-    // console.log(this.user);
-
     }
     )
   }
 
   statusinfo: any = {};
-  mstatus: any;
+  mstatus: any [] = [];
   pullStatus() {
-    this.statusinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("status",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("status/" + window.localStorage.getItem("id"), null).subscribe((data: { payload: any; }) => {
     this.mstatus = data.payload;
-
     console.log(this.mstatus);
-
     }
     )
   }
