@@ -90,7 +90,6 @@ class Get{
     public function pullFoodFeatured ($table) {
 
 		$sql = "SELECT * FROM $table WHERE food_featured = 'Yes'";
-		return $sql;
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -106,14 +105,13 @@ class Get{
 	}
 
     //Pull Cart items
-    public function pullCart ($column, $filter_data) {
+    public function pullCart ($table, $filter_data) {
 	
-		$this->sql = "SELECT * FROM tbl_$column";
+		$this->sql = "SELECT * FROM $table LEFT JOIN tbl_user ON $table.user_id = tbl_user.user_id LEFT JOIN tbl_food ON $table.food_id = tbl_food.food_id";
 
-		if($filter_data != null){
-			$this->sql .= "WHERE user_id = '$filter_data'";
+		if($filter_data) {
+			$this->sql .= " WHERE tbl_user.user_id = $filter_data";
 		}
-
 		
 		$res = $this->gm->generalQuery($this->sql, "No records found");
 		if ($res['code'] == 200) {

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog/cart-dialog.component';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +14,18 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog/cart-dialog.compo
 export class CartComponent implements OnInit {
   status: string | undefined;
 
-  constructor(private ds: DataService, public dialog:MatDialog) { }
+  message: any;
+  private subs: Subscription;
+  
+  constructor(private ds: DataService, public dialog:MatDialog,
+    route:ActivatedRoute, ) { 
+      this.subs = this.ds.getUpdate().subscribe(message => {
+        this.message = message;
+          route.params.subscribe(val => {
+            this.ngOnInit();
+          });
+      });
+    }
 
   ngOnInit(): void {
     this.pullCart();
@@ -26,7 +40,7 @@ export class CartComponent implements OnInit {
 
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("cart/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("cart/" + localStorage.getItem("id"), null).subscribe((data: { payload: any; }) => {
     this.cart = data.payload;
     console.log(this.cart);
     this.getTotal();
@@ -40,6 +54,23 @@ export class CartComponent implements OnInit {
 
     }
     )
+  }
+
+  food_info: any = {};
+  deleteAddOns = (id:any) => {
+    this.food_info.cart_id = id;
+    this.food_info.add_sauce = 'none'
+    this.food_info.add_spicy = 'none'
+    this.food_info.add_cookie = 'none'
+    this.food_info.add_ccheese  = 'none'
+    this.food_info.add_cpuff = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Deleted!',
+      'Successfully deleted to cart!',
+      'success'
+    )
+    this.sendMessage();
   }
 
   prodinfo: any = {};
@@ -118,6 +149,8 @@ export class CartComponent implements OnInit {
     // }
 
   }
-
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
+  }
 
 }

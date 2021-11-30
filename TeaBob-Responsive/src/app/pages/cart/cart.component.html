@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="dib">
-    <h1>Food Cart </h1>
+    <h1>Your Cart </h1>
     
 </div>
 <div class="checkout-but">
@@ -15,16 +15,24 @@
     <div class="prodcard" *ngFor="let cart of cart">
         
         <div class="image-container">
-            <img src="{{cart.image_name}}" alt="">
+            <img src="{{cart.food_image_name}}" alt="">
         </div>
-        
-        <div class="info">
 
-            <p>  {{cart.title}}</p>  
-            <p> {{cart.description}} </p> 
-            <p>₱ {{cart.price}} </p> 
+
+        <div class="info">
+            <!-- <button class="addons-btn"><mat-icon>highlight_off</mat-icon></button> -->
+            <p class="item-content">  {{cart.food_name}}</p>  
+            <p class="item-content"> {{cart.food_description}}</p>
+            <p class="item-content" *ngIf="cart.add_pearl == 'adds'">  {{cart.add_pearl}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
+            <p class="item-content" *ngIf="cart.add_cpuff == 'adds'"> {{cart.add_cpuff}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
+            <p class="item-content" *ngIf="cart.add_ccheese == 'adds'">  {{cart.add_ccheese}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>   
+            <p class="item-content" *ngIf="cart.add_cookies == 'adds'">  {{cart.add_cookie}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
+            <p class="item-content" *ngIf="cart.add_sauce == 'extrasauce'"> {{cart.add_sauce}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
+            <p class="item-content" *ngIf="cart.add_spicy == 'spicy'">{{cart.add_spicy}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>
+            <p class="item-content">Pcs. {{cart.food_quantity}}</p>
+            <p class="item-content">₱ {{cart.price}} </p> 
           
-            <button (click)="delCart(cart.cart_id);" >Delete to Cart</button>
+            <button (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
             
         </div>
         
@@ -33,4 +41,3 @@
 </div>
 
 </div>
-

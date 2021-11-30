@@ -99,11 +99,10 @@
 				break;
 				// Pull cart items function
 				case 'cart':
-					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					if(count($req)>1) {
-						echo json_encode($get->pullCart($req[0], $d), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullCart('tbl_'.$req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullCart($req[0], null), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullCart('tbl_'.$req[0], null), JSON_PRETTY_PRINT);
 					}
                 break;
 				// Pull hist items function
@@ -134,7 +133,7 @@
 				// Add to cart function
 				case 'addCart':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
-					echo json_encode($gm->insert("tbl_cart",$d), JSON_PRETTY_PRINT);
+					echo json_encode($gm->insert("tbl_cart", $d), JSON_PRETTY_PRINT);
 				break;
 				// Add to checkout function
 				case 'addCheck':
@@ -186,6 +185,11 @@
 				case 'updateProfile':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateProfile($d), JSON_PRETTY_PRINT);
+				break;
+
+				case 'removeAddOns':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->updateCart($d), JSON_PRETTY_PRINT);
 				break;
 			}
 		break;

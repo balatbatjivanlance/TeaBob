@@ -5,10 +5,7 @@ import { SnacksDialogComponent } from './snacks-dialog/snacks-dialog/snacks-dial
 import {MatFormField} from '@angular/material/form-field';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MatSelectChange } from '@angular/material/select';
-import { MatOption } from '@angular/material/core';
 import { DrinksDialogComponent } from './drinks-dialog/drinks-dialog/drinks-dialog.component';
-
 @Component({
   selector: 'app-snacks',
   templateUrl: './snacks.component.html',
@@ -106,7 +103,7 @@ export class SnacksComponent implements OnInit {
   openModal(id: any, food_id: any) {
     if (id == 24) {
       const dialog = this.dialog.open(SnacksDialogComponent, {
-        autoFocus: false, width:"70%", height:"60%", data:{food_id}
+        autoFocus: false, width:"70%", height:"60%", data:{food_id},
       });
       dialog.afterClosed().subscribe( ()=>{
       });
@@ -117,10 +114,8 @@ export class SnacksComponent implements OnInit {
       });
       drinksdialog.afterClosed().subscribe( ()=>{
       });
-    }  
-
-    
-  
+    }
+    sessionStorage.setItem('prod_Id', id);
   }
 
   sendMessage(): void {

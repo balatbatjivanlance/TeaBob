@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-snacks-dialog',
@@ -11,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SnacksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialoag: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
@@ -56,7 +57,11 @@ export class SnacksDialogComponent implements OnInit {
   plusQty = () =>{
     this.food_qty += 1;
     if (this.food_qty > 10){
-      alert('You have reeached the maximum order');
+      Swal.fire(
+        'Good job!',
+        'You have reached the maximum order',
+        'error'
+      )
       this.food_qty -= 1;
     }else{
       this.food_total =  this.food_qty * this.food_price;
@@ -72,19 +77,40 @@ export class SnacksDialogComponent implements OnInit {
       this.food_total =  this.food_qty * this.food_price;
       this.sendMessage();
     }
-  }
+  } 
 
-  addExtra = () =>{
-    var element = <HTMLInputElement> document.getElementById("extraSauce");
-    var isChecked = element.checked;
-  
-    if (isChecked == true){
+  extraSauce:any = "none";
+  spicySauce: any = "none";
+  addExtras:any;
+  addExtra( addExtra: boolean) {
+    var isChecked = addExtra;
+    if (isChecked){
       let addSauce = 10;
       this.food_total = this.food_total + addSauce;
+      this.extraSauce = 'extrasauce';
+      this.prodInfo.add_sauce = this.extraSauce;
       console.log(this.food_total);
-    }else if (isChecked == false){
+    }else{
         let addSauce =  10;
         this.food_total =  this.food_total - addSauce;
+        this.extraSauce= "none";
+        this.prodInfo.add_sauce = this.extraSauce;
+    }
+    this.sendMessage();
+  } 
+
+
+  saveSpice: any
+  saveExtras: any
+  addSpicy(addSpice: boolean) {
+    var isChecked = addSpice;
+    if (isChecked == true){
+      this.spicySauce = 'spicy';
+      this.prodInfo.add_spicy = this.spicySauce;
+      console.log(this.food_total);
+    }else if (isChecked == false){
+        this.spicySauce = 'none';
+        this.prodInfo.add_spicy = this.spicySauce;
     }
     this.sendMessage();
   }
@@ -95,12 +121,26 @@ export class SnacksDialogComponent implements OnInit {
 
 
   addToCart() {
+
     this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.title = this.food_name;
-    // this.prodInfo.description = fooddescription;
+    this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+    this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
-    this.prodInfo.cart_total = this.food_total;
-    console.log(this.prodInfo);
+    this.prodInfo.food_quantity = this.food_qty;
+    this.prodInfo.total_price = this.food_total;
+    this.prodInfo.add_sauce = this.extraSauce;
+    this.prodInfo.add_spicy = this.spicySauce;
+
+    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+      if (data.remarks === "success"){
+        Swal.fire(
+          'Good job!',
+          'Added to cart successfully!',
+          'success'
+        )
+        this.dialoag.closeAll();
+      }
+    });
   }
 
   sendMessage(): void {

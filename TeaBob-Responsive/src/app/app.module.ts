@@ -20,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { StatusDialogComponent } from './pages/status/status-dialog/status-dialog/status-dialog.component';
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialo
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

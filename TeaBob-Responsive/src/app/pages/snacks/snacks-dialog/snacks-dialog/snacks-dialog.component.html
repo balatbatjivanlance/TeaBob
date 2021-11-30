@@ -34,11 +34,17 @@
     <div class="input-box1">
         
         <label class="container1">Extra Sauce (₱10)
-        <input type="checkbox" (click)="addExtra()" id ="extraSauce" >
+            <input #addExtraCheckBox
+            type="checkbox" 
+            [checked]="saveExtras" 
+            (change)="addExtra(addExtraCheckBox.checked)" />
         <span class="checkmark1"></span>
     </label>
         <label class="container1">Spicy (free)
-        <input type="checkbox"  >
+            <input #addSpicyCheckBox
+            type="checkbox" 
+            [checked]="saveSpice" 
+            (change)="addSpicy(addSpicyCheckBox.checked)" />
         <span class="checkmark1"></span>
       </label>
 

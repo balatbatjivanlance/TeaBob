@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { DataService } from '../services/data.service';
 
 
@@ -9,7 +12,18 @@ import { DataService } from '../services/data.service';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  message: any;
+  private subs: Subscription;
+  
+  constructor(private ds: DataService, public dialog:MatDialog,
+    route:ActivatedRoute, ) { 
+      this.subs = this.ds.getUpdate().subscribe(message => {
+        this.message = message;
+          route.params.subscribe(val => {
+            this.ngOnInit();
+          });
+      });
+    }
 
   ngOnInit(): void {
     this.pullFoodFeatured();
@@ -19,7 +33,7 @@ export class LandingComponent implements OnInit {
   foods: any[]=[];
 
   pullFoodFeatured(){
-    this.ds.sendApiRequest("foodfeatured", null).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("foodfeatured/", null).subscribe((data: { payload: any; }) => {
     this.foods = data.payload;
     })
   }
