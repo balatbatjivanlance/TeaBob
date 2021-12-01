@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject  } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-status-dialog',
@@ -10,7 +12,7 @@ export class StatusDialogComponent implements OnInit {
 
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
@@ -50,6 +52,12 @@ export class StatusDialogComponent implements OnInit {
    this.userinfo.user_address = this.user_address
     this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
     this.sendMessage();
+    Swal.fire(
+      'Update',
+      'Profile Updated Successfully!',
+      'success'
+    )
+    this.dialog.closeAll();
   }
   
   sendMessage(): void {

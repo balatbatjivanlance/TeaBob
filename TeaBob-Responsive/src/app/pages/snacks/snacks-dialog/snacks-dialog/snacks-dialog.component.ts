@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class SnacksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialoag: MatDialog) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
@@ -87,7 +87,7 @@ export class SnacksDialogComponent implements OnInit {
     if (isChecked){
       let addSauce = 10;
       this.food_total = this.food_total + addSauce;
-      this.extraSauce = 'extrasauce';
+      this.extraSauce = 'Extra Sauce';
       this.prodInfo.add_sauce = this.extraSauce;
       console.log(this.food_total);
     }else{
@@ -105,7 +105,7 @@ export class SnacksDialogComponent implements OnInit {
   addSpicy(addSpice: boolean) {
     var isChecked = addSpice;
     if (isChecked == true){
-      this.spicySauce = 'spicy';
+      this.spicySauce = 'Spicy';
       this.prodInfo.add_spicy = this.spicySauce;
       console.log(this.food_total);
     }else if (isChecked == false){
@@ -134,11 +134,12 @@ export class SnacksDialogComponent implements OnInit {
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
         Swal.fire(
-          'Good job!',
+          'Nice!',
           'Added to cart successfully!',
           'success'
         )
-        this.dialoag.closeAll();
+        this.dialog.closeAll();
+        
       }
     });
   }

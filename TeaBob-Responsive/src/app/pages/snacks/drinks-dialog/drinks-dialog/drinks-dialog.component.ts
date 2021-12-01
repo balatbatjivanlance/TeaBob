@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-drinks-dialog',
@@ -11,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 export class DrinksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
@@ -74,62 +75,82 @@ export class DrinksDialogComponent implements OnInit {
     }
   }
 
-  addPearl = () =>{
-    var element = <HTMLInputElement> document.getElementById("extraPearl");
-    var isChecked = element.checked;
-  
-    if (isChecked == true){
-      let addSauce = 10;
-      this.food_total = this.food_total + addSauce;
+
+  extraPearl:any = "none";
+  extraCcheese:any = "none";
+  extraCPuff:any = "none";
+  extraCookie:any = "none";
+  savePearl: any;
+  saveCcheese: any;
+  saveCPuff: any;
+  saveCookie: any;
+  addPearl( addExtra: boolean) {
+    var isChecked = addExtra;
+    if (isChecked){
+      let addPearl = 10;
+      this.food_total = this.food_total + addPearl;
+      this.extraPearl = 'Add Pearl';
+      this.prodInfo.add_pearl = this.extraPearl;
       console.log(this.food_total);
-    }else if (isChecked == false){
-        let addSauce =  10;
-        this.food_total =  this.food_total - addSauce;
+    }else{
+        let addPearl =  10;
+        this.food_total =  this.food_total - addPearl;
+        this.extraPearl= "none";
+        this.prodInfo.add_pearl = this.extraPearl;
     }
     this.sendMessage();
-  }
-  addCPuff = () =>{
-    var element = <HTMLInputElement> document.getElementById("extraCPuff");
-    var isChecked = element.checked;
-  
-    if (isChecked == true){
-      let addSauce = 10;
-      this.food_total = this.food_total + addSauce;
+  } 
+
+  addCcheese( addExtra: boolean) {
+    var isChecked = addExtra;
+    if (isChecked){
+      let addCcheese = 10;
+      this.food_total = this.food_total + addCcheese;
+      this.extraCcheese = 'Add Cream Cheese';
+      this.prodInfo.add_ccheese = this.extraCcheese;
       console.log(this.food_total);
-    }else if (isChecked == false){
-        let addSauce =  10;
-        this.food_total =  this.food_total - addSauce;
+    }else{
+        let addCcheese =  10;
+        this.food_total =  this.food_total - addCcheese;
+        this.extraCcheese= "none";
+        this.prodInfo.add_ccheese = this.extraCcheese;
     }
     this.sendMessage();
-  }
-  addCcheese = () =>{
-    var element = <HTMLInputElement> document.getElementById("extraCcheese");
-    var isChecked = element.checked;
-  
-    if (isChecked == true){
-      let addSauce = 10;
-      this.food_total = this.food_total + addSauce;
+  } 
+
+  addCPuff( addExtra: boolean) {
+    var isChecked = addExtra;
+    if (isChecked){
+      let addCPuff = 10;
+      this.food_total = this.food_total + addCPuff;
+      this.extraCPuff = 'Add Cream Puff';
+      this.prodInfo.add_cpuff = this.extraCPuff;
       console.log(this.food_total);
-    }else if (isChecked == false){
-        let addSauce =  10;
-        this.food_total =  this.food_total - addSauce;
+    }else{
+        let addCPuff =  10;
+        this.food_total =  this.food_total - addCPuff;
+        this.extraCPuff= "none";
+        this.prodInfo.add_cpuff = this.extraCPuff;
     }
     this.sendMessage();
-  }
-  addCookies = () =>{
-    var element = <HTMLInputElement> document.getElementById("extraCookies");
-    var isChecked = element.checked;
-  
-    if (isChecked == true){
-      let addSauce = 10;
-      this.food_total = this.food_total + addSauce;
+  } 
+
+  addCookie( addExtra: boolean) {
+    var isChecked = addExtra;
+    if (isChecked){
+      let addCookie = 10;
+      this.food_total = this.food_total + addCookie;
+      this.extraCookie = 'Add Cookies';
+      this.prodInfo.add_cookie = this.extraCookie;
       console.log(this.food_total);
-    }else if (isChecked == false){
-        let addSauce =  10;
-        this.food_total =  this.food_total - addSauce;
+    }else{
+        let addCookie =  10;
+        this.food_total =  this.food_total - addCookie;
+        this.extraCookie= "none";
+        this.prodInfo.add_cookie = this.extraCookie;
     }
     this.sendMessage();
-  }
+  } 
   
   prodInfo: any = {};
   title: any;
@@ -137,12 +158,28 @@ export class DrinksDialogComponent implements OnInit {
 
 
   addToCart() {
+
     this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.title = this.food_name;
-    // this.prodInfo.description = fooddescription;
+    this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+    this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
-    this.prodInfo.cart_total = this.food_total;
-    console.log(this.prodInfo);
+    this.prodInfo.food_quantity = this.food_qty;
+    this.prodInfo.total_price = this.food_total;
+    this.prodInfo.add_pearl = this.extraPearl;
+    this.prodInfo.add_ccheese = this.extraCcheese;
+    this.prodInfo.add_cpuff = this.extraCPuff;
+    this.prodInfo.add_cookie = this.extraCookie;
+
+    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+      if (data.remarks === "success"){
+        Swal.fire(
+          'Nice!',
+          'Added to cart successfully!',
+          'success'
+        )
+        this.dialog.closeAll();
+      }
+    });
   }
 
   sendMessage(): void {

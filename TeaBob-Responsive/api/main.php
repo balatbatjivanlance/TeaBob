@@ -191,6 +191,10 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateCart($d), JSON_PRETTY_PRINT);
 				break;
+				case 'updateStatus':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->updateStatus($d), JSON_PRETTY_PRINT);
+				break;
 			}
 		break;
 

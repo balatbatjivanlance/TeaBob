@@ -66,8 +66,8 @@ export class CartComponent implements OnInit {
     this.food_info.add_cpuff = 'none'
     this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
     Swal.fire(
-      'Deleted!',
-      'Successfully deleted to cart!',
+      'Removed',
+      'Add Ons Removed!',
       'success'
     )
     this.sendMessage();
@@ -78,6 +78,11 @@ export class CartComponent implements OnInit {
   async delCart(e: any) {
     this.prodinfo.cart_id = e;
     await this.ds.sendApiRequest("delCarts",this.prodinfo).subscribe((data: any) => { });
+    Swal.fire(
+      'Deleted',
+      'Successfully Removed From Cart!',
+      'success'
+    )
     this.pullCart();
   }
 
@@ -97,7 +102,7 @@ export class CartComponent implements OnInit {
     for (var i = 0; i < this.cart.length; i++) {
         if (this.cart[i].price) {
           // get total amount of the products inside the cart items
-            total += this.cart[i].price;
+            total += this.cart[i].total_price;
             this.totalamount = total;
         }
     }

@@ -23,14 +23,14 @@
             <!-- <button class="addons-btn"><mat-icon>highlight_off</mat-icon></button> -->
             <p class="item-content">  {{cart.food_name}}</p>  
             <p class="item-content"> {{cart.food_description}}</p>
-            <p class="item-content" *ngIf="cart.add_pearl == 'adds'">  {{cart.add_pearl}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
-            <p class="item-content" *ngIf="cart.add_cpuff == 'adds'"> {{cart.add_cpuff}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
-            <p class="item-content" *ngIf="cart.add_ccheese == 'adds'">  {{cart.add_ccheese}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>   
-            <p class="item-content" *ngIf="cart.add_cookies == 'adds'">  {{cart.add_cookie}}<button class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
-            <p class="item-content" *ngIf="cart.add_sauce == 'extrasauce'"> {{cart.add_sauce}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
-            <p class="item-content" *ngIf="cart.add_spicy == 'spicy'">{{cart.add_spicy}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>
+            <p class="item-content" *ngIf="cart.add_pearl == 'Add Pearl'">  {{cart.add_pearl}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
+            <p class="item-content" *ngIf="cart.add_cpuff == 'Add Cream Puff'"> {{cart.add_cpuff}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
+            <p class="item-content" *ngIf="cart.add_ccheese == 'Add Cream Cheese'">  {{cart.add_ccheese}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>   
+            <p class="item-content" *ngIf="cart.add_cookie == 'Add Cookies'">  {{cart.add_cookie}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
+            <p class="item-content" *ngIf="cart.add_sauce == 'Extra Sauce'"> {{cart.add_sauce}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
+            <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOns(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>
             <p class="item-content">Pcs. {{cart.food_quantity}}</p>
-            <p class="item-content">₱ {{cart.price}} </p> 
+            <p class="item-content">₱ {{cart.total_price}} </p> 
           
             <button (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
             

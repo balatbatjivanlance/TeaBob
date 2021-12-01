@@ -5,6 +5,7 @@ import { StatusDialogComponent } from './status-dialog/status-dialog/status-dial
 import {MatFormField} from '@angular/material/form-field';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-status',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
+  status: string | undefined;
   
   user_id = localStorage.getItem("UID");
 
@@ -63,6 +65,25 @@ export class StatusComponent implements OnInit {
       console.log("closed")
     });
   
+  }
+
+  statusupdate: any = {};
+  
+  updateStatus() {
+    
+   let id  = localStorage.getItem("id");
+
+   var stat = "Order Received";
+   this.status = stat;
+
+   this.statusupdate.status_id =  id;
+   this.statusupdate.is_approved =  this.status;
+    this.ds.sendApiRequest("updateStatus/" + id, this.statusupdate).subscribe((data: { payload: any; }) => {});
+    this.sendMessage();
+  }
+
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 
 }

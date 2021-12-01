@@ -35,27 +35,39 @@
         
         
         <label class="container1">Pearl (₱10)
-            <input type="checkbox" (click)="addPearl()" id ="extraPearl" >
+            <input #addPearlCheckBox
+            type="checkbox" 
+            [checked]="savePearl" 
+            (change)="addPearl(addPearlCheckBox.checked)" />
             <span class="checkmark1"></span>
         </label>
 
         <label class="container1">Cream Puff (₱10)
-        <input type="checkbox" (click)="addCPuff()" id ="extraCPuff" >
+            <input #addCcheeseCheckBox
+            type="checkbox" 
+            [checked]="saveCcheese" 
+            (change)="addCcheese(addCcheeseCheckBox.checked)" />
         <span class="checkmark1"></span>
     </label>
         <label class="container1">Cream Cheese (₱10)
-        <input type="checkbox" (click)="addCcheese()" id ="extraCcheese" >
+            <input #addCPuffCheckBox
+            type="checkbox" 
+            [checked]="saveCPuff" 
+            (change)="addCPuff(addCPuffCheckBox.checked)" />
         <span class="checkmark1"></span>
       </label>
 
       <label class="container1">Cookies (₱10)
-        <input type="checkbox" (click)="addCookies()" id ="extraCookies" >
+        <input #addCookieCheckBox
+        type="checkbox" 
+        [checked]="saveCookie" 
+        (change)="addCookie(addCookieCheckBox.checked)" />
         <span class="checkmark1"></span>
       </label>
 
     </div>
 
-    <button class="button" >Add to Cart</button>
+    <button class="button"(click)="addToCart()">Add to Cart</button>
 </div>
 
 </div>

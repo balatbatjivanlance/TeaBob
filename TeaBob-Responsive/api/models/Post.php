@@ -129,6 +129,25 @@ class Post{
           
     }
 
+        // Update order Status
+        public function updateStatus($dt) {
+            $code = 401;
+            $payload = null;
+            $remarks = "failed";
+            $message = "Unable to retrieve data";
+    
+            $res = $this->gm->update('tbl_cocode', $dt, "user_id = '$dt->user_id'");
+            return $res;
+            if($res['code']==200) {
+                $code = 200;
+                $payload = $res['payload'];
+                $remarks = "success";
+                $message = "Successfully retrieved data";
+            }
+            return $this->gm->sendPayload($payload, $remarks, $message, $code);
+          
+    }
+
     //CHECK OUT
     public function addCheck($data) {
 
