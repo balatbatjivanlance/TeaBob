@@ -7,11 +7,16 @@
     </div> -->
 
     <div class="user-details">
-    <div class="input-box">
+        <div class="input-box">
 
-        <span class="details">Name</span>
-        <input type="text" [(ngModel)]="user_name">
-    </div>
+            <span class="details">First Name</span>
+            <input disabled type="text" placeholder="">
+        </div>
+        <div class="input-box">
+    
+            <span class="details">Last Name</span>
+            <input disabled type="text" placeholder="">
+        </div>
     <div class="input-box">
         <span class="details">User Name</span>
         <input type="text"  [(ngModel)]="user_uname">
@@ -24,7 +29,18 @@
         <span class="details">Address</span>
         <input type="text"  [(ngModel)]="user_address">
     </div>
-    
+    <div class="input-box">
+        <span class="details">Old Password</span>
+        <input  type="password" >
+    </div>
+    <div class="input-box">
+        <span class="details">New Password</span>
+        <input  type="password">
+    </div>
+    <div class="input-box">
+        <span class="details">Confirm new Password</span>
+        <input  type="password">
+    </div>
     <button class="button" (click)="updateProfile()">Save Profile</button>
     
 </div>
