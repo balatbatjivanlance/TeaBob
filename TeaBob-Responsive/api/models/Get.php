@@ -86,6 +86,25 @@ class Get{
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 
+
+		//Pull Status
+		public function pullStatus ($user_id)  {
+
+			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id'";
+			
+			$res = $this->gm->generalQuery($sql, "No records found");
+			if ($res['code'] == 200) {
+				$payload = $res['data'];
+				$remarks = "success";
+				$message = "Successfully retrieved requested data";
+			} else {
+				$payload = null;
+				$remarks = "failed";
+				$message = $res['errmsg'];
+			}
+			return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+		}
+
     //Pull food by featured or not
     public function pullFoodFeatured ($table) {
 
@@ -143,27 +162,6 @@ class Get{
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 
-		//Pull Status
-		public function pullStatus ($table, $user_id) {
-
-			$sql = "SELECT $table.* FROM $table";
-
-			if($user_id){
-				$sql .= " WHERE user_id = '$user_id'";
-			}
-			
-			$res = $this->gm->generalQuery($sql, "No records found");
-			if ($res['code'] == 200) {
-				$payload = $res['data'];
-				$remarks = "success";
-				$message = "Successfully retrieved requested data";
-			} else {
-				$payload = null;
-				$remarks = "failed";
-				$message = $res['errmsg'];
-			}
-			return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
-		}
 	 //Pull History
 	 public function pullHist ($user_id) {
 

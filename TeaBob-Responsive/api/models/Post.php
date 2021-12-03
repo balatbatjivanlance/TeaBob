@@ -146,7 +146,7 @@ class Post{
             }
             return $this->gm->sendPayload($payload, $remarks, $message, $code);
           
-    }
+        }
 
     //CHECK OUT
     public function addCheck($data) {

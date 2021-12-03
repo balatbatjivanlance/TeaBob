@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,11 @@ export class LoginComponent implements OnInit {
     await this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: { Fullname: string; user_id: string; } | null; }) => {
 
       if (res.payload == null) {
-      alert('Incorrect Credentials')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Wrong Username or Password!'
+        })
       }
       else{
         window.localStorage.setItem("Fullname", res.payload.Fullname);

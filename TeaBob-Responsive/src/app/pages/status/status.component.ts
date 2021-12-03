@@ -46,15 +46,48 @@ export class StatusComponent implements OnInit {
     )
   }
 
-  statusinfo: any = {};
-  mstatus: any [] = [];
+  
+  status_payload: any [] = []; 
+
+  is_approved: any;
+
   pullStatus() {
-    this.ds.sendApiRequest("status/" + window.localStorage.getItem("id"), null).subscribe((data: { payload: any; }) => {
-    this.mstatus = data.payload;
-    console.log(this.mstatus);
+    this.ds.sendApiRequest("status/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.status_payload = data.payload;
+    
+    this.is_approved = this.status_payload[0].is_approved;
+    console.log(this.is_approved)
     }
     )
   }
+
+  statusinfo: any = {};
+
+  updateStatus() {
+    
+     Swal.fire({
+      title: 'Did you received your order?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes!',
+      denyButtonText: `Not Yet`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        let id  = localStorage.getItem("id");
+ 
+    this.statusinfo.user_id =  id;
+    this.statusinfo.is_approved =  'Delivered'
+     this.ds.sendApiRequest("updateStatus/" + id, this.statusinfo).subscribe((data: { payload: any; }) => {});
+     this.sendMessage();
+
+        Swal.fire('Received!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Kindly wait for your order', '', 'info')
+      }
+    })
+     this.dialog.closeAll();
+   }
+
 
     
   statusModal() {
@@ -67,20 +100,7 @@ export class StatusComponent implements OnInit {
   
   }
 
-  statusupdate: any = {};
-  
-  updateStatus() {
-    
-   let id  = localStorage.getItem("id");
-
-   var stat = "Order Received";
-   this.status = stat;
-
-   this.statusupdate.status_id =  id;
-   this.statusupdate.is_approved =  this.status;
-    this.ds.sendApiRequest("updateStatus/" + id, this.statusupdate).subscribe((data: { payload: any; }) => {});
-    this.sendMessage();
-  }
+ 
 
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')

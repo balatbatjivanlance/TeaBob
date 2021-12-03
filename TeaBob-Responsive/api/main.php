@@ -82,10 +82,11 @@
 				break;
 				// Pull data of the status 
 				case 'status':
+                    $d = json_decode(base64_decode(file_get_contents("php://input")));
                     if(count($req)>1) {
-						echo json_encode($get->pullStatus('tbl_cocode', $req[1]), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullStatus('tbl_cocode', null), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullStatus($d), JSON_PRETTY_PRINT);
 					}
 				break;
 				// Pull data of the users 
@@ -186,11 +187,12 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateProfile($d), JSON_PRETTY_PRINT);
 				break;
-
+					// remove addons
 				case 'removeAddOns':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateCart($d), JSON_PRETTY_PRINT);
 				break;
+				//  Update status
 				case 'updateStatus':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateStatus($d), JSON_PRETTY_PRINT);
