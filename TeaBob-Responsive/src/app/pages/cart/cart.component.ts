@@ -57,13 +57,69 @@ export class CartComponent implements OnInit {
   }
 
   food_info: any = {};
-  deleteAddOns = (id:any) => {
+  deleteAddOnsPearl = (id:any) => {
+    this.food_info.cart_id = id;
+    this.food_info.add_pearl = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Removed',
+      'Add Ons Removed!',
+      'success'
+    )
+    this.sendMessage();
+  }
+
+  deleteAddOnsCpuff = (id:any) => {
+    this.food_info.cart_id = id;
+    this.food_info.add_cpuff = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Removed',
+      'Add Ons Removed!',
+      'success'
+    )
+    this.sendMessage();
+  }
+  
+  deleteAddOnsCcheese = (id:any) => {
+    this.food_info.cart_id = id;
+    this.food_info.add_ccheese = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Removed',
+      'Add Ons Removed!',
+      'success'
+    )
+    this.sendMessage();
+  }
+  
+  deleteAddOnsCookie = (id:any) => {
+    this.food_info.cart_id = id;
+    this.food_info.add_cookie = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Removed',
+      'Add Ons Removed!',
+      'success'
+    )
+    this.sendMessage();
+  }
+  
+  deleteAddOnsSauce = (id:any) => {
     this.food_info.cart_id = id;
     this.food_info.add_sauce = 'none'
+    this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
+    Swal.fire(
+      'Removed',
+      'Add Ons Removed!',
+      'success'
+    )
+    this.sendMessage();
+  }
+  
+  deleteAddOnsSpicy = (id:any) => {
+    this.food_info.cart_id = id;
     this.food_info.add_spicy = 'none'
-    this.food_info.add_cookie = 'none'
-    this.food_info.add_ccheese  = 'none'
-    this.food_info.add_cpuff = 'none'
     this.ds.sendApiRequest('removeAddOns/', this.food_info).subscribe((data: any) => { });
     Swal.fire(
       'Removed',
