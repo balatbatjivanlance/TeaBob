@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("Fullname", res.payload.Fullname);
         window.localStorage.setItem("id", res.payload.user_id);
         this.router.navigate(['/home']);
+        Swal.fire({
+          title: 'Login Successfully!',
+          text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
+        })
       }
     });
   }

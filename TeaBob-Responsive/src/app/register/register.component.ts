@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "src/app/services/data.service";
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
     });
 
     Swal.fire('Register Successfully')
-      
+    this.router.navigate(['/login']);
     }
     
     else
