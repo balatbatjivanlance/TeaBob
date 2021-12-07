@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
 
   
   cartinfo: any={};
-  cart:any;
+  cart_payload:any [] = [];
   cartCounter: any;
   delCarts: any = {};
   
@@ -41,13 +41,13 @@ export class CartComponent implements OnInit {
   pullCart() {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.ds.sendApiRequest("cart/" + localStorage.getItem("id"), null).subscribe((data: { payload: any; }) => {
-    this.cart = data.payload;
-    console.log(this.cart);
+    this.cart_payload = data.payload;
+    console.log('cart_payload',this.cart_payload);
     this.getTotal();
 
     // if(this.cart != null){
 
-    for (let i = 0; i <= this.cart.length; i++) {
+    for (let i = 0; i <= this.cart_payload.length; i++) {
       this.cartCounter = i;
       console.log(this.cartCounter);
     }
@@ -154,11 +154,11 @@ export class CartComponent implements OnInit {
 
   getTotal() {
     let total = 0;
-    if(this.cart != null){
-    for (var i = 0; i < this.cart.length; i++) {
-        if (this.cart[i].price) {
+    if(this.cart_payload != null){
+    for (var i = 0; i < this.cart_payload.length; i++) {
+        if (this.cart_payload[i].price) {
           // get total amount of the products inside the cart items
-            total += this.cart[i].total_price;
+            total += this.cart_payload[i].total_price;
             this.totalamount = total;
         }
     }
@@ -193,13 +193,13 @@ export class CartComponent implements OnInit {
     this.coCode.total_price = this.totalamount;
   
 
-    for (let i = 0; i < this.cart.length; i++){
+    for (let i = 0; i < this.cart_payload.length; i++){
 
-      this.delCarts.cart_id = this.cart[i].cart_id;
+      this.delCarts.cart_id = this.cart_payload[i].cart_id;
 
-      this.coInfo.prod_desc = this.cart[i].description;
-      this.coInfo.prod_name = this.cart[i].title;
-      this.coInfo.prod_price = this.cart[i].price;
+      this.coInfo.prod_desc = this.cart_payload[i].description;
+      this.coInfo.prod_name = this.cart_payload[i].title;
+      this.coInfo.prod_price = this.cart_payload[i].price;
       this.coInfo.user_id = localStorage.getItem("id");
 
       this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})

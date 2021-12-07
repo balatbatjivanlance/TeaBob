@@ -115,7 +115,7 @@ export class SnacksComponent implements OnInit {
       drinksdialog.afterClosed().subscribe( ()=>{
       });
     }
-    sessionStorage.setItem('prod_Id', id);
+    sessionStorage.setItem('prod_Id', food_id);
   }
 
   sendMessage(): void {

@@ -71,7 +71,6 @@ class Post{
 
     //ADD TO CART
     public function addCart($data) {
-
         $code = 401;
         $payload = null;
         $remarks = "failed";
