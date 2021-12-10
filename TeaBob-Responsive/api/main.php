@@ -197,6 +197,15 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateStatus($d), JSON_PRETTY_PRINT);
 				break;
+				case 'counter':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					if(count($req)>1) {
+					   
+						echo json_encode($get->pullCounter($d), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullCounter($d), JSON_PRETTY_PRINT);
+					}
+				break;
 			}
 		break;
 

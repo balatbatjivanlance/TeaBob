@@ -144,6 +144,25 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
+
+	public function pullCounter ($user_id) {
+
+		$sql = "SELECT * FROM tbl_cart WHERE user_id = '$user_id'";
+
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+
 	// Pul check items
 	public function pullCheck ($user_Id) {
 

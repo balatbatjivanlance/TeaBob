@@ -76,10 +76,10 @@ export class DrinksDialogComponent implements OnInit {
   }
 
 
-  extraPearl:any = "none";
-  extraCcheese:any = "none";
-  extraCPuff:any = "none";
-  extraCookie:any = "none";
+  extraPearl: number = 0;
+  extraCcheese: number = 0;
+  extraCPuff: number = 0;
+  extraCookie: number = 0;
   savePearl: any;
   saveCcheese: any;
   saveCPuff: any;
@@ -89,13 +89,13 @@ export class DrinksDialogComponent implements OnInit {
     if (isChecked){
       let addPearl = 10;
       this.food_total = this.food_total + addPearl;
-      this.extraPearl = 'Add Pearl';
+      this.extraPearl =  10;
       this.prodInfo.add_pearl = this.extraPearl;
       console.log(this.food_total);
     }else{
         let addPearl =  10;
         this.food_total =  this.food_total - addPearl;
-        this.extraPearl= "none";
+        this.extraPearl= 0;
         this.prodInfo.add_pearl = this.extraPearl;
     }
     this.sendMessage();
@@ -106,13 +106,13 @@ export class DrinksDialogComponent implements OnInit {
     if (isChecked){
       let addCcheese = 10;
       this.food_total = this.food_total + addCcheese;
-      this.extraCcheese = 'Add Cream Cheese';
+      this.extraCcheese = 10;
       this.prodInfo.add_ccheese = this.extraCcheese;
       console.log(this.food_total);
     }else{
         let addCcheese =  10;
         this.food_total =  this.food_total - addCcheese;
-        this.extraCcheese= "none";
+        this.extraCcheese= 10;
         this.prodInfo.add_ccheese = this.extraCcheese;
     }
     this.sendMessage();
@@ -123,13 +123,13 @@ export class DrinksDialogComponent implements OnInit {
     if (isChecked){
       let addCPuff = 10;
       this.food_total = this.food_total + addCPuff;
-      this.extraCPuff = 'Add Cream Puff';
+      this.extraCPuff = 10;
       this.prodInfo.add_cpuff = this.extraCPuff;
       console.log(this.food_total);
     }else{
         let addCPuff =  10;
         this.food_total =  this.food_total - addCPuff;
-        this.extraCPuff= "none";
+        this.extraCPuff= 10;
         this.prodInfo.add_cpuff = this.extraCPuff;
     }
     this.sendMessage();
@@ -140,13 +140,13 @@ export class DrinksDialogComponent implements OnInit {
     if (isChecked){
       let addCookie = 10;
       this.food_total = this.food_total + addCookie;
-      this.extraCookie = 'Add Cookies';
+      this.extraCookie = 10;
       this.prodInfo.add_cookie = this.extraCookie;
       console.log(this.food_total);
     }else{
         let addCookie =  10;
         this.food_total =  this.food_total - addCookie;
-        this.extraCookie= "none";
+        this.extraCookie= 10;
         this.prodInfo.add_cookie = this.extraCookie;
     }
     this.sendMessage();

@@ -79,21 +79,21 @@ export class SnacksDialogComponent implements OnInit {
     }
   } 
 
-  extraSauce:any = "none";
-  spicySauce: any = "none";
+  extraSauce: number = 0;
+  spicySauce:  any = "none";
   addExtras:any;
   addExtra( addExtra: boolean) {
     var isChecked = addExtra;
     if (isChecked){
       let addSauce = 10;
       this.food_total = this.food_total + addSauce;
-      this.extraSauce = 'Extra Sauce';
+      this.extraSauce =  10;
       this.prodInfo.add_sauce = this.extraSauce;
       console.log(this.food_total);
     }else{
         let addSauce =  10;
         this.food_total =  this.food_total - addSauce;
-        this.extraSauce= "none";
+        this.extraSauce=  10;
         this.prodInfo.add_sauce = this.extraSauce;
     }
     this.sendMessage();

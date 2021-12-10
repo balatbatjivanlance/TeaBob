@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
   
   cartinfo: any={};
   cart_payload:any [] = [];
-  cartCounter: any;
+  cartCounter: number = 0;
   delCarts: any = {};
   
 
@@ -47,10 +47,10 @@ export class CartComponent implements OnInit {
 
     // if(this.cart != null){
 
-    for (let i = 0; i <= this.cart_payload.length; i++) {
-      this.cartCounter = i;
-      console.log(this.cartCounter);
-    }
+    // for (let i = 0; i <= this.cart_payload.length; i++) {
+    //   this.cartCounter = i;
+    //   console.log(this.cartCounter);
+    // }
 
     }
     )
@@ -197,9 +197,14 @@ export class CartComponent implements OnInit {
 
       this.delCarts.cart_id = this.cart_payload[i].cart_id;
 
-      this.coInfo.prod_desc = this.cart_payload[i].description;
-      this.coInfo.prod_name = this.cart_payload[i].title;
-      this.coInfo.prod_price = this.cart_payload[i].price;
+      this.coInfo.add_pearl = this.cart_payload[i].add_pearl;
+      this.coInfo.add_cpuff = this.cart_payload[i].add_cpuff;
+      this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
+      this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
+      this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
+      this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
+      this.coInfo.prod_name = this.cart_payload[i].food_name;
+      this.coInfo.prod_price = this.cart_payload[i].food_price;
       this.coInfo.user_id = localStorage.getItem("id");
 
       this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})
