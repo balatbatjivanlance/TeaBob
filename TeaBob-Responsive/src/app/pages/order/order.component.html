@@ -1,0 +1,35 @@
+
+
+    <app-navbar></app-navbar>
+
+    <div class="home-container">
+        <div class="menu">
+            <h1>TeaBob On the Go <br> <h2> A Good Place to Eat </h2></h1>
+            <div class="order-button">
+                <button routerLink="/snacks" class="button" >Order Now</button>
+            </div>
+            
+        </div>
+    </div>
+
+<div class="container">
+    
+    
+    <div class="product-container">
+        <div class="prodcard" *ngFor="let food of foods">
+            <div class="image-container">
+                <img src="{{food.food_image_name}}" alt="">
+            </div>
+            
+            <div class="info">
+                <p>  {{food.food_name}}</p>  
+                <p> {{food.food_description}} </p> 
+                
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+

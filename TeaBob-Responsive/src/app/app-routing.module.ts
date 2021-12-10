@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { DrinksComponent } from './pages/drinks/drinks.component';
+import { OrderComponent } from './pages/order/order.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SnacksComponent } from './pages/snacks/snacks.component';
 import { StatusComponent } from './pages/status/status.component';
@@ -13,7 +13,7 @@ import { LandingComponent } from './landing/landing.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'snacks', component: SnacksComponent},
-  { path: 'drinks', component: DrinksComponent},
+  { path: 'order', component: OrderComponent},
   { path: 'cart', component: CartComponent},
   { path: 'status', component: StatusComponent},
   { path: 'profile', component: ProfileComponent},
@@ -31,7 +31,7 @@ export class AppRoutingModule { }
 export const routingComponents = [
   HomeComponent,
   SnacksComponent,
-  DrinksComponent,
+  OrderComponent,
   CartComponent,
   StatusComponent,
   ProfileComponent,

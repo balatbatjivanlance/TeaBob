@@ -45,9 +45,8 @@
 }
 
 .status2-container{
-    float: right;
     margin-top: 15%;
-    margin-right: 5%;
+    margin-left: 5%;
     max-width: 600px;
     background: #fff;
     padding-left: 25px 30px;

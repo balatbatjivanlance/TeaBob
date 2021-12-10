@@ -55,7 +55,6 @@ export class StatusComponent implements OnInit {
     this.ds.sendApiRequest("status/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.status_payload = data.payload;
     
-    this.is_approved = this.status_payload[0].is_approved;
     console.log(this.is_approved)
     }
     )
@@ -76,7 +75,7 @@ export class StatusComponent implements OnInit {
         let id  = localStorage.getItem("id");
  
     this.statusinfo.user_id =  id;
-    this.statusinfo.is_approved =  'Delivered'
+    this.statusinfo.is_approved =  1
      this.ds.sendApiRequest("updateStatus/" + id, this.statusinfo).subscribe((data: { payload: any; }) => {});
      this.sendMessage();
 
@@ -90,15 +89,15 @@ export class StatusComponent implements OnInit {
 
 
     
-  statusModal() {
-    const dialog = this.dialog.open(StatusDialogComponent, {
-      autoFocus: false, width:"70%", height:"60%"
-    });
-    dialog.afterClosed().subscribe( ()=>{
-      console.log("closed")
-    });
+  // statusModal() {
+  //   const dialog = this.dialog.open(StatusDialogComponent, {
+  //     autoFocus: false, width:"70%", height:"60%"
+  //   });
+  //   dialog.afterClosed().subscribe( ()=>{
+  //     console.log("closed")
+  //   });
   
-  }
+  // }
 
  
 

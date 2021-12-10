@@ -2,55 +2,16 @@
 <body>
     
 
-<div class="status-container">
-    <div class="status-title">User Profile</div>
-<!-- 
-    <div class="profile-image">
 
-    </div> -->
-
-    <div class="user-details" *ngFor="let user of user">
-    <div class="input-box">
-
-        <span class="details">First Name</span>
-        <input disabled type="text" placeholder="{{user.user_name}}">
-    </div>
-    <div class="input-box">
-
-        <span class="details">Last Name</span>
-        <input disabled type="text" placeholder="{{user.user_lname}}">
-    </div>
-    <div class="input-box">
-        <span class="details">User Name</span>
-        <input disabled type="text" placeholder="{{user.user_uname}}">
-    </div>
-    <div class="input-box">
-        <span class="details">Contact no.</span>
-        <input disabled type="number" class="input-number" placeholder="{{user.user_contact}}">
-    </div>
-    <div class="input-box">
-        <span class="details">Address</span>
-        <input disabled type="text" placeholder="{{user.user_address}}">
-    </div>
-
-    
-    <button (click)="statusModal()" class="button">Update Profile</button>
-    <button (click)="statusModal()" class="button">Change Password</button>
-
-    
-</div>
-
-</div>
-
-
-<div class="status2-container">
+<div class="status2-container" *ngFor="let status of status_payload">
     <div class="status2-title">Order Status</div>
 
     <div class="user-details">
         
     <div class="input-box">
         <span class="details">Status</span>
-        <input disabled type="text" [(ngModel)]="is_approved">
+        <input disabled type="text" placeholder="Pending" *ngIf = 'status.is_approved == 0'>
+        <input disabled type="text" placeholder="Delivered" *ngIf = 'status.is_approved == 1'>
         <button (click)="updateStatus()" class="button">Order Received</button>
     </div>
     

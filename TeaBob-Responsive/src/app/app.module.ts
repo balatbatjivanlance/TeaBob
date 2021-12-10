@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { StatusDialogComponent } from './pages/status/status-dialog/status-dialog/status-dialog.component';
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-dialog.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
     CartDialogComponent,
     SnacksDialogComponent,
     StatusDialogComponent,
-    DrinksDialogComponent
+    DrinksDialogComponent,
+    ProfileDialogComponent
   ],
   imports: [
     BrowserModule,

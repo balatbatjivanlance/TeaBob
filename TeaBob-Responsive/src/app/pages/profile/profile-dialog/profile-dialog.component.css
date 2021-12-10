@@ -10,16 +10,9 @@
 }
 
 .status-container{
-    float: left;
-    margin-top: 15%;
-    margin-left: 5%;
-    max-width: 700px;
+    margin-top: 3%;
     background: #fff;
     padding-left: 25px 30px;
-    border-radius: 5px;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    
 
 }
 .status-container .status-title{
@@ -46,9 +39,9 @@
 
 .status2-container{
     float: right;
-    margin-top: 15%;
+    margin-top: -20%;
     margin-right: 5%;
-    max-width: 600px;
+    max-width: 700px;
     background: #fff;
     padding-left: 25px 30px;
     border-radius: 5px;
@@ -71,13 +64,11 @@
     bottom: 0;
 
 }
-
 .status2-container  .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
-    width: 100%;
 }
 
 .user-details .input-box{
@@ -109,7 +100,7 @@
 }
 .button{
     height: 45px;
-    margin: 5px 0;
+    margin: 45px 0;
 }
 .button {
     height: 50px;
@@ -130,49 +121,21 @@
     background: #efc3a4;
     color:rgb(0, 0, 0);
 }
-
-
 @media (max-width: 584px){
     .status-container{
         max-width: 90%;
         margin-top: 20%;
     }
     .status2-container{
-        max-width: 90%;      
-    }
-    .user-details .input-box{
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    .status-container  .user-details{
-        max-height: 450px;
-        overflow-y: scroll;
-
-    }
-    .user-details::-webkit-scrollbar{
-        width:0;
-    }
-    .button{
-        margin-right: 7%;
-    }
-}
-
-@media (max-width: 1024px){
-    .status-container{
         max-width: 90%;
         margin-top: 20%;
     }
-    .status2-container{
-        max-width: 90%;
-
-        
-    }
     .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
     }
     .status-container  .user-details{
-        max-height: 450px;
+        max-height: 300px;
         overflow-y: scroll;
 
     }

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  status: string | undefined;
+  status: number = 0;
 
   message: any;
   private subs: Subscription;
@@ -176,13 +176,15 @@ export class CartComponent implements OnInit {
   {
     this.cartinfo.user_id = localStorage.getItem("id");
     this.cartinfo.user_name = localStorage.getItem("Fullname");
+    this.cartinfo.user_contact = localStorage.getItem("user_Contact");
+    this.cartinfo.user_address = localStorage.getItem("user_Address");
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
       // {
     
     var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
     this.code = seq;
     
-    var stat = "Pending";
+    var stat: number =  0;
     this.status = stat;
 
 
@@ -190,6 +192,8 @@ export class CartComponent implements OnInit {
     this.coCode.is_approved = this.status;
     this.coCode.user_id = localStorage.getItem("id");
     this.coCode.user_name = localStorage.getItem("Fullname");
+    this.coCode.user_contact = localStorage.getItem("user_Contact");
+    this.coCode.user_address = localStorage.getItem("user_Address");
     this.coCode.total_price = this.totalamount;
   
 
@@ -207,12 +211,36 @@ export class CartComponent implements OnInit {
       this.coInfo.prod_price = this.cart_payload[i].food_price;
       this.coInfo.user_id = localStorage.getItem("id");
 
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+
       this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})
       this.ds.sendApiRequest("delCarts", this.delCarts).subscribe((data: any) => {})
+
+      this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
+      
     }
-    this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
+    
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  
+})
+  }
 
     // }
+
+  
 
   }
   sendMessage(): void {

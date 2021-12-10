@@ -1,0 +1,38 @@
+
+<div class="status-container">
+    <div class="status-title">User Profile</div>
+<!-- 
+    <div class="profile-image">
+
+    </div> -->
+
+    <div class="user-details">
+        <div class="input-box">
+
+            <span class="details">First Name</span>
+            <input type="text" [(ngModel)]="user_name">
+        </div>
+        <div class="input-box">
+    
+            <span class="details">Last Name</span>
+            <input type="text" [(ngModel)]="user_lname">
+        </div>
+    <div class="input-box">
+        <span class="details">User Name</span>
+        <input type="text"  [(ngModel)]="user_uname">
+    </div>
+    <div class="input-box">
+        <span class="details">Contact no.</span>
+        <input type="number"  [(ngModel)]="user_contact" class="input-number">
+    </div>
+    <div class="input-box">
+        <span class="details">Address</span>
+        <input type="text"  [(ngModel)]="user_address">
+    </div>
+    
+    <button class="button" (click)="updateProfile()">Save Profile</button>
+    
+</div>
+
+</div>
+
