@@ -206,6 +206,11 @@
 						echo json_encode($get->pullCounter($d), JSON_PRETTY_PRINT);
 					}
 				break;
+
+				case 'pullCodeDetails':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($get->pullCodeDetails($d), JSON_PRETTY_PRINT);    
+				break;
 			}
 		break;
 

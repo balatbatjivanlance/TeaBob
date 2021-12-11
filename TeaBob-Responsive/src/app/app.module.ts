@@ -22,6 +22,11 @@ import { StatusDialogComponent } from './pages/status/status-dialog/status-dialo
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-dialog.component';
+import { StatusComponent } from './pages/status/status.component';
+import { OrdersModalComponent } from './orders-modal/orders-modal.component';
+
+// Material Imports
+
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-d
     SnacksDialogComponent,
     StatusDialogComponent,
     DrinksDialogComponent,
-    ProfileDialogComponent
+    ProfileDialogComponent,
+    StatusComponent,
+    OrdersModalComponent
   ],
   imports: [
     BrowserModule,

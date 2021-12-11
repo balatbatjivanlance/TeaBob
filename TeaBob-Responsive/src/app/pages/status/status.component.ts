@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
+import { OrdersModalComponent } from 'src/app/orders-modal/orders-modal.component';
+
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
@@ -104,5 +106,17 @@ export class StatusComponent implements OnInit {
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
+
+
+  openCorBreakDown(code: any) {
+    // console.log(code);
+    const dialogRef = this.dialog.open(OrdersModalComponent , {
+      height: '50%',
+      width: '50%',
+      data: 
+      code
+    });
+  }
+
 
 }

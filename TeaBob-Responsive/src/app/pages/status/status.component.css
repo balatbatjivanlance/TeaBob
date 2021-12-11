@@ -131,6 +131,72 @@
 }
 
 
+.order-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.card-container {
+    width: 80%;
+    height: 80%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.card-container > div {
+    margin: 5px;
+}
+
+.card-order {
+    width: 300px;
+    height: 200px;
+    background-color: #f9f9f9;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 7px;
+    background-image: url('/assets/tealogopng.png');
+    background-repeat: no-repeat;
+    background-position: -50px 85px;
+    background-size: 50%;
+}
+
+.card-order .card-order-info {
+    height: 50%;
+    width: 100%;
+    padding: 15px;
+}
+
+.card-order .card-order-info p span {
+    display: block;
+}
+
+.card-order .card-order-info p span:nth-child(1) {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card-order .card-order-info p span:nth-child(2) {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.card-order .card-order-action {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
 @media (max-width: 584px){
     .status-container{
         max-width: 90%;

@@ -175,9 +175,9 @@ export class CartComponent implements OnInit {
   checkOutAll()
   {
     this.cartinfo.user_id = localStorage.getItem("id");
-    this.cartinfo.user_name = localStorage.getItem("Fullname");
-    this.cartinfo.user_contact = localStorage.getItem("user_Contact");
-    this.cartinfo.user_address = localStorage.getItem("user_Address");
+    // this.cartinfo.user_name = localStorage.getItem("Fullname");
+    // this.cartinfo.user_contact = localStorage.getItem("user_Contact");
+    // this.cartinfo.user_address = localStorage.getItem("user_Address");
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
       // {
     
@@ -195,47 +195,42 @@ export class CartComponent implements OnInit {
     this.coCode.user_contact = localStorage.getItem("user_Contact");
     this.coCode.user_address = localStorage.getItem("user_Address");
     this.coCode.total_price = this.totalamount;
+
   
 
     for (let i = 0; i < this.cart_payload.length; i++){
 
-      this.delCarts.cart_id = this.cart_payload[i].cart_id;
 
+      this.coInfo.prod_name = this.cart_payload[i].food_name;
       this.coInfo.add_pearl = this.cart_payload[i].add_pearl;
       this.coInfo.add_cpuff = this.cart_payload[i].add_cpuff;
       this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
       this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
       this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
+      this.coInfo.add_add_spicy = this.cart_payload[i].add_sauce;
       this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
-      this.coInfo.prod_name = this.cart_payload[i].food_name;
-      this.coInfo.prod_price = this.cart_payload[i].food_price;
       this.coInfo.user_id = localStorage.getItem("id");
+      this.coInfo.prod_price = this.cart_payload[i].food_price;
+      this.coInfo.code = this.code;
+ 
+      
+      this.delCarts.cart_id = this.cart_payload[i].cart_id;
 
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
+      console.log(this.coInfo)
+
+  {
 
       this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})
+      this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
       this.ds.sendApiRequest("delCarts", this.delCarts).subscribe((data: any) => {})
 
-      this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
+
       
     }
     
-    Swal.fire(
-      'Deleted!',
-      'Your file has been deleted.',
-      'success'
-    )
+
   
-})
+
   }
 
     // }
