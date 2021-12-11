@@ -146,6 +146,11 @@
 					echo json_encode($post->checkOutAll($d), JSON_PRETTY_PRINT);
 
 				break;
+				case 'placeOrder':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->placeOrder($d), JSON_PRETTY_PRINT);
+
+				break;
 				case 'checkOutCode':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->checkOutCode($d), JSON_PRETTY_PRINT);

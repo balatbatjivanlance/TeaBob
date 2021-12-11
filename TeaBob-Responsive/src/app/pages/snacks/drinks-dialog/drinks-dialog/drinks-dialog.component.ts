@@ -169,7 +169,10 @@ export class DrinksDialogComponent implements OnInit {
     this.prodInfo.add_ccheese = this.extraCcheese;
     this.prodInfo.add_cpuff = this.extraCPuff;
     this.prodInfo.add_cookie = this.extraCookie;
+    this.prodInfo.add_sauce = 0;
+    this.prodInfo.add_spicy = 'none';
 
+    // console.log(this.prodInfo);
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
         Swal.fire(

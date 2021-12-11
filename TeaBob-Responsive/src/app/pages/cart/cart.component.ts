@@ -174,7 +174,7 @@ export class CartComponent implements OnInit {
 
   checkOutAll()
   {
-    this.cartinfo.user_id = localStorage.getItem("id");
+    // this.cartinfo.user_id = localStorage.getItem("id");
     // this.cartinfo.user_name = localStorage.getItem("Fullname");
     // this.cartinfo.user_contact = localStorage.getItem("user_Contact");
     // this.cartinfo.user_address = localStorage.getItem("user_Address");
@@ -184,47 +184,43 @@ export class CartComponent implements OnInit {
     var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
     this.code = seq;
     
-    var stat: number =  0;
-    this.status = stat;
+    // var stat: number =  0;
+    // this.status = stat;
 
 
-    this.coCode.code = this.code;
-    this.coCode.is_approved = this.status;
-    this.coCode.user_id = localStorage.getItem("id");
-    this.coCode.user_name = localStorage.getItem("Fullname");
-    this.coCode.user_contact = localStorage.getItem("user_Contact");
-    this.coCode.user_address = localStorage.getItem("user_Address");
-    this.coCode.total_price = this.totalamount;
-
+    // this.coCode.code = this.code;
+    // this.coCode.is_approved = this.status;
   
-
+    // this.coCode.user_name = localStorage.getItem("Fullname");
+    // this.coCode.user_contact = localStorage.getItem("user_Contact");
+    // this.coCode.user_address = localStorage.getItem("user_Address");
+    // this.coCode.total_price = this.totalamount;
+    
+    let data = [];
+    
     for (let i = 0; i < this.cart_payload.length; i++){
-
-
       this.coInfo.prod_name = this.cart_payload[i].food_name;
       this.coInfo.add_pearl = this.cart_payload[i].add_pearl;
       this.coInfo.add_cpuff = this.cart_payload[i].add_cpuff;
       this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
       this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
       this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
-      this.coInfo.add_add_spicy = this.cart_payload[i].add_sauce;
+      this.coInfo.add_spicy = this.cart_payload[i].add_sauce;
       this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
       this.coInfo.user_id = localStorage.getItem("id");
       this.coInfo.prod_price = this.cart_payload[i].food_price;
+      this.coInfo.user_name = localStorage.getItem("Fullname");
+      this.coInfo.user_contact = localStorage.getItem("user_Contact");
+      this.coInfo.user_address = localStorage.getItem("user_Address");
+      this.coInfo.total_price = this.totalamount;
       this.coInfo.code = this.code;
- 
-      
-      this.delCarts.cart_id = this.cart_payload[i].cart_id;
-
-      console.log(this.coInfo)
-
+      this.coInfo.cart_id = this.cart_payload[i].cart_id;
   {
 
-      this.ds.sendApiRequest("checkOutAll", this.coInfo).subscribe((data: any) => {})
-      this.ds.sendApiRequest("checkOutCode", this.coCode).subscribe((data: any) => {})
-      this.ds.sendApiRequest("delCarts", this.delCarts).subscribe((data: any) => {})
+      // data.push(this.coInfo)
 
-
+      //  console.log(this.coInfo);
+      this.ds.sendApiRequest("placeOrder/", [ this.coInfo ]).subscribe((data: any) => {})
       
     }
     

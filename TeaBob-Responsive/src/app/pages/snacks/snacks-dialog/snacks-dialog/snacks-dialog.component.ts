@@ -130,6 +130,10 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.total_price = this.food_total;
     this.prodInfo.add_sauce = this.extraSauce;
     this.prodInfo.add_spicy = this.spicySauce;
+    this.prodInfo.add_pearl = 0;
+    this.prodInfo.add_ccheese = 0;
+    this.prodInfo.add_cpuff = 0;
+    this.prodInfo.add_cookie = 0;
 
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
