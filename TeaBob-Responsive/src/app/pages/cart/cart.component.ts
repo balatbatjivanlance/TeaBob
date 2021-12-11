@@ -158,7 +158,7 @@ export class CartComponent implements OnInit {
     for (var i = 0; i < this.cart_payload.length; i++) {
         if (this.cart_payload[i].price) {
           // get total amount of the products inside the cart items
-            total += this.cart_payload[i].total_price;
+            total += this.cart_payload[i].cart_total_price;
             this.totalamount = total;
         }
     }
@@ -205,10 +205,10 @@ export class CartComponent implements OnInit {
       this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
       this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
       this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
-      this.coInfo.add_spicy = this.cart_payload[i].add_sauce;
+      this.coInfo.add_spicy = this.cart_payload[i].add_spicy;
       this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
       this.coInfo.user_id = localStorage.getItem("id");
-      this.coInfo.prod_price = this.cart_payload[i].food_price;
+      this.coInfo.prod_price = this.cart_payload[i].cart_total_price;
       this.coInfo.user_name = localStorage.getItem("Fullname");
       this.coInfo.user_contact = localStorage.getItem("user_Contact");
       this.coInfo.user_address = localStorage.getItem("user_Address");

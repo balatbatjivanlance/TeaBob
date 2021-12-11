@@ -127,7 +127,7 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
-    this.prodInfo.total_price = this.food_total;
+    this.prodInfo.cart_total_price = this.food_total;
     this.prodInfo.add_sauce = this.extraSauce;
     this.prodInfo.add_spicy = this.spicySauce;
     this.prodInfo.add_pearl = 0;

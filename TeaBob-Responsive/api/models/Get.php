@@ -237,7 +237,7 @@ class Get{
 
 
 	public function pullCheckout ($d) {
-		$sql = "SELECT * FROM tbl_co_code";
+		$sql = "SELECT * FROM tbl_checkout";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
