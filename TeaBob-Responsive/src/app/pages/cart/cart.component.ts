@@ -215,6 +215,15 @@ export class CartComponent implements OnInit {
       this.coInfo.total_price = this.totalamount;
       this.coInfo.code = this.code;
       this.coInfo.cart_id = this.cart_payload[i].cart_id;
+
+
+      Swal.fire(
+        'NG!',
+        'Check out successfully!',
+        'success'
+        
+      )
+      
   {
 
       // data.push(this.coInfo)

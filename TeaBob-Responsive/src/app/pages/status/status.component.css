@@ -156,8 +156,8 @@
 }
 
 .card-order {
-    width: 300px;
-    height: 200px;
+    width: 293px;
+    height: 250px;
     background-color: #f9f9f9;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 7px;
@@ -168,9 +168,10 @@
 }
 
 .card-order .card-order-info {
-    height: 50%;
+    height: 30%;
     width: 100%;
     padding: 15px;
+    background-color: #efc3a4;
 }
 
 .card-order .card-order-info p span {
@@ -196,7 +197,27 @@
     align-items: flex-end;
 }
 
+.card-order-content{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.card-order-content .main-food{
+    margin-bottom: 100px;
+}
+.quantity{
+    float: right;
+    padding-right: 30px;
+}
+.quantity-info{
+    float: right;
+    padding-right: 10px;
+}
 
+.main-food{
+    font-size: 20px;
+    
+    font-weight: bold;
+}
 @media (max-width: 584px){
     .status-container{
         max-width: 90%;

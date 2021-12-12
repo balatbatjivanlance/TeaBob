@@ -31,15 +31,22 @@
             </div>
             <div class="card-order-content">
                 <p>
-                    <span>{{status.prod_name}}</span>
-                    <span *ngIf="status.add_pearl == '10'"> Pearl</span>
-                    <span *ngIf="status.add_cpuff == '10'"> Cream Puff</span>
-                    <span *ngIf="status.add_ccheese == '10'"> Cream Cheese</span>
-                    <span *ngIf="status.add_cookie == '10'"> Cookies</span>
-                    <span *ngIf="status.add_sauce == '10'"> Extra Sauce </span>
-                    <span *ngIf="status.add_spicy == '10'"> Spicy </span>
-                    <span>{{status.food_quantity}}</span><br>
-                    <span>{{status.prod_price}}</span>
+                    
+                    
+                    <span class="main-food">{{status.prod_name}}</span>
+                    <br>
+
+
+                    <span class="addons" *ngIf="status.add_pearl == '10'"> Pearl</span>
+                    <span class="addons" *ngIf="status.add_cpuff == '10'"> Cream Puff</span>
+                    <span class="addons" *ngIf="status.add_ccheese == '10'"> Cream Cheese</span>
+                    <span class="addons" *ngIf="status.add_cookie == '10'"> Cookies</span>
+                    <span class="addons" *ngIf="status.add_sauce == '10'"> Extra Sauce </span>
+                    <span class="addons" *ngIf="status.add_spicy == '10'"> Spicy </span>
+                    
+                    <br><br><br><br><br>
+                    <span>Quantity <span class="quantity">{{status.food_quantity}}</span></span><br>
+                    <span>Total Price:  </span><span class="quantity">{{status.prod_price}}</span>
                 </p>
             </div>
             <div class="card-order-action">
