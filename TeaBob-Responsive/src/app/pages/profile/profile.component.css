@@ -8,11 +8,15 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .status-container{
-    float: left;
-    margin-top: 15%;
-    margin-left: 28%;
+
     max-width: 700px;
     background: #fff;
     padding-left: 25px 30px;
@@ -136,6 +140,7 @@
     .status-container{
         max-width: 90%;
         margin-top: 20%;
+        height: 80%;
     }
     .status2-container{
         max-width: 90%;      
@@ -145,7 +150,7 @@
         width: 100%;
     }
     .status-container  .user-details{
-        max-height: 450px;
+        max-height: 1000px;
         overflow-y: scroll;
 
     }

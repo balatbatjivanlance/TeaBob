@@ -180,63 +180,80 @@ export class CartComponent implements OnInit {
     // this.cartinfo.user_address = localStorage.getItem("user_Address");
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
       // {
-    
-    var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
-    this.code = seq;
-    
-    // var stat: number =  0;
-    // this.status = stat;
-
-
-    // this.coCode.code = this.code;
-    // this.coCode.is_approved = this.status;
-  
-    // this.coCode.user_name = localStorage.getItem("Fullname");
-    // this.coCode.user_contact = localStorage.getItem("user_Contact");
-    // this.coCode.user_address = localStorage.getItem("user_Address");
-    // this.coCode.total_price = this.totalamount;
-    
-    let data = [];
-    
-    for (let i = 0; i < this.cart_payload.length; i++){
-      this.coInfo.prod_name = this.cart_payload[i].food_name;
-      this.coInfo.add_pearl = this.cart_payload[i].add_pearl;
-      this.coInfo.add_cpuff = this.cart_payload[i].add_cpuff;
-      this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
-      this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
-      this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
-      this.coInfo.add_spicy = this.cart_payload[i].add_spicy;
-      this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
-      this.coInfo.user_id = localStorage.getItem("id");
-      this.coInfo.prod_price = this.cart_payload[i].cart_total_price;
-      this.coInfo.user_name = localStorage.getItem("Fullname");
-      this.coInfo.user_contact = localStorage.getItem("user_Contact");
-      this.coInfo.user_address = localStorage.getItem("user_Address");
-      this.coInfo.total_price = this.totalamount;
-      this.coInfo.code = this.code;
-      this.coInfo.cart_id = this.cart_payload[i].cart_id;
-
-
-      Swal.fire(
-        'NG!',
-        'Check out successfully!',
-        'success'
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Check out'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
+            this.code = seq;
+            
+            // var stat: number =  0;
+            // this.status = stat;
         
-      )
-      
-  {
+        
+            // this.coCode.code = this.code;
+            // this.coCode.is_approved = this.status;
+          
+            // this.coCode.user_name = localStorage.getItem("Fullname");
+            // this.coCode.user_contact = localStorage.getItem("user_Contact");
+            // this.coCode.user_address = localStorage.getItem("user_Address");
+            // this.coCode.total_price = this.totalamount;
+            
+            let data = [];
+            
+            for (let i = 0; i < this.cart_payload.length; i++){
+              this.coInfo.prod_name = this.cart_payload[i].food_name;
+              this.coInfo.add_pearl = this.cart_payload[i].add_pearl;
+              this.coInfo.add_cpuff = this.cart_payload[i].add_cpuff;
+              this.coInfo.add_ccheese = this.cart_payload[i].add_ccheese;
+              this.coInfo.add_cookie = this.cart_payload[i].add_cookie;
+              this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
+              this.coInfo.add_spicy = this.cart_payload[i].add_spicy;
+              this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
+              this.coInfo.user_id = localStorage.getItem("id");
+              this.coInfo.prod_price = this.cart_payload[i].cart_total_price;
+              this.coInfo.user_name = localStorage.getItem("Fullname");
+              this.coInfo.user_contact = localStorage.getItem("user_Contact");
+              this.coInfo.user_address = localStorage.getItem("user_Address");
+              this.coInfo.total_price = this.totalamount;
+              this.coInfo.code = this.code;
+              this.coInfo.cart_id = this.cart_payload[i].cart_id;
+        
+        
+              Swal.fire(
+                'NG!',
+                'Check out successfully!',
+                'success'
+                
+              )
+              
+          {
+        
+              // data.push(this.coInfo)
+        
+              //  console.log(this.coInfo);
+              this.ds.sendApiRequest("placeOrder/", [ this.coInfo ]).subscribe((data: any) => {})
+              
+            }
+            
+        
+          
+        
+          }
+          }
+        })
 
-      // data.push(this.coInfo)
-
-      //  console.log(this.coInfo);
-      this.ds.sendApiRequest("placeOrder/", [ this.coInfo ]).subscribe((data: any) => {})
-      
-    }
-    
-
-  
-
-  }
 
     // }
 
