@@ -246,11 +246,10 @@ export class CartComponent implements OnInit {
               this.ds.sendApiRequest("placeOrder/", [ this.coInfo ]).subscribe((data: any) => {})
               
             }
-            
-        
           
         
           }
+
           }
         })
 
