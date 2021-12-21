@@ -220,7 +220,7 @@ class Post{
 
 
     public function placeOrder($dt){
-      
+
         for ($i = 0; $i < sizeof($dt); $i++){
             $prod_name[]  = $dt[$i]->prod_name;
             $user_id[] = $dt[$i]->user_id;
@@ -240,6 +240,7 @@ class Post{
             $values[] = "('$prod_name[$i]', '$add_pearl[$i]', '$add_cpuff[$i]',  '$add_ccheese[$i]', '$add_cookie[$i]',  '$add_sauce[$i]',  '$add_spicy[$i]', '$food_qty[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
             $val2[] = "('$code[$i]',  '$total_price[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
         }
+
             //insert the data on the checkout table
         $this->sql = "INSERT INTO tbl_checkout(prod_name, add_pearl, add_cpuff, add_ccheese, add_cookie, add_sauce, add_spicy, food_quantity, user_id, prod_price, code) VALUES " . implode(', ', $values);
         //INNER JOIN
@@ -247,7 +248,8 @@ class Post{
         try {
             if($this->pdo->query($this->sql)) {
 
-                $this->sql = "INSERT INTO tbl_cocode (code, total_price, user_id, user_name, user_contact, user_address) VALUES " . implode(', ', $val2);
+                $this->sql = "INSERT INTO tbl_cocode (code, total_price, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
+           
                 if($this->pdo->query($this->sql)) {
 
                     for ($j= 0 ; $j < sizeof($dt); $j++){

@@ -198,18 +198,6 @@ export class CartComponent implements OnInit {
             var seq = (Math.floor(100000000 + Math.random() * 900000000)).toString().substring(1);
             this.code = seq;
             
-            // var stat: number =  0;
-            // this.status = stat;
-        
-        
-            // this.coCode.code = this.code;
-            // this.coCode.is_approved = this.status;
-          
-            // this.coCode.user_name = localStorage.getItem("Fullname");
-            // this.coCode.user_contact = localStorage.getItem("user_Contact");
-            // this.coCode.user_address = localStorage.getItem("user_Address");
-            // this.coCode.total_price = this.totalamount;
-            
             let data = [];
             
             for (let i = 0; i < this.cart_payload.length; i++){
@@ -230,26 +218,25 @@ export class CartComponent implements OnInit {
               this.coInfo.code = this.code;
               this.coInfo.cart_id = this.cart_payload[i].cart_id;
         
-        
               Swal.fire(
                 'NG!',
                 'Check out successfully!',
                 'success'
-                
               )
               
           {
         
-              // data.push(this.coInfo)
+              data.push(this.coInfo)
         
-              //  console.log(this.coInfo);
-              this.ds.sendApiRequest("placeOrder/", [ this.coInfo ]).subscribe((data: any) => {})
+             this.coInfo = {}; 
+
+      
               
             }
           
-        
+ 
           }
-
+          this.ds.sendApiRequest("placeOrder/", data).subscribe((data: any) => {})
           }
         })
 

@@ -58,13 +58,14 @@ export class SnacksDialogComponent implements OnInit {
     this.food_qty += 1;
     if (this.food_qty > 10){
       Swal.fire(
-        'Good job!',
+        'Warning job!',
         'You have reached the maximum order',
-        'error'
+        'warning'
       )
       this.food_qty -= 1;
     }else{
       this.food_total =  this.food_qty * this.food_price;
+      
     }
     this.sendMessage();
   }
@@ -82,13 +83,16 @@ export class SnacksDialogComponent implements OnInit {
   extraSauce: number = 0;
   spicySauce:  any = "none";
   addExtras:any;
+  isChecked: boolean = false
   addExtra( addExtra: boolean) {
-    var isChecked = addExtra;
-    if (isChecked){
-      let addSauce = 10;
+     this.isChecked = addExtra;
+    if (this.isChecked){
+      
+      let addSauce = 10 * this.food_qty;
+
       this.food_total = this.food_total + addSauce;
       this.extraSauce =  10;
-      this.prodInfo.add_sauce = this.extraSauce;
+      this.prodInfo.add_sauce = addSauce;
       console.log(this.food_total);
     }else{
         let addSauce =  10;

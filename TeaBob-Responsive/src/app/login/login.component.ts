@@ -45,22 +45,12 @@ export class LoginComponent implements OnInit {
         //   title: 'Login Successfully!',
         //   text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
         // })
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'center',
-          showConfirmButton: false,
-          timer: 2500,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
-        
-        Toast.fire({
-          icon: 'success',
-          title: 'Welcome!' + "... "  +  this.userInfo.user_uname + '!'
-        })
+        Swal.fire({
+          title: 'Login Successfully!',
+          text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!',
+          icon: 'success'
+        }
+        )
       }
     });
   }
