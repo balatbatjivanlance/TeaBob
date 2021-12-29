@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-dialog.component';
 import { StatusComponent } from './pages/status/status.component';
 import { OrdersModalComponent } from './orders-modal/orders-modal.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 // Material Imports
 
@@ -44,7 +45,8 @@ import { OrdersModalComponent } from './orders-modal/orders-modal.component';
     DrinksDialogComponent,
     ProfileDialogComponent,
     StatusComponent,
-    OrdersModalComponent
+    OrdersModalComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

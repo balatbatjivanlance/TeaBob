@@ -48,10 +48,11 @@
                     <span>Quantity <span class="quantity">{{status.food_quantity}}</span></span><br>
                     <span>Total Price:  </span><span class="quantity">{{status.prod_price}}</span>
                 </p>
-            </div>
+                
             <div class="card-order-action">
-                <!-- <button mat-stroked-button color="primary" (click)="openCorBreakDown(status.code)">View Orders</button> -->
-              
+                <button mat-stroked-button color="primary" (click)="openCorBreakDown(status)">View Orders</button>
+                <button mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button>
+            </div>
             </div>
         </div>
     </div>

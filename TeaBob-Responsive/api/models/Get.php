@@ -219,7 +219,7 @@ class Get{
 	// }
 
 	// pull
-	public function pullProduct ($d) {
+	public function pullProducts ($d) {
 		$sql = "SELECT * FROM tbl_products";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");

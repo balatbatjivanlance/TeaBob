@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<!-- <div class="form">
+    <div class="form-container">
+      <br><br>
+      <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-label>Product Name</mat-label>
+        <input matInput [(ngModel)]="prod_name">
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-label>Product Description</mat-label>
+        <input matInput [(ngModel)]="prod_description">
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-label>Product Category</mat-label>
+        <select matNativeControl required name="country" id="country" (change)="selectChangeHandler($event)"
+          [(ngModel)]="prod_category">
+          <option value="Foods">Foods</option>
+          <option value="Drinks">Drinks</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-label>Product Price</mat-label>
+        <input matInput [(ngModel)]="prod_price">
+      </mat-form-field>
+
+      <div class="img-container" style="margin-left: 20px;">
+        <img class="image-container" [src]="imgSrc" alt="img"
+          style="width: 100px; height: 100px; display: none" />
+        <input type="file" (change)="onUploadHandler($event)" />
+      </div>
+
+      <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">Add</button>
+    </div>
+  </div> -->
+
+  <input type="text" placeholder="Product Name" [(ngModel)]="prod_name">
+  <br>
+  <input type="text" placeholder="Product Description" [(ngModel)]="prod_description">
+  <br>
+  <mat-form-field appearance="outline" style="width: 90%;">
+    <mat-label>Product Category</mat-label>
+    <select matNativeControl required name="country" id="country" (change)="selectChangeHandler($event)"
+      [(ngModel)]="prod_category">
+      <option value="Foods">Foods</option>
+      <option value="Drinks">Drinks</option>
+    </select>
+  </mat-form-field>
+  <br>
+
+  <input type="text" placeholder="Product Price" [(ngModel)]="prod_price">
+  <br>
+  <div class="img-container" style="margin-left: 20px;">
+    <img class="image-container" [src]="imgSrc" alt="img"
+      style="width: 100px; height: 100px; display: none" />
+    <input type="file" (change)="onUploadHandler($event)" />
+  </div>
+
+  <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">Add</button>
+
+
+  <div class="prod-card" *ngFor = " let product of product"> 
+    <!-- <p>
+        {{product.prod_name}}
+    </p>
+
+    <img src="{{product.prod_img}}" alt=""> -->
+  </div>
+
+  <!-- <p *ngFor = " let products of products">
+      <span>{{products.prod_name}}</span>
+  </p> -->
+
+
+  
+<table id="customers" *ngFor="let product of product">
+    <tr>
+      <th>Product Name</th>
+      <th>Product Price</th>
+    </tr>
+    <tr>
+      <td>{{product.prod_name}}</td>
+      <td>{{product.prod_price}}</td>
+   
+    </tr>
+
+  </table>

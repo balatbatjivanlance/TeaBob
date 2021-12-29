@@ -15,8 +15,9 @@
             <li routerLink="/snacks"><a routerLinkActive="active">Menu</a></li>
             <li routerLink="/cart"><a routerLinkActive="active" >Cart<span matBadge="{{cartCounter}}" matBadgeOverlap="false"></span></a></li>
             <!-- <li routerLink="/order"><a routerLinkActive="active">Orders</a></li> -->
-            <li routerLink="/status"><a routerLinkActive="active">Order Page</a></li>
+            <li routerLink="/status" *ngIf="user_role == '0'"><a routerLinkActive="active">Order Page</a></li>
             <li routerLink="/profile"><a routerLinkActive="active">Profile</a></li> 
+            <li routerLink="/add-product"><a routerLinkActive="active">Add Product</a></li> 
             <li (click)="logout()"><a>Logout</a></li>
         </ul>
 

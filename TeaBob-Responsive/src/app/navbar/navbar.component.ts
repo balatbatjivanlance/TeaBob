@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(public router: Router, private ds: DataService) { }
 
+  user_role = localStorage.getItem("user_role");
+
   ngOnInit(): void {
     this.pullCart();
   }

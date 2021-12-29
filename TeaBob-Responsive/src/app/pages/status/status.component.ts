@@ -54,7 +54,7 @@ export class StatusComponent implements OnInit {
   is_approved: any;
 
   pullStatus() {
-    this.ds.sendApiRequest("checkout/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("status/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.status_payload = data.payload;
     
     console.log(this.is_approved)
@@ -108,15 +108,29 @@ export class StatusComponent implements OnInit {
   }
 
 
-  openCorBreakDown(code: any) {
+  openCorBreakDown(status: any) {
     // console.log(code);
     const dialogRef = this.dialog.open(OrdersModalComponent , {
       height: '50%',
       width: '50%',
       data: 
-      code
+      status
     });
   }
+
+  orderInfo: any  = {};
+
+  async delorder(e:any) {
+    this.orderInfo.cocode = e;
+
+        this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+          alert('Order Removed');
+          // this.pullOrders();
+        });
+
+  }
+
+
 
 
 }

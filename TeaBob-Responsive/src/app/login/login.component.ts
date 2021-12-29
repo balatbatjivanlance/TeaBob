@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.userInfo.user_address = this.user_address;
 
     await this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: { Fullname: string;
-       user_id: string; user_Contact: string; user_Address: string; } | null; }) => {
+       user_id: string; user_Contact: string; user_Address: string; user_role: string;} | null; }) => {
 
       if (res.payload == null) {
         Swal.fire({
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("id", res.payload.user_id);
         window.localStorage.setItem("user_Contact", res.payload.user_Contact);
         window.localStorage.setItem("user_Address", res.payload.user_Address);
+        window.localStorage.setItem("user_role", res.payload.user_role);
         this.router.navigate(['/home']);
         // Swal.fire({
         //   title: 'Login Successfully!',

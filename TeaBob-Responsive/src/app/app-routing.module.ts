@@ -9,6 +9,7 @@ import { SnacksComponent } from './pages/snacks/snacks.component';
 import { StatusComponent } from './pages/status/status.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'add-product', component: AddProductComponent},
  
   { path: '', component: LandingComponent},
 ];

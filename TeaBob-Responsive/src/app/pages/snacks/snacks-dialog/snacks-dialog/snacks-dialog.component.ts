@@ -95,7 +95,7 @@ export class SnacksDialogComponent implements OnInit {
       this.prodInfo.add_sauce = addSauce;
       console.log(this.food_total);
     }else{
-        let addSauce =  10;
+        let addSauce =  10 * this.food_qty;
         this.food_total =  this.food_total - addSauce;
         this.extraSauce=  10;
         this.prodInfo.add_sauce = this.extraSauce;

@@ -47,24 +47,24 @@ class Post{
 
 
     // ADD PRODUCT
-    public function addProduct($data) {
+    // public function addProduct($data) {
 
-        $code = 401;
-        $payload = null;
-        $remarks = "failed";
-        $message = "Unable to retrieve data";
-        $prodInfo = $data->prodInfo;
+    //     $code = 401;
+    //     $payload = null;
+    //     $remarks = "failed";
+    //     $message = "Unable to retrieve data";
+    //     $prodInfo = $data->prodInfo;
 
-        $res = $this->gm->insert('tbl_products', $prodInfo);
+    //     $res = $this->gm->insert('tbl_products', $prodInfo);
 
-        if($res['code']==200) {
-            $code = 200;
-            $payload = $res['data'];
-            $remarks = "success";
-            $message = "Successfully retrieved data";
-        }
-        return $this->gm->sendPayload($payload, $remarks, $message, $code);
-    }
+    //     if($res['code']==200) {
+    //         $code = 200;
+    //         $payload = $res['data'];
+    //         $remarks = "success";
+    //         $message = "Successfully retrieved data";
+    //     }
+    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    // }
     
 		
 		
@@ -318,6 +318,21 @@ class Post{
 		}
     }
 
+    public function delOrder($d) {
+        $data = $d;
+        $cocode = $data->cocode;
+        $res = $this->gm->delete('tbl_cocode', $data, "code = '$cocode'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
     // // Delete Check
     // public function delCheck($d) {
     //     $data = $d;
@@ -333,4 +348,28 @@ class Post{
 	// 		$message = $res['errmsg'];
 	// 	}
     // }
+
+
+    // ADMIN CODES
+
+    // ADD PRODUCT
+    public function addProducts($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $prodInfo = $data->prodInfo;
+
+        $res = $this->gm->insert('tbl_products', $prodInfo);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
 }

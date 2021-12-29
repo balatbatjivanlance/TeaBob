@@ -26,6 +26,13 @@
 						echo json_encode($get->pullFood($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'products':
+					if(count($req)>1) {
+						echo json_encode($get->pullProducts($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullProducts($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'foodfeatured':
 					if(count($req)>1) {
 						echo json_encode($get->pullFoodFeatured('tbl_food', $req[1]), JSON_PRETTY_PRINT);
@@ -166,6 +173,10 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->delProd($d), JSON_PRETTY_PRINT);
 				break;
+				case 'delOrder':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->delOrder($d), JSON_PRETTY_PRINT);
+				break;
 				// Delete cart items
 				case 'delCarts':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -216,6 +227,18 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($get->pullCodeDetails($d), JSON_PRETTY_PRINT);    
 				break;
+
+
+				// NEW ADMIN CODES
+
+				// Add Products function
+					// Add Products function
+					case 'addProducts':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($gm->insert("tbl_products",$d), JSON_PRETTY_PRINT);
+					break;
+
+					
 			}
 		break;
 

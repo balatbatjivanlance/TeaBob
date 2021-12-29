@@ -219,7 +219,7 @@ export class CartComponent implements OnInit {
               this.coInfo.cart_id = this.cart_payload[i].cart_id;
         
               Swal.fire(
-                'NG!',
+                'Great!',
                 'Check out successfully!',
                 'success'
               )

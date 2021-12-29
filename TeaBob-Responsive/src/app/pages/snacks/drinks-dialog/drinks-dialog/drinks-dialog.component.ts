@@ -87,13 +87,13 @@ export class DrinksDialogComponent implements OnInit {
   addPearl( addExtra: boolean) {
     var isChecked = addExtra;
     if (isChecked){
-      let addPearl = 10;
+      let addPearl = 10 * this.food_qty;
       this.food_total = this.food_total + addPearl;
       this.extraPearl =  10;
       this.prodInfo.add_pearl = this.extraPearl;
       console.log(this.food_total);
     }else{
-        let addPearl =  10;
+        let addPearl =  10 * this.food_qty;
         this.food_total =  this.food_total - addPearl;
         this.extraPearl= 0;
         this.prodInfo.add_pearl = this.extraPearl;
@@ -104,13 +104,13 @@ export class DrinksDialogComponent implements OnInit {
   addCcheese( addExtra: boolean) {
     var isChecked = addExtra;
     if (isChecked){
-      let addCcheese = 10;
+      let addCcheese = 10 * this.food_qty;
       this.food_total = this.food_total + addCcheese;
       this.extraCcheese = 10;
       this.prodInfo.add_ccheese = this.extraCcheese;
       console.log(this.food_total);
     }else{
-        let addCcheese =  10;
+        let addCcheese =  10 * this.food_qty;
         this.food_total =  this.food_total - addCcheese;
         this.extraCcheese= 10;
         this.prodInfo.add_ccheese = this.extraCcheese;
@@ -121,13 +121,13 @@ export class DrinksDialogComponent implements OnInit {
   addCPuff( addExtra: boolean) {
     var isChecked = addExtra;
     if (isChecked){
-      let addCPuff = 10;
+      let addCPuff = 10 * this.food_qty;
       this.food_total = this.food_total + addCPuff;
       this.extraCPuff = 10;
       this.prodInfo.add_cpuff = this.extraCPuff;
       console.log(this.food_total);
     }else{
-        let addCPuff =  10;
+        let addCPuff =  10 * this.food_qty;
         this.food_total =  this.food_total - addCPuff;
         this.extraCPuff= 10;
         this.prodInfo.add_cpuff = this.extraCPuff;
@@ -138,13 +138,13 @@ export class DrinksDialogComponent implements OnInit {
   addCookie( addExtra: boolean) {
     var isChecked = addExtra;
     if (isChecked){
-      let addCookie = 10;
+      let addCookie = 10 * this.food_qty;
       this.food_total = this.food_total + addCookie;
       this.extraCookie = 10;
       this.prodInfo.add_cookie = this.extraCookie;
       console.log(this.food_total);
     }else{
-        let addCookie =  10;
+        let addCookie =  10 * this.food_qty;
         this.food_total =  this.food_total - addCookie;
         this.extraCookie= 10;
         this.prodInfo.add_cookie = this.extraCookie;
