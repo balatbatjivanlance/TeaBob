@@ -167,12 +167,36 @@
     background-size: 50%;
 }
 
+.quant {
+    width: auto;
+    height: 130px;
+   
+}
+
+.butt {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    width: auto;
+    height: 30%;
+    
+}
 .card-order .card-order-info {
     height: 30%;
     width: 100%;
     padding: 15px;
     background-color: #efc3a4;
+    display: flex;
 }
+/* /* .logos{
+    /* background-image:url("../../../assets/tealogopng.png");
+
+     height: 350px;
+     width: 350px;
+}  */
+
 
 .card-order .card-order-info p span {
     display: block;
@@ -187,10 +211,12 @@
     font-size: 14px;
     font-style: italic;
 }
-
-.card-order .card-order-action {
-    height: 50%;
-    width: 100%;
+.p-content{
+    
+}
+ .card-order-action {
+     width: auto;
+     height: auto;  
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -198,11 +224,13 @@
 }
 
 .card-order-content{
-    padding-left: 10px;
-    padding-top: 10px;
+    display: grid;
+    width: auto;
+    height: auto;
 }
 .card-order-content .main-food{
-    margin-bottom: 100px;
+    
+
 }
 .quantity{
     float: right;

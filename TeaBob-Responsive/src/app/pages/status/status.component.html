@@ -24,16 +24,26 @@
     <div class="card-container">
         <div class="card-order" *ngFor="let status of status_payload">
             <div class="card-order-info">
-                <p>
-                    <span>{{status.code}}</span>
-                    <span>{{status.checkout_date | date }} </span>
-                </p>
+                <div class="code">
+                    <p>
+                        <span>{{status.code}}</span>
+                        <span>{{status.date }} </span>
+                    </p>
+                </div>
+                <!-- <div class="logos">
+                    <span>
+                        <img src="../../../assets/tealogopng.png" alt="">
+                    </span>
+                </div>  -->
+
+                
             </div>
             <div class="card-order-content">
-                <p>
+                <div class="image"></div>
+                <div class="p-content">
                     
                     
-                    <span class="main-food">{{status.prod_name}}</span>
+                    <!-- <span class="main-food">{{status.prod_name}}</span>
                     <br>
 
 
@@ -44,15 +54,22 @@
                     <span class="addons" *ngIf="status.add_sauce == '10'"> Extra Sauce </span>
                     <span class="addons" *ngIf="status.add_spicy == '10'"> Spicy </span>
                     
-                    <br><br><br><br><br>
-                    <span>Quantity <span class="quantity">{{status.food_quantity}}</span></span><br>
-                    <span>Total Price:  </span><span class="quantity">{{status.prod_price}}</span>
-                </p>
-                
+                    <br><br><br><br><br> -->
+                    <div class="quant">
+                        <span>Quantity <span class="quantity">{{status.food_quantity}}</span></span><br>
+                        <span>Total Price:  </span><span class="quantity">{{status.prod_price}}  </span>
+                    </div>
+                    
+                    <div class="butt">
+                        <button class="card-order-action" mat-stroked-button color="primary" (click)="openCorBreakDown(status)">View Orders</button>
+                        <button class="card-order-action" mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button>
+                    </div>
+                        
+                </div>
+<!--                 
             <div class="card-order-action">
-                <button mat-stroked-button color="primary" (click)="openCorBreakDown(status)">View Orders</button>
-                <button mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button>
-            </div>
+
+            </div> -->
             </div>
         </div>
     </div>
