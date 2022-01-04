@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+// import { FormGroup, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -13,8 +14,9 @@ import Swal from 'sweetalert2';
 })
 export class AddProductComponent implements OnInit {
 
+
   constructor(private ds: DataService, public dialog:MatDialog,
-    route:ActivatedRoute, ) { }
+    route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.pullProduct();
@@ -79,6 +81,11 @@ export class AddProductComponent implements OnInit {
     });
 
     console.log(this.prodInfo)
+
+  }
+
+
+  onSubmit() {
 
   }
 

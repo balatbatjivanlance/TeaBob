@@ -1,91 +1,160 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<!-- <div class="form">
-    <div class="form-container">
-      <br><br>
-      <mat-form-field appearance="outline" style="width: 90%;">
-        <mat-label>Product Name</mat-label>
-        <input matInput [(ngModel)]="prod_name">
-      </mat-form-field>
-      <mat-form-field appearance="outline" style="width: 90%;">
-        <mat-label>Product Description</mat-label>
-        <input matInput [(ngModel)]="prod_description">
-      </mat-form-field>
-      <mat-form-field appearance="outline" style="width: 90%;">
-        <mat-label>Product Category</mat-label>
-        <select matNativeControl required name="country" id="country" (change)="selectChangeHandler($event)"
-          [(ngModel)]="prod_category">
-          <option value="Foods">Foods</option>
-          <option value="Drinks">Drinks</option>
-        </select>
-      </mat-form-field>
-      <mat-form-field appearance="outline" style="width: 90%;">
-        <mat-label>Product Price</mat-label>
-        <input matInput [(ngModel)]="prod_price">
-      </mat-form-field>
 
-      <div class="img-container" style="margin-left: 20px;">
-        <img class="image-container" [src]="imgSrc" alt="img"
-          style="width: 100px; height: 100px; display: none" />
-        <input type="file" (change)="onUploadHandler($event)" />
-      </div>
+<mat-card class="prod-card">
+  <h1>Add Product</h1>
 
-      <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">Add</button>
-    </div>
-  </div> -->
-
-  <input type="text" placeholder="Product Name" [(ngModel)]="prod_name">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Product Name</mat-label>
+<input matInput type="text" [(ngModel)]="prod_name"> 
+</mat-form-field>
   <br>
-  <input type="text" placeholder="Product Description" [(ngModel)]="prod_description">
+  
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Product Description</mat-label>
+  <input type="text" matInput [(ngModel)]="prod_description">
   <br>
+</mat-form-field>
+
   <mat-form-field appearance="outline" style="width: 90%;">
     <mat-label>Product Category</mat-label>
-    <select matNativeControl required name="country" id="country" (change)="selectChangeHandler($event)"
+    <mat-select matNativeControl required name="category" id="category" (change)="selectChangeHandler($event)"
       [(ngModel)]="prod_category">
-      <option value="Foods">Foods</option>
-      <option value="Drinks">Drinks</option>
-    </select>
+      <mat-option value="Foods">Foods</mat-option>
+      <mat-option value="Drinks">Drinks</mat-option>
+    </mat-select>
   </mat-form-field>
   <br>
 
-  <input type="text" placeholder="Product Price" [(ngModel)]="prod_price">
-  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Product Price</mat-label>
+  <input matInput type="number" [(ngModel)]="prod_price">
+</mat-form-field>
+<br>
+
   <div class="img-container" style="margin-left: 20px;">
     <img class="image-container" [src]="imgSrc" alt="img"
       style="width: 100px; height: 100px; display: none" />
-    <input type="file" (change)="onUploadHandler($event)" />
+    <input class="input-image" type="file" (change)="onUploadHandler($event)" />
   </div>
 
+  <br><br>
   <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">Add</button>
+  
+  </mat-card>
+
+<mat-card class="var-card">
 
 
-  <div class="prod-card" *ngFor = " let product of product"> 
-    <!-- <p>
-        {{product.prod_name}}
-    </p>
+</mat-card>
+ -->
 
-    <img src="{{product.prod_img}}" alt=""> -->
+<app-navbar></app-navbar>
+
+
+
+<div class="container">
+  <!-- <form [formGroup] = "addproduct" (ngSubmit) = "onSubmit()" autocomplete="off"> -->
+  <div class="prod-container">
+    <mat-card class="prod-card">
+      <h1>Add Product</h1>
+
+ 
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input matInput type="text" [(ngModel)]="prod_name" />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product Description</mat-label>
+        <input type="text" matInput [(ngModel)]="prod_description" />
+        <br />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 90%">
+        <mat-label>Product Category</mat-label>
+        <mat-select
+          matNativeControl
+          required
+          name="category"
+          id="category"
+          (change)="selectChangeHandler($event)"
+          [(ngModel)]="prod_category"
+        >
+          <mat-option value="Foods">Foods</mat-option>
+          <mat-option value="Drinks">Drinks</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product Price</mat-label>
+        <input matInput type="number" [(ngModel)]="prod_price" />
+      </mat-form-field>
+      <br />
+
+      <div class="img-container" style="margin-left: 20px">
+        <img
+          class="image-container"
+          [src]="imgSrc"
+          alt="img"
+          style="width: 100px; height: 100px; display: none"
+        />
+        <input  
+          class="input-image"
+          type="file"
+          (change)="onUploadHandler($event)"
+        />
+      </div>
+
+      <br /><br />
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="addProducts()"
+        class="add-button"
+      >
+        Add 
+      </button>
+    </mat-card>
   </div>
 
-  <!-- <p *ngFor = " let products of products">
-      <span>{{products.prod_name}}</span>
-  </p> -->
+ 
+  <div class="var-container">
+    <div class="cta">
+      <button routerLink="/">Add Variation</button>
+    </div>
+    <div class="var-card">
 
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Variation Name</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
 
-  
-<table id="customers" *ngFor="let product of product">
-    <tr>
-      <th>Product Name</th>
-      <th>Product Price</th>
-    </tr>
-    <tr>
-      <td>{{product.prod_name}}</td>
-      <td>{{product.prod_price}}</td>
-   
-    </tr>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput type="number"  />
+      </mat-form-field>
 
-  </table>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Stocks</mat-label>
+        <input matInput type="number"  />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Size</mat-label>
+        <input matInput type="text"  />
+      </mat-form-field>
+
+    </div>
+
+    <div class="del-var">
+    <button><mat-icon>delete</mat-icon></button>
+  </div>
+
+  </div>
+  <!-- </form> -->
+
+</div>

@@ -132,7 +132,7 @@
 			return array(
 				"status"=>$status,
 				"payload"=>$payload,
-				'prepared_by'=>'Austin Ray Aranda - BSIT 4A',
+				'prepared_by'=>'IT Movers',
 				"timestamp"=>date_create());
 		} 
 

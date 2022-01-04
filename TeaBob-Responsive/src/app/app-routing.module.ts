@@ -10,6 +10,7 @@ import { StatusComponent } from './pages/status/status.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'add-product', component: AddProductComponent},
+  { path: 'dashboard', component: DashboardComponent},
  
   { path: '', component: LandingComponent},
 ];

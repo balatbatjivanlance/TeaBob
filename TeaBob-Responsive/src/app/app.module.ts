@@ -1,32 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatBadgeModule} from '@angular/material/badge';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
-import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LandingComponent } from './landing/landing.component';
 import { LandingNavComponent } from './landing-nav/landing-nav.component';
 import { CartDialogComponent } from './pages/cart/cart-dialog/cart-dialog/cart-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { SnacksDialogComponent } from './pages/snacks/snacks-dialog/snacks-dialog/snacks-dialog.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
 import { StatusDialogComponent } from './pages/status/status-dialog/status-dialog/status-dialog.component';
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
-import { MatIconModule } from '@angular/material/icon';
 import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-dialog.component';
 import { StatusComponent } from './pages/status/status.component';
 import { OrdersModalComponent } from './orders-modal/orders-modal.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { CategoryComponent } from './admin/category/category.component';
+import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
 // Material Imports
+
+
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 
@@ -46,7 +55,10 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
     ProfileDialogComponent,
     StatusComponent,
     OrdersModalComponent,
-    AddProductComponent
+    AddProductComponent,
+    DashboardComponent,
+    CategoryComponent,
+    ManageProductComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +71,10 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
