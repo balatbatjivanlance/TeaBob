@@ -1,11 +1,28 @@
+<table>
+    <tr>
+      <th>Code: </th>
+      <th>Food name: </th>
+      <th>Price: </th>
+      <th>Quantity: </th>
+      <th>Checkout Date: </th>
+    </tr>
+    <tr *ngFor = "let details of details">
+      <td>{{details.code}}</td>
+      <td>{{details.prod_name}}</td>
+      <td>₱{{details.prod_price}}.00</td>
+      <td>{{details.food_quantity}}</td>
+      <td>{{details.checkout_date}}</td>
+    </tr>
 
-<p *ngFor = "let details of details">
+  </table>
+
+
+<!-- <p *ngFor = "let details of details">
     <span>Code: {{details.code}}</span><br>
 
-    <span> {{details.prod_name}}</span><br>
-    <span> {{details.prod_price}}</span><br>
-    <span> {{details.food_quantity}}</span><br>
-    <span> {{details.checkout_date}}</span><br>
-    <span> {{details.code}}</span>
-    <!-- <span>Code: {{details.total_price}}</span> -->
-</p>
+    <span>Food name: {{details.prod_name}}</span><br>
+    <span>Price: ₱{{details.prod_price}}.00</span><br>
+    <span>Quantity: {{details.food_quantity}}</span><br>
+    <span>Checkout Date: {{details.checkout_date}}</span><br>
+
+</p> -->

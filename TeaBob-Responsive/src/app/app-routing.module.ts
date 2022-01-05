@@ -11,6 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { CategoryComponent } from './admin/category/category.component';
+import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -23,6 +25,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'category', component: CategoryComponent},
+  { path: 'manage-product', component: ManageProductComponent},
+
  
   { path: '', component: LandingComponent},
 ];

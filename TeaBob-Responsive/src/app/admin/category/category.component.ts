@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import {MatDialog} from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-category',
@@ -7,7 +12,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService, public dialog:MatDialog,
+    route:ActivatedRoute) { }
 
   ngOnInit(): void {
   }

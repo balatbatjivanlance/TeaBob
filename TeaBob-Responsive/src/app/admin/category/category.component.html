@@ -1,1 +1,65 @@
-<p>category works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+    <!-- <form [formGroup] = "addproduct" (ngSubmit) = "onSubmit()" autocomplete="off"> -->
+    <div class="prod-container">
+      <mat-card class="prod-card">
+        <h1>Add Category</h1>
+  
+   
+  
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Category Name</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <br />
+  
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Active</mat-label>
+          <mat-select>
+            <mat-option value="Foods">Yes</mat-option>
+            <mat-option value="Drinks">No</mat-option>
+          </mat-select>
+          <br />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Featured</mat-label>
+          <mat-select>
+            <mat-option value="Foods">Yes</mat-option>
+            <mat-option value="Drinks">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+  
+
+  
+        <br /><br />
+        <button
+          mat-stroked-button
+          color="primary"
+
+          class="add-button"
+        >
+          Add 
+        </button>
+      </mat-card>
+    </div>
+
+
+    <div class="var-container">
+        <table>
+            <tr>
+              <th>Category Name </th>
+              <th>Active </th>
+              <th>Featured</th>
+            </tr>
+            <tr >
+              <td>sample</td>
+              <td>sample</td>
+              <td>sample</td>
+
+            </tr>
+        
+          </table>
+    </div>
+    </div>
