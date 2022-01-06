@@ -5,17 +5,23 @@
 <div class="container">
         <table>
             <tr>
-              <th>Category Name </th>
-              <th>Active </th>
+              <th>ID </th>
+              <th>Name </th>
+              <th>Price </th>
+              <th>Image</th>
               <th>Featured</th>
+              <th>Active</th>
               <th>Action</th>
             </tr>
-            <tr >
-              <td>sample</td>
-              <td>sample</td>
-              <td>sample</td>
+            <tr *ngFor = "let adminfood of adminfood">
+              <td>{{adminfood.food_id}}</td>
+              <td>{{adminfood.food_name}}</td>
+              <td>{{adminfood.food_price}}</td>
+              <td><img src="{{adminfood.food_image_name}}" alt="" class="image-file"></td>
+              <td>{{adminfood.food_featured}}</td>
+              <td>{{adminfood.food_active}}</td>
                 <td width="200px">
-                    <button mat-raised-button color="primary">View</button>
+                    <button mat-raised-button color="primary" (click)="openCorBreakDown(adminfood)">View</button>
                     <button mat-raised-button color="warn">Delete</button>
                 </td>
             </tr>

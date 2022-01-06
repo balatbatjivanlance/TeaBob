@@ -67,23 +67,23 @@ export class StatusComponent implements OnInit {
   updateStatus() {
     
      Swal.fire({
-      title: 'Did you received your order?',
+      title: 'Are you sure to cancel your orders?',
       showDenyButton: true,
       confirmButtonText: 'Yes!',
-      denyButtonText: `Not Yet`,
+      denyButtonText: `No!`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         let id  = localStorage.getItem("id");
  
     this.statusinfo.user_id =  id;
-    this.statusinfo.is_approved =  1
+    this.statusinfo.is_approved =  2
      this.ds.sendApiRequest("updateStatus/" + id, this.statusinfo).subscribe((data: { payload: any; }) => {});
      this.sendMessage();
 
-        Swal.fire('Received!', '', 'success')
+        Swal.fire('Order Cancelled', '', 'success')
       } else if (result.isDenied) {
-        Swal.fire('Kindly wait for your order', '', 'info')
+        Swal.fire('Thank you for your fast update', '', 'info')
       }
     })
      this.dialog.closeAll();

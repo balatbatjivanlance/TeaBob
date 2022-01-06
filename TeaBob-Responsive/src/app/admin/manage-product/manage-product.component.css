@@ -23,3 +23,9 @@
   th, td {
     padding: 15px;
   }
+
+  .image-file{
+    width: 100px;
+    height: 100px;
+    margin-left: 15%;
+  }

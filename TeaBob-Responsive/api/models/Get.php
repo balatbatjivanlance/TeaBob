@@ -50,23 +50,6 @@ class Get{
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
-	
-	//PULL CATEGORIES
-	public function pullCategory ($column) {
-		$sql = "SELECT * FROM tbl_$column";
-	
-		$res = $this->gm->generalQuery($sql, "No records found");
-		if ($res['code'] == 200) {
-			$payload = $res['data'];
-			$remarks = "success";
-			$message = "Successfully retrieved requested data";
-		} else {
-			$payload = null;
-			$remarks = "failed";
-			$message = $res['errmsg'];
-		}
-		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
-	}
 
     //Pull User
     public function pullUsers ($user_id) {
@@ -272,5 +255,57 @@ class Get{
 	}
 
 
+	//admin
+
+public function pullCategory ($d) {
+	$sql = "SELECT * FROM tbl_category";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
+
+public function pullDashboard ($d) {
+	$sql = "SELECT * FROM tbl_cocode";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+public function adminPullFood ($d) {
+	$sql = "SELECT * FROM tbl_food";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+}
+
+
 ?>

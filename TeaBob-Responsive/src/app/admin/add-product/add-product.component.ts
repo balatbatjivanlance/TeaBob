@@ -21,6 +21,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
     this.pullProduct();
   }
+  
   product: any;
   
 
@@ -54,33 +55,33 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  prod_name: any;
-  prod_category: any;
-  prod_price: any;
-  prod_description : any;
-  prodInfo : any = {};
+  food_name: any;
+  food_category: any;
+  food_price: any;
+  food_description : any;
+  food_Info : any = {};
 
 
   addProducts() {
 
-    this.prodInfo.prod_name = this.prod_name;
-    this.prodInfo.prod_description = this.prod_description;
-    this.prodInfo.prod_category = this.prod_category = this.selectedCateg;
-    this.prodInfo.prod_price  = this.prod_price;
-    this.prodInfo.prod_img = this.imgSrc;
+    this.food_Info.food_name = this.food_name;
+    this.food_Info.food_description = this.food_description;
+    this.food_Info.food_category = this.food_category = this.selectedCateg;
+    this.food_Info.food_price  = this.food_price;
+    this.food_Info.food_image_name = this.imgSrc;
 
 
-    this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.prodInfo))).subscribe((data: any) => {
+    this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
       // this.pullProducts()
 
-      this.prod_name = '';
-      this.prod_description = '';
-      this.prod_category = '';
-      this.prod_price = '';
+      this.food_name = '';
+      this.food_description = '';
+      this.food_category = '';
+      this.food_price = '';
       this.imgSrc = '';
     });
 
-    console.log(this.prodInfo)
+    console.log(this.food_Info)
 
   }
 

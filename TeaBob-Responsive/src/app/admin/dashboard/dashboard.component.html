@@ -1,112 +1,91 @@
+
+
 <app-navbar></app-navbar>
 
-
-<body>
-    
-
-    <div class="container">
-        
-        <div class="sum-container">
-            <div class="total-categ">
-    
-            </div>
-            <div class="total-food">
-    
-            </div>
-            <div class="total-revenue">
-                
-            </div>
-        </div>
-
-        <div class="table-container">
-            <div class="title">
-
-                <h1 onclick="elzero()">Orders </h1>
-            
-              </div>
-            
-              <table>
-            
-                <!--header-->
-            
-                <thead>
-            
-                  <tr>
-            
-            
-                    <td class="special">
-            
-                      ID
-            
-                    </td>
-            
-                    <td>Order Code</td>
-                    <td>Price</td>
-                    <td>Date</td>
-                    <td>Customer</td>
-                    <td>Contact No.</td>
-                    <td>Address</td>
-                    <td>Status</td>
-                    <td>Action</td>
-            
-                  </tr>
-            
-                </thead>
-            
-                <!--body-->
-            
-                <tbody>
-            
-                  <!--one-->
-            
-                  <tr>
-            
-            
-                    <td>1</td>
-                    <td>Ahmed</td>
-                    <td>120</td>
-                    <td>1/4/2022</td>
-                    <td>Ahmed</td>
-                    <td>Ahmed</td>
-                    <td>Ahmed</td>
-                    <td>Ahmed</td>
-                    <td class="control">
-            
-                      <div>
-            
-                        <button class="view">View</button>
-            
-                      </div>
-            
-                      <div>
-            
-                        <button class="delete">Delete</button>
-            
-                      </div>
-            
-                    </td>
-            
-                  </tr>
-
-            
-
-            
-
-            
-
-
-   
-            
-
-            
-
-            
-                </tbody>
-            
-              </table>
-        </div>
+<div class="container">
+  <div class="dashboard-top">
+    <div class="dashboard-card">
+      <div class="dashboard-card-left">
+        <img src="./assets/group.png" alt="">
+      </div>
+      <div class="dashboard-card-right">
+        <p>
+          <span>{{prodCounter}}</span>
+          <span>Total Products</span>
+        </p>
+      </div>
     </div>
+    <div class="dashboard-card">
+      <div class="dashboard-card-left">
+        <img src="./assets/group.png" alt="">
+      </div>
+      <div class="dashboard-card-right">
+        <p>
+          <span>{{categCounter}}</span>
+          <span>Total Categories</span>
+        </p>
+      </div>
+    </div>
+    <div class="dashboard-card">
+      <div class="dashboard-card-left">
+        <img src="./assets/group.png" alt="">
+      </div>
+      <div class="dashboard-card-right">
+        <p>
+          <span>{{prodCounter}}</span>
+          <span>Total Products</span>
+        </p>
+      </div>
+    </div>
+    <div class="dashboard-card">
+      <div class="dashboard-card-left">
+        <img src="./assets/group.png" alt="">
+      </div>
+      <div class="dashboard-card-right">
+        <p>
+          <span>{{prodCounter}}</span>
+          <span>Total Products</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-bottom">
+    
+
+      <table>
+          <tr>
+            <th>ID </th>
+              <th>Order Code </th>
+              <th>Customer </th>
+              <th>Contact No.</th>
+              <th>Address</th>
+              <th>Date</th>
+              <th>Price </th>
+              <th>Status</th>
+              <th>Action</th>
+          </tr>
+          <tr *ngFor = "let dashboard of dashboard">
+            <td>{{dashboard.cocode_id}}</td>
+            <td>{{dashboard.code}}</td>
+            <td>{{dashboard.user_name}}</td>
+            <td>{{dashboard.user_contact}}</td>
+            <td>{{dashboard.user_address}}</td>
+            <td>{{dashboard.date}}</td>
+            <td>{{dashboard.total_price}}</td>
+            <td *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</td>
+            <td *ngIf ="dashboard.is_approved == '1'" >Approved</td>
+            <td *ngIf ="dashboard.is_approved == '2'" >Cancel</td>
+              <td width="200px">
+                  <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
+                  <button mat-raised-button color="warn">Delete</button>
+              </td>
+          </tr>
+      
+        </table>
+
+  </div>
 
 
 
-</body>
+</div>
+

@@ -36,6 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
+import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
+import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 
 
 
@@ -58,7 +60,9 @@ import {MatRadioModule} from '@angular/material/radio';
     AddProductComponent,
     DashboardComponent,
     CategoryComponent,
-    ManageProductComponent
+    ManageProductComponent,
+    ViewOrdersComponent,
+    UpdateFoodComponent
   ],
   imports: [
     BrowserModule,

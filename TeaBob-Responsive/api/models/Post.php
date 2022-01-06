@@ -359,9 +359,9 @@ class Post{
         $payload = null;
         $remarks = "failed";
         $message = "Unable to retrieve data";
-        $prodInfo = $data->prodInfo;
+        $food_Info = $data->food_Info;
 
-        $res = $this->gm->insert('tbl_products', $prodInfo);
+        $res = $this->gm->insert('tbl_food', $food_Info);
 
         if($res['code']==200) {
             $code = 200;
