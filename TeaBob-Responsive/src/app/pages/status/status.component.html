@@ -61,10 +61,10 @@
                     </div>
                     
                     <div class="butt">
-                        <button class="card-order-action" mat-stroked-button color="primary" (click)="openCorBreakDown(status)">View Orders</button>
-                        <button class="card-order-action" mat-stroked-button color="primary" *ngIf ="status.is_approved == '1'" style="display: none;" >Cancel Order</button>
-                        <button class="card-order-action" mat-stroked-button color="primary" *ngIf ="status.is_approved == '0' "(click)="updateStatus()" >Cancel Order</button>
-                        <button class="card-order-action" mat-stroked-button color="primary" *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
+                        <button class="card-order-action" mat-stroked-button (click)="openCorBreakDown(status)">View Orders</button>
+                        <button class="card-order-action" mat-stroked-button color="warn" *ngIf ="status.is_approved == '1'" style="display: none;" >Cancel Order</button>
+                        <button class="card-order-action" mat-stroked-button color="warn" *ngIf ="status.is_approved == '0' "(click)="updateStatus()" >Cancel Order</button>
+                        <button class="card-order-action" mat-raised-button *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
                         <!-- <button class="card-order-action" mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button> -->
                     </div>
                         

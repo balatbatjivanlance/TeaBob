@@ -35,4 +35,14 @@ export class ViewOrdersComponent implements OnInit {
     })
   }
 
+  dashboard: any;
+  
+  pullDashboard() {
+    this.ds.sendApiRequest("dashboard", null).subscribe((data: { payload: any; }) => {
+      this.dashboard = data.payload;
+
+    })
+  
+}
+
 }
