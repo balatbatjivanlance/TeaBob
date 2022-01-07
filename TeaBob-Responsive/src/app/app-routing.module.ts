@@ -13,6 +13,7 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
+import { SampleComponentComponent } from './sample-component/sample-component.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -30,6 +31,10 @@ const routes: Routes = [
 
  
   { path: '', component: LandingComponent},
+
+
+
+  {path: 'sample', component: SampleComponentComponent}
 ];
 
 @NgModule({

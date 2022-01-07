@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 // import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -20,7 +21,42 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullProduct();
+    this.pullCategory();
   }
+
+  user_role = localStorage.getItem("user_role");
+
+
+  // SIDENAV AND TOOLBAR CODE 
+
+  showFiller = false;
+  sidenav!: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
+  isLargeScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width > 769) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
   
   product: any;
   
@@ -33,6 +69,19 @@ export class AddProductComponent implements OnInit {
     })
   
   }
+
+  category: any;
+
+  pullCategory(){
+    this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
+    this.category = data.payload;
+
+    console.log(this.category)
+    })
+  
+  }
+
+  
 
   selectedCateg: string = '';
 
@@ -66,19 +115,15 @@ export class AddProductComponent implements OnInit {
 
     this.food_Info.food_name = this.food_name;
     this.food_Info.food_description = this.food_description;
-    this.food_Info.food_category = this.food_category = this.selectedCateg;
+    this.food_Info.category_id = this.food_category = this.selectedCateg;
     this.food_Info.food_price  = this.food_price;
     this.food_Info.food_image_name = this.imgSrc;
 
 
     this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
-      // this.pullProducts()
 
-      this.food_name = '';
-      this.food_description = '';
-      this.food_category = '';
-      this.food_price = '';
-      this.imgSrc = '';
+
+  
     });
 
     console.log(this.food_Info)

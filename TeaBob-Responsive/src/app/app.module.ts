@@ -24,8 +24,9 @@ import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
 // Material Imports
-
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +39,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
+import { SampleComponentComponent } from './sample-component/sample-component.component';
 
 
 
@@ -62,7 +64,8 @@ import { UpdateFoodComponent } from './admin/update-food/update-food.component';
     CategoryComponent,
     ManageProductComponent,
     ViewOrdersComponent,
-    UpdateFoodComponent
+    UpdateFoodComponent,
+    SampleComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,10 @@ import { UpdateFoodComponent } from './admin/update-food/update-food.component';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

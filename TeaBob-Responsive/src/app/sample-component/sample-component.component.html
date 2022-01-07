@@ -1,0 +1,58 @@
+<mat-sidenav-container autosize>
+
+  <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()">
+    <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+      filter: invert(100%);">
+    <br>
+    <mat-divider [vertical]="false"></mat-divider>
+
+    <!--THIS ARE IS FOR BUTTONS INSIDE YOUR SIDENAV BAR -->
+
+    <!-- ADMIN BUTTONS -->
+
+    <button mat-button class="button" routerLink="/sample" routerLinkActive="selected">
+      <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+    </button>
+    <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
+      <mat-icon>add_circle</mat-icon>&nbsp; Add Product
+    </button>
+    <button mat-button class="button" *ngIf ="user_role == '0'">
+      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+    </button>
+    <button mat-button class="button" *ngIf ="user_role == '0'">
+      <mat-icon>category</mat-icon>&nbsp; Category
+    </button>
+
+    <!-- USER BUTTONS -->
+
+    <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
+      <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+    </button>
+
+
+
+  </mat-sidenav>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button class="example-icon" (click)="isExpanded = !isExpanded"
+        aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+        <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
+        <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
+      </button>
+      <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+
+      <span class="example-spacer"></span>
+
+    </mat-toolbar>
+
+    <!-- END OF SIDENAV AND TOOLBAR CODE  -->
+
+
+    <!-- THIS IS YOUR CONTENT CONTAINER -->
+    <div class="container">
+
+    </div>
+  </div>
+</mat-sidenav-container>

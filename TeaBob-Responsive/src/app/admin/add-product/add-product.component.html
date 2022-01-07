@@ -1,160 +1,232 @@
-<!-- <app-navbar></app-navbar>
+<mat-sidenav-container autosize>
+
+  <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()">
+    <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+      filter: invert(100%);">
+    <br>
+    <mat-divider [vertical]="false"></mat-divider>
+
+    <!--THIS ARE IS FOR BUTTONS INSIDE YOUR SIDENAV BAR -->
+
+    <!-- ADMIN BUTTONS -->
+
+    <button mat-button class="button" routerLink="/sample" routerLinkActive="selected">
+      <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+    </button>
+    <button mat-button class="button" *ngIf="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
+      <mat-icon>add_circle</mat-icon>&nbsp; Add Product
+    </button>
+    <button mat-button class="button" *ngIf="user_role == '0'">
+      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+    </button>
+    <button mat-button class="button" *ngIf="user_role == '0'">
+      <mat-icon>category</mat-icon>&nbsp; Category
+    </button>
+
+    <!-- USER BUTTONS -->
+
+    <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf="user_role == '1'">
+      <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+    </button>
+
+  </mat-sidenav>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button class="example-icon" (click)="isExpanded = !isExpanded"
+        aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+        <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
+        <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
+      </button>
+      <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+
+      <span class="example-spacer"></span>
+
+    </mat-toolbar>
+
+    <!-- END OF SIDENAV AND TOOLBAR CODE  -->
 
 
-<mat-card class="prod-card">
-  <h1>Add Product</h1>
+    <!-- THIS IS YOUR CONTENT CONTAINER -->
+    <div class="container">
+      <!-- <div class="prod-container">
+        <mat-card class="prod-card">
+          <h1>Add Product</h1>
+    
+     
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput type="text" [(ngModel)]="food_name" />
+          </mat-form-field>
+          <br />
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Description</mat-label>
+            <input type="text" matInput [(ngModel)]="food_description" />
+            <br />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Select Role</mat-label>
+            <select matNativeControl name="country" id="country" (change)="selectChangeHandler($event)"
+              [(ngModel)]="food_category" >
+              <option  *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}</option>
+            </select>
+          </mat-form-field>
+    
+    
+          <br />
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Price</mat-label>
+            <input matInput type="number" [(ngModel)]="food_price" />
+          </mat-form-field>
+          <br />
+    
+          <div class="img-container" style="margin-left: 20px">
+            <img
+              class="image-container"
+              [src]="imgSrc"
+              alt="img"
+              style="width: 100px; height: 100px; display: none"
+            />
+            <input  
+              class="input-image"
+              type="file"
+              (change)="onUploadHandler($event)"
+            />
+          </div>
+    
+          <br /><br />
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="addProducts()"
+            class="add-button"
+          >
+            Add 
+          </button>
+        </mat-card>
+      </div>
+    
+     
+      <div class="var-container">
+        <div class="cta">
+          <button routerLink="/">Add Variation</button>
+        </div>
+        <div class="var-card">
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Variation Name</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number"  />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Stocks</mat-label>
+            <input matInput type="number"  />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Size</mat-label>
+            <input matInput type="text"  />
+          </mat-form-field>
+    
+        </div>
+    
+        <div class="del-var">
+        <button><mat-icon>delete</mat-icon></button>
+      </div> -->
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Product Name</mat-label>
-<input matInput type="text" [(ngModel)]="prod_name"> 
-</mat-form-field>
-  <br>
-  
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Product Description</mat-label>
-  <input type="text" matInput [(ngModel)]="prod_description">
-  <br>
-</mat-form-field>
 
-  <mat-form-field appearance="outline" style="width: 90%;">
-    <mat-label>Product Category</mat-label>
-    <mat-select matNativeControl required name="category" id="category" (change)="selectChangeHandler($event)"
-      [(ngModel)]="prod_category">
-      <mat-option value="Foods">Foods</mat-option>
-      <mat-option value="Drinks">Drinks</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Product Price</mat-label>
-  <input matInput type="number" [(ngModel)]="prod_price">
-</mat-form-field>
-<br>
-
-  <div class="img-container" style="margin-left: 20px;">
-    <img class="image-container" [src]="imgSrc" alt="img"
-      style="width: 100px; height: 100px; display: none" />
-    <input class="input-image" type="file" (change)="onUploadHandler($event)" />
-  </div>
-
-  <br><br>
-  <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">Add</button>
-  
-  </mat-card>
-
-<mat-card class="var-card">
-
-
-</mat-card>
- -->
-
-<app-navbar></app-navbar>
+      <div class="prod-container">
+        <mat-card class="prod-card">
+          <h1>Add Product</h1>
 
 
 
-<div class="container">
-  <!-- <form [formGroup] = "addproduct" (ngSubmit) = "onSubmit()" autocomplete="off"> -->
-  <div class="prod-container">
-    <mat-card class="prod-card">
-      <h1>Add Product</h1>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput type="text" [(ngModel)]="food_name" />
+          </mat-form-field>
+          <br />
 
- 
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Description</mat-label>
+            <input type="text" matInput [(ngModel)]="food_description" />
+            <br />
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Product Name</mat-label>
-        <input matInput type="text" [(ngModel)]="food_name" />
-      </mat-form-field>
-      <br />
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Select Role</mat-label>
+            <select matNativeControl name="country" id="country" (change)="selectChangeHandler($event)"
+              [(ngModel)]="food_category">
+              <option *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}
+              </option>
+            </select>
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Product Description</mat-label>
-        <input type="text" matInput [(ngModel)]="food_description" />
-        <br />
-      </mat-form-field>
 
-      <mat-form-field appearance="outline" style="width: 90%">
-        <mat-label>Product Category</mat-label>
-        <mat-select
-          matNativeControl
-          required
-          name="category"
-          id="category"
-          (change)="selectChangeHandler($event)"
-          [(ngModel)]="food_category"
-        >
-          <mat-option value="Foods">Foods</mat-option>
-          <mat-option value="Drinks">Drinks</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <br />
+          <br />
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Product Price</mat-label>
-        <input matInput type="number" [(ngModel)]="food_price" />
-      </mat-form-field>
-      <br />
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Price</mat-label>
+            <input matInput type="number" [(ngModel)]="food_price" />
+          </mat-form-field>
+          <br />
 
-      <div class="img-container" style="margin-left: 20px">
-        <img
-          class="image-container"
-          [src]="imgSrc"
-          alt="img"
-          style="width: 100px; height: 100px; display: none"
-        />
-        <input  
-          class="input-image"
-          type="file"
-          (change)="onUploadHandler($event)"
-        />
+          <div class="img-container" style="margin-left: 20px">
+            <img class="image-container" [src]="imgSrc" alt="img" style="width: 100px; height: 100px; display: none" />
+            <input class="input-image" type="file" (change)="onUploadHandler($event)" />
+          </div>
+
+          <br /><br />
+          <button mat-stroked-button color="primary" (click)="addProducts()" class="add-button">
+            Add
+          </button>
+        </mat-card>
       </div>
 
-      <br /><br />
-      <button
-        mat-stroked-button
-        color="primary"
-        (click)="addProducts()"
-        class="add-button"
-      >
-        Add 
-      </button>
-    </mat-card>
-  </div>
+          
+     
+      <div class="var-container">
+        <div class="cta">
+          <button routerLink="/">Add Variation</button>
+        </div>
+        <div class="var-card">
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Variation Name</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number"  />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Stocks</mat-label>
+            <input matInput type="number"  />
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Size</mat-label>
+            <input matInput type="text"  />
+          </mat-form-field>
+    
+        </div>
+    
+ </div>
+   
 
- 
-  <div class="var-container">
-    <div class="cta">
-      <button routerLink="/">Add Variation</button>
-    </div>
-    <div class="var-card">
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Variation Name</mat-label>
-        <input matInput type="text" />
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Price</mat-label>
-        <input matInput type="number"  />
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Stocks</mat-label>
-        <input matInput type="number"  />
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Size</mat-label>
-        <input matInput type="text"  />
-      </mat-form-field>
 
     </div>
-
-    <div class="del-var">
-    <button><mat-icon>delete</mat-icon></button>
   </div>
-
-  </div>
-  <!-- </form> -->
-
-</div>
+</mat-sidenav-container>
