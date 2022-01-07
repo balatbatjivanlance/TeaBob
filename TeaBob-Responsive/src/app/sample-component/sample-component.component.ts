@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sample-component',
@@ -8,7 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class SampleComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,13 @@ export class SampleComponentComponent implements OnInit {
         return false;
     }
   }
+
+  
+  logout(){
+    localStorage.clear();
+    window.localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+}
 
   // END OF SIDENAV AND TOOLBAR CODE
 

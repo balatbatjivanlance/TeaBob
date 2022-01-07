@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +10,57 @@ import { DataService } from '../services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService,public router: Router) { }
 
   ngOnInit(): void {
     this.pullFoodFeatured();
     // this.pullCart();
   }
+  user_role = localStorage.getItem("user_role");
+
+
+  // SIDENAV AND TOOLBAR CODE 
+
+  showFiller = false;
+  sidenav!: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
+  isLargeScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width > 769) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+  
+  logout(){
+    localStorage.clear();
+    window.localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+}
+
+  // END OF SIDENAV AND TOOLBAR CODE
+
+  //INSERT YOUR NEW TS CODE HERE
+
+  
 
   foods: any[]=[];
 

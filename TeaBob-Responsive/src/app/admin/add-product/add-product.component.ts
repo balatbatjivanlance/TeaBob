@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 // import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AddProductComponent implements OnInit {
 
 
-  constructor(private ds: DataService, public dialog:MatDialog,
+  constructor(private ds: DataService,public router: Router, public dialog:MatDialog,
     route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -56,6 +57,14 @@ export class AddProductComponent implements OnInit {
         return false;
     }
   }
+  
+  
+  logout(){
+    localStorage.clear();
+    window.localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+}
+
 
   
   product: any;

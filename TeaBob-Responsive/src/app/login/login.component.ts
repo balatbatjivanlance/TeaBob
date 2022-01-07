@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   public checkRole = (role: number): any => {
     switch (role) {
       case 0:
-        return this.router.navigate(['/add-product']);
+        return this.router.navigate(['/dashboard']);
 
       case 1:
         return this.router.navigate(['/home']);

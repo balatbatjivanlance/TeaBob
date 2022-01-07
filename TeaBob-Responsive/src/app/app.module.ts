@@ -40,6 +40,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
+import { UpdateCategoryComponent } from './admin/update-category/update-category.component';
 
 
 
@@ -65,7 +66,9 @@ import { SampleComponentComponent } from './sample-component/sample-component.co
     ManageProductComponent,
     ViewOrdersComponent,
     UpdateFoodComponent,
+    UpdateCategoryComponent,
     SampleComponentComponent
+
   ],
   imports: [
     BrowserModule,

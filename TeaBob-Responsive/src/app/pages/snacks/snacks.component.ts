@@ -6,6 +6,7 @@ import {MatFormField} from '@angular/material/form-field';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DrinksDialogComponent } from './drinks-dialog/drinks-dialog/drinks-dialog.component';
+import { MatSidenav } from '@angular/material/sidenav';
 @Component({
   selector: 'app-snacks',
   templateUrl: './snacks.component.html',
@@ -17,7 +18,7 @@ export class SnacksComponent implements OnInit {
   message: any;
   private subs: Subscription;
   
-  constructor(private ds: DataService, public dialog:MatDialog,
+  constructor(private ds: DataService, public dialog:MatDialog,public router: Router,
     route:ActivatedRoute, ) { 
       this.subs = this.ds.getUpdate().subscribe(message => {
         this.message = message;
@@ -32,6 +33,51 @@ export class SnacksComponent implements OnInit {
     this.pullCart();
     this.pullCategory();
   }
+  user_role = localStorage.getItem("user_role");
+
+
+  // SIDENAV AND TOOLBAR CODE 
+
+  showFiller = false;
+  sidenav!: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
+  isLargeScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width > 769) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+  
+  logout(){
+    localStorage.clear();
+    window.localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+}
+
+  // END OF SIDENAV AND TOOLBAR CODE
+
+  //INSERT YOUR NEW TS CODE HERE
+
+  
   
   food_info: any[] = [];
   category_id: any = "";
