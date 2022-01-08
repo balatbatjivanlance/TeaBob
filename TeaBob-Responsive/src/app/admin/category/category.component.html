@@ -80,37 +80,14 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Category Name</mat-label>
-        <input matInput type="text" />
-      </mat-form-field>
-      <br />
-
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Active</mat-label>
-        <mat-select>
-          <mat-option value="Foods">Yes</mat-option>
-          <mat-option value="Drinks">No</mat-option>
-        </mat-select>
-        <br />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" >
-        <mat-label>Featured</mat-label>
-        <mat-select>
-          <mat-option value="Foods">Yes</mat-option>
-          <mat-option value="Drinks">No</mat-option>
-        </mat-select>
+        <input matInput type="text" [(ngModel)]="category_name" />
       </mat-form-field>
       <br />
 
 
 
       <br /><br />
-      <button
-        mat-stroked-button
-        color="primary"
-
-        class="add-button"
-      >
+      <button mat-stroked-button color="primary"class="add-button" (click)="addCategory()" >
         Add 
       </button>
     </mat-card>
@@ -121,13 +98,15 @@
       <table>
           <tr>
             <th>Category Name </th>
-            <th>Active </th>
-            <th>Featured</th>
+            <th>Action </th>
           </tr>
-          <tr >
-            <td>sample</td>
-            <td>sample</td>
-            <td>sample</td>
+          <tr *ngFor = "let category of category">
+            <td>{{category.category_name}}</td>
+            <td>
+              <button class="card-order-action" mat-stroked-button color="primary" (click)="delcategory(category.id)">
+                Delete
+              </button>
+            </td>
 
           </tr>
       

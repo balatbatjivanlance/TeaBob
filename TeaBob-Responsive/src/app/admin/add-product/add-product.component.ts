@@ -90,7 +90,23 @@ export class AddProductComponent implements OnInit {
   
   }
 
-  
+  selectedCategactive: string = '';
+
+  selectChangeHandleractive (event: any){
+    this.selectedCategactive = event.target.value;
+
+    console.log(this.selectedCategactive);
+  }
+
+
+  selectedCategfeatured: string = '';
+
+  selectChangeHandlerfeatured (event: any){
+    this.selectedCategfeatured = event.target.value;
+
+    console.log(this.selectedCategfeatured);
+  }
+
 
   selectedCateg: string = '';
 
@@ -114,6 +130,8 @@ export class AddProductComponent implements OnInit {
 
 
   food_name: any;
+  food_categoryactive: any;
+  food_categoryfeatured: any;
   food_category: any;
   food_price: any;
   food_description : any;
@@ -124,18 +142,15 @@ export class AddProductComponent implements OnInit {
 
     this.food_Info.food_name = this.food_name;
     this.food_Info.food_description = this.food_description;
+    this.food_Info.food_active = this.food_categoryactive = this.selectedCategactive;
+    this.food_Info.food_featured = this.food_categoryfeatured = this.selectedCategfeatured;
     this.food_Info.category_id = this.food_category = this.selectedCateg;
     this.food_Info.food_price  = this.food_price;
     this.food_Info.food_image_name = this.imgSrc;
 
-
     this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
-
-
   
     });
-
-    console.log(this.food_Info)
 
   }
 

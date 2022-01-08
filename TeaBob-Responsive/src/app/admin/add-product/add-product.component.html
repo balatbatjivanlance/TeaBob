@@ -179,8 +179,30 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Active</mat-label>
+            <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
+              [(ngModel)]="food_categoryactive">
+              <option value="Yes">Yes
+              </option>
+              <option value="No">No
+              </option>
+            </select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Featured</mat-label>
+            <select matNativeControl name="featured" id="featured" (change)="selectChangeHandlerfeatured($event)"
+              [(ngModel)]="food_categoryfeatured">
+              <option value="Yes">Yes
+              </option>
+              <option value="No">No
+              </option>
+            </select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Select Role</mat-label>
-            <select matNativeControl name="country" id="country" (change)="selectChangeHandler($event)"
+            <select matNativeControl name="category" id="category" (change)="selectChangeHandler($event)"
               [(ngModel)]="food_category">
               <option *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}
               </option>

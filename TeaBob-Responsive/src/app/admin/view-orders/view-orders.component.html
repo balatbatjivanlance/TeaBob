@@ -5,7 +5,7 @@
       <th>Code: </th>
       <th>Food name: </th>
       <th>Price: </th>
-      <th>Quantity: </th>
+      <!-- <th>Quantity: </th> -->
       <th>Checkout Date: </th>
       <th>Status: </th>
     </tr>
@@ -13,7 +13,7 @@
       <td>{{details.code}}</td>
       <td>{{details.prod_name}}</td>
       <td>₱{{details.prod_price}}.00</td>
-      <td>{{details.food_quantity}}</td>
+      <!-- <td>{{details.food_quantity}}</td> -->
       <td>{{details.checkout_date}}</td>
       <td>
 
@@ -24,20 +24,22 @@
         <mat-label *ngIf ="dashboard.is_approved == '1'">Approved</mat-label>
         <mat-label *ngIf ="dashboard.is_approved == '2'">Cancelled</mat-label> -->
 
-        <mat-form-field appearance="outline">
-          <mat-label>Status</mat-label>
-        <mat-select>
-          <mat-option value="Approved">Approved</mat-option>
-          <mat-option value="Pending">Pending</mat-option>
-          <mat-option value="Cancel">Cancelled</mat-option>
-        </mat-select>
-      </mat-form-field>
+        
     </td>
     </tr>
 
   </table>
 </div>
     <div class="buttoncontainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+      <mat-select>
+        <mat-option value="Approved">Approved</mat-option>
+        <mat-option value="Pending">Pending</mat-option>
+        <mat-option value="Cancel">Cancelled</mat-option>
+      </mat-select>
+    </mat-form-field>
+
       <button mat-raised-button color="primary">Update</button>
     </div>
 </div>

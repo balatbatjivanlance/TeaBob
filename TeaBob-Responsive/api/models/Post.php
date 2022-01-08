@@ -372,4 +372,38 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
     }
 
+    public function addCategory($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $category_Info = $data->category_Info;
+
+        $res = $this->gm->insert('tbl_category', $category_Info);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+    
+    public function delCategory($d) {
+        $data = $d;
+        $category = $data->category;
+        $res = $this->gm->delete('tbl_category', $data, "category_id = '$category'");
+        if ($res['category_id'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
 }

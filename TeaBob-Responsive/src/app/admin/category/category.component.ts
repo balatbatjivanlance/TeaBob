@@ -18,6 +18,7 @@ export class CategoryComponent implements OnInit {
     route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.pullCategory();
   }
   user_role = localStorage.getItem("user_role");
 
@@ -63,5 +64,43 @@ export class CategoryComponent implements OnInit {
 
   //INSERT YOUR NEW TS CODE HERE
 
+
+  category: any;
+
+  pullCategory() {
+      this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
+        this.category = data.payload;
+  
+      })
+    
+  }
+
+  
+  category_name: any;
+  category_Info : any = {};
+
+
+  addCategory() {
+
+    this.category_Info.category_name = this.category_name;
+
+    this.ds.sendApiRequest("addCategory", JSON.parse(JSON.stringify(this.category_Info))).subscribe((data: any) => {
+  
+    });
+
+  }
+
+  
+  categoryInfo: any  = {};
+
+  async delcategory(e:any) {
+    this.categoryInfo.category = e;
+
+        this.ds.sendApiRequest("delCategory", JSON.parse(JSON.stringify(this.categoryInfo))).subscribe((data: any) => {
+          alert('Order Removed');
+          // this.pullOrders();
+        });
+
+  }
 
 }
