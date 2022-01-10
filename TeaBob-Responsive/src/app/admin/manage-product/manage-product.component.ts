@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { UpdateFoodComponent } from '../update-food/update-food.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-product',
@@ -79,11 +80,31 @@ export class ManageProductComponent implements OnInit {
 openCorBreakDown(adminfood: any) {
   // console.log(code);
   const dialogRef = this.dialog.open(UpdateFoodComponent , {
-    height: '50%',
-    width: '50%',
+    height: '60%',
+    width: '60%',
     data: 
     adminfood
   });
+}
+
+deleteButton(){
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
 }
 
 }

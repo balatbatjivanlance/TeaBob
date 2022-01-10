@@ -68,7 +68,7 @@
 
 
     <!-- THIS IS YOUR CONTENT CONTAINER -->
-    <div class="container">
+
         
 <div class="container">
   <!-- <form [formGroup] = "addproduct" (ngSubmit) = "onSubmit()" autocomplete="off"> -->
@@ -82,12 +82,11 @@
         <mat-label>Category Name</mat-label>
         <input matInput type="text" [(ngModel)]="category_name" />
       </mat-form-field>
-      <br />
+ 
 
 
-
-      <br /><br />
-      <button mat-stroked-button color="primary"class="add-button" (click)="addCategory()" >
+<br />
+      <button mat-raised-button color="primary"class="add-button" (click)="addCategory()" >
         Add 
       </button>
     </mat-card>
@@ -114,6 +113,6 @@
   </div>
   </div>
     </div>
-  </div>
+
 </mat-sidenav-container>
 

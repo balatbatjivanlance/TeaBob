@@ -7,7 +7,7 @@
       <th>Price: </th>
       <!-- <th>Quantity: </th> -->
       <th>Checkout Date: </th>
-      <th>Status: </th>
+ 
     </tr>
     <tr *ngFor = "let details of details">
       <td>{{details.code}}</td>
@@ -15,31 +15,25 @@
       <td>₱{{details.prod_price}}.00</td>
       <!-- <td>{{details.food_quantity}}</td> -->
       <td>{{details.checkout_date}}</td>
-      <td>
 
-        <!--di ko magawa yung status mismo yung nakalgay sa table siguro kasi nakapaloob na sya sa 
-          ngFor sa taas tapos nag ngFor ule ako-->
-      <!-- <mat-form-field appearance="outline" *ngFor = "let dashboard of dashboard">
-        <mat-label *ngIf ="dashboard.is_approved == '0'">Pending</mat-label>
-        <mat-label *ngIf ="dashboard.is_approved == '1'">Approved</mat-label>
-        <mat-label *ngIf ="dashboard.is_approved == '2'">Cancelled</mat-label> -->
-
-        
-    </td>
     </tr>
 
   </table>
-</div>
-    <div class="buttoncontainer">
-      <mat-form-field appearance="outline">
-        <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option value="Approved">Approved</mat-option>
-        <mat-option value="Pending">Pending</mat-option>
-        <mat-option value="Cancel">Cancelled</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div class="status-container">
+    <mat-form-field appearance="outline" class="status-mat">
+      <mat-label>Status</mat-label>
+    <mat-select>
+      <mat-option value="Approved">Approved</mat-option>
+      <mat-option value="Pending">Pending</mat-option>
+      <mat-option value="Cancel">Cancelled</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
 
+</div>
+
+    <div class="buttoncontainer">
+      
       <button mat-raised-button color="primary">Update</button>
     </div>
 </div>

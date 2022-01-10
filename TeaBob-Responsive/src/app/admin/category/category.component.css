@@ -242,27 +242,29 @@ mat-card {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 100px;
+    margin-top: 20px;
   }
   
   .prod-container {
+    margin-top: 70px;
     width: 35%;
     height: 70%;
-    /* background-color: red; */
+    /* background-color: blue; */
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start
+    align-items: flex-start;
+
   }
   
   .prod-card {
     display: flex;
     flex-direction: column;
-    margin-top: 12%;
+    
     margin-left: 2%;
     padding: 1rem;
     width: 90%;
-    height: 70%;
-    background-color: #f9f9f9;
+    height: 35%;
+    /* background-color: red; */
   }
   
   .var-container {

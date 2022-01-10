@@ -140,17 +140,36 @@ export class AddProductComponent implements OnInit {
 
   addProducts() {
 
-    this.food_Info.food_name = this.food_name;
-    this.food_Info.food_description = this.food_description;
-    this.food_Info.food_active = this.food_categoryactive = this.selectedCategactive;
-    this.food_Info.food_featured = this.food_categoryfeatured = this.selectedCategfeatured;
-    this.food_Info.category_id = this.food_category = this.selectedCateg;
-    this.food_Info.food_price  = this.food_price;
-    this.food_Info.food_image_name = this.imgSrc;
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Add Successfully!',
+          'Your product has been added.',
+          'success'
+        )
+        this.food_Info.food_name = this.food_name;
+        this.food_Info.food_description = this.food_description;
+        this.food_Info.food_active = this.food_categoryactive = this.selectedCategactive;
+        this.food_Info.food_featured = this.food_categoryfeatured = this.selectedCategfeatured;
+        this.food_Info.category_id = this.food_category = this.selectedCateg;
+        this.food_Info.food_price  = this.food_price;
+        this.food_Info.food_image_name = this.imgSrc;
+    
+        this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
+      
+        });
+      }
+     
+    })
 
-    this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
-  
-    });
+
+
 
   }
 

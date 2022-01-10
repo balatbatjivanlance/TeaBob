@@ -82,11 +82,29 @@ export class CategoryComponent implements OnInit {
 
   addCategory() {
 
-    this.category_Info.category_name = this.category_name;
+
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Add Successfully!',
+          'Category has been added.',
+          'success'
+        )
+        this.category_Info.category_name = this.category_name;
 
     this.ds.sendApiRequest("addCategory", JSON.parse(JSON.stringify(this.category_Info))).subscribe((data: any) => {
   
     });
+      }
+    })
+
+    
 
   }
 
@@ -94,12 +112,34 @@ export class CategoryComponent implements OnInit {
   categoryInfo: any  = {};
 
   async delcategory(e:any) {
-    this.categoryInfo.category = e;
 
-        this.ds.sendApiRequest("delCategory", JSON.parse(JSON.stringify(this.categoryInfo))).subscribe((data: any) => {
-          alert('Order Removed');
-          // this.pullOrders();
-        });
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Delete Successfully!',
+          'Category has been deleted.',
+          'success'
+        )
+        this.category_Info.category_name = this.category_name;
+
+    this.ds.sendApiRequest("addCategory", JSON.parse(JSON.stringify(this.category_Info))).subscribe((data: any) => {
+  
+    });
+      }
+    })
+    
+    // this.categoryInfo.category = e;
+
+    //     this.ds.sendApiRequest("delCategory", JSON.parse(JSON.stringify(this.categoryInfo))).subscribe((data: any) => {
+    //       alert('Order Removed');
+    //       // this.pullOrders();
+    //     });
 
   }
 

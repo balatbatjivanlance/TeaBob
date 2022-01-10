@@ -18,9 +18,23 @@ table, td, th {
 
   }
 
+
   .buttoncontainer{
 
       display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+  }
+
+  .buttoncontainer button{
+    width: 90%;
+
+  }
+  .status-container{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
   }
