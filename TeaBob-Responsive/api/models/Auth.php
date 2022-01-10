@@ -79,8 +79,8 @@
                 'pword'=>$this->encrypt_password($dt->user_pword)
             );
 
-            $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword) 
-                           VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword')";
+            $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword, user_role) 
+                           VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword', '$dt->user_role')";
                      
 
                            $data = array(); $code = 0; $errmsg= ""; $remarks = "";

@@ -8,39 +8,14 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
-.status-container{
-    margin-top: 3%;
-    background: #fff;
-    padding-left: 25px 30px;
-
+body{
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
 }
-.status-container .status-title{
-    font-size: 25px;
-    font-weight: 500;
-    padding: 10px 0 0 15px;
-}
-.status-container .status-title::before{
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 30px;
-    background:linear-gradient(135deg, #71b7e6, #9b59b6);
-    left: 0;
-    bottom: 0;
-
-}
-.status-container  .user-details{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px 0;
-}
-
-.status2-container{
-    float: right;
-    margin-top: -20%;
-    margin-right: 5%;
+.register-container{
     max-width: 700px;
     background: #fff;
     padding-left: 25px 30px;
@@ -49,28 +24,27 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
-.status2-container .status2-title{
+.register-container .register-title{
     font-size: 25px;
     font-weight: 500;
     padding: 10px 0 0 15px;
 }
-.status2-container .status2-title::before{
+.register-container .register-title::before{
     content: '';
     position: absolute;
     height: 3px;
     width: 30px;
-    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+
     left: 0;
     bottom: 0;
 
 }
-.status2-container  .user-details{
+.register-container  .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
-
 .user-details .input-box{
     width: calc(100% / 2 - 20px);
     padding: 0 15px 0 15px;
@@ -107,7 +81,7 @@
     width: 90%;
     margin-left: 35px;
     outline: none;
-    color: #ffffff;
+    color: #Fff;
     background: #4B1F0E ;
     border:none;
     font-size: 18px;
@@ -122,20 +96,16 @@
     color:rgb(0, 0, 0);
 }
 @media (max-width: 584px){
-    .status-container{
+    .register-container{
+        margin-top: 50px;
         max-width: 90%;
-        margin-top: 20%;
-    }
-    .status2-container{
-        max-width: 90%;
-        margin-top: 20%;
     }
     .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
     }
-    .status-container  .user-details{
-        max-height: 300px;
+    .register-container  .user-details{
+        max-height:450px;
         overflow-y: scroll;
 
     }
@@ -143,6 +113,29 @@
         width:0;
     }
     .button{
-        margin-right: 7%;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 1024px){
+    .register-container{
+        max-height: 80%;
+        max-width: 80%;
+    }
+    .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .register-container  .user-details{
+        max-height:450px;
+        overflow-y: scroll;
+
+    }
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+    .button{
+        margin-top: 10px;
+        margin-left: 15px;
     }
 }

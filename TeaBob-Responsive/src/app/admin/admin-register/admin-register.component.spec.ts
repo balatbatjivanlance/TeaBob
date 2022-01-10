@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatusDialogComponent } from './status-dialog.component';
+import { AdminRegisterComponent } from './admin-register.component';
 
-describe('StatusDialogComponent', () => {
-  let component: StatusDialogComponent;
-  let fixture: ComponentFixture<StatusDialogComponent>;
+describe('AdminRegisterComponent', () => {
+  let component: AdminRegisterComponent;
+  let fixture: ComponentFixture<AdminRegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatusDialogComponent ]
+      declarations: [ AdminRegisterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatusDialogComponent);
+    fixture = TestBed.createComponent(AdminRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

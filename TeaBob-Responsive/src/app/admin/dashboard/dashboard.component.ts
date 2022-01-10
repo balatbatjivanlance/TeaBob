@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     this.pullProd();
     this.pullCategory();
     this.pullDashboard();
+    this.pullUsers();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -95,6 +96,25 @@ export class DashboardComponent implements OnInit {
 
         for(let i = 0; i <= this.categories.length; i++) {
           this.categCounter = i;
+        }
+        
+  
+      })
+    
+  }
+
+  
+  users: any;
+  userCounter: number = 0;
+
+  pullUsers() {
+
+  
+      this.ds.sendApiRequest("usercount", null).subscribe((data: { payload: any; }) => {
+        this.users = data.payload;
+
+        for(let i = 0; i <= this.users.length; i++) {
+          this.userCounter = i;
         }
         
   

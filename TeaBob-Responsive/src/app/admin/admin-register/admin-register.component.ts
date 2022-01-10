@@ -4,16 +4,18 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-admin-register',
+  templateUrl: './admin-register.component.html',
+  styleUrls: ['./admin-register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AdminRegisterComponent implements OnInit {
 
   constructor(private ds: DataService, public router: Router) { }
 
   ngOnInit(): void {
   }
+
+  
   userInfo: any = {};
   user_name: any;
   user_lname: any;
@@ -23,7 +25,6 @@ export class RegisterComponent implements OnInit {
   user_address: any;
   user_pword: any;
   user_Confpword: any;
-  user_role = 1;
   regUser(){
     if (this.user_pword == this.user_Confpword) {
       this.userInfo.user_name = this.user_name;
@@ -33,7 +34,6 @@ export class RegisterComponent implements OnInit {
     this.userInfo.user_address = this.user_address;
     this.userInfo.user_pword = this.user_pword;
     this.userInfo.user_Confpword = this.user_Confpword;
-    this.userInfo.user_role = this.user_role;
 
 
     this.ds.sendApiRequest("regUser", JSON.parse(JSON.stringify(this.userInfo))).subscribe((data: any) => {

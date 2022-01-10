@@ -17,6 +17,7 @@ export class ViewOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullCheckoutDetails();
+    this.pullDashboard();
     console.log(this.status)
   }
 

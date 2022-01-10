@@ -266,6 +266,13 @@
 							echo json_encode($get->adminPullFood($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					case 'usercount':
+						if(count($req)>1) {
+							echo json_encode($get->PullUserCount($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->PullUserCount($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
 
 					// case 'updatefood':
 					// 	if(count($req)>1) {

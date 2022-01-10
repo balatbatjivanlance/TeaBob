@@ -8,6 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SnacksComponent } from './pages/snacks/snacks.component';
 import { StatusComponent } from './pages/status/status.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
 import { LandingComponent } from './landing/landing.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'status', component: StatusComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'admin-register', component: AdminRegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'dashboard', component: DashboardComponent},

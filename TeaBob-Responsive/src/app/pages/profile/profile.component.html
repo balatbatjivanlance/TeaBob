@@ -1,48 +1,123 @@
-<app-navbar></app-navbar>
-<body>
-    
+<!-- <app-navbar></app-navbar> -->
+
+<mat-sidenav-container autosize>
+
+    <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
+      (mouseleave)="mouseleave()">
+      <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+        filter: invert(100%);">
+      <br>
+      <mat-divider [vertical]="false"></mat-divider>
+  
+      <!--THIS ARE IS FOR BUTTONS INSIDE YOUR SIDENAV BAR -->
+  
+      <!-- ADMIN BUTTONS -->
+  
+      <button mat-button class="button" routerLink="/dashboard" *ngIf ="user_role == '0'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" routerLink="/home" *ngIf ="user_role == '1'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
+        <mat-icon>add_circle</mat-icon>&nbsp; Add Product
+      </button>
+      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+      </button>
+      <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
+        <mat-icon>category</mat-icon>&nbsp; Category
+      </button>
+  
+      <!-- USER BUTTONS -->
+  
+      <button mat-button class="button" *ngIf ="user_role == '1'" routerLink="/snacks" routerLinkActive="selected">
+        <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
+      </button>
+      <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+      </button>
+      <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
+      </button>
+      <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">
+        <mat-icon>account_box</mat-icon>&nbsp; Profile
+      </button>
+      <button mat-button class="button" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
+      </button>
+  
+  
+  
+    </mat-sidenav>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <mat-toolbar class="toolbar">
+        <button mat-icon-button class="example-icon" (click)="isExpanded = !isExpanded"
+          aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+          <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
+          <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
+        </button>
+        <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+  
+        <span class="example-spacer"></span>
+  
+      </mat-toolbar>
+  
+      <!-- END OF SIDENAV AND TOOLBAR CODE  -->
+  
+  
+      <!-- THIS IS YOUR CONTENT CONTAINER -->
+      <div class="container">
+                
 <div class="container">
 
-<div class="status-container">
-    <div class="status-title">User Profile</div>
-<!-- 
-    <div class="profile-image">
-
-    </div> -->
-
-    <div class="user-details" *ngFor="let user of user">
-    <div class="input-box">
-
-        <span class="details">First Name</span>
-        <input disabled type="text" placeholder="{{user.user_name}}">
-    </div>
-    <div class="input-box">
-
-        <span class="details">Last Name</span>
-        <input disabled type="text" placeholder="{{user.user_lname}}">
-    </div>
-    <div class="input-box">
-        <span class="details">User Name</span>
-        <input disabled type="text" placeholder="{{user.user_uname}}">
-    </div>
-    <div class="input-box">
-        <span class="details">Contact no.</span>
-        <input disabled type="number" class="input-number" placeholder="{{user.user_contact}}">
-    </div>
-    <div class="input-box">
-        <span class="details">Address</span>
-        <input disabled type="text" placeholder="{{user.user_address}}">
-    </div>
-
+    <div class="status-container">
+        <div class="status-title">User Profile</div>
+    <!-- 
+        <div class="profile-image">
     
-    <button (click)="statusModal()" class="button">Update Profile</button>
-    <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
-
+        </div> -->
     
-</div>
-</div>
-</div>
+        <div class="user-details" *ngFor="let user of user">
+        <div class="input-box">
+    
+            <span class="details">First Name</span>
+            <input disabled type="text" placeholder="{{user.user_name}}">
+        </div>
+        <div class="input-box">
+    
+            <span class="details">Last Name</span>
+            <input disabled type="text" placeholder="{{user.user_lname}}">
+        </div>
+        <div class="input-box">
+            <span class="details">User Name</span>
+            <input disabled type="text" placeholder="{{user.user_uname}}">
+        </div>
+        <div class="input-box">
+            <span class="details">Contact no.</span>
+            <input disabled type="number" class="input-number" placeholder="{{user.user_contact}}">
+        </div>
+        <div class="input-box">
+            <span class="details">Address</span>
+            <input disabled type="text" placeholder="{{user.user_address}}">
+        </div>
+    
+        
+        <button (click)="statusModal()" class="button">Update Profile</button>
+        <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
+    
+        
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    
+      </div>
+    </div>
+  </mat-sidenav-container>
+  
 
 
-
-</body>

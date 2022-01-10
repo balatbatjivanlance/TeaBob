@@ -5,6 +5,8 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog/cart-dialog.compo
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +19,7 @@ export class CartComponent implements OnInit {
   message: any;
   private subs: Subscription;
   
-  constructor(private ds: DataService, public dialog:MatDialog,
+  constructor(private ds: DataService, public dialog:MatDialog,public router: Router,
     route:ActivatedRoute, ) { 
       this.subs = this.ds.getUpdate().subscribe(message => {
         this.message = message;
@@ -30,6 +32,52 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.pullCart();
   }
+  user_role = localStorage.getItem("user_role");
+
+
+  // SIDENAV AND TOOLBAR CODE 
+
+  showFiller = false;
+  sidenav!: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
+
+  isLargeScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width > 769) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+  
+  logout(){
+    localStorage.clear();
+    window.localStorage.removeItem('id');
+    this.router.navigate(['/login']);
+}
+
+  // END OF SIDENAV AND TOOLBAR CODE
+
+  //INSERT YOUR NEW TS CODE HERE
+
+  
+
 
   
   cartinfo: any={};

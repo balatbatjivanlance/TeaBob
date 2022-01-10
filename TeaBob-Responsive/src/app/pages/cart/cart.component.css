@@ -1,3 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+.toolbar {
+  background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  overflow: hidden;
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.poppins-bold {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #404040;
+}
+
+
+
+mat-sidenav-container,
+mat-sidenav-content {
+  height: 100%;
+  background-color: #f9f9f9;
+}
+
+mat-sidenav {
+  background-color: #4B1F0E;
+  color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  width: 200px;
+  height: 100%;
+
+}
+
+mat-card {
+  overflow: auto;
+}
+
+.dashboardcontent {
+  padding: 35px;
+}
+
+.sidenavbar {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.button {
+  width: 100%;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 7px;
+  flex-direction: row;
+}
+
+.button mat-icon {
+  font-size: 22px;
+}
+
+.selected {
+  background-color: #794028;
+  color: #ffffff;
+}
+
+.user-profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+}
+
+/* END OF SIDENAV AND TOOLBAR CODE */
+
+
+/* INSERT YOUR NEW CODE HERE  */
+
+.container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+  
+  
+
+@media only screen and (max-width:480px) {
+  mat-sidenav {
+    width: 200px;
+    border-right: none;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  #calendar {
+    font-size: 12px;
+  }
+
+  .calen {
+    width: 10px;
+    height: 10px;
+  }
+
+  .user-container {
+    justify-content: center;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.container-title-left {
+    width: 100%;
+}
+
+.user-card {
+    width: 320px;
+}
+
+.top {
+    width: 320px;
+}
+
+.toolbar {
+    background-color: #f9f9f9;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: fixed;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width:768px) {
+    mat-sidenav {
+        width: 200px;
+        border-right: none;
+      }
+    
+      h1 {
+        display: none;
+      }
+    
+      #calendar {
+        font-size: 12px;
+      }
+    
+      .calen {
+        width: 10px;
+        height: 10px;
+      }
+    
+      .user-container {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    .container {
+        margin-top: 100px;
+    }
+    
+    .container-title-left {
+        width: 100%;
+    }
+    
+    .user-card {
+        width: 350px;
+    }
+    
+    .top {
+        width: 350px;
+    }
+    
+    .toolbar {
+        background-color: #f9f9f9;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        position: fixed;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+      }
+}   
+
+
+
 .container{
 
   display: flex;
