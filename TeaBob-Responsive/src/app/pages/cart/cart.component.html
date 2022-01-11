@@ -98,7 +98,7 @@
             <p class="item-content">Pcs. {{cart.food_quantity}}</p>
             <p class="item-content">₱ {{cart.cart_total_price}} </p> 
           
-            <button (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
+            <button class="button-act" (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
             
         </div>
         
@@ -112,7 +112,7 @@
         <p>₱ {{totalamount}}</p>
     </div>
     <div class="btn">
-        <button class="co-btn" (click)="checkOutAll();">Check Out</button>
+        <button  class="button-act" (click)="checkOutAll();">Check Out</button>
     </div>
 
 </div>

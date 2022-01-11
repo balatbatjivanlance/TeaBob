@@ -172,7 +172,7 @@ mat-card {
     width: 320px;
 }
 
-.toolbar {
+/* .toolbar {
     background-color: #f9f9f9;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: fixed;
@@ -180,7 +180,7 @@ mat-card {
     top: 0;
     z-index: 1000;
     width: 100%;
-  }
+  } */
 
 }
 
@@ -292,7 +292,7 @@ mat-card {
     background: #efc3a4;
     color:rgb(0, 0, 0);
   }
-  button {
+  .button-make {
     border: none;
     outline: 0;
     padding: 12px;
@@ -351,9 +351,9 @@ mat-card {
       max-height: 95%;
       border-radius: 5px;
   }
-  img{
+  /* img{
     height: 300px;
-  }
+  } */
   .info{
     width: 100%;
     height: 20%;

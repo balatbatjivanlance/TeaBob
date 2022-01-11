@@ -15,6 +15,7 @@ import { LandingNavComponent } from './landing-nav/landing-nav.component';
 import { CartDialogComponent } from './pages/cart/cart-dialog/cart-dialog/cart-dialog.component';
 import { SnacksDialogComponent } from './pages/snacks/snacks-dialog/snacks-dialog/snacks-dialog.component';
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileDialogComponent } from './pages/profile/profile-dialog/profile-dialog.component';
 import { StatusComponent } from './pages/status/status.component';
 import { OrdersModalComponent } from './orders-modal/orders-modal.component';
@@ -57,6 +58,7 @@ import { UpdateCategoryComponent } from './admin/update-category/update-category
     CartDialogComponent,
     SnacksDialogComponent,
     DrinksDialogComponent,
+    ProfileComponent,
     ProfileDialogComponent,
     StatusComponent,
     OrdersModalComponent,

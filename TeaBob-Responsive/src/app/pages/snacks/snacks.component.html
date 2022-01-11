@@ -56,7 +56,7 @@
         <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
         <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
       </button>
-      <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+      <h1 style="color: #424242; font-size: 16px;">Menu</h1>
 
       <span class="example-spacer"></span>
 
@@ -81,7 +81,7 @@
                     <p> {{food.food_description}} </p> 
                   
                     <!-- <button (click)="addToCart(food)">Add Cart</button> -->
-                    <button (click)="openModal(food.category_id, food.food_id)" >Make Order</button>
+                    <button class="button-make"(click)="openModal(food.category_id, food.food_id)" >Make Order</button>
                     
                 </div>
             </div>
