@@ -121,11 +121,39 @@ mat-card {
 /* INSERT YOUR NEW CODE HERE  */
 
 .container {
+  margin-top: 2%;
     width: 100%;
     height: 90vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+
+}
+
+
+table, td, th {  
+  border: 0px solid rgb(160, 160, 160);
+  text-align: left;
+}
+
+table {
+  margin-bottom: 200px;
+  border-collapse: collapse;
+  width: 90%;
+  border-top: 1px solid rgb(187, 184, 184);
+  
+
+  
+}
+
+th, td {
+  padding: 15px;
+}
+
+.image-file{
+  width: 100px;
+  height: 100px;
+  margin-left: 15%;
 }
   
   
@@ -233,36 +261,3 @@ mat-card {
       }
 }   
 
-
-
-
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-  table, td, th {  
-    border: 1px solid rgb(160, 160, 160);
-    text-align: left;
-  }
-  
-  table {
-    margin-bottom: 200px;
-    border-collapse: collapse;
-    width: 70%;
-
-    
-  }
-  
-  th, td {
-    padding: 15px;
-  }
-
-  .image-file{
-    width: 100px;
-    height: 100px;
-    margin-left: 15%;
-  }

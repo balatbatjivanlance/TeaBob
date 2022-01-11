@@ -71,10 +71,9 @@
     <!-- THIS IS YOUR CONTENT CONTAINER -->
     <div class="container">
       
-<div class="container">
+
   <table>
       <tr>
-        <th>ID </th>
         <th>Name </th>
         <th>Price </th>
         <th>Image</th>
@@ -83,7 +82,6 @@
         <th>Action</th>
       </tr>
       <tr *ngFor = "let adminfood of adminfood">
-        <td>{{adminfood.food_id}}</td>
         <td>{{adminfood.food_name}}</td>
         <td>{{adminfood.food_price}}</td>
         <td><img src="{{adminfood.food_image_name}}" alt="" class="image-file"></td>
@@ -97,7 +95,7 @@
   
     </table>
 
-  </div>
+
     </div>
   </div>
 </mat-sidenav-container>
