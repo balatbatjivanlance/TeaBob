@@ -120,13 +120,14 @@ mat-card {
 
 
 /* INSERT YOUR NEW CODE HERE  */
-
 .container {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .product-container{
