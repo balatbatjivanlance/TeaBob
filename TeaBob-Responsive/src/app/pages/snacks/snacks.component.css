@@ -342,9 +342,9 @@ mat-card {
       max-height: 95%;
       border-radius: 5px;
   }
-  /* img{
-    height: 300px;
-  } */
+  .img-card{
+    height: 200px;
+    }
   .info{
     width: 100%;
     height: 20%;

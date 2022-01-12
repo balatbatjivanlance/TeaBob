@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
-import { CartDialogComponent } from './cart-dialog/cart-dialog/cart-dialog.component';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';

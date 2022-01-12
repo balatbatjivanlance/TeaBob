@@ -12,7 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LandingComponent } from './landing/landing.component';
 import { LandingNavComponent } from './landing-nav/landing-nav.component';
-import { CartDialogComponent } from './pages/cart/cart-dialog/cart-dialog/cart-dialog.component';
 import { SnacksDialogComponent } from './pages/snacks/snacks-dialog/snacks-dialog/snacks-dialog.component';
 import { DrinksDialogComponent } from './pages/snacks/drinks-dialog/drinks-dialog/drinks-dialog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -55,7 +54,6 @@ import { UpdateCategoryComponent } from './admin/update-category/update-category
     LoginComponent,
     LandingComponent,
     LandingNavComponent,
-    CartDialogComponent,
     SnacksDialogComponent,
     DrinksDialogComponent,
     ProfileComponent,

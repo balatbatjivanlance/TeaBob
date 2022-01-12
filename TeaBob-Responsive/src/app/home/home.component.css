@@ -198,9 +198,9 @@ align-items: center;
   max-height: 95%;
   border-radius: 5px;
 }
-/* img{
+.img-card{
 height: 300px;
-} */
+}
 .info{
 width: 100%;
 height: 20%;

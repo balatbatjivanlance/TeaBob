@@ -40,7 +40,7 @@
         <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
       </button>
       <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
-        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart (<span matBadge="{{cartCounter}}" matBadgeOverlap="false"></span>)
       </button>
       <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
@@ -83,7 +83,7 @@
     <div class="prodcard" *ngFor="let cart of cart_payload">
         
         <div class="image-container">
-            <img src="{{cart.food_image_name}}" alt="">
+            <img class="img-card" src="{{cart.food_image_name}}" alt="">
         </div>
 
 

@@ -66,13 +66,28 @@
 
 
     <!-- THIS IS YOUR CONTENT CONTAINER -->
+
+<!-- 
+    <div class="category__container">
+      <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+              <mat-select (selectionChange)="filterFood($event)">
+                  <mat-option [value]="0">All</mat-option>
+                  <mat-option *ngFor="let category of category_info;" [value]="category.category_id">
+                      <span>{{category.category_name}}</span>
+                  </mat-option>
+              </mat-select>
+      </mat-form-field>
+  </div> -->
+
+
     <div class="container">
       <div class="product-container">
         <div class="prodcard" *ngFor="let food of food_info">
   
             <div *ngIf="food_info.length != null; else blank">
                 <div class="image-container">
-                    <img src="{{food.food_image_name}}" alt="">
+                    <img class="img-card" src="{{food.food_image_name}}" alt="">
                 </div>
                 <div class="info">
                 
