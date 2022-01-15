@@ -97,7 +97,7 @@ export class ProfileComponent implements OnInit {
       
   statusModal() {
     const dialog = this.dialog.open(ProfileDialogComponent, {
-      autoFocus: false, width:"70%", height:"60%"
+      autoFocus: false, width:"70%", height:"50%"
     });
     dialog.afterClosed().subscribe( ()=>{
       console.log("closed")

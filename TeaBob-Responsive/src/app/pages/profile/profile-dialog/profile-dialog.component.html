@@ -7,28 +7,52 @@
     </div> -->
 
     <div class="user-details">
-        <div class="input-box">
+        <!-- <div class="input-box">
 
             <span class="details">First Name</span>
             <input type="text" [(ngModel)]="user_name">
-        </div>
-        <div class="input-box">
+        </div> -->
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text"  [(ngModel)]="user_name"/>
+          </mat-form-field>
+      
+        <!-- <div class="input-box">
     
             <span class="details">Last Name</span>
             <input type="text" [(ngModel)]="user_lname">
-        </div>
-    <div class="input-box">
+        </div> -->
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text"  [(ngModel)]="user_lname"/>
+          </mat-form-field>
+
+    <!-- <div class="input-box">
         <span class="details">User Name</span>
         <input type="text"  [(ngModel)]="user_uname">
-    </div>
-    <div class="input-box">
+    </div> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>User Name</mat-label>
+        <input matInput type="text"  [(ngModel)]="user_uname"/>
+      </mat-form-field>
+    <!-- <div class="input-box">
         <span class="details">Contact no.</span>
         <input type="number"  [(ngModel)]="user_contact" class="input-number">
-    </div>
-    <div class="input-box">
+    </div> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contact No.</mat-label>
+        <input matInput type="number"  [(ngModel)]="user_contact"/>
+      </mat-form-field>
+    <!-- <div class="input-box">
         <span class="details">Address</span>
         <input type="text"  [(ngModel)]="user_address">
-    </div>
+    </div> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput type="text"  [(ngModel)]="user_address"/>
+      </mat-form-field>
     
     <button class="button" (click)="updateProfile()">Save Profile</button>
     

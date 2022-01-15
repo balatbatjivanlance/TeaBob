@@ -4,38 +4,63 @@
     <div class="container">
 
       <div class="status-container">
-          <div class="status-title">User Profile</div>
+          <div class="status-title">Product Info</div>
       <!-- 
           <div class="profile-image">
       
           </div> -->
       
           <div class="user-details">
-          <div class="input-box">
+          <!-- <div class="input-box">
       
               <span class="details">Name</span>
               <input disabled type="text" placeholder="">
-          </div>
-          <div class="input-box">
+          </div> -->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+
+          <!-- <div class="input-box">
       
               <span class="details">Price</span>
               <input disabled type="text" placeholder="">
-          </div>
-          <div class="input-box">
+          </div> -->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" />
+          </mat-form-field>
+
+          <!-- <div class="input-box">
               <span class="details">Image</span>
               <input disabled type="text" placeholder="">
-          </div>
-          <div class="input-box">
+          </div> -->
+          <div class="img-container" style="margin-left: 20px">
+            <img class="image-container" alt="img" style="width: 100px; height: 100px; display: none" />
+            <input class="input-image" type="file"  />
+          </div><br>
+
+          <!-- <div class="input-box">
               <span class="details">Featured</span>
               <input disabled type="number" class="input-number" placeholder="">
-          </div>
+          </div> -->
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Featured</mat-label>
+            <select matNativeControl name="featured" id="featured" >
+              <option value="Yes">Yes
+              </option>
+              <option value="No">No
+              </option>
+            </select>
+          </mat-form-field>
+<!-- 
           <div class="input-box">
               <span class="details">Active</span>
               <input disabled type="text" placeholder="">
-          </div>
+          </div> -->
       
           
-          <button class="button">Update Profile</button>
+          <button class="button">Update Product</button>
           <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
       
           
