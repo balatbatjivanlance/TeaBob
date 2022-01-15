@@ -110,10 +110,20 @@ export class AddProductComponent implements OnInit {
 
   selectedCateg: string = '';
 
+  categval = true;
+
   selectChangeHandler (event: any){
     this.selectedCateg = event.target.value;
 
     console.log(this.selectedCateg);
+
+    if (this.selectedCateg == '24')
+    {
+      this.categval = false
+    }
+    else{
+    this.categval = true
+    }
   }
 
   imgSrc: string = "../../../assets/logo1.jpeg";
@@ -169,14 +179,24 @@ export class AddProductComponent implements OnInit {
     })
 
 
-
-
   }
 
+  addon_name: any;
+  addon_price: any;
+  addon_stocks: any;
+  
+  var_name: any;
+  var_price: any;
+  var_stocks: any;
+  var_size: any;
+  
 
-  onSubmit() {
 
-  }
+
+
+  // onSubmit() {
+
+  // }
 
 
 }

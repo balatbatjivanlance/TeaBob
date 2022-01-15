@@ -24,11 +24,11 @@
       <mat-icon>add_circle</mat-icon>&nbsp; Add Product
     </button>
     <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
-      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
     </button>
-    <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
+    <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
       <mat-icon>category</mat-icon>&nbsp; Category
-    </button>
+    </button> -->
     <button mat-button class="button" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
     </button>
@@ -78,7 +78,7 @@
         <th>Price </th>
         <th>Image</th>
         <th>Featured</th>
-        <th>Active</th>
+        <!-- <th>Active</th> -->
         <th>Action</th>
       </tr>
       <tr *ngFor = "let adminfood of adminfood">
@@ -86,7 +86,7 @@
         <td>{{adminfood.food_price}}</td>
         <td><img src="{{adminfood.food_image_name}}" alt="" class="image-file"></td>
         <td>{{adminfood.food_featured}}</td>
-        <td>{{adminfood.food_active}}</td>
+        <!-- <td>{{adminfood.food_active}}</td> -->
           <td width="200px">
               <button mat-raised-button color="primary" (click)="openCorBreakDown(adminfood)">View</button>
               <button mat-raised-button color="warn" (click)="deleteButton()">Delete</button>

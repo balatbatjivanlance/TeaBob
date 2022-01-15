@@ -23,7 +23,7 @@
       <mat-icon>add_circle</mat-icon>&nbsp; Add Product
     </button>
     <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
-      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
     </button>
     <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
       <mat-icon>category</mat-icon>&nbsp; Category
@@ -102,7 +102,7 @@
           <tr *ngFor = "let category of category">
             <td>{{category.category_name}}</td>
             <td>
-              <button class="card-order-action" mat-stroked-button color="primary" (click)="delcategory(category.id)">
+              <button class="card-order-action" mat-stroked-button color="primary" (click)="delCategory(category.id)">
                 Delete
               </button>
             </td>

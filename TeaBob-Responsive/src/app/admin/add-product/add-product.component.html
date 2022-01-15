@@ -21,11 +21,11 @@
       <mat-icon>add_circle</mat-icon>&nbsp; Add Product
     </button>
     <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
-      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+      <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
     </button>
-    <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
+    <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
       <mat-icon>category</mat-icon>&nbsp; Category
-    </button>
+    </button> -->
     <button mat-button class="button" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
     </button>
@@ -177,7 +177,7 @@
             <input type="text" matInput [(ngModel)]="food_description" />
             <br />
           </mat-form-field>
-
+<!-- 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
@@ -187,7 +187,7 @@
               <option value="No">No
               </option>
             </select>
-          </mat-form-field>
+          </mat-form-field> -->
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Featured</mat-label>
@@ -201,7 +201,7 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
-            <mat-label>Select Role</mat-label>
+            <mat-label>Select Category</mat-label>
             <select matNativeControl name="category" id="category" (change)="selectChangeHandler($event)"
               [(ngModel)]="food_category">
               <option *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}
@@ -233,34 +233,65 @@
           
      
       <div class="var-container">
-        
+        <div class="cta">
+          <button mat-raised-button color="primary" routerLink="/">Add Ons</button>
+        </div>
         <div class="var-card">
     
           <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Variation Name</mat-label>
-            <input matInput type="text" />
+            <mat-label>Add Ons Name</mat-label>
+            <input matInput type="text" [(ngModel)]="addon_name"/>
           </mat-form-field>
     
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Price</mat-label>
-            <input matInput type="number"  />
+            <input matInput type="number" [(ngModel)]="addon_price"/>
           </mat-form-field>
     
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Stocks</mat-label>
-            <input matInput type="number"  />
-          </mat-form-field>
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Size</mat-label>
-            <input matInput type="text"  />
+            <input matInput type="number" [(ngModel)]="addon_stocks" />
           </mat-form-field>
     
         </div>
-        <div class="cta">
-          <button mat-raised-button color="primary" routerLink="/">Add Variation</button>
-        </div>
+
+        <button class="delvar"><mat-icon>delete</mat-icon></button>
+        
  </div>
+
+      
+ <div class="var-container">
+  <div class="cta">
+    <button mat-raised-button color="primary" routerLink="/">Add Variation</button>
+  </div>
+  <div class="var-card">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Variation Name</mat-label>
+      <input matInput type="text"  [(ngModel)]="var_name"/>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="number"   [(ngModel)]="var_price"/>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Stocks</mat-label>
+      <input matInput type="number"  [(ngModel)]="var_stocks" />
+    </mat-form-field>
+
+    <mat-form-field *ngIf = "categval" class="example-full-width" appearance="fill">
+      <mat-label>Size</mat-label>
+      <input matInput type="text"  [(ngModel)]="var_size" />
+    </mat-form-field>
+
+  </div>
+
+  
+  <button class="delvar"><mat-icon>delete</mat-icon></button>
+  
+</div>
    
 
 

@@ -111,7 +111,7 @@ export class CategoryComponent implements OnInit {
   
   categoryInfo: any  = {};
 
-  async delcategory(e:any) {
+  async delCategory(e:any) {
 
     Swal.fire({
       title: 'Are you sure?',
@@ -128,7 +128,7 @@ export class CategoryComponent implements OnInit {
         )
         this.category_Info.category_name = this.category_name;
 
-    this.ds.sendApiRequest("addCategory", JSON.parse(JSON.stringify(this.category_Info))).subscribe((data: any) => {
+    this.ds.sendApiRequest("delCategory", JSON.parse(JSON.stringify(this.category_Info))).subscribe((data: any) => {
   
     });
       }
