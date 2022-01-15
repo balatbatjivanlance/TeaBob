@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 .toolbar {
@@ -151,40 +152,47 @@ mat-card {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
+  justify-content: center;
+  align-items: center;
   justify-content: flex-start;
   align-items: flex-start;
 }
 @media only screen and (max-width:480px) {
-mat-sidenav {
-  width: 200px;
-  border-right: none;
-}
-
-}
-h1 {
-  display: none;
-}
-
-.card-container > div {
-  margin: 5px;
-}
-#calendar {
-  font-size: 12px;
-}
+  mat-sidenav {
+    width: 200px;
+    border-right: none;
+  }
+  
+  }
+  h1 {
+    display: none;
+  }
+  
+  .card-container > div {
+    margin: 5px;
+  }
+  #calendar {
+    font-size: 12px;
+  }
 
 .card-order {
+  width: 293px;
+  height: 250px;
   width: 250px;
   height: 150px;
   background-color: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 7px;
   border-radius: 10px;
   /* background-image: url('/assets/tealogopng.png'); */
   /* background-repeat: no-repeat;
   background-position: -50px 85px;
   background-size: 50%; */
+  padding: 10px 0 20px 10px;
   padding: 0px 0 20px 0px;
 
 }
+
 .calen {
   width: 10px;
   height: 10px;
@@ -200,6 +208,7 @@ h1 {
 .user-container {
   justify-content: center;
 }
+
 
 .order-button {
   display: flex;
@@ -224,14 +233,10 @@ h1 {
   padding: 15px;
   background-color: #efc3a4;
   display: flex;
+
+  font-size: 14px;
+  font-style: italic;
 }
-/* /* .logos{
-  /* background-image:url("../../../assets/tealogopng.png");
-
-   height: 350px;
-   width: 350px;
-}  */
-
 
 .card-order .card-order-info p span {
   display: block;
@@ -251,6 +256,9 @@ h1 {
 .card-order .card-order-info p span:nth-child(2) {
   font-size: 14px;
   font-style: italic;
+}
+.p-content{
+  
 }
 
 .card-order-action {
