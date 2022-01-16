@@ -4,7 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ViewOrdersComponent } from '../view-orders/view-orders.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -141,6 +141,37 @@ openCorBreakDown(dashboard: any) {
     data: 
     dashboard
   });
+}
+
+orderInfo: any  = {};
+
+async delorder(e:any) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      this.orderInfo.cocode = e;
+
+      this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
+        alert('Order Removed');
+        // this.pullOrders();
+      });
+
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+
 }
 
 }

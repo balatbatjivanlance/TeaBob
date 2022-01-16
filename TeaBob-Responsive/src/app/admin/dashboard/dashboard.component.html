@@ -146,7 +146,7 @@
                   <td *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</td>
                     <td width="200px">
                         <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
-                        <button mat-raised-button color="warn">Delete</button>
+                        <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
                     </td>
                 </tr>
             

@@ -303,20 +303,20 @@ class Post{
     }
 
     // Delete Product
-    public function delProd($d) {
-        $data = $d;
-        $prod_id = $data->prod_id;
-        $res = $this->gm->delete('tbl_food', $data, "id = '$prod_id'");
-        if ($res['code'] == 200) {
-			$payload = $res['data'];
-			$remarks = "success";
-			$message = "Successfully retrieved requested data";
-		} else {
-			$payload = null;
-			$remarks = "failed";
-			$message = $res['errmsg'];
-		}
-    }
+    // public function delProd($d) {
+    //     $data = $d;
+    //     $prod_id = $data->prod_id;
+    //     $res = $this->gm->delete('tbl_food', $data, "id = '$prod_id'");
+    //     if ($res['code'] == 200) {
+	// 		$payload = $res['data'];
+	// 		$remarks = "success";
+	// 		$message = "Successfully retrieved requested data";
+	// 	} else {
+	// 		$payload = null;
+	// 		$remarks = "failed";
+	// 		$message = $res['errmsg'];
+	// 	}
+    // }
 
     public function delOrder($d) {
         $data = $d;
@@ -389,6 +389,21 @@ class Post{
             $message = "Successfully retrieved data";
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
+    public function delProd($d) {
+        $data = $d;
+        $food_id = $data->food_id;
+        $res = $this->gm->delete('tbl_food', $data, "food_id = '$food_id'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
     }
     
     public function delCategory($d) {
