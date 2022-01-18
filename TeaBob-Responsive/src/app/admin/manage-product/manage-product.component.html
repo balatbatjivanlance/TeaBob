@@ -70,15 +70,34 @@
 
     <!-- THIS IS YOUR CONTENT CONTAINER -->
     <div class="container">
-      
-
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-4">Name</div>
+          <div class="col col-4">Price</div>
+          <div class="col col-4">Image</div>
+          <div class="col col-4">Featured</div>
+          <div class="col col-4">Active</div>
+          <div class="col col-4">Action</div>
+        </li>
+        <li class="table-row" *ngFor = "let adminfood of adminfood">
+          <div class="col col-4" data-label="Name">{{adminfood.food_name}}</div>
+          <div class="col col-2" data-label="Price">{{adminfood.food_price}}</div>
+          <div class="col col-3" data-label="Image">
+            <img src="{{adminfood.food_image_name}}" alt="" class="image-file">
+          </div>
+          <div class="col col-4" data-label="Featured">{{adminfood.food_featured}}</div>
+          <div class="col col-4" data-label="Active">{{adminfood.food_active}}</div>
+          <div class="col col-4" data-label="Action">Pending</div>
+        </li>
+      </ul>
+<!-- 
   <table>
       <tr>
         <th>Name </th>
         <th>Price </th>
         <th>Image</th>
         <th>Featured</th>
-        <!-- <th>Active</th> -->
+         <th>Active</th>
         <th>Action</th>
       </tr>
       <tr *ngFor = "let adminfood of adminfood">
@@ -86,14 +105,14 @@
         <td>{{adminfood.food_price}}</td>
         <td><img src="{{adminfood.food_image_name}}" alt="" class="image-file"></td>
         <td>{{adminfood.food_featured}}</td>
-        <!-- <td>{{adminfood.food_active}}</td> -->
+         <td>{{adminfood.food_active}}</td>
           <td width="200px">
               <button mat-raised-button color="primary" (click)="openCorBreakDown(adminfood)">View</button>
               <button class="card-order-action" mat-stroked-button color="warn" (click)="delProd(adminfood.food_id)">Delete</button>
           </td>
       </tr>
   
-    </table>
+    </table> --> 
 
 
     </div>
