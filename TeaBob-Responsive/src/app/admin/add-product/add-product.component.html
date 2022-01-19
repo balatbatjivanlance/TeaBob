@@ -177,7 +177,7 @@
             <input type="text" matInput [(ngModel)]="food_description" />
             <br />
           </mat-form-field>
-<!-- 
+
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
@@ -187,7 +187,7 @@
               <option value="No">No
               </option>
             </select>
-          </mat-form-field> -->
+          </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Featured</mat-label>
@@ -234,7 +234,7 @@
      
       <div class="var-container">
         <div class="cta">
-          <button mat-raised-button color="primary" routerLink="/">Add Ons</button>
+          <button mat-raised-button color="primary" (click)="AddOns()">Add Ons</button>
         </div>
         <div class="var-card">
     
@@ -255,41 +255,41 @@
     
         </div>
 
-        <button class="delvar"><mat-icon>delete</mat-icon></button>
+        <!-- <button class="delvar"><mat-icon>delete</mat-icon></button> -->
         
  </div>
 
       
  <div class="var-container">
   <div class="cta">
-    <button mat-raised-button color="primary" routerLink="/">Add Variation</button>
+    <button mat-raised-button color="primary" (click)="AddSize()">Add Size</button>
   </div>
   <div class="var-card">
 
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Variation Name</mat-label>
-      <input matInput type="text"  [(ngModel)]="var_name"/>
+      <mat-label>Size Name</mat-label>
+      <input matInput type="text"  [(ngModel)]="size_name"/>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Price</mat-label>
-      <input matInput type="number"   [(ngModel)]="var_price"/>
+      <input matInput type="number"   [(ngModel)]="size_price"/>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Stocks</mat-label>
-      <input matInput type="number"  [(ngModel)]="var_stocks" />
+      <input matInput type="number"  [(ngModel)]="size_stocks" />
     </mat-form-field>
 
-    <mat-form-field *ngIf = "categval" class="example-full-width" appearance="fill">
+    <!-- <mat-form-field *ngIf = "categval" class="example-full-width" appearance="fill">
       <mat-label>Size</mat-label>
       <input matInput type="text"  [(ngModel)]="var_size" />
-    </mat-form-field>
+    </mat-form-field> -->
 
   </div>
 
   
-  <button class="delvar"><mat-icon>delete</mat-icon></button>
+  <!-- <button class="delvar"><mat-icon>delete</mat-icon></button> -->
   
 </div>
    

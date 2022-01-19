@@ -87,7 +87,10 @@
           </div>
           <div class="col col-4" data-label="Featured">{{adminfood.food_featured}}</div>
           <div class="col col-4" data-label="Active">{{adminfood.food_active}}</div>
-          <div class="col col-4" data-label="Action">Pending</div>
+          <div class="col col-4" data-label="Action">
+            <button mat-raised-button color="primary" (click)="openCorBreakDown(adminfood)">View</button>
+              <button class="card-order-action" mat-stroked-button color="warn" (click)="delProd(adminfood.food_id)">Delete</button>
+          </div>
         </li>
       </ul>
 <!-- 

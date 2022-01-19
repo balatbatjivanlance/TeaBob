@@ -372,6 +372,45 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
     }
 
+    public function AddOns($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $Addon_Info = $data->Addon_Info;
+
+        $res = $this->gm->insert('tbl_addons', $Addon_Info);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
+    
+    public function AddSize($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $size_Info = $data->size_Info;
+
+        $res = $this->gm->insert('tbl_size', $size_Info);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
+
     public function addCategory($data) {
 
         $code = 401;

@@ -237,6 +237,14 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($gm->insert("tbl_food",$d), JSON_PRETTY_PRINT);
 					break;
+					case 'AddOns':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($gm->insert("tbl_addons",$d), JSON_PRETTY_PRINT);
+					break;
+					case 'AddSize':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($gm->insert("tbl_size",$d), JSON_PRETTY_PRINT);
+					break;
 					case 'addCategory':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($gm->insert("tbl_category",$d), JSON_PRETTY_PRINT);

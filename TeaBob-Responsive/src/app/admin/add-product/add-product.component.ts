@@ -145,6 +145,7 @@ export class AddProductComponent implements OnInit {
   food_category: any;
   food_price: any;
   food_description : any;
+
   food_Info : any = {};
 
 
@@ -184,12 +185,74 @@ export class AddProductComponent implements OnInit {
   addon_name: any;
   addon_price: any;
   addon_stocks: any;
+
+  Addon_Info : any = {};
+  AddOns() {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Add Successfully!',
+          'Your product has been added.',
+          'success'
+        )
+        this.Addon_Info.addon_name = this.addon_name;
+        this.Addon_Info.addon_stocks = this.addon_stocks;
+        this.Addon_Info.addon_price  = this.addon_price;
+    
+        this.ds.sendApiRequest("AddOns", JSON.parse(JSON.stringify(this.Addon_Info))).subscribe((data: any) => {
+      
+        });
+      }
+     
+    })
+
+
+  }
+
+  // addon_name: any;
+  // addon_price: any;
+  // addon_stocks: any;
   
-  var_name: any;
-  var_price: any;
-  var_stocks: any;
-  var_size: any;
-  
+  size_name: any;
+  size_price: any;
+  size_stocks: any;
+  // var_size: any;
+  size_Info : any = {};
+  AddSize() {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Add Successfully!',
+          'Your product has been added.',
+          'success'
+        )
+        this.size_Info.size_name = this.size_name;
+        this.size_Info.size_stocks = this.size_stocks;
+        this.size_Info.size_price  = this.size_price;
+    
+        this.ds.sendApiRequest("AddSize", JSON.parse(JSON.stringify(this.size_Info))).subscribe((data: any) => {
+      
+        });
+      }
+     
+    })
+
+
+  }
 
 
 
