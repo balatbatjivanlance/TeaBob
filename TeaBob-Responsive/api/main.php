@@ -231,8 +231,8 @@
 
 				// NEW ADMIN CODES
 
-				// Add Products function
-					// Add Products function
+
+					// Add Products function Admin
 					case 'addProducts':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($gm->insert("tbl_food",$d), JSON_PRETTY_PRINT);
@@ -249,16 +249,30 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($gm->insert("tbl_category",$d), JSON_PRETTY_PRINT);
 					break;
+
+					// Pull Functions Admin
+
+
+					case 'pullAddOns':
+						if(count($req)>1) {
+							echo json_encode($get->pullAddOns($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullAddOns($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'pullSize':
+						if(count($req)>1) {
+							echo json_encode($get->pullSize($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullSize($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
 					case 'category':
 						if(count($req)>1) {
 							echo json_encode($get->pullCategory($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
 							echo json_encode($get->pullCategory($req[0], null), JSON_PRETTY_PRINT);
 						}
-					break;
-					case 'delCategory':
-						$d = json_decode(base64_decode(file_get_contents("php://input")));
-						echo json_encode($post->delCategory($d), JSON_PRETTY_PRINT);
 					break;
 					case 'dashboard':
 						if(count($req)>1) {
@@ -280,6 +294,22 @@
 						} else {
 							echo json_encode($get->PullUserCount($req[0], null), JSON_PRETTY_PRINT);
 						}
+					break;
+
+					// Delete Functions Admin
+
+
+					case 'delCategory':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->delCategory($d), JSON_PRETTY_PRINT);
+					break;
+					case 'delSize':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->delSize($d), JSON_PRETTY_PRINT);
+					break;
+					case 'delAddons':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->delAddons($d), JSON_PRETTY_PRINT);
 					break;
 
 					// case 'updatefood':

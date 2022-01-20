@@ -71,19 +71,21 @@
 <p> Add Ons </p>
   </tr>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Savings</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Stocks</th>
       <th>Action</th>
     </tr>
    
-    <tr>
-      <td>Joe</td>
-      <td>Swanson</td>
-      <td>$300</td>
+    <tr *ngFor = "let addons of addons">
+      <td>{{addons.addon_id}}</td>
+      <td>{{addons.addon_name}}</td>
+      <td>{{addons.addon_price}}</td>
+      <td>{{addons.addon_stocks}}</td>
       <td>
-        <button mat-raised-button color="primary" >View</button>
-        <button mat-raised-button color="warn">Delete</button>
+        <button mat-raised-button color="primary" (click)="openCorBreakDownAddons(addons)">View</button>
+        <button class="card-order-action" mat-stroked-button color="warn" (click)="delAddons(addons.addon_id)">Delete</button>
       </td>
     </tr>
 
@@ -95,22 +97,24 @@
     <tr>
       <p> Size </p>
         </tr>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Savings</th>
-      <th>Action</th>
-    </tr>
-   
-    <tr>
-      <td>Joe</td>
-      <td>Swanson</td>
-      <td>$300</td>
-      <td>
-        <button mat-raised-button color="primary" >View</button>
-        <button mat-raised-button color="warn">Delete</button>
-      </td>
-    </tr>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stocks</th>
+          <th>Action</th>
+        </tr>
+       
+        <tr *ngFor = "let size of size">
+          <td>{{size.size_id}}</td>
+          <td>{{size.size_name}}</td>
+          <td>{{size.size_price}}</td>
+          <td>{{size.size_stocks}}</td>
+          <td>
+            <button mat-raised-button color="primary" (click)="openCorBreakDown(size)">View</button>
+            <button class="card-order-action" mat-stroked-button color="warn" (click)="delSize(size.size_id)">Delete</button>
+          </td>
+        </tr>
 
   </table>
 </div>

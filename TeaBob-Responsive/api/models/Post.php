@@ -352,7 +352,7 @@ class Post{
 
     // ADMIN CODES
 
-    // ADD PRODUCT
+    // insert ADD PRODUCT Admin
     public function addProducts($data) {
 
         $code = 401;
@@ -430,10 +430,42 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
     }
 
+    // Delete Function Admin
+
     public function delProd($d) {
         $data = $d;
         $food_id = $data->food_id;
         $res = $this->gm->delete('tbl_food', $data, "food_id = '$food_id'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
+    public function delSize($d) {
+        $data = $d;
+        $size_id = $data->size_id;
+        $res = $this->gm->delete('tbl_size', $data, "size_id = '$size_id'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
+    public function delAddons($d) {
+        $data = $d;
+        $addon_id = $data->addon_id;
+        $res = $this->gm->delete('tbl_addons', $data, "addon_id = '$addon_id'");
         if ($res['code'] == 200) {
 			$payload = $res['data'];
 			$remarks = "success";
@@ -459,5 +491,7 @@ class Post{
 			$message = $res['errmsg'];
 		}
     }
+
+
 
 }
