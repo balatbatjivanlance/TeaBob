@@ -1,0 +1,117 @@
+<mat-sidenav-container autosize>
+
+    <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
+      (mouseleave)="mouseleave()">
+      <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+        filter: invert(100%);">
+      <br>
+      <mat-divider [vertical]="false"></mat-divider>
+  
+      <!--THIS ARE IS FOR BUTTONS INSIDE YOUR SIDENAV BAR -->
+  
+      <!-- ADMIN BUTTONS -->
+  
+      <button mat-button class="button" routerLink="/dashboard" *ngIf ="user_role == '0'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" routerLink="/home" *ngIf ="user_role == '1'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
+        <mat-icon>add_circle</mat-icon>&nbsp; Add Product
+      </button>
+      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
+      </button>
+      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
+      </button>
+      <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
+        <mat-icon>category</mat-icon>&nbsp; Category
+      </button> -->
+      <button mat-button class="button" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
+      </button>
+  
+      <!-- USER BUTTONS -->
+  
+      <button mat-button class="button" *ngIf ="user_role == '1'" routerLink="/home" routerLinkActive="selected">
+        <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
+      </button>
+      <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+      </button>
+      <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
+      </button>
+      <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">
+        <mat-icon>account_box</mat-icon>&nbsp; Profile
+      </button>
+  
+    </mat-sidenav>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <mat-toolbar class="toolbar">
+        <button mat-icon-button class="example-icon" (click)="isExpanded = !isExpanded"
+          aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+          <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
+          <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
+        </button>
+        <h1 style="color: #424242; font-size: 16px;">Add-Product</h1>
+  
+        <span class="example-spacer"></span>
+  
+      </mat-toolbar>
+  
+      <!-- END OF SIDENAV AND TOOLBAR CODE  -->
+<div class="container">
+    <div class="table1">
+<table >
+  <tr>
+<p> Add Ons </p>
+  </tr>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Savings</th>
+      <th>Action</th>
+    </tr>
+   
+    <tr>
+      <td>Joe</td>
+      <td>Swanson</td>
+      <td>$300</td>
+      <td>
+        <button mat-raised-button color="primary" >View</button>
+        <button mat-raised-button color="warn">Delete</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+  <div class="table2">
+  <table>
+    <tr>
+      <p> Size </p>
+        </tr>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Savings</th>
+      <th>Action</th>
+    </tr>
+   
+    <tr>
+      <td>Joe</td>
+      <td>Swanson</td>
+      <td>$300</td>
+      <td>
+        <button mat-raised-button color="primary" >View</button>
+        <button mat-raised-button color="warn">Delete</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+</div>

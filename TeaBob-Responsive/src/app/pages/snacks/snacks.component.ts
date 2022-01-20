@@ -149,14 +149,14 @@ export class SnacksComponent implements OnInit {
   openModal(id: any, food_id: any) {
     if (id == 24) {
       const dialog = this.dialog.open(SnacksDialogComponent, {
-        autoFocus: false, width:"70%", height:"60%", data:{food_id},
+        autoFocus: false, width:"70%", height:"80%", data:{food_id},
       });
       dialog.afterClosed().subscribe( ()=>{
       });
     }
     else if(id == 26){
       const drinksdialog = this.dialog.open(DrinksDialogComponent, {
-        autoFocus: false, width:"70%", height:"60%", data: {food_id}
+        autoFocus: false, width:"70%", height:"80%", data: {food_id}
       });
       drinksdialog.afterClosed().subscribe( ()=>{
       });

@@ -41,6 +41,9 @@ import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
 import { UpdateCategoryComponent } from './admin/update-category/update-category.component';
+import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
+import { UpdateAddonsComponent } from './admin/manage-addons-size/update-addons/update-addons.component';
+import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/update-size.component';
 
 
 
@@ -68,7 +71,10 @@ import { UpdateCategoryComponent } from './admin/update-category/update-category
     UpdateFoodComponent,
     UpdateCategoryComponent,
     SampleComponentComponent,
-    AdminRegisterComponent
+    AdminRegisterComponent,
+    ManageAddonsSizeComponent,
+    UpdateAddonsComponent,
+    UpdateSizeComponent
 
   ],
   imports: [

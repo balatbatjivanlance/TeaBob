@@ -15,6 +15,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
+import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'category', component: CategoryComponent},
   { path: 'manage-product', component: ManageProductComponent},
-
+  { path: 'manage-addons', component: ManageAddonsSizeComponent},
  
   { path: '', component: LandingComponent},
 
