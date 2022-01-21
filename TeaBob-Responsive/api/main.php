@@ -320,6 +320,20 @@
 					// 	}
 					// break;
 
+
+					//NEW DRIVER CODES
+					case 'getApproved':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->PullApproved(), JSON_PRETTY_PRINT);    
+					break;
+
+					case 'getDone':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->PullDone(), JSON_PRETTY_PRINT);    
+					break;
+
+
+
 					
 			}
 		break;

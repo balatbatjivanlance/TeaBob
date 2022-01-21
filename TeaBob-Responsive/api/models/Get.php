@@ -370,6 +370,38 @@ public function PullUserCount ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+// Driver Functions
+
+public function PullApproved () {
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 1";
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+public function PullDone () {
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 2 OR is_approved = 3";
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
 }
 
 

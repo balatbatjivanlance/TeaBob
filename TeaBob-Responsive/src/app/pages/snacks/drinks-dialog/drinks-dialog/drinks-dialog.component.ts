@@ -17,6 +17,8 @@ export class DrinksDialogComponent implements OnInit {
   ngOnInit(): void {
     this.pullUsers();
     this.pullFood_perItem();
+    this.pullSize();
+    this.pullAddons();
   }
 
   userinfo: any = {};
@@ -188,5 +190,26 @@ export class DrinksDialogComponent implements OnInit {
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
+
+  size: any;
+  
+  pullSize() {
+    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
+      this.size = data.payload;
+    })
+  
+}
+
+addons: any;
+  
+pullAddons() {
+  this.ds.sendApiRequest("pullAddons", null).subscribe((data: { payload: any; }) => {
+    this.addons = data.payload;
+
+    console.log(this.addons);
+
+  })
+
+}
 
 }

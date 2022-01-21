@@ -37,6 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
@@ -95,7 +96,8 @@ import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/upda
     MatRadioModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

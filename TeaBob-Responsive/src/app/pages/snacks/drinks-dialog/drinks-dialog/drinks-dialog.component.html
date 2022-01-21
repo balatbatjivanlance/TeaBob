@@ -34,6 +34,8 @@
     
     <div class="input-box1">
         
+
+
         
         <label class="container1">Pearl (₱10)
             <input #addPearlCheckBox
@@ -66,14 +68,12 @@
         <span class="checkmark1"></span>
       </label>
 
-      
-
     </div>
+
+    
     <div class="variations">
-        <mat-radio-group class="container2">
-            <mat-radio-button value="0">Small</mat-radio-button><br><br>
-            <mat-radio-button value="10">Medium</mat-radio-button><br><br>
-            <mat-radio-button value="15">Large</mat-radio-button>
+        <mat-radio-group class="container2" *ngFor = "let size of size">
+            <mat-radio-button  *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}</mat-radio-button>
           </mat-radio-group>
     </div>
 
