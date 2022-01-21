@@ -66,7 +66,29 @@
       <!-- END OF SIDENAV AND TOOLBAR CODE  -->
 <div class="container">
     <div class="table1">
-<table >
+
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-4">Id</div>
+          <div class="col col-4">Name</div>
+          <div class="col col-4">Price</div>
+          <div class="col col-4">Stocks</div>
+          <div class="col col-4">Action</div>
+        </li>
+        <li class="table-row" *ngFor = "let addons of addons">
+          <div class="col col-4" data-label="Id">{{addons.addon_id}}</div>
+          <div class="col col-4" data-label="Name">{{addons.addon_name}}</div>
+          <div class="col col-4" data-label="Price">{{addons.addon_price}}</div>
+          <div class="col col-4" data-label="Stocks">{{addons.addon_stocks}}</div>
+          <div class="col col-3" data-label="Action">
+              <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDownAddons(addons)">View</button>
+              <button class="card-order-action" mat-stroked-button color="warn" (click)="delAddons(addons.addon_id)">Delete</button>
+          </div>
+        </li>
+      </ul>
+
+
+<!-- <table >
   <tr>
 <p> Add Ons </p>
   </tr>
@@ -89,11 +111,31 @@
       </td>
     </tr>
 
-  </table>
+  </table> -->
 </div>
 
   <div class="table2">
-  <table>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-4">Id</div>
+        <div class="col col-4">Name</div>
+        <div class="col col-4">Price</div>
+        <div class="col col-4">Stocks</div>
+        <div class="col col-4">Action</div>
+      </li>
+      <li class="table-row" *ngFor = "let size of size">
+        <div class="col col-4" data-label="Id">{{size.size_id}}</div>
+        <div class="col col-4" data-label="Name">{{size.size_name}}</div>
+        <div class="col col-4" data-label="Price">{{size.size_price}}</div>
+        <div class="col col-4" data-label="Stocks">{{size.size_stocks}}</div>
+        <div class="col col-3" data-label="Action">
+            <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDown(size)">View</button>
+            <button class="card-order-action" mat-stroked-button color="warn" (click)="delSize(size.size_id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+  <!-- <table>
     <tr>
       <p> Size </p>
         </tr>
@@ -116,6 +158,6 @@
           </td>
         </tr>
 
-  </table>
+  </table> -->
 </div>
 </div>
