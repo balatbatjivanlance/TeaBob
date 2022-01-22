@@ -12,7 +12,7 @@ export class ProfileDialogComponent implements OnInit {
 
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
+  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();

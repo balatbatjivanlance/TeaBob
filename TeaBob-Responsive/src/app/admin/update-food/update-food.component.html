@@ -18,7 +18,7 @@
           </div> -->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput type="text" />
+            <input matInput type="text" [(ngModel)]="food_name"/>
           </mat-form-field>
 
           <!-- <div class="input-box">
@@ -44,6 +44,17 @@
               <span class="details">Featured</span>
               <input disabled type="number" class="input-number" placeholder="">
           </div> -->
+          
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Active</mat-label>
+            <select matNativeControl name="Active" id="Active" >
+              <option value="Yes">Yes
+              </option>
+              <option value="No">No
+              </option>
+            </select>
+          </mat-form-field>
+
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Featured</mat-label>
             <select matNativeControl name="featured" id="featured" >

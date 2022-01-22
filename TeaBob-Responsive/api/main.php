@@ -222,11 +222,11 @@
 						echo json_encode($get->pullCounter($d), JSON_PRETTY_PRINT);
 					}
 				break;
-
 				case 'pullCodeDetails':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($get->pullCodeDetails($d), JSON_PRETTY_PRINT);    
 				break;
+
 
 
 				// NEW ADMIN CODES
@@ -250,6 +250,16 @@
 						echo json_encode($gm->insert("tbl_category",$d), JSON_PRETTY_PRINT);
 					break;
 
+						//  Update Size and Addons
+					case 'updateSize':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->updateSize($d), JSON_PRETTY_PRINT);
+					break;
+					case 'updateAddons':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->updateAddons($d), JSON_PRETTY_PRINT);
+					break;
+
 					// Pull Functions Admin
 
 
@@ -267,6 +277,16 @@
 							echo json_encode($get->pullSize($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					
+					case 'pullSizeDetails':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->pullSizeDetails($d), JSON_PRETTY_PRINT);    
+					break;
+					case 'pullAddonsDetails':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->pullAddonsDetails($d), JSON_PRETTY_PRINT);    
+					break;
+
 					case 'category':
 						if(count($req)>1) {
 							echo json_encode($get->pullCategory($req[0], $req[1]), JSON_PRETTY_PRINT);
@@ -286,6 +306,13 @@
 							echo json_encode($get->adminPullFood($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
 							echo json_encode($get->adminPullFood($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'pullProductDetails':
+						if(count($req)>1) {
+							echo json_encode($get->pullProductDetails($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullProductDetails($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
 					case 'usercount':

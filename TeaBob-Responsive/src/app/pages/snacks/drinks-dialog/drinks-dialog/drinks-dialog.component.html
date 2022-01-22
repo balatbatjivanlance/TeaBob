@@ -33,8 +33,6 @@
         </div>
     
     <div class="input-box1">
-        
-
 
         
         <label class="container1">Pearl (₱10)
@@ -72,9 +70,21 @@
 
     
     <div class="variations">
-        <mat-radio-group class="container2" *ngFor = "let size of size">
+
+        <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+            <mat-label>Select Size</mat-label>
+            <select matNativeControl name="size" id="size"
+            [(ngModel)]="item_size">
+            <ng-container  *ngFor="let size of size">
+              <option *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}
+              </option>
+            </ng-container>
+            </select>
+          </mat-form-field>
+
+        <!-- <mat-radio-group class="container2" *ngFor = "let size of size">
             <mat-radio-button  *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}</mat-radio-button>
-          </mat-radio-group>
+          </mat-radio-group> -->
     </div>
 
     <button class="button"(click)="addToCart()">Add to Cart</button>

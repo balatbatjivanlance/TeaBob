@@ -75,7 +75,7 @@ import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/upda
     AdminRegisterComponent,
     ManageAddonsSizeComponent,
     UpdateAddonsComponent,
-    UpdateSizeComponent
+    UpdateSizeComponent,
 
   ],
   imports: [

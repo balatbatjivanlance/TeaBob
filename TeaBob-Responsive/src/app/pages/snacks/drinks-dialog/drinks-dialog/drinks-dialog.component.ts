@@ -152,11 +152,46 @@ export class DrinksDialogComponent implements OnInit {
         this.prodInfo.add_cookie = this.extraCookie;
     }
     this.sendMessage();
-  } 
+  }
+  
+
+  
+  size: any;
+  
+  pullSize() {
+    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
+      this.size = data.payload;
+    })
+  
+}
+
+
+selectedSize: string = '';
+
+selectChangeHandleractive (event: any){
+  this.selectedSize = event.target.value;
+
+  console.log(this.selectedSize);
+}
+
+addons: any;
+  
+pullAddons() {
+  this.ds.sendApiRequest("pullAddons", null).subscribe((data: { payload: any; }) => {
+    this.addons = data.payload;
+
+    console.log(this.addons);
+
+  })
+
+}
+
   
   prodInfo: any = {};
   title: any;
   info: any;
+
+  item_size: any;
 
 
   addToCart() {
@@ -191,25 +226,5 @@ export class DrinksDialogComponent implements OnInit {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 
-  size: any;
-  
-  pullSize() {
-    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
-      this.size = data.payload;
-    })
-  
-}
-
-addons: any;
-  
-pullAddons() {
-  this.ds.sendApiRequest("pullAddons", null).subscribe((data: { payload: any; }) => {
-    this.addons = data.payload;
-
-    console.log(this.addons);
-
-  })
-
-}
 
 }

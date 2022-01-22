@@ -27,7 +27,6 @@ export class ViewOrdersComponent implements OnInit {
   pullCheckoutDetails() {
     this.corNumInfo.code = this.status.code;
 
-
     this.ds.sendApiRequest("pullCodeDetails", this.status.code).subscribe((data: { payload: any; }) => {
       this.details = data.payload;
 
@@ -45,5 +44,7 @@ export class ViewOrdersComponent implements OnInit {
     })
   
 }
+
+is_approved: any;
 
 }
