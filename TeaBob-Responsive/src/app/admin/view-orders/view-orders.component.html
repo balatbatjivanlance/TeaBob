@@ -2,14 +2,14 @@
   <div class="tablecontainer">
     <ul class="responsive-table">
       <li class="table-header">
-        <div class="col col-1">Code:</div>
+        <!-- <div class="col col-1">Code:</div> -->
         <div class="col col-2">Food name:</div>
         <div class="col col-3">Price:</div>
         <div class="col col-4">Quantity:</div>
         <div class="col col-4">Checkout Date:</div>
       </li>
       <li class="table-row" *ngFor = "let details of details">
-        <div class="col col-1" data-label="Code:">{{details.code}}</div>
+        <!-- <div class="col col-1" data-label="Code:">{{details.code}}</div> -->
         <div class="col col-2" data-label="Food name:">{{details.prod_name}}</div>
         <div class="col col-3" data-label="Price:">₱{{details.prod_price}}</div>
         <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
@@ -37,21 +37,25 @@
 
   </table> -->
   <div class="status-container">
+    
     <mat-form-field appearance="outline" class="status-mat">
       <mat-label>Status</mat-label>
-    <mat-select [(ngModel)]="is_approved">
+    <mat-select matNativeControl name="status" id="status" (change)="selectChangeHandlerStatus($event)"
+    [(ngModel)]="is_approved">
       <mat-option value='1'>Approved</mat-option>
       <mat-option value='0'>Pending</mat-option>
       <mat-option value='2'>Cancelled</mat-option>
       <mat-option value='3'>On Delivery</mat-option>
     </mat-select>
   </mat-form-field>
+
+
   </div>
 
     </div>
 
     <div class="buttoncontainer">
       
-      <button mat-raised-button color="primary">Update</button>
+      <button mat-raised-button color="primary" (click)="updateStatus()">Update</button>
     </div>
 </div>

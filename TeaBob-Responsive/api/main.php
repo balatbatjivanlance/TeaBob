@@ -226,6 +226,10 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($get->pullCodeDetails($d), JSON_PRETTY_PRINT);    
 				break;
+				case 'pullCoCodeDetails':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($get->pullCoCodeDetails($d), JSON_PRETTY_PRINT);    
+				break;
 
 
 
@@ -259,6 +263,11 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->updateAddons($d), JSON_PRETTY_PRINT);
 					break;
+					case 'updateFood':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->updateFood($d), JSON_PRETTY_PRINT);
+					break;
+					
 
 					// Pull Functions Admin
 
@@ -286,6 +295,10 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($get->pullAddonsDetails($d), JSON_PRETTY_PRINT);    
 					break;
+					case 'pullFoodDetails':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->pullFoodDetails($d), JSON_PRETTY_PRINT);    
+					break;
 
 					case 'category':
 						if(count($req)>1) {
@@ -306,13 +319,6 @@
 							echo json_encode($get->adminPullFood($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
 							echo json_encode($get->adminPullFood($req[0], null), JSON_PRETTY_PRINT);
-						}
-					break;
-					case 'pullProductDetails':
-						if(count($req)>1) {
-							echo json_encode($get->pullProductDetails($req[0], $req[1]), JSON_PRETTY_PRINT);
-						} else {
-							echo json_encode($get->pullProductDetails($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
 					case 'usercount':

@@ -341,7 +341,7 @@ public function pullAddonsDetails($addon_id) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
-public function pullProductDetails($food_id) {
+public function pullFoodDetails($food_id) {
 
 	$sql = "SELECT * FROM tbl_food WHERE food_id = '$food_id'";
 
@@ -358,6 +358,8 @@ public function pullProductDetails($food_id) {
 	}
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
+
+
 
 public function pullDashboard ($d) {
 	$sql = "SELECT * FROM tbl_cocode";
