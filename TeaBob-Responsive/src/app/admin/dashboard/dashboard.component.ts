@@ -136,8 +136,8 @@ export class DashboardComponent implements OnInit {
 openCorBreakDown(dashboard: any) {
   // console.log(code);
   const dialogRef = this.dialog.open(ViewOrdersComponent , {
-    height: '50%',
-    width: '50%',
+    height: '70%',
+    width: '60%',
     data: 
     dashboard
   });
