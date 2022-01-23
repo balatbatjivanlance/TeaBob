@@ -88,9 +88,9 @@ export class ViewOrdersComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        let id  = this.status.user_id;
+        let id  = this.status.cocode_id;
 
-        this.codeinfo.user_id =  id;
+        this.codeinfo.cocode_id =  id;
         this.codeinfo.is_approved = this.is_approved = this.selectedStatus;
 
     this.ds.sendApiRequest("updateStatus/" + id, this.codeinfo).subscribe((data: { payload: any; }) => {});
