@@ -369,6 +369,11 @@
 						echo json_encode($get->PullDone(), JSON_PRETTY_PRINT);    
 					break;
 
+					case 'getDriver': //Pang login sa driver side
+						$d = json_decode(base64_decode(file_get_contents("php://input"))); //etong line na to igeget mo yung pinapasa which is eto pero isesave mo siya sa variable na $d
+						echo json_encode($auth->loginDriver($d), JSON_PRETTY_PRINT);    
+					break;
+
 
 
 					
