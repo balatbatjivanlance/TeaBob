@@ -37,17 +37,28 @@
 
   </table> -->
   <div class="status-container">
+
+    <mat-form-field class="example-full-width" appearance="outline" class="status-mat">
+      <mat-label>Featured</mat-label>
+      <select matNativeControl name="status" id="status" (change)="selectChangeHandler($event)"
+      [(ngModel)]="is_approved" >
+      <option value='0'>Pending</option>
+      <option value='1'>Approved</option>
+      <option value='2'>Cancelled</option>
+      <option value='3'>On Delivery</option>
+      </select>
+    </mat-form-field>
     
-    <mat-form-field appearance="outline" class="status-mat">
+    <!-- <mat-form-field appearance="outline" class="status-mat">
       <mat-label>Status</mat-label>
-    <mat-select matNativeControl name="status" id="status" (change)="selectChangeHandlerStatus($event)"
+    <mat-select matNativeControl name="status" id="status" (change)="selectChangeHandler($event.value)"
     [(ngModel)]="is_approved">
-      <mat-option value='1'>Approved</mat-option>
       <mat-option value='0'>Pending</mat-option>
+      <mat-option value='1'>Approved</mat-option>
       <mat-option value='2'>Cancelled</mat-option>
       <mat-option value='3'>On Delivery</mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
 
 
   </div>

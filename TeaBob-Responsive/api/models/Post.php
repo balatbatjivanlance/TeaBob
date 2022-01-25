@@ -475,7 +475,7 @@ class Post{
                     $remarks = "failed";
                     $message = "Unable to retrieve data";
             
-                    $res = $this->gm->update('tbl_cocode', $dt, "code_id = '$dt->code_id'");
+                    $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
                     return $res;
                     if($res['code']==200) {
                         $code = 200;

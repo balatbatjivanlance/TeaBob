@@ -18,7 +18,9 @@ export class DrinksDialogComponent implements OnInit {
     this.pullUsers();
     this.pullFood_perItem();
     this.pullSize();
-    this.pullAddons();
+    this.pullAddOns();
+    this.pullAddOns();
+    // this.pullAddonsDetails();
   }
 
   userinfo: any = {};
@@ -55,6 +57,55 @@ export class DrinksDialogComponent implements OnInit {
     });
 
   }
+
+  // addoninfo: any = {};
+  // addon_payload: any [] = []; 
+
+  // addon_name: any;
+  // addon_price: any;
+  // addon_stocks: any;
+
+  // pullAddonsDetails() {
+  //   this.addoninfo.addon_id = this.data.addon_id;
+
+  //   this.ds.sendApiRequest("pullAddonsDetails", this.data.addon_id).subscribe((data: { payload: any; }) => {
+  //   this.addon_payload = data.payload;
+    
+  //   this.addon_name = this.addon_payload[0].addon_name;
+  //   this.addon_price = this.addon_payload[0].addon_price;
+  //   this.addon_stocks = this.addon_payload[0].addon_stocks;
+  //   }
+  //   )
+  // }
+
+  addon: any;
+  
+  pullAddOns() {
+    this.ds.sendApiRequest("pullAddOns", null).subscribe((data: { payload: any; }) => {
+      this.addon = data.payload;
+    })
+  
+}
+
+    
+  size: any;
+  
+  pullSize() {
+    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
+      this.size = data.payload;
+    })
+  
+}
+
+
+selectedSize: string = '';
+
+selectChangeHandleractive (event: any){
+  this.selectedSize = event.target.value;
+
+  console.log(this.selectedSize);
+}
+
 
   plusQty = () =>{
     this.food_qty += 1;
@@ -153,38 +204,6 @@ export class DrinksDialogComponent implements OnInit {
     }
     this.sendMessage();
   }
-  
-
-  
-  size: any;
-  
-  pullSize() {
-    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
-      this.size = data.payload;
-    })
-  
-}
-
-
-selectedSize: string = '';
-
-selectChangeHandleractive (event: any){
-  this.selectedSize = event.target.value;
-
-  console.log(this.selectedSize);
-}
-
-addons: any;
-  
-pullAddons() {
-  this.ds.sendApiRequest("pullAddons", null).subscribe((data: { payload: any; }) => {
-    this.addons = data.payload;
-
-    console.log(this.addons);
-
-  })
-
-}
 
   
   prodInfo: any = {};

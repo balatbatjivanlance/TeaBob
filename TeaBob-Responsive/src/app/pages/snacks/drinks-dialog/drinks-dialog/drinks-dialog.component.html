@@ -34,8 +34,23 @@
     
     <div class="input-box1">
 
+<!-- 
+        <ng-container  *ngFor="let addon of addon">
+            <label class="container1">{{addon.addon_name}}
+                <input #addPearlCheckBox
+                type="checkbox" 
+                [checked]="savePearl" 
+                (change)="addPearl(addPearlCheckBox.checked)" />
+                <span class="checkmark1"></span>
+            </label>
+            </ng-container> -->
+
+            <section  class="container1" *ngFor="let addon of addon">
+                <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                 value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
+              </section>
         
-        <label class="container1">Pearl (₱10)
+        <!-- <label class="container1">Pearl (₱10)
             <input #addPearlCheckBox
             type="checkbox" 
             [checked]="savePearl" 
@@ -64,7 +79,7 @@
         [checked]="saveCookie" 
         (change)="addCookie(addCookieCheckBox.checked)" />
         <span class="checkmark1"></span>
-      </label>
+      </label> -->
 
     </div>
 

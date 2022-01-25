@@ -68,7 +68,7 @@ export class ViewOrdersComponent implements OnInit {
 
   selectedStatus: string = '';
 
-  selectChangeHandlerStatus (event: any){
+  selectChangeHandler (event: any){
     this.selectedStatus = event.target.value;
 
     console.log(this.selectedStatus);
@@ -76,7 +76,8 @@ export class ViewOrdersComponent implements OnInit {
 
   
   is_approved: any;
-  codeinfo: any;
+  
+  codeinfo: any = {};
 
   updateStatus() {
    
@@ -88,12 +89,12 @@ export class ViewOrdersComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        let id  = this.status.cocode_id;
+        let cocode_id  = this.status.cocode_id;
 
-        this.codeinfo.cocode_id =  id;
+        this.codeinfo.cocode_id =  cocode_id;
         this.codeinfo.is_approved = this.is_approved = this.selectedStatus;
 
-    this.ds.sendApiRequest("updateStatus/" + id, this.codeinfo).subscribe((data: { payload: any; }) => {});
+    this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
 
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
@@ -101,6 +102,7 @@ export class ViewOrdersComponent implements OnInit {
       }
     })
     this.dialog.closeAll();
+    console.log(this.selectedStatus)
   }
 
 
