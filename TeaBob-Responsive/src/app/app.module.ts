@@ -46,6 +46,7 @@ import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-add
 import { UpdateAddonsComponent } from './admin/manage-addons-size/update-addons/update-addons.component';
 import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/update-size.component';
 import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
+import { HistoryComponent } from './admin/history/history.component';
 
 
 
@@ -78,6 +79,7 @@ import { RegisterDriverComponent } from './admin/register-driver/register-driver
     UpdateAddonsComponent,
     UpdateSizeComponent,
     RegisterDriverComponent,
+    HistoryComponent,
 
   ],
   imports: [

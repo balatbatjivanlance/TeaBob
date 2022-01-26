@@ -17,6 +17,7 @@ import { ManageProductComponent } from './admin/manage-product/manage-product.co
 import { SampleComponentComponent } from './sample-component/sample-component.component';
 import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
 import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
+import { HistoryComponent } from './admin/history/history.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'category', component: CategoryComponent},
   { path: 'manage-product', component: ManageProductComponent},
   { path: 'manage-addons', component: ManageAddonsSizeComponent},
+  { path: 'history', component: HistoryComponent},
  
   { path: '', component: LandingComponent},
 

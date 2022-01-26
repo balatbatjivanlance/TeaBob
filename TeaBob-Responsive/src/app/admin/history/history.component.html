@@ -1,0 +1,148 @@
+<mat-sidenav-container autosize>
+
+    <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
+      (mouseleave)="mouseleave()">
+      <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+        filter: invert(100%);">
+      <br>
+      <mat-divider [vertical]="false"></mat-divider>
+  
+      <!--THIS ARE IS FOR BUTTONS INSIDE YOUR SIDENAV BAR -->
+  
+      <!-- ADMIN BUTTONS -->
+  
+      <button mat-button class="button" routerLink="/dashboard" *ngIf ="user_role == '0'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" routerLink="/home" *ngIf ="user_role == '1'"  routerLinkActive="selected">
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
+        <mat-icon>add_circle</mat-icon>&nbsp; Add Product
+      </button>
+      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
+      </button>
+      <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
+      </button>
+      <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; History
+      </button>
+      <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
+        <mat-icon>category</mat-icon>&nbsp; Category
+      </button> -->
+      <button mat-button class="button" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
+      </button>
+  
+      <!-- USER BUTTONS -->
+  
+      <button mat-button class="button" *ngIf ="user_role == '1'" routerLink="/home" routerLinkActive="selected">
+        <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
+      </button>
+      <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+      </button>
+      <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
+      </button>
+      <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">
+        <mat-icon>account_box</mat-icon>&nbsp; Profile
+      </button>
+  
+    </mat-sidenav>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <mat-toolbar class="toolbar">
+        <button mat-icon-button class="example-icon" (click)="isExpanded = !isExpanded"
+          aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+          <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
+          <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
+        </button>
+        <h1 style="color: #424242; font-size: 16px;">History</h1>
+  
+        <span class="example-spacer"></span>
+  
+      </mat-toolbar>
+      </div>
+<div class="container">
+      <div class="dashboard-bottom">
+          
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-4">Order Code</div>
+            <div class="col col-4">Customer</div>
+            <div class="col col-4">Contact No.</div>
+            <div class="col col-4">Address</div>
+            <div class="col col-4">Date</div>
+            <div class="col col-4">Price</div>
+            <div class="col col-4">Status</div>
+            <div class="col col-4">Action</div>
+          </li>
+          <li class="table-row" *ngFor = "let dashboard of dashboard" >
+            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Order Code">{{dashboard.code}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Customer">{{dashboard.user_name}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Contact No">{{dashboard.user_contact}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Address">{{dashboard.user_address}}</div>
+            <div class="col col-3" *ngIf ="dashboard.is_approved == '1' "  data-label="Date">{{dashboard.date}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Price">{{dashboard.total_price}}</div>
+
+            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Order Code">{{dashboard.code}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Customer">{{dashboard.user_name}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Contact No">{{dashboard.user_contact}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Address">{{dashboard.user_address}}</div>
+            <div class="col col-3" *ngIf ="dashboard.is_approved ==  '2'"  data-label="Date">{{dashboard.date}}</div>
+            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Price">{{dashboard.total_price}}</div>
+
+           
+            <div class="col col-4" data-label="Status">
+              <!-- <span *ngIf ="dashboard.is_approved == '2'|| '4'" *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</span> -->
+              <span  *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</span>
+              <span  *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</span>
+              <!-- <span *ngIf ="dashboard.is_approved == '2'|| '4'" *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</span> -->
+
+            </div>
+            <div class="col col-4" data-label="Action">
+              <button mat-raised-button color="primary" *ngIf ="dashboard.is_approved == '1' " (click)="openCorBreakDown(dashboard)">View</button>
+              <button class="card-order-action" *ngIf ="dashboard.is_approved == '1' " mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
+
+              <button mat-raised-button color="primary" *ngIf ="dashboard.is_approved ==  '2'" (click)="openCorBreakDown(dashboard)">View</button>
+              <button class="card-order-action" *ngIf ="dashboard.is_approved ==  '2'" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
+            </div>
+          </li>
+        </ul>
+          <!-- <table>
+              <tr>
+                  <th>Order Code </th>
+                  <th>Customer </th>
+                  <th>Contact No.</th>
+                  <th>Address</th>
+                  <th>Date</th>
+                  <th>Price </th>
+                  <th>Status</th>
+                  <th>Action</th>
+              </tr>
+              <tr *ngFor = "let dashboard of dashboard">
+                <td>{{dashboard.code}}</td>
+                <td>{{dashboard.user_name}}</td>
+                <td>{{dashboard.user_contact}}</td>
+                <td>{{dashboard.user_address}}</td>
+                <td>{{dashboard.date}}</td>
+                <td>{{dashboard.total_price}}</td>
+                <td *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</td>
+                <td *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</td>
+                <td *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</td>
+                <td *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</td>
+                  <td width="200px">
+                      <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
+                      <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
+                  </td>
+              </tr>
+          
+            </table> -->
+        </div>
+      </div>
+    </mat-sidenav-container>
+
+
