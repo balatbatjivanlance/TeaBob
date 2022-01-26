@@ -374,6 +374,11 @@
 						echo json_encode($auth->loginDriver($d), JSON_PRETTY_PRINT);    
 					break;
 
+					case 'registerDriver':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($auth->registerDriver($d), JSON_PRETTY_PRINT);
+					break;
+
 
 
 					

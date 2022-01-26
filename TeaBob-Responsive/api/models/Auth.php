@@ -158,11 +158,23 @@
 			$message = "";
 			$code = 0;
 
-			$sql = "SELECT * FROM tbl_driver WHERE driver_email = '$driver_email' AND driver_password = '$dt->driver_password' LIMIT 1";
+			$sql = "SELECT * FROM tbl_driver WHERE driver_email = '$driver_email' LIMIT 1";
 			$res = $this->gm->generalQuery($sql, "Incorrect username or password");
 			
 			if($res['code'] == 200) {
-				
+						// print_r($res['data'][0]['driver_password']);
+						// print_r($dt->driver_password);
+					// $driver_id = $res['data'][0]['driver_id'];
+					// $driver_name = $res['data'][0]['driver_name'];
+					// $driver_email = $res['data'][0]['driver_email';
+
+					// $code = 200;
+					// $remarks = "success";
+					// $message = "Logged in successfully";
+					// $payload = array("driver_id"=>$driver_id, "Fullname"=>$driver_name, "driver_email"=>$driver_email);
+				if($this->pword_check($dt->driver_password, $res['data'][0]['driver_password'])) 
+				{
+
 					$driver_id = $res['data'][0]['driver_id'];
 					$driver_name =$res['data'][0]['driver_name'];
 					$driver_email = $res['data'][0]['driver_email'];
@@ -174,29 +186,25 @@
 					$remarks = "success";
 					$message = "Logged in successfully";
 					$payload = array("driver_id"=>$driver_id, "Fullname"=>$driver_name, "driver_email"=>$driver_email);
-				// if($this->pword_check($user_pword, $res['data'][0]['user_pword'])) 
-				// {
 					
 				
-				// 	$user_name =$res['data'][0]['user_name'];
-				// 	$user_id = $res['data'][0]['user_id'];
-				// 	$user_contact =$res['data'][0]['user_contact'];
-				// 	$user_address = $res['data'][0]['user_address'];
-				// 	$user_role = $res['data'][0]['user_role'];
-		
-				
+					// $user_name =$res['data'][0]['user_name'];
+					// $user_id = $res['data'][0]['user_id'];
+					// $user_contact =$res['data'][0]['user_contact'];
+					// $user_address = $res['data'][0]['user_address'];
+					// $user_role = $res['data'][0]['user_role'];
 
-				// 	$code = 200;
-				// 	$remarks = "success";
-				// 	$message = "Logged in successfully";
-				// 	$payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role);
-				// } 
-				// else 
-				// {
-				// 	$payload = null; 
-				// 	$remarks = "failed"; 
-				// 	$message = "Incorrect username or password";
-				// }
+					// $code = 200;
+					// $remarks = "success";
+					// $message = "Logged in successfully";
+					// $payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role);
+				} 
+				else 
+				{
+					$payload = null; 
+					$remarks = "failed"; 
+					$message = "Incorrect username or password";
+				}
 			}	
 			else 
 			{
@@ -206,6 +214,39 @@
 			}
 			return $this->gm->sendPayload($payload, $remarks, $message, $code);
 		}
+
+		public function registerDriver($dt){
+			// print_r($dt);
+			$payload = "";
+			$remarks = "";
+			$message = "";
+            $payload = $dt;
+			$fullname = $dt->driver_fname.' '.$dt->driver_lname;
+            $encryptedPassword = $this->encrypt_password($dt->driver_password);
+
+            $payload = array(
+                'fullname'=>$fullname
+            );
+
+            $sql = "INSERT INTO tbl_driver( driver_name, driver_email, driver_password) 
+                           VALUES ('$fullname','$dt->driver_email','$encryptedPassword')";
+                     
+
+                           $data = array(); $code = 0; $errmsg= ""; $remarks = "";
+                           try {
+                       
+                               if ($res = $this->pdo->query($sql)->fetchAll()) {
+                                   foreach ($res as $rec) { array_push($data, $rec);}
+                                   $res = null; 
+								   $code = 200; $message = "Successfully Registered"; $remarks = "success";
+                                   return array("code"=>200, "remarks"=>"success");
+                               }
+                           } catch (\PDOException $e) {
+                               $errmsg = $e->getMessage();
+                               $code = 403;
+                           }
+						   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
+        }
 
 
     }

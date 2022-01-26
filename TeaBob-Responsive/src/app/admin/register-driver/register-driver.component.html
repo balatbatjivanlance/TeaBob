@@ -1,0 +1,23 @@
+<!-- <h1>Register Driver</h1>
+<label for="driver-fname">First Name</label>
+<input id="driver-fname" type="text"></input> -->
+
+
+<form ngNativeValidate (submit)="onSubmit($event)">
+    <label for="driver_fname">First name:</label>
+    <input type="text" id="fname" name="fname" required><br><br>
+
+    <label for="driver_lname">Last name:</label>
+    <input type="text" id="lname" name="lname" required><br><br>
+    
+    <label for="driver_email">E-mail:</label>
+    <input type="email" id="lname" name="lname" required><br><br>
+
+    <label for="driver_password">Password:</label>
+    <input type="password" id="lname" name="lname" required><br><br>
+
+    <label for="driver_confirmpassword">Confirm Password:</label>
+    <input type="password" id="lname" name="lname" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>

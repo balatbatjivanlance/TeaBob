@@ -16,6 +16,7 @@ import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
 import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
+import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'admin-register', component: AdminRegisterComponent},
+  { path: 'register-driver', component: RegisterDriverComponent},
   { path: 'login', component: LoginComponent},
   { path: 'add-product', component: AddProductComponent},
   { path: 'dashboard', component: DashboardComponent},

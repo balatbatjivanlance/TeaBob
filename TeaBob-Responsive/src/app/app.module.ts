@@ -45,6 +45,7 @@ import { UpdateCategoryComponent } from './admin/update-category/update-category
 import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
 import { UpdateAddonsComponent } from './admin/manage-addons-size/update-addons/update-addons.component';
 import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/update-size.component';
+import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
 
 
 
@@ -76,6 +77,7 @@ import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/upda
     ManageAddonsSizeComponent,
     UpdateAddonsComponent,
     UpdateSizeComponent,
+    RegisterDriverComponent,
 
   ],
   imports: [
