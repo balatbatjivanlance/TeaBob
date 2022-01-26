@@ -22,6 +22,7 @@ export class StatusComponent implements OnInit {
 
   message: any;
   private subs: Subscription;
+  data: any;
   
   constructor(private ds: DataService, route:ActivatedRoute, public dialog: MatDialog,public router: Router ) { 
       this.subs = this.ds.getUpdate().subscribe(message => {
@@ -109,11 +110,11 @@ export class StatusComponent implements OnInit {
     )
   }
 
-  statusinfo: any = {};
+  cancelorder: any = {};
 
-  updateStatus() {
-    
-     Swal.fire({
+  cancelOrder = (id:any) => {
+
+         Swal.fire({
       title: 'Are you sure to cancel your orders?',
       showDenyButton: true,
       confirmButtonText: 'Yes!',
@@ -121,20 +122,44 @@ export class StatusComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        let id  = localStorage.getItem("id");
- 
-    this.statusinfo.user_id =  id;
-    this.statusinfo.is_approved =  2
-     this.ds.sendApiRequest("updateStatus/" + id, this.statusinfo).subscribe((data: { payload: any; }) => {});
-     this.sendMessage();
+    this.cancelorder.cocode_id = id;
+    this.cancelorder.is_approved = 2;
+    this.ds.sendApiRequest('cancelOrder/', this.cancelorder).subscribe((data: any) => { });
 
+    this.sendMessage();
+    
         Swal.fire('Order Cancelled', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Thank you for your fast update', '', 'info')
       }
     })
      this.dialog.closeAll();
-   }
+  }
+
+  // cancelOrder() {
+    
+  //    Swal.fire({
+  //     title: 'Are you sure to cancel your orders?',
+  //     showDenyButton: true,
+  //     confirmButtonText: 'Yes!',
+  //     denyButtonText: `No!`,
+  //   }).then((result) => {
+  //     /* Read more about isConfirmed, isDenied below */
+  //     if (result.isConfirmed) {
+  //       let id  = localStorage.getItem("id");
+ 
+  //   this.cancelorder.user_id =  id;
+  //   this.cancelorder.is_approved =  2;
+  //    this.ds.sendApiRequest("cancelOrder/" + id, this.cancelorder).subscribe((data: { payload: any; }) => {});
+  //    this.sendMessage();
+
+  //       Swal.fire('Order Cancelled', '', 'success')
+  //     } else if (result.isDenied) {
+  //       Swal.fire('Thank you for your fast update', '', 'info')
+  //     }
+  //   })
+  //    this.dialog.closeAll();
+  //  }
 
 
     

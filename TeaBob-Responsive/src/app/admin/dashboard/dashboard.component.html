@@ -145,10 +145,11 @@
               <div class="col col-3" data-label="Date">{{dashboard.date}}</div>
               <div class="col col-4" data-label="Price">{{dashboard.total_price}}</div>
               <div class="col col-4" data-label="Status">
-                <span *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</span>
+                <span *ngIf ="dashboard.is_approved == '0'" style="background-color: orange;">Pending</span>
                 <span *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</span>
                 <span *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</span>
-                <span *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</span>
+                <span *ngIf ="dashboard.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
+                <span *ngIf ="dashboard.is_approved == '4'" style="background-color: blue;">Delivered</span>
 
               </div>
               <div class="col col-4" data-label="Action">
