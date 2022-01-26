@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    
+    <ion-title>Delivery History</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-badge color="danger">1</ion-badge>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-card *ngFor="let done of done">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        
+        <ion-icon *ngIf="done.is_approved == 2" name="checkmark-circle-outline" slot="start" color="success"></ion-icon>
+        <ion-icon *ngIf="done.is_approved == 3" name="remove-circle-outline" slot="start" color="danger"></ion-icon>
+        <ion-label *ngIf="done.is_approved == 2">
+          Delivered
+          <p>Receipt code: {{done.code}}</p>
+          <p>Order placed: {{done.date}}</p>         
+        </ion-label>
+        <ion-label *ngIf="done.is_approved == 3">
+          Cancelled
+          <p>Receipt code: {{done.code}}</p>
+          <p>Order placed: {{done.date}}</p>         
+        </ion-label>
+      </ion-item>  
+      
+      <ion-item lines="none">
+        <ion-label>
+          <p *ngIf="done.is_approved == 2">Payment Received: <span class="text-focus">₱{{done.total_price}}.00</span></p>
+          <p *ngIf="done.is_approved == 3">Reason: <span class="text-focus">{{done.remarks}}</span></p>
+          
+        </ion-label>
+      </ion-item>    
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

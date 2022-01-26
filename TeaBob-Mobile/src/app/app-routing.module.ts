@@ -3,30 +3,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'snack',
-    loadChildren: () => import('./pages/snack/snack.module').then( m => m.SnackPageModule)
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'drinks',
-    loadChildren: () => import('./pages/drinks/drinks.module').then( m => m.DrinksPageModule)
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'cart',
-    loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+    path: 'delivery-history',
+    loadChildren: () => import('./pages/delivery-history/delivery-history.module').then( m => m.DeliveryHistoryPageModule)
   },
   {
-    path: 'status',
-    loadChildren: () => import('./pages/status/status.module').then( m => m.StatusPageModule)
-  },
+    path: 'view-order',
+    loadChildren: () => import('./pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
+  }
 ];
 
 @NgModule({
@@ -35,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
