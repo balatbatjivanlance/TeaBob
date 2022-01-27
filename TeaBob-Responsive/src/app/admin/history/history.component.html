@@ -67,81 +67,39 @@
       </mat-toolbar>
       </div>
 <div class="container">
-      <div class="dashboard-bottom">
+  <div class="dashboard-bottom">
           
-        <ul class="responsive-table">
-          <li class="table-header">
-            <div class="col col-4">Order Code</div>
-            <div class="col col-4">Customer</div>
-            <div class="col col-4">Contact No.</div>
-            <div class="col col-4">Address</div>
-            <div class="col col-4">Date</div>
-            <div class="col col-4">Price</div>
-            <div class="col col-4">Status</div>
-            <div class="col col-4">Action</div>
-          </li>
-          <li class="table-row" *ngFor = "let dashboard of dashboard" >
-            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Order Code">{{dashboard.code}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Customer">{{dashboard.user_name}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Contact No">{{dashboard.user_contact}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Address">{{dashboard.user_address}}</div>
-            <div class="col col-3" *ngIf ="dashboard.is_approved == '1' "  data-label="Date">{{dashboard.date}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved == '1' " data-label="Price">{{dashboard.total_price}}</div>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-4">Order Code</div>
+        <div class="col col-4">Customer</div>
+        <div class="col col-4">Contact No.</div>
+        <div class="col col-4">Address</div>
+        <div class="col col-4">Date</div>
+        <div class="col col-4">Price</div>
+        <div class="col col-4">Status</div>
+        <div class="col col-4">Action</div>
+      </li>
+      <li class="table-row" *ngFor = "let history of history">
+        <div class="col col-4" data-label="Order Code" >{{history.code}}</div>
+        <div class="col col-4" data-label="Customer" >{{history.user_name}}</div>
+        <div class="col col-4" data-label="Contact No" >{{history.user_contact}}</div>
+        <div class="col col-4" data-label="Address" >{{history.user_address}}</div>
+        <div class="col col-3" data-label="Date" >{{history.date}}</div>
+        <div class="col col-4" data-label="Price" >{{history.total_price}}</div>
+        <div class="col col-4" data-label="Status">
+          <span *ngIf ="history.is_approved == '2'" style="background-color: red;">Cancelled</span>
+          <span *ngIf ="history.is_approved == '4'" style="background-color: blue;">Delivered</span>
 
-            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Order Code">{{dashboard.code}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Customer">{{dashboard.user_name}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Contact No">{{dashboard.user_contact}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Address">{{dashboard.user_address}}</div>
-            <div class="col col-3" *ngIf ="dashboard.is_approved ==  '2'"  data-label="Date">{{dashboard.date}}</div>
-            <div class="col col-4" *ngIf ="dashboard.is_approved ==  '2'" data-label="Price">{{dashboard.total_price}}</div>
-
-           
-            <div class="col col-4" data-label="Status">
-              <!-- <span *ngIf ="dashboard.is_approved == '2'|| '4'" *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</span> -->
-              <span  *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</span>
-              <span  *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</span>
-              <!-- <span *ngIf ="dashboard.is_approved == '2'|| '4'" *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</span> -->
-
-            </div>
-            <div class="col col-4" data-label="Action">
-              <button mat-raised-button color="primary" *ngIf ="dashboard.is_approved == '1' " (click)="openCorBreakDown(dashboard)">View</button>
-              <button class="card-order-action" *ngIf ="dashboard.is_approved == '1' " mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
-
-              <button mat-raised-button color="primary" *ngIf ="dashboard.is_approved ==  '2'" (click)="openCorBreakDown(dashboard)">View</button>
-              <button class="card-order-action" *ngIf ="dashboard.is_approved ==  '2'" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
-            </div>
-          </li>
-        </ul>
-          <!-- <table>
-              <tr>
-                  <th>Order Code </th>
-                  <th>Customer </th>
-                  <th>Contact No.</th>
-                  <th>Address</th>
-                  <th>Date</th>
-                  <th>Price </th>
-                  <th>Status</th>
-                  <th>Action</th>
-              </tr>
-              <tr *ngFor = "let dashboard of dashboard">
-                <td>{{dashboard.code}}</td>
-                <td>{{dashboard.user_name}}</td>
-                <td>{{dashboard.user_contact}}</td>
-                <td>{{dashboard.user_address}}</td>
-                <td>{{dashboard.date}}</td>
-                <td>{{dashboard.total_price}}</td>
-                <td *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</td>
-                <td *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</td>
-                <td *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</td>
-                <td *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</td>
-                  <td width="200px">
-                      <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
-                      <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
-                  </td>
-              </tr>
-          
-            </table> -->
         </div>
+        <div class="col col-4" data-label="Action">
+          <button mat-raised-button color="primary" (click)="openCorBreakDown(history)">View</button>
+          <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(history.code)">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+  </div>
       </div>
     </mat-sidenav-container>
 

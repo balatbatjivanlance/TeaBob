@@ -315,6 +315,21 @@
 							echo json_encode($get->pullCategory($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					// case 'pullHistory':
+					// 	if(count($req)>1) {
+					// 		echo json_encode($get->pullHistory('tbl_cocode', $req[1]), JSON_PRETTY_PRINT);
+					// 	} else {
+					// 		echo json_encode($get->pullHistory('tbl_cocode', null), JSON_PRETTY_PRINT);
+					// 	}
+					// break;
+
+					case 'pullHistory':
+						if(count($req)>1) {
+							echo json_encode($get->pullHistory($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullHistory($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
 					case 'dashboard':
 						if(count($req)>1) {
 							echo json_encode($get->pullDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);

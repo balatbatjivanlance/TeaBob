@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="tablecontainer">
+      <ul class="responsive-table">
+        <li class="table-header">
+          <!-- <div class="col col-1">Code:</div> -->
+          <div class="col col-2">Food name:</div>
+          <div class="col col-3">Price:</div>
+          <div class="col col-4">Quantity:</div>
+          <div class="col col-4">Checkout Date:</div>
+        </li>
+        <li class="table-row" *ngFor = "let details of details">
+          <!-- <div class="col col-1" data-label="Code:">{{details.code}}</div> -->
+          <div class="col col-2" data-label="Food name:">{{details.prod_name}}</div>
+          <div class="col col-3" data-label="Price:">₱{{details.prod_price}}</div>
+          <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
+          <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
+        </li>
+      </ul>
+  <!-- 
+  <table>
+      <tr>
+        <th>Code: </th>
+        <th>Food name: </th>
+        <th>Price: </th>
+        <th>Quantity: </th>
+        <th>Checkout Date: </th>
+   
+      </tr>
+      <tr *ngFor = "let details of details">
+        <td>{{details.code}}</td>
+        <td>{{details.prod_name}}</td>
+        <td>₱{{details.prod_price}}</td>
+        <td>{{details.food_quantity}}</td>
+        <td>{{details.checkout_date}}</td>
+  
+      </tr>
+  
+    </table> -->
+    <div class="status-container">
+  
+      <!-- <mat-form-field class="example-full-width" appearance="outline" class="status-mat">
+        <mat-label>Featured</mat-label>
+        <select matNativeControl name="status" id="status" (change)="selectChangeHandler($event)"
+        [(ngModel)]="is_approved" >
+        <option value='0'>Pending</option>
+        <option value='1'>Approved</option>
+        <option value='2'>Cancelled</option>
+        <option value='3'>On Delivery</option>
+        <option value='4'>Delivered</option>
+        </select>
+      </mat-form-field> -->
+      
+      <!-- <mat-form-field appearance="outline" class="status-mat">
+        <mat-label>Status</mat-label>
+      <mat-select matNativeControl name="status" id="status" (change)="selectChangeHandler($event.value)"
+      [(ngModel)]="is_approved">
+        <mat-option value='0'>Pending</mat-option>
+        <mat-option value='1'>Approved</mat-option>
+        <mat-option value='2'>Cancelled</mat-option>
+        <mat-option value='3'>On Delivery</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+  
+  
+    </div>
+  
+      </div>
+<!--   
+      <div class="buttoncontainer">
+        
+        <button mat-raised-button color="primary" (click)="updateStatus()">Update</button>
+      </div> -->
+  </div>

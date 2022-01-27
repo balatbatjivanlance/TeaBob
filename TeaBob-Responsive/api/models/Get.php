@@ -362,7 +362,24 @@ public function pullFoodDetails($food_id) {
 
 
 public function pullDashboard ($d) {
-	$sql = "SELECT * FROM tbl_cocode";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (0,1,3)";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+public function pullHistory ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4)";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {

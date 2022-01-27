@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
-import { ViewOrdersComponent } from '../view-orders/view-orders.component';
+import { ViewOrderHistoryComponent } from '../view-order-history/view-order-history.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -20,9 +20,7 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullProd();
-    this.pullCategory();
-    this.pullDashboard();
-    this.pullUsers();
+    this.pullHistory();
   }
 
   
@@ -84,61 +82,26 @@ pullProd() {
 
 }
 
-categories: any;
-categCounter: number = 0;
-
-pullCategory() {
 
 
-  this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
-    this.categories = data.payload;
+history: any;
 
-    for(let i = 0; i <= this.categories.length; i++) {
-      this.categCounter = i;
-    }
-    
-
-  })
-
-}
-
-
-users: any;
-userCounter: number = 0;
-
-pullUsers() {
-
-
-  this.ds.sendApiRequest("usercount", null).subscribe((data: { payload: any; }) => {
-    this.users = data.payload;
-
-    for(let i = 0; i <= this.users.length; i++) {
-      this.userCounter = i;
-    }
-    
-
-  })
-
-}
-
-dashboard: any;
-
-pullDashboard() {
-this.ds.sendApiRequest("dashboard", null).subscribe((data: { payload: any; }) => {
-  this.dashboard = data.payload;
+pullHistory() {
+this.ds.sendApiRequest("pullHistory", null).subscribe((data: { payload: any; }) => {
+  this.history = data.payload;
 
 })
 
 }
 
 
-openCorBreakDown(dashboard: any) {
+openCorBreakDown(history: any) {
 // console.log(code);
-const dialogRef = this.dialog.open(ViewOrdersComponent , {
+const dialogRef = this.dialog.open(ViewOrderHistoryComponent , {
 height: '70%',
 width: '60%',
 data: 
-dashboard
+history
 });
 }
 
@@ -159,7 +122,7 @@ if (result.isConfirmed) {
   this.orderInfo.cocode = e;
 
   this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-    alert('Order Removed');
+    // alert('Order Removed');
     // this.pullOrders();
   });
 
