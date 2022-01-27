@@ -590,6 +590,28 @@ class Post{
 		}
     }
 
+    //Driver Functions
+
+    public function acceptOrder($dt) {
+        // print_r($dt);
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+
+        $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
+
+        // 'tbl_size', $dt, "size_id = '$dt->size_id'"
+        return $res;
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['payload'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
+    }
 
 
 }

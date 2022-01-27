@@ -15,7 +15,8 @@ export class RegisterDriverComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(event:any){
+  onSubmit(event:any)
+  {
     
      let driver_fname = event.target[0].value;
      let driver_lname = event.target[1].value;
@@ -23,14 +24,23 @@ export class RegisterDriverComponent implements OnInit {
      let driver_password = event.target[3].value;
      let driver_confirmpassword = event.target[4].value;
 
-     this.ds.sendApiRequest("registerDriver", {
-      driver_fname,
-      driver_lname,
-      driver_email,
-      driver_password
-     }).subscribe((data: any) => {
-       console.log(data);
-    });
+    if (driver_password == driver_confirmpassword) 
+    {
+      this.ds.sendApiRequest("registerDriver", {
+        driver_fname,
+        driver_lname,
+        driver_email,
+        driver_password
+      }).subscribe((data: any) => {
+        console.log(data);
+      });
+      
+      Swal.fire('Register Successfully')
+    }
+    else
+    {
+     Swal.fire('Password did not match!')
+    }
   }
 
   // registerDriver(){

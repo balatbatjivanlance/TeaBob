@@ -383,6 +383,11 @@
 						echo json_encode($auth->registerDriver($d), JSON_PRETTY_PRINT);
 					break;
 
+					case 'acceptOrder':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->acceptOrder($d), JSON_PRETTY_PRINT);
+					break;
+
 
 
 					

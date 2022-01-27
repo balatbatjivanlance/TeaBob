@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-view-order',
@@ -18,10 +21,19 @@ export class ViewOrderPage implements OnInit {
   code:any;
   total_price:any;
 
+  orderAccepted: any;
+
+  cocode_id:number;
+
   //element's variable sa baba
   //mga need mo madisplay sa frontend
+  
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public ds: DataService, private alert: AlertController, private us: UserService ) {
+
+    
+
+    
     // console.log(this.router.getCurrentNavigation().extras.state); 
 
     // tas yung variable na nagawa mo ganto gawin mo
@@ -31,6 +43,8 @@ export class ViewOrderPage implements OnInit {
     //Since di siya pwede maforloop
     //yung mga elements na need mo madisplay gawan mo nalang siguro ng variables bawat isa
     //kunyare variable.
+
+    console.log(this.viewOrder);
     
     this.user_address = this.viewOrder.user_address;
     this.user_name = this.viewOrder.user_name;
@@ -39,11 +53,71 @@ export class ViewOrderPage implements OnInit {
     this.code = this.viewOrder.code;
     this.total_price = this.viewOrder.total_price;
 
+    this.cocode_id = this.viewOrder.cocode_id;
+
 
   }
+  
+  
   ngOnInit() {
   }
 
+  async presentAlert(msg) {
+    const alert = await this.alert.create({
+      cssClass: 'alert-class',
+      header: 'Accept Delivery?',
+      subHeader: '',
+      message: msg,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.acceptOrder('cancelled');
+          }
+        }, {
+          text: 'Accept',
+          handler: () => {
+            this.acceptOrder('accepted');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+  }
+
+  confirmAccept()
+  {
+    this.presentAlert("Once you accept this order, you won't be able to accept other orders until you fulfill the order.");
+  }
+
+  acceptOrder(option: any)
+  {
+    console.log(option);
+    if(option=="accepted")
+    {
+      // this.ds.sendApiRequest("acceptOrder", 
+      // {
+       
+      // }
+      // ).subscribe((data: { payload: any }) => {
+        
+      //   )};
+      this.ds.sendApiRequest("acceptOrder", 
+      {
+       cocode_id:this.cocode_id,
+       is_approved: 3,
+       driver: this.us.getDriver()
+      }
+      ).subscribe((data: { payload: any }) => {
+        
+      });
+    }
+  }
 
 
 }

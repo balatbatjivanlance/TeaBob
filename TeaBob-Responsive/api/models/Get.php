@@ -444,7 +444,7 @@ public function PullApproved () {
 }
 
 public function PullDone () {
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 2 OR is_approved = 3";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 2 OR is_approved = 4";
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];

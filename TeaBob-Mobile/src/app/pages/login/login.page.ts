@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
   driver_email: any;
   driver_password: any;
 
-  constructor(public ds: DataService, public router : Router,public toastController: ToastController) { }
+  constructor(public us: UserService, public ds: DataService, public router : Router,public toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -49,6 +50,9 @@ export class LoginPage implements OnInit {
       console.log(this.login);
       if(this.login.status.remarks == "success")
       {
+        this.us.saveDriver(this.login.payload.Fullname);
+
+        
         this.presentToast("Login success");
         this.router.navigate(["/home"]);
 
