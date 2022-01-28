@@ -379,7 +379,7 @@ public function pullDashboard ($d) {
 
 public function pullHistory ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4)";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4) ORDER BY cocode_id ASC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
