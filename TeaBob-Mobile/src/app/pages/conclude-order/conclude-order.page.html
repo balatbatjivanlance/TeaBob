@@ -1,8 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
     <ion-title>Current Delivery</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,26 +19,26 @@
         <ion-icon name="location-outline" slot="start" color="default"></ion-icon>
         <ion-label>
           Address:
-          <h1>wewewew</h1>
+          <h1>{{user_address}}</h1>
         </ion-label>
       </ion-item>  
       <ion-item lines="none">
         <ion-label>
-          <h2>Customer: name</h2>
-          <h2>Contact No.: 19191919 </h2>
-          <h2>Ordered on: today</h2>          
+          <h2>Customer: {{user_name}}</h2>
+          <h2>Contact No.: {{user_contact}} </h2>
+          <h2>Ordered on: {{date}}</h2>          
         </ion-label>
       </ion-item>  
 
       <ion-item lines="none">
         <ion-label>
-          <h2>Receipt code: 1212</h2>
-          <h2>Total Amount: <span class="price">111.00</span></h2>
+          <h2>Receipt code: {{code}}</h2>
+          <h2>Total Amount: <span class="price">₱{{total_price}}.00</span></h2>
         </ion-label>
 
       </ion-item>
-      <ion-button color="success" size="full">Confirm Delivery</ion-button>
-      <ion-button color="danger" fill="clear" size="full">Cancel Delivery</ion-button>
+      <ion-button color="success" size="full" (click)="confirmConfirm()">Confirm Delivery</ion-button>
+      <ion-button color="danger" fill="clear" size="full" (click)="confirmCancel()">Cancel Delivery</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

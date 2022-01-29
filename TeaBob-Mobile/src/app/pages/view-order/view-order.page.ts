@@ -53,6 +53,7 @@ export class ViewOrderPage implements OnInit {
     this.code = this.viewOrder.code;
     this.total_price = this.viewOrder.total_price;
 
+    // ID ng tbl_cocode for updating
     this.cocode_id = this.viewOrder.cocode_id;
 
 
@@ -116,8 +117,12 @@ export class ViewOrderPage implements OnInit {
       ).subscribe((data: { payload: any }) => {
         
       });
+
+      this.router.navigate(['/conclude-order'], {state: this.viewOrder});
     }
   }
 
 
 }
+
+

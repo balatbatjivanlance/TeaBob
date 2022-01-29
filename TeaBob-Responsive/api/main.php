@@ -398,9 +398,19 @@
 						echo json_encode($auth->registerDriver($d), JSON_PRETTY_PRINT);
 					break;
 
-					case 'acceptOrder':
+					case 'acceptOrder': //for accepting order on view-order page
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->acceptOrder($d), JSON_PRETTY_PRINT);
+					break;
+
+					case 'confirmDelivery': //for confirming delivery on conclude-order page
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->confirmDelivery($d), JSON_PRETTY_PRINT);
+					break;
+
+					case 'cancelDelivery': //for confirming delivery on conclude-order page
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->cancelDelivery($d), JSON_PRETTY_PRINT);
 					break;
 
 
