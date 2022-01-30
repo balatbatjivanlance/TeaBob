@@ -27,7 +27,7 @@
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
       </button>
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
-        <mat-icon>shopping_basket</mat-icon>&nbsp; History
+        <mat-icon>history</mat-icon>&nbsp; History
       </button>
       <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
         <mat-icon>category</mat-icon>&nbsp; Category
@@ -88,8 +88,8 @@
         <div class="col col-3" data-label="Date" >{{history.date}}</div>
         <div class="col col-4" data-label="Price" >{{history.total_price}}</div>
         <div class="col col-4" data-label="Status">
-          <span *ngIf ="history.is_approved == '2'" style="background-color: red;">Cancelled</span>
-          <span *ngIf ="history.is_approved == '4'" style="background-color: blue;">Delivered</span>
+          <span *ngIf ="history.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
+          <span *ngIf ="history.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
 
         </div>
         <div class="col col-4" data-label="Action">

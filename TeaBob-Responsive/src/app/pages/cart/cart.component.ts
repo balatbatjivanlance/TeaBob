@@ -228,8 +228,8 @@ export class CartComponent implements OnInit {
     // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data => 
       // {
         Swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
+          title: 'Confirm Order?',
+          text: "Please click the Checkout Button to Confirm",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
@@ -237,6 +237,7 @@ export class CartComponent implements OnInit {
           confirmButtonText: 'Check out'
         }).then((result) => {
           if (result.isConfirmed) {
+            this.router.navigate(['/status']);
             Swal.fire(
               'Deleted!',
               'Your file has been deleted.',
@@ -256,6 +257,7 @@ export class CartComponent implements OnInit {
               this.coInfo.add_sauce = this.cart_payload[i].add_sauce;
               this.coInfo.add_spicy = this.cart_payload[i].add_spicy;
               this.coInfo.food_quantity = this.cart_payload[i].food_quantity;
+              this.coInfo.food_size = this.cart_payload[i].food_size;
               this.coInfo.user_id = localStorage.getItem("id");
               this.coInfo.prod_price = this.cart_payload[i].cart_total_price;
               this.coInfo.user_name = localStorage.getItem("Fullname");

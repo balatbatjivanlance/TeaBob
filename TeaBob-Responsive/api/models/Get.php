@@ -73,7 +73,7 @@ class Get{
 		//Pull Status
 		public function pullStatus ($user_id)  {
 
-			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id'";
+			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id' ORDER BY cocode_id DESC";
 			
 			$res = $this->gm->generalQuery($sql, "No records found");
 			if ($res['code'] == 200) {
@@ -254,6 +254,39 @@ class Get{
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 
+	public function pullAddOnsSnacks ($d) {
+		$sql = "SELECT * FROM tbl_addons WHERE category_id = '24'";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullAddOnsDrinks ($d) {
+		$sql = "SELECT * FROM tbl_addons WHERE category_id = '26'";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	
+
+
 
 	//admin
 
@@ -362,7 +395,7 @@ public function pullFoodDetails($food_id) {
 
 
 public function pullDashboard ($d) {
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (0,1,3)";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (0,1,3) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -379,7 +412,7 @@ public function pullDashboard ($d) {
 
 public function pullHistory ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4) ORDER BY cocode_id ASC";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {

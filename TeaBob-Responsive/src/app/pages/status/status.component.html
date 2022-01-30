@@ -95,7 +95,7 @@
                                   <button class="card-order-action" mat-stroked-button style="background-color: yellow; color: black;" *ngIf ="status.is_approved == '3'" disabled >On Delivery</button>
                                   <button class="card-order-action" mat-stroked-button style="background-color: blue; color: white;" *ngIf ="status.is_approved == '4'" disabled >Delivered</button>
                                   <button class="card-order-action" mat-stroked-button style="background-color: red; color: white;" *ngIf ="status.is_approved == '0' "(click)="cancelOrder(status.cocode_id)" >Cancel Order</button>
-                                  <button class="card-order-action" mat-raised-button style="background-color: red; color: white;" *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
+                                  <button class="card-order-action" mat-raised-button style="background-color: gray; color: white;" *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
 
                                   <!-- <button class="card-order-action" mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button> -->
                               </div>

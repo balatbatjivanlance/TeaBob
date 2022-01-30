@@ -117,13 +117,31 @@ export class AddProductComponent implements OnInit {
 
     console.log(this.selectedCateg);
 
-    if (this.selectedCateg == '24')
-    {
-      this.categval = false
-    }
-    else{
-    this.categval = true
-    }
+    // if (this.selectedCateg == '24')
+    // {
+    //   this.categval = false
+    // }
+    // else{
+    // this.categval = true
+    // }
+  }
+
+  selectedCategAddon: string = '';
+
+  // categval = true;
+
+  selectChangeHandlerAddon (event: any){
+    this.selectedCategAddon = event.target.value;
+
+    console.log(this.selectedCategAddon);
+
+    // if (this.selectedCateg == '24')
+    // {
+    //   this.categval = false
+    // }
+    // else{
+    // this.categval = true
+    // }
   }
 
   imgSrc: string = "../../../assets/logo1.jpeg";
@@ -185,6 +203,7 @@ export class AddProductComponent implements OnInit {
   addon_name: any;
   addon_price: any;
   addon_stocks: any;
+  addon_category: any;
 
   Addon_Info : any = {};
   AddOns() {
@@ -197,6 +216,7 @@ export class AddProductComponent implements OnInit {
       confirmButtonText: 'Add'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.router.navigate(['/manage-addons']);
         Swal.fire(
           'Add Successfully!',
           'Your product has been added.',
@@ -205,6 +225,7 @@ export class AddProductComponent implements OnInit {
         this.Addon_Info.addon_name = this.addon_name;
         this.Addon_Info.addon_stocks = this.addon_stocks;
         this.Addon_Info.addon_price  = this.addon_price;
+        this.Addon_Info.category_id = this.addon_category = this.selectedCategAddon;
     
         this.ds.sendApiRequest("AddOns", JSON.parse(JSON.stringify(this.Addon_Info))).subscribe((data: any) => {
       

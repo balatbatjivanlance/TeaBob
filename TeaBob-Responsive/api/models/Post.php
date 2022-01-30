@@ -250,18 +250,19 @@ class Post{
             $add_sauce[]= $dt[$i]->add_sauce;
             $add_spicy[] =  $dt[$i]->add_spicy;
             $food_qty[]  = $dt[$i]->food_quantity;
+            $food_size[]  = $dt[$i]->food_size;
             $prod_price[]  = $dt[$i]->prod_price;
             $code[] = $dt[$i]->code;
             $total_price[] = $dt[$i]->total_price;
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
             $user_address[] = $dt[$i]->user_address;
-            $values[] = "('$prod_name[$i]', '$add_pearl[$i]', '$add_cpuff[$i]',  '$add_ccheese[$i]', '$add_cookie[$i]',  '$add_sauce[$i]',  '$add_spicy[$i]', '$food_qty[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
+            $values[] = "('$prod_name[$i]', '$add_pearl[$i]', '$add_cpuff[$i]',  '$add_ccheese[$i]', '$add_cookie[$i]',  '$add_sauce[$i]',  '$add_spicy[$i]', '$food_qty[$i]', '$food_size[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
             $val2[] = "('$code[$i]',  '$total_price[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
         }
 
             //insert the data on the checkout table
-        $this->sql = "INSERT INTO tbl_checkout(prod_name, add_pearl, add_cpuff, add_ccheese, add_cookie, add_sauce, add_spicy, food_quantity, user_id, prod_price, code) VALUES " . implode(', ', $values);
+        $this->sql = "INSERT INTO tbl_checkout(prod_name, add_pearl, add_cpuff, add_ccheese, add_cookie, add_sauce, add_spicy, food_quantity, food_size, user_id, prod_price, code) VALUES " . implode(', ', $values);
         //INNER JOIN
         //SELECT * FROM `tbl_checkout` INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code WHERE tbl_cocode.code = "77688857";
         try {
