@@ -213,6 +213,10 @@ mat-card {
 
 /* INSERT YOUR NEW CODE HERE  */
 
+.responsive-table{
+  padding-right: 50px;
+}
+
 .responsive-table   li {
   border-radius: 3px;
   padding: 25px 30px;

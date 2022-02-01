@@ -183,8 +183,8 @@ export class StatusComponent implements OnInit {
   openCorBreakDown(status: any) {
     // console.log(code);
     const dialogRef = this.dialog.open(OrdersModalComponent , {
-      height: '50%',
-      width: '50%',
+      height: '80%',
+      width: '70%',
       data: 
       status
     });
