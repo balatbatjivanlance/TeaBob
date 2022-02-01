@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { ViewOrderComponent } from './view-order/view-order.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ds: DataService,public router: Router) { }
+  constructor(private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
   ngOnInit(): void {
     this.pullFoodFeatured();
@@ -69,6 +71,18 @@ export class HomeComponent implements OnInit {
     this.foods = data.payload;
     console.log(this.foods);
     })
+  }
+
+
+  
+  viewOrder() {
+    const dialog = this.dialog.open(ViewOrderComponent, {
+      autoFocus: false, width:"70%", height:"50%"
+    });
+    dialog.afterClosed().subscribe( ()=>{
+      console.log("closed")
+    });
+  
   }
   
   // prodinfo: any = {};
