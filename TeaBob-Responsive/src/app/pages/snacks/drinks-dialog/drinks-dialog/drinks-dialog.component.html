@@ -91,7 +91,7 @@
             <select matNativeControl name="size" id="size" (change)="selectChangeHandlerSize($event)"
             [(ngModel)]="item_size">
             <ng-container  *ngFor="let size of size">
-              <option *ngIf="size.size_stocks != '0'" value="{{size.size_name}}">{{size.size_name}}
+              <option *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}
               </option>
             </ng-container>
             </select>

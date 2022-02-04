@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -65,32 +66,6 @@ export class SnacksDialogComponent implements OnInit {
   
 }
 
-  plusQty = () =>{
-    this.food_qty += 1;
-    if (this.food_qty > 10){
-      Swal.fire(
-        'Warning job!',
-        'You have reached the maximum order',
-        'warning'
-      )
-      this.food_qty -= 1;
-    }else{
-      this.food_total =  this.food_qty * this.food_price;
-      
-    }
-    this.sendMessage();
-  }
-
-
-  
-  minusQty = () =>{
-    if (this.food_qty > 1){
-      this.food_qty -= 1;
-      this.food_total =  this.food_qty * this.food_price;
-      this.sendMessage();
-    }
-  } 
-
   extraSauce: number = 0;
   spicySauce:  any = "none";
   addExtras:any;
@@ -114,6 +89,27 @@ export class SnacksDialogComponent implements OnInit {
     this.sendMessage();
   } 
 
+  addOnChecker : boolean = false;
+  addOnArray: any [] = []
+  onChangeDemo(event:MatCheckboxChange, name: any){
+    // console.log(event.source.value);
+    let price: any = parseInt(event.source.value)
+ 
+    if (event.checked){
+    this.addOnArray.push(name);
+    this.food_total = this.food_total + price;
+    this.addOnChecker = true
+
+    sessionStorage.setItem('price', price)
+    }else {
+    this.food_total = this.food_total - (price * this.food_qty);
+    let i = this.addOnArray.indexOf(name);
+    this.addOnArray.splice(i,1);
+    this.addOnChecker = false
+    }
+    console.log( this.addOnArray)
+  }
+
 
   saveSpice: any
   saveExtras: any
@@ -136,10 +132,11 @@ export class SnacksDialogComponent implements OnInit {
 
 
   addToCart() {
-
+    const obj = Object.assign({}, this.addOnArray);
     this.prodInfo.user_id = localStorage.getItem("id");
     this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
     this.prodInfo.food_name = this.food_name;
+    this.prodInfo.addOns = obj;
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
@@ -149,19 +146,53 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.add_ccheese = 0;
     this.prodInfo.add_cpuff = 0;
     this.prodInfo.add_cookie = 0;
-
-    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-      if (data.remarks === "success"){
-        Swal.fire(
-          'Nice!',
-          'Added to cart successfully!',
-          'success'
-        )
-        this.dialog.closeAll();
-      }
-      this.router.navigate(['/cart']);
-    });
+    console.log(this.prodInfo)
+    // this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+    //   if (data.remarks === "success"){
+    //     Swal.fire(
+    //       'Nice!',
+    //       'Added to cart successfully!',
+    //       'success'
+    //     )
+    //     this.dialog.closeAll();
+    //   }
+    //   this.router.navigate(['/cart']);
+    // });
   }
+
+  plusQty = () =>{
+
+    this.food_qty += 1;
+    if (this.food_qty > 10){
+      Swal.fire(
+        'Warning job!',
+        'You have reached the maximum order',
+        'warning'
+      )
+      this.food_qty -= 1;
+    }else{
+      if (this.addOnChecker){
+        let price : any = sessionStorage.getItem('price')
+        this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+
+      }else {
+        this.food_total =  this.food_qty * this.food_price;
+
+      }
+    }
+    // this.sendMessage();
+  }
+
+
+  
+  minusQty = () =>{
+    if (this.food_qty > 1){
+      this.food_qty -= 1;
+      this.food_total =  this.food_qty * this.food_price;
+      // this.sendMessage();
+    }
+  } 
+
 
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')

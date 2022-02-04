@@ -17,7 +17,8 @@
     <div class="input-box">
         <span class="details">Quantity</span> 
         <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
-        <button class="quan-butt" (click)="minusQty()">-</button><button (click)="plusQty()" class="quan-butt">+</button>
+        <button class="quan-butt" (click)="minusQty()">-</button>
+        <button (click)="plusQty()" class="quan-butt">+</button>
     </div>
 
     <div class="input-box">
@@ -34,7 +35,7 @@
     <div class="input-box1">
         
         <section  class="container1" *ngFor="let addon of addon">
-            <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+            <mat-checkbox (change)="onChangeDemo($event, addon.addon_name)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
              value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
           </section>
 

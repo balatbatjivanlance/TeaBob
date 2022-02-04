@@ -98,12 +98,16 @@ export class DrinksDialogComponent implements OnInit {
 }
 
 
-selectedSize: string = '';
+selectedSize: any ;
 
 selectChangeHandlerSize (event: any){
   this.selectedSize = event.target.value;
-
+  if (this.selectedSize){
+    this.food_total = this.food_price + parseInt(this.selectedSize);
+   
+  }
   console.log(this.selectedSize);
+  this.sendMessage();
 }
 
 
