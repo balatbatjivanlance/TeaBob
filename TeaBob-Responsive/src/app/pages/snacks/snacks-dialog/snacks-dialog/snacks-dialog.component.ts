@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
 
@@ -12,11 +13,12 @@ import Swal from 'sweetalert2';
 export class SnacksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
+  constructor(private router: Router,private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
     this.pullFood_perItem();
+    this.pullAddOnsSnacks();
   }
 
   userinfo: any = {};
@@ -53,6 +55,15 @@ export class SnacksDialogComponent implements OnInit {
     });
 
   }
+
+  addon: any;
+  
+  pullAddOnsSnacks() {
+    this.ds.sendApiRequest("pullAddOnsSnacks", null).subscribe((data: { payload: any; }) => {
+      this.addon = data.payload;
+    })
+  
+}
 
   plusQty = () =>{
     this.food_qty += 1;
@@ -147,8 +158,8 @@ export class SnacksDialogComponent implements OnInit {
           'success'
         )
         this.dialog.closeAll();
-        
       }
+      this.router.navigate(['/cart']);
     });
   }
 

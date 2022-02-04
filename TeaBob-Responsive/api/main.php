@@ -226,6 +226,29 @@
 					echo json_encode($get->pullCoCodeDetails($d), JSON_PRETTY_PRINT);    
 				break;
 
+				//user side codes
+				case 'pullAddOnsSnacks':
+					if(count($req)>1) {
+						echo json_encode($get->pullAddOnsSnacks($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullAddOnsSnacks($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'pullAddOnsDrinks':
+					if(count($req)>1) {
+						echo json_encode($get->pullAddOnsDrinks($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullAddOnsDrinks($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				// case 'pullSizeUser':
+				// 	if(count($req)>1) {
+				// 		echo json_encode($get->pullSizeUser($req[0], $req[1]), JSON_PRETTY_PRINT);
+				// 	} else {
+				// 		echo json_encode($get->pullSizeUser($req[0], null), JSON_PRETTY_PRINT);
+				// 	}
+				// break;
+
 
 
 				// NEW ADMIN CODES

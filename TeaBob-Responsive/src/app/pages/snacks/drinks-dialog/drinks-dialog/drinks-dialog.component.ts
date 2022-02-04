@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
 
@@ -12,14 +13,13 @@ import Swal from 'sweetalert2';
 export class DrinksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
 
-  constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
+  constructor(private router: Router, private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pullUsers();
     this.pullFood_perItem();
     this.pullSize();
-    this.pullAddOns();
-    this.pullAddOns();
+    this.pullAddOnsDrinks();
     // this.pullAddonsDetails();
   }
 
@@ -80,8 +80,8 @@ export class DrinksDialogComponent implements OnInit {
 
   addon: any;
   
-  pullAddOns() {
-    this.ds.sendApiRequest("pullAddOns", null).subscribe((data: { payload: any; }) => {
+  pullAddOnsDrinks() {
+    this.ds.sendApiRequest("pullAddOnsDrinks", null).subscribe((data: { payload: any; }) => {
       this.addon = data.payload;
     })
   
@@ -100,7 +100,7 @@ export class DrinksDialogComponent implements OnInit {
 
 selectedSize: string = '';
 
-selectChangeHandleractive (event: any){
+selectChangeHandlerSize (event: any){
   this.selectedSize = event.target.value;
 
   console.log(this.selectedSize);
@@ -231,16 +231,17 @@ selectChangeHandleractive (event: any){
     this.prodInfo.add_spicy = 0;
     console.log(this.prodInfo)
 
-    // this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-    //   if (data.remarks === "success"){
-    //     Swal.fire(
-    //       'Nice!',
-    //       'Added to cart successfully!',
-    //       'success'
-    //     )
-    //     this.dialog.closeAll();
-    //   }
-    // });
+    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+      if (data.remarks === "success"){
+        Swal.fire(
+          'Nice!',
+          'Added to cart successfully!',
+          'success'
+        )
+        this.dialog.closeAll();
+        this.router.navigate(['/cart']);
+      }
+    });
   }
 
   sendMessage(): void {

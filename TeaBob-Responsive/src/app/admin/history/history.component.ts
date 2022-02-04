@@ -125,7 +125,7 @@ if (result.isConfirmed) {
     // alert('Order Removed');
     // this.pullOrders();
   });
-
+  window.location.reload();
   Swal.fire(
     'Deleted!',
     'Your file has been deleted.',

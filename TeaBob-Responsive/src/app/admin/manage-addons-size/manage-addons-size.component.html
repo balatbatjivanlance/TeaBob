@@ -23,11 +23,11 @@
       <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
       </button>
-      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+      <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
       </button>
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
-        <mat-icon>shopping_basket</mat-icon>&nbsp; History
+        <mat-icon>history</mat-icon>&nbsp; History
       </button>
       <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
         <mat-icon>category</mat-icon>&nbsp; Category
@@ -86,6 +86,7 @@
           <div class="col col-4">Name</div>
           <div class="col col-4">Price</div>
           <div class="col col-4">Stocks</div>
+          <div class="col col-4">Category</div>
           <div class="col col-4">Action</div>
         </li>
         <li class="table-row" *ngFor = "let addons of addons">
@@ -93,6 +94,8 @@
           <div class="col col-4" data-label="Name">{{addons.addon_name}}</div>
           <div class="col col-4" data-label="Price">{{addons.addon_price}}</div>
           <div class="col col-4" data-label="Stocks">{{addons.addon_stocks}}</div>
+          <div class="col col-4"  *ngIf ="addons.category_id == '24'" data-label="Stocks">Snacks</div>
+          <div class="col col-4"  *ngIf ="addons.category_id == '26'" data-label="Stocks">Drinks</div>
           <div class="col col-3" data-label="Action">
               <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDownAddons(addons)">View</button>
               <button class="card-order-action" mat-stroked-button color="warn" (click)="delAddons(addons.addon_id)">Delete</button>

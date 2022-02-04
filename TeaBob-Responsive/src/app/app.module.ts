@@ -48,6 +48,7 @@ import { UpdateSizeComponent } from './admin/manage-addons-size/update-size/upda
 import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
 import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order-history.component';
+import { ViewOrderComponent } from './home/view-order/view-order.component';
 
 
 
@@ -82,6 +83,7 @@ import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order
     RegisterDriverComponent,
     HistoryComponent,
     ViewOrderHistoryComponent,
+    ViewOrderComponent,
 
   ],
   imports: [

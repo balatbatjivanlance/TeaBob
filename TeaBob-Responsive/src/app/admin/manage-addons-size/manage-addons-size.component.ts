@@ -122,17 +122,20 @@ async delSize(e:any) {
   }).then((result) => {
     if (result.isConfirmed) {
       
+      
       this.sizeInfo.size_id = e;
 
       this.ds.sendApiRequest("delSize", JSON.parse(JSON.stringify(this.sizeInfo))).subscribe((data: any) => {
         // alert('Product Removed');
         // this.pullOrders();
       });
+      window.location.reload();
 
       Swal.fire(
         'Deleted!',
         'Your file has been deleted.',
         'success'
+        
       )
     }
   })
@@ -160,7 +163,8 @@ async delAddons(e:any) {
         // alert('Product Removed');
         // this.pullOrders();
       });
-
+      window.location.reload();
+      
       Swal.fire(
         'Deleted!',
         'Your file has been deleted.',

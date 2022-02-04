@@ -1,20 +1,42 @@
-<table>
+<ul class="responsive-table">
+  <li class="table-header">
+    <div class="col col-3">Code:</div>
+    <div class="col col-3">Food name:</div>
+    <div class="col col-3">Price:</div>
+    <div class="col col-4">Size:</div>
+    <div class="col col-4">Quantity:</div>
+    <div class="col col-4">Checkout Date:</div>
+  </li>
+  <li class="table-row" *ngFor = "let details of details">
+    <div class="col col-3" data-label="Code:">{{details.code}}</div>
+    <div class="col col-3" data-label="Food name:">{{details.prod_name}}</div>
+    <div class="col col-3" data-label="Price:">₱{{details.prod_price}}.00</div>
+    <div class="col col-4" data-label="Size:">{{details.food_size}}</div>
+    <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
+    <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
+  </li>
+
+</ul>
+
+<!-- <table>
     <tr>
       <th>Code: </th>
       <th>Food name: </th>
       <th>Price: </th>
-      <!-- <th>Quantity: </th> -->
+      <th>Size: </th>
+      <th>Quantity: </th>
       <th>Checkout Date: </th>
     </tr>
     <tr *ngFor = "let details of details">
       <td>{{details.code}}</td>
       <td>{{details.prod_name}}</td>
       <td>₱{{details.prod_price}}.00</td>
-      <!-- <td>{{details.food_quantity}}</td> -->
+      <td>{{details.food_size}}</td>
+      <td>{{details.food_quantity}}</td>
       <td>{{details.checkout_date}}</td>
     </tr>
 
-  </table>
+  </table> -->
 
 
 <!-- <p *ngFor = "let details of details">
