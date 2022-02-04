@@ -5,6 +5,14 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
+.left-container{
+    width: 50%;
+    display: grid;
+    /* background-color: blue; */
+    padding: 5px 10px 5px 5px;
+
+}
 .variations{
     /* background-color: blue; */
     display: grid;
@@ -14,16 +22,46 @@
     padding-top: 10px;
 }
 
-.status-container{
 
-    background: #fff;
-    padding-left: 25px 30px;
+.right-container{
+    width: 50%;
+    display: grid;
+    /* background-color: yellow; */
+    border-left: 4px solid rgb(228, 228, 228);
+    padding: 5px 5px 5px 10px;
+}
+
+.price{
+    height: 100%;
+    display: grid;
+    /* background-color: violet; */
+}
+
+.total{
+    height: 100%;
+    display: grid;
+    /* background-color: #4B1F0E; */
+    /* padding-top: 100px; */
+}
+
+.add-ons{
+    display: flex;
 
 }
+
+.status-container{ 
+    /* background-color: red; */
+    padding-left: 25px 30px;
+    height: auto;
+    width: auto;
+
+}
+
+
 .status-container .status-title{
     font-size: 25px;
     font-weight: 500;
-    padding: 10px 0 0 15px;
+    padding: 20px 0 0 15px;
 }
 .status-container .status-title::before{
     content: '';
@@ -34,6 +72,12 @@
     left: 0;
     bottom: 0;
 
+}
+
+.user-details{
+    /* background-color: green; */
+    width: 100%;
+    display: flex;
 }
 
 .status-container  .user-details{
@@ -78,10 +122,11 @@
 }
 
 .user-details .input-box{
-    width: calc(100% / 2 - 20px);
-    padding: 0 15px 0 15px;
+    width: 100%;
+    padding: 50 15px 0 15px;
     
 }
+
 .user-details .input-box .details{
     font-weight: 500;
     margin-bottom: 5px;
@@ -104,10 +149,7 @@
     border-color: #7a7a7a;
     
 }
-.button{
-    height: 45px;
-    margin: 45px 0;
-}
+
 .button {
     height: 50px;
     width: 90%;
@@ -120,7 +162,7 @@
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-
+    margin-top: 15px;
 }
 .button:hover{
     cursor: pointer;
@@ -147,31 +189,12 @@
     -ms-user-select: none;
     user-select: none;
   }
-  .container2{
-
-        padding-bottom: 20px;
-      cursor: pointer;
-      font-size: 20px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-  }
   .input-box1{
-      width: 40%;
-    margin-left: 30px;
-    height: 200px;
     padding-top: 10px;
-    display: grid;
-    justify-content: flex-start ;
-    align-items: flex-start;
-    /* background-color: red; */
+    justify-content: space-between;
+      
   }
 
-
-  .mat-radio-button ~ .mat-radio-button {
-    padding-right: 16px;
-  }
 
 
   /* Hide the browser's default checkbox */
@@ -192,15 +215,6 @@
     width: 25px;
     background-color: #eee;
   }
-
-  .example-section {
-    margin: 12px 0;
-  }
-  
-  .example-margin {
-    margin: 0 12px;
-  }
-  
   
   /* On mouse-over, add a grey background color */
   .container1:hover input ~ .checkmark1 {
@@ -249,6 +263,7 @@
     .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
+        padding-top: 10px;
     }
     .status-container  .user-details{
         max-height: 300px;
@@ -261,7 +276,4 @@
     .button{
         margin-right: 7%;
     }
-    .mat-radio-button ~ .mat-radio-button {
-        padding-right: 16px;
-      }
 }
