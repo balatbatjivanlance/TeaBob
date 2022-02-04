@@ -1,6 +1,6 @@
 
 <div class="status-container">
-    <a href="#" class="close"></a>
+   
     <div class="status-title">Order Info</div>
 <!-- 
     <div class="profile-image">
@@ -8,32 +8,65 @@
     </div> -->
     
     <div class="user-details">
-       
-        <div class="input-box">
-    
-            <span class="details">Food Name</span>
-            <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
-        </div>
-    
-        <div class="input-box">
-            <span class="details">Quantity</span> 
-            <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
-            <button class="quan-butt" (click)="minusQty()">-</button><button (click)="plusQty()" class="quan-butt">+</button>
-        </div>
-    
-        <div class="input-box">
-            <span class="details" >Price</span>
-            <input type="number" [(ngModel)]="food_price" disabled class="input-number">
-        </div>    
-        
-    
-        <div class="input-box">
-            <span class="details">Total Price</span>
-            <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
-        </div>
-    
-    <div class="input-box1">
+        <div class="left-container">
+            <div class="input-box">
+                <span class="details">Food Name</span>
+                <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
+            </div>
+            <br>
+            
 
+            <div class="input-box">
+                <span class="details">Quantity</span> 
+                <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
+                <button mat-raised-button color="primary" class="quan-butt" (click)="minusQty()">-</button><button mat-raised-button color="primary" (click)="plusQty()" class="quan-butt">+</button>
+            </div>
+            <br>
+
+            <p class="addon">Add Ons </p>
+            <div class="add-ons">
+                <section  class="container1" *ngFor="let addon of addon">
+                    <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                     value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
+                  </section>
+        
+                </div>
+        </div>
+
+        <div class="right-container">
+            <div class="price">
+                <div class="input-box">
+                    <span class="details" >Price</span>
+                    <input type="number" [(ngModel)]="food_price" disabled class="input-number">
+                </div> 
+            </div>
+         
+            
+            
+            <div class="total">
+                <div class="variations">
+                    <!-- <span class="details">Select Size</span> -->
+                    <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+                        <mat-label>Select Size</mat-label>
+                        <select matNativeControl name="size" id="size" (change)="selectChangeHandlerSize($event)"
+                        [(ngModel)]="item_size">
+                        <ng-container  *ngFor="let size of size">
+                          <option *ngIf="size.size_stocks != '0'" value="{{size.size_name}}">{{size.size_name}}
+                          </option>
+                        </ng-container>
+                        </select>
+                      </mat-form-field>
+                </div>
+                <div class="input-box">
+                    <span class="details">Total Price</span>
+                    <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
+                </div>
+            </div>
+            
+
+        </div>
+
+    
 <!-- 
         <ng-container  *ngFor="let addon of addon">
             <label class="container1">{{addon.addon_name}}
@@ -45,10 +78,7 @@
             </label>
             </ng-container> -->
 
-            <section  class="container1" *ngFor="let addon of addon">
-                <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-                 value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
-              </section>
+            
         
         <!-- <label class="container1">Pearl (₱10)
             <input #addPearlCheckBox
@@ -81,7 +111,6 @@
         <span class="checkmark1"></span>
       </label> -->
 
-    </div>
 
     
     <div class="variations">
@@ -100,7 +129,7 @@
         <!-- <mat-radio-group class="container2" *ngFor = "let size of size">
             <mat-radio-button  *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}</mat-radio-button>
           </mat-radio-group> -->
-    </div>
+
 
     <button class="button"(click)="addToCart()" >Add to Cart</button>
 </div>

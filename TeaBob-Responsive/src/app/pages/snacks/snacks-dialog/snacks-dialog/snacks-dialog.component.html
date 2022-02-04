@@ -8,11 +8,8 @@
     </div> -->
 
     <div class="user-details">
-    <div class="input-box">
 
-        <span class="details">Food Name</span>
-        <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
-    </div>
+        <div class="left-container">
 
     <div class="input-box">
         <span class="details">Quantity</span> 
@@ -20,17 +17,48 @@
         <button class="quan-butt" (click)="minusQty()">-</button>
         <button (click)="plusQty()" class="quan-butt">+</button>
     </div>
+s
+            <div class="input-box">
+                <span class="details">Quantity</span> 
+                <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
+                <button mat-raised-button color="primary" class="quan-butt" (click)="minusQty()">-</button><button mat-raised-button color="primary" (click)="plusQty()" class="quan-butt">+</button>
+            </div>  
+            <br>
+            <p class="addon">Add Ons </p>
+       
+            <div class="add-ons">
+               
+                <section  class="container1" *ngFor="let addon of addon">
+                     
+                    
+                    <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                     value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
+                  </section>
+                </div>
+        </div>
 
-    <div class="input-box">
-        <span class="details" >Price</span>
-        <input type="number" [(ngModel)]="food_price" disabled class="input-number">
-    </div>    
+        <div class="right-container">
+            <div class="price">
+            <div class="input-box">
+                <span class="details" >Price</span>
+                <input type="number" [(ngModel)]="food_price" disabled class="input-number">
+            </div> 
+        </div>
+        <br>
+        <div class="total">
+            <div class="input-box">
+                <span class="details">Total Price</span>
+                <input  type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
+            </div>
+        </div>
+        </div>
     
 
-    <div class="input-box">
-        <span class="details">Total Price</span>
-        <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
-    </div>
+    
+
+    
+    
+
     
     <div class="input-box1">
         
@@ -39,6 +67,9 @@
              value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
           </section>
 
+    
+    
+    
         <!-- <label class="container1">Extra Sauce (₱10)
             <input #addExtraCheckBox
             type="checkbox" 
@@ -53,9 +84,6 @@
             (change)="addSpicy(addSpicyCheckBox.checked)" />
         <span class="checkmark1"></span>
       </label> -->
-
-    </div>
-
     <button class="button"(click)="addToCart()">Add to Cart</button>
 </div>
 
