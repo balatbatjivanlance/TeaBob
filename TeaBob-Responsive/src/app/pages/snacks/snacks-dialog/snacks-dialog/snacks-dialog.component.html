@@ -11,13 +11,13 @@
 
         <div class="left-container">
 
-    <div class="input-box">
+    <!-- <div class="input-box">
         <span class="details">Quantity</span> 
         <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
         <button class="quan-butt" (click)="minusQty()">-</button>
         <button (click)="plusQty()" class="quan-butt">+</button>
-    </div>
-s
+    </div> -->
+
             <div class="input-box">
                 <span class="details">Quantity</span> 
                 <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
@@ -28,12 +28,16 @@ s
        
             <div class="add-ons">
                
-                <section  class="container1" *ngFor="let addon of addon">
-                     
-                    
+                <!-- <section  class="container1" *ngFor="let addon of addon">     
                     <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
                      value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
+                  </section> -->
+
+                  <section  class="container1" *ngFor="let addon of addon">
+                    <mat-checkbox (change)="onChangeDemo($event, addon.addon_name)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                     value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
                   </section>
+
                 </div>
         </div>
 
@@ -60,12 +64,12 @@ s
     
 
     
-    <div class="input-box1">
+    <!-- <div class="input-box1">
         
         <section  class="container1" *ngFor="let addon of addon">
             <mat-checkbox (change)="onChangeDemo($event, addon.addon_name)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
              value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
-          </section>
+          </section> -->
 
     
     
@@ -85,6 +89,6 @@ s
         <span class="checkmark1"></span>
       </label> -->
     <button class="button"(click)="addToCart()">Add to Cart</button>
-</div>
+<!-- </div> -->
 
 </div>
