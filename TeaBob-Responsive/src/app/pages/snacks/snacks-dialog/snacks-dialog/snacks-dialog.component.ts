@@ -94,18 +94,21 @@ export class SnacksDialogComponent implements OnInit {
   onChangeDemo(event:MatCheckboxChange, name: any){
     // console.log(event.source.value);
     let price: any = parseInt(event.source.value)
- 
-    if (event.checked){
-    this.addOnArray.push(name);
-    this.food_total = this.food_total + price;
-    this.addOnChecker = true
 
+    if (event.checked){
+
+    this.food_total = this.food_total + (price * this.food_qty);
+    this.addOnChecker = true
+    this.addOnArray.push(name);
     sessionStorage.setItem('price', price)
     }else {
     this.food_total = this.food_total - (price * this.food_qty);
-    let i = this.addOnArray.indexOf(name);
-    this.addOnArray.splice(i,1);
-    this.addOnChecker = false
+    if (this.addOnArray){
+      let i = this.addOnArray.indexOf(name);
+      this.addOnArray.splice(i,1);
+      this.addOnChecker = false
+    }
+
     }
     console.log( this.addOnArray)
   }
@@ -187,8 +190,9 @@ export class SnacksDialogComponent implements OnInit {
   
   minusQty = () =>{
     if (this.food_qty > 1){
+      let price : any= sessionStorage.getItem('price');
       this.food_qty -= 1;
-      this.food_total =  this.food_qty * this.food_price;
+      this.food_total = parseInt(price) + (this.food_qty * this.food_price);
       // this.sendMessage();
     }
   } 
