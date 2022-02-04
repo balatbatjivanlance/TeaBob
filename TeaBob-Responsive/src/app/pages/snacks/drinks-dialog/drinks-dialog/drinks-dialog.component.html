@@ -46,8 +46,8 @@
             </ng-container> -->
 
             <section  class="container1" *ngFor="let addon of addon">
-                <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-                 value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
+                <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                 value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
               </section>
         
         <!-- <label class="container1">Pearl (₱10)

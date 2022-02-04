@@ -97,7 +97,7 @@
             <p class="item-content" *ngIf="cart.add_cookie == '10'"> Cookie : {{cart.add_cookie | currency:'₱'}}<button (click)="deleteAddOnsCookie(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
             <p class="item-content" *ngIf="cart.add_sauce == '10'"> Sauce : {{cart.add_sauce | currency:'₱'}}<button (click)="deleteAddOnsSauce(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
             <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOnsSpicy(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>
-            <p class="item-content">Pcs. {{cart.food_quantity}}</p>
+            <p class="item-content">Pcs. {{cart.cart_quantity}}</p>
             <p class="item-content">₱ {{cart.cart_total_price}} </p> 
           
             <button class="button-act" (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
@@ -114,7 +114,7 @@
         <p>₱ {{totalamount}}</p>
     </div>
     <div class="btn">
-        <button  class="button-act" (click)="checkOutAll();">Check Out</button>
+        <button  class="button-act" (click)="checkOutAll()">Check Out</button>
     </div>
 
 </div>

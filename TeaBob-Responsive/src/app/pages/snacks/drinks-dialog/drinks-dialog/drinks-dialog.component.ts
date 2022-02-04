@@ -137,19 +137,21 @@ selectChangeHandleractive (event: any){
   saveCcheese: any;
   saveCPuff: any;
   saveCookie: any;
-  addPearl( addExtra: boolean) {
+  addOnId : any [] = []
+  addPearl( addExtra: boolean, id : any) {
     var isChecked = addExtra;
+    this.addOnId.push(id);
     if (isChecked){
       let addPearl = 10 * this.food_qty;
       this.food_total = this.food_total + addPearl;
       this.extraPearl =  10;
-      this.prodInfo.add_pearl = this.extraPearl;
-      console.log(this.food_total);
+      this.prodInfo.addon_id = id;
+      // console.log(this.food_total);
     }else{
         let addPearl =  10 * this.food_qty;
         this.food_total =  this.food_total - addPearl;
         this.extraPearl= 0;
-        this.prodInfo.add_pearl = this.extraPearl;
+        this.prodInfo.addon_id = id;
     }
     this.sendMessage();
   } 
@@ -219,7 +221,7 @@ selectChangeHandleractive (event: any){
     this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
     this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
-    this.prodInfo.food_quantity = this.food_qty;
+    this.prodInfo.cart_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
     this.prodInfo.add_pearl = this.extraPearl;
     this.prodInfo.add_ccheese = this.extraCcheese;
@@ -227,18 +229,18 @@ selectChangeHandleractive (event: any){
     this.prodInfo.add_cookie = this.extraCookie;
     this.prodInfo.add_sauce = 0;
     this.prodInfo.add_spicy = 0;
+    console.log(this.prodInfo)
 
-    // console.log(this.prodInfo);
-    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-      if (data.remarks === "success"){
-        Swal.fire(
-          'Nice!',
-          'Added to cart successfully!',
-          'success'
-        )
-        this.dialog.closeAll();
-      }
-    });
+    // this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+    //   if (data.remarks === "success"){
+    //     Swal.fire(
+    //       'Nice!',
+    //       'Added to cart successfully!',
+    //       'success'
+    //     )
+    //     this.dialog.closeAll();
+    //   }
+    // });
   }
 
   sendMessage(): void {
