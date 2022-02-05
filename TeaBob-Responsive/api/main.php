@@ -436,6 +436,11 @@
 						echo json_encode($post->cancelDelivery($d), JSON_PRETTY_PRINT);
 					break;
 
+					case 'getDriverInfo':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->PullDriverInfo($d), JSON_PRETTY_PRINT);    
+					break;
+
 
 
 					

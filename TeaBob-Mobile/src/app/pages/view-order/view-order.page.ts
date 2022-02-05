@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -29,7 +29,7 @@ export class ViewOrderPage implements OnInit {
   //mga need mo madisplay sa frontend
   
 
-  constructor(private router: Router, public ds: DataService, private alert: AlertController, private us: UserService ) {
+  constructor(private toast: ToastController, private router: Router, public ds: DataService, private alert: AlertController, private us: UserService ) {
 
     
 
@@ -61,6 +61,14 @@ export class ViewOrderPage implements OnInit {
   
   
   ngOnInit() {
+  }
+
+  async presentToast(msg) {
+    const toast = await this.toast.create({
+      message: msg,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   async presentAlert(msg) {
@@ -118,6 +126,7 @@ export class ViewOrderPage implements OnInit {
         
       });
 
+      this.presentToast("Delivery Accepted Successfully.");
       this.router.navigate(['/conclude-order'], {state: this.viewOrder});
     }
   }

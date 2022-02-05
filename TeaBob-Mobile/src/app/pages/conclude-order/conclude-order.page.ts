@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -26,7 +26,7 @@ export class ConcludeOrderPage implements OnInit {
 
   selectedValue: any;
 
-  constructor(private router: Router, public ds: DataService, private us: UserService, private alert: AlertController ) { 
+  constructor(private toast: ToastController,private router: Router, public ds: DataService, private us: UserService, private alert: AlertController ) { 
 
     this.viewOrder = this.router.getCurrentNavigation().extras.state;
 
@@ -45,6 +45,15 @@ export class ConcludeOrderPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  
+  async presentToast(msg) {
+    const toast = await this.toast.create({
+      message: msg,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   async presentAlert(msg) {
@@ -173,8 +182,8 @@ export class ConcludeOrderPage implements OnInit {
     ).subscribe((data: { payload: any }) => {
       
     });
-
-    this.router.navigate(['/home']);
+    this.presentToast("Order Delivered Successfully.");
+    this.router.navigate(['/delivery-history']);
   }
 }
 
@@ -196,7 +205,7 @@ cancelDelivery(isCancelled: any)
       ).subscribe((data: { payload: any }) => {
         
       });
-
+      this.presentToast("Delivery Cancelled.");
       this.router.navigate(['/home']);
     
   }

@@ -615,6 +615,7 @@ class Post{
     }
 
     public function confirmDelivery($dt) {
+    
         // print_r($dt);
         $code = 401;
         $payload = null;
@@ -641,6 +642,11 @@ class Post{
         $payload = null;
         $remarks = "failed";
         $message = "Unable to retrieve data";
+
+
+        //nagsingit tayo ng bagong element sa loob ng dt para pag nagupdate tayo alam niya kung ano yung uupdate na columns with value na ipapalit
+        // $dt->last_updated = date("Y-m-d H:i:s");
+        //wala freh hahaha yung key na last_updated para yun sa column name tas value na date(asdassd); para makuha yung current time and date
 
         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
 
