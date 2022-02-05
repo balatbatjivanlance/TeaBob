@@ -110,25 +110,83 @@ export class StatusComponent implements OnInit {
     )
   }
 
-  cancelorder: any = {};
+  // cancelorder: any = {};
 
-  cancelOrder = (id:any) => {
+  // cancelOrder = (id:any) => {
+
+  //        Swal.fire({
+  //     title: 'Are you sure to cancel your orders?',
+  //     showDenyButton: true,
+  //     confirmButtonText: 'Yes!',
+  //     denyButtonText: `No!`,
+  //   }).then((result) => {
+  //     /* Read more about isConfirmed, isDenied below */
+  //     if (result.isConfirmed) {
+  //   this.cancelorder.cocode_id = id;
+  //   this.cancelorder.is_approved = 2;
+  //   this.ds.sendApiRequest('cancelOrder/', this.cancelorder).subscribe((data: any) => { });
+
+  //   this.sendMessage();
+    
+  //       Swal.fire('Order Cancelled', '', 'success')
+  //     } else if (result.isDenied) {
+  //       Swal.fire('Thank you for your fast update', '', 'info')
+  //     }
+  //   })
+  //    this.dialog.closeAll();
+  // }
+
+  cancelorder: any = {};
+  remarks: any;
+
+  cancelOrder = async (id:any) => {
+
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Reason of Cancellation?',
+      inputPlaceholder: 'Type your message here...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+    
+    if (text) {
+      // Swal.fire(text)
+      this.remarks = text;
+
+      this.cancelorder.cocode_id = id;
+      this.cancelorder.is_approved = 2;
+      this.cancelorder.remarks = this.remarks;
+      this.ds.sendApiRequest('cancelOrder/', this.cancelorder).subscribe((data: any) => { });
+  
+      this.sendMessage();
+      Swal.fire('Saved!', '', 'success')
+    }
+
+
+    
+  }
+
+  deleteorder: any = {};
+
+  deleteOrder = (id:any) => {
 
          Swal.fire({
-      title: 'Are you sure to cancel your orders?',
+      title: 'Are you sure to delete your orders?',
       showDenyButton: true,
       confirmButtonText: 'Yes!',
       denyButtonText: `No!`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-    this.cancelorder.cocode_id = id;
-    this.cancelorder.is_approved = 2;
-    this.ds.sendApiRequest('cancelOrder/', this.cancelorder).subscribe((data: any) => { });
+    this.deleteorder.cocode_id = id;
+    this.deleteorder.is_approved = 5;
+    this.ds.sendApiRequest('deleteOrder/', this.deleteorder).subscribe((data: any) => { });
 
     this.sendMessage();
     
-        Swal.fire('Order Cancelled', '', 'success')
+        Swal.fire('Order Deleted', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Thank you for your fast update', '', 'info')
       }

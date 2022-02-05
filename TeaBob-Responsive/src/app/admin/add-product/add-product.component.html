@@ -224,6 +224,14 @@
           </mat-form-field>
           <br />
 
+          <br />
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Stocks</mat-label>
+            <input matInput type="number" [(ngModel)]="food_stocks" />
+          </mat-form-field>
+          <br />
+
           <div class="img-container" style="margin-left: 20px">
             <img class="image-container" [src]="imgSrc" alt="img" style="width: 100px; height: 100px; display: none" />
             <input class="input-image" type="file" (change)="onUploadHandler($event)" />

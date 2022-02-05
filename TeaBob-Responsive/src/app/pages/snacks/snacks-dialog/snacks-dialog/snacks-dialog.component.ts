@@ -150,17 +150,17 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.add_cpuff = 0;
     this.prodInfo.add_cookie = 0;
     console.log(this.prodInfo)
-    // this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-    //   if (data.remarks === "success"){
-    //     Swal.fire(
-    //       'Nice!',
-    //       'Added to cart successfully!',
-    //       'success'
-    //     )
-    //     this.dialog.closeAll();
-    //   }
-    //   this.router.navigate(['/cart']);
-    // });
+    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+      if (data.remarks === "success"){
+        Swal.fire(
+          'Nice!',
+          'Added to cart successfully!',
+          'success'
+        )
+        this.dialog.closeAll();
+      }
+      // this.router.navigate(['/cart']);
+    });
   }
 
   plusQty = () =>{

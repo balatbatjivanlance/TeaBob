@@ -96,7 +96,8 @@ export class ViewOrdersComponent implements OnInit {
 
     this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
 
-        Swal.fire('Saved!', '', 'success')
+        // Swal.fire('Saved!', '', 'success')
+        window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }

@@ -294,6 +294,11 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->cancelOrder($d), JSON_PRETTY_PRINT);
 					break;
+					//  delete Order
+					case 'deleteOrder':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->deleteOrder($d), JSON_PRETTY_PRINT);
+					break;
 					// case 'cancelOrder':
 					// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
 					// 	echo json_encode($post->cancelOrder($d), JSON_PRETTY_PRINT);

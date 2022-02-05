@@ -73,7 +73,7 @@ class Get{
 		//Pull Status
 		public function pullStatus ($user_id)  {
 
-			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id' ORDER BY cocode_id DESC";
+			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id'AND  is_approved IN (0,1,2,3,4) ORDER BY cocode_id DESC";
 			
 			$res = $this->gm->generalQuery($sql, "No records found");
 			if ($res['code'] == 200) {
@@ -413,7 +413,7 @@ public function pullDashboard ($d) {
 
 public function pullHistory ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4) ORDER BY cocode_id DESC";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4,5) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
@@ -97,6 +98,30 @@ export class DrinksDialogComponent implements OnInit {
   
 }
 
+addOnChecker : boolean = false;
+addOnArray: any [] = []
+onChangeDemo(event:MatCheckboxChange, name: any){
+  // console.log(event.source.value);
+  let price: any = parseInt(event.source.value)
+
+  if (event.checked){
+
+  this.food_total = this.food_total + (price * this.food_qty);
+  this.addOnChecker = true
+  this.addOnArray.push(name);
+  sessionStorage.setItem('price', price)
+  }else {
+  this.food_total = this.food_total - (price * this.food_qty);
+  if (this.addOnArray){
+    let i = this.addOnArray.indexOf(name);
+    this.addOnArray.splice(i,1);
+    this.addOnChecker = false
+  }
+
+  }
+  console.log( this.addOnArray)
+}
+
 
 selectedSize: any ;
 
@@ -111,26 +136,40 @@ selectChangeHandlerSize (event: any){
 }
 
 
-  plusQty = () =>{
-    this.food_qty += 1;
-    if (this.food_qty > 10){
-      alert('You have reeached the maximum order');
-      this.food_qty -= 1;
-    }else{
+
+plusQty = () =>{
+
+  this.food_qty += 1;
+  if (this.food_qty > 10){
+    Swal.fire(
+      'Warning job!',
+      'You have reached the maximum order',
+      'warning'
+    )
+    this.food_qty -= 1;
+  }else{
+    if (this.addOnChecker){
+      let price : any = sessionStorage.getItem('price')
+      this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+
+    }else {
       this.food_total =  this.food_qty * this.food_price;
+
     }
-    this.sendMessage();
   }
+  // this.sendMessage();
+}
 
 
   
-  minusQty = () =>{
-    if (this.food_qty > 1){
-      this.food_qty -= 1;
-      this.food_total =  this.food_qty * this.food_price;
-      this.sendMessage();
-    }
+minusQty = () =>{
+  if (this.food_qty > 1){
+    let price : any= sessionStorage.getItem('price');
+    this.food_qty -= 1;
+    this.food_total = parseInt(price) + (this.food_qty * this.food_price);
+    // this.sendMessage();
   }
+} 
 
 
   extraPearl: number = 0;

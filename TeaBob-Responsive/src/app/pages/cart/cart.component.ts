@@ -202,29 +202,93 @@ export class CartComponent implements OnInit {
     }
   }
 
+  // coInfo: any = {}
+  // coCode: any = {}
+
+  // cart_id: any
+
+  // checkOutAll() {
+  //   // this.cartinfo.user_id = localStorage.getItem("id");
+  //   // this.cartinfo.user_name = localStorage.getItem("Fullname");
+  //   // this.cartinfo.user_contact = localStorage.getItem("user_Contact");
+  //   // this.cartinfo.user_address = localStorage.getItem("user_Address");
+  //   // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data =>
+  //   // {
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: "Please enter the checkout button to continue",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Check out',
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire('Your cart was addedd to orders!', 'Success, please order again.', 'success')
+  //       var seq = Math.floor(100000000 + Math.random() * 900000000)
+  //         .toString()
+  //         .substring(1)
+  //       this.code = seq
+
+  //       let data: any = []
+
+  //       this.cart_payload.forEach(item =>  {
+  //         this.coInfo.prod_name = item.food_name
+  //         this.coInfo.add_pearl = item.add_pearl
+  //         this.coInfo.add_cpuff = item.add_cpuff
+  //         this.coInfo.add_ccheese = item.add_ccheese
+  //         this.coInfo.add_cookie = item.add_cookie
+  //         this.coInfo.add_sauce = item.add_sauce
+  //         this.coInfo.add_spicy = item.add_spicy
+  //         this.coInfo.food_quantity = item.food_quantity
+  //         this.coInfo.user_id = localStorage.getItem('id')
+  //         this.coInfo.prod_price = item.cart_total_price
+  //         this.coInfo.user_name = localStorage.getItem('Fullname')
+  //         this.coInfo.user_contact = localStorage.getItem('user_Contact')
+  //         this.coInfo.user_address = localStorage.getItem('user_Address')
+  //         this.coInfo.total_price = this.totalamount
+  //         this.coInfo.code = this.code
+  //         this.coInfo.cart_id = item.cart_id
+  //         Swal.fire('Great!', 'Check out successfully!', 'success')
+
+  //         {
+  //           data.push(this.coInfo)
+
+  //           this.coInfo = {}
+  //         }
+  //       })
+
+  //       this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
+  //       this.router.navigate(['/status']);
+  //     }
+  //   })
+
+  //   // }
+  // }
+
   coInfo: any = {}
   coCode: any = {}
 
+  remarks: any;
+
   cart_id: any
 
-  checkOutAll() {
-    // this.cartinfo.user_id = localStorage.getItem("id");
-    // this.cartinfo.user_name = localStorage.getItem("Fullname");
-    // this.cartinfo.user_contact = localStorage.getItem("user_Contact");
-    // this.cartinfo.user_address = localStorage.getItem("user_Address");
-    // this.ds.sendApiRequest("cart",localStorage.getItem("id")).subscribe(data =>
-    // {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "Please enter the checkout button to continue",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Check out',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Your cart was addedd to orders!', 'Success, please order again.', 'success')
+  async checkOutAll() {
+
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Landmark Near You',
+      inputPlaceholder: 'Type here where you are near...',
+      inputAttributes: {
+        'aria-label': 'Type here where you are near'
+      },
+      showCancelButton: true
+    })
+    
+    if (text) {
+      // Swal.fire(text)
+      this.remarks = text;
+
         var seq = Math.floor(100000000 + Math.random() * 900000000)
           .toString()
           .substring(1)
@@ -247,9 +311,12 @@ export class CartComponent implements OnInit {
           this.coInfo.user_contact = localStorage.getItem('user_Contact')
           this.coInfo.user_address = localStorage.getItem('user_Address')
           this.coInfo.total_price = this.totalamount
+          this.coInfo.remarks = this.remarks;
           this.coInfo.code = this.code
           this.coInfo.cart_id = item.cart_id
+
           Swal.fire('Great!', 'Check out successfully!', 'success')
+
 
           {
             data.push(this.coInfo)
@@ -260,11 +327,13 @@ export class CartComponent implements OnInit {
 
         this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
         this.router.navigate(['/status']);
+      
       }
-    })
+        }
 
-    // }
-  }
+
+  
+
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
