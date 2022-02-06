@@ -187,6 +187,7 @@ export class StatusComponent implements OnInit {
     this.sendMessage();
     
         Swal.fire('Order Deleted', '', 'success')
+        window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Thank you for your fast update', '', 'info')
       }

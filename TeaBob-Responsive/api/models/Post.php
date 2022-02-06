@@ -274,11 +274,12 @@ class Post{
             $prod_price[]  = $dt[$i]->prod_price;
             $code[] = $dt[$i]->code;
             $total_price[] = $dt[$i]->total_price;
+            $remarks[] = $dt[$i]->remarks;
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
             $user_address[] = $dt[$i]->user_address;
             $values[] = "('$prod_name[$i]', '$add_pearl[$i]', '$add_cpuff[$i]',  '$add_ccheese[$i]', '$add_cookie[$i]',  '$add_sauce[$i]',  '$add_spicy[$i]', '$food_qty[$i]', '$food_size[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
-            $val2[] = "('$code[$i]',  '$total_price[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
+            $val2[] = "('$code[$i]',  '$total_price[$i]',  '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
         }
 
             //insert the data on the checkout table
@@ -288,7 +289,7 @@ class Post{
         try {
             if($this->pdo->query($this->sql)) {
 
-                $this->sql = "INSERT INTO tbl_cocode (code, total_price, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
+                $this->sql = "INSERT INTO tbl_cocode (code, total_price, remarks, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
            
                 if($this->pdo->query($this->sql)) {
 

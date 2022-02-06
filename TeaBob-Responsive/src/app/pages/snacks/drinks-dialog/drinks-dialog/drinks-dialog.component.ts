@@ -282,7 +282,7 @@ minusQty = () =>{
           'success'
         )
         this.dialog.closeAll();
-        this.router.navigate(['/cart']);
+        // this.router.navigate(['/cart']);
       }
     });
   }
