@@ -1,3 +1,6 @@
+<!-- <app-navbar></app-navbar> -->
+
+
 <mat-sidenav-container autosize>
 
     <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
@@ -54,6 +57,8 @@
         <mat-icon>account_box</mat-icon>&nbsp; Profile
       </button>
   
+  
+  
     </mat-sidenav>
     <!-- NAVBAR -->
     <div class="navbar">
@@ -63,48 +68,51 @@
           <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
           <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
         </button>
-        <h1 style="color: #424242; font-size: 16px;">History</h1>
+        <h1 style="color: #424242; font-size: 16px;">Riders</h1>
   
         <span class="example-spacer"></span>
   
       </mat-toolbar>
-      </div>
-<div class="container">
-  <div class="dashboard-bottom">
+  
+      <!-- END OF SIDENAV AND TOOLBAR CODE  -->
+  
+  
+      <!-- THIS IS YOUR CONTENT CONTAINER -->
+      <div class="container">
+  
+        <div class="dashboard-bottom">
           
-    <ul class="responsive-table">
-      <li class="table-header">
-        <div class="col col-4">Order Code</div>
-        <div class="col col-4">Customer</div>
-        <div class="col col-4">Contact No.</div>
-        <div class="col col-4">Address</div>
-        <div class="col col-4">Date</div>
-        <div class="col col-4">Price</div>
-        <div class="col col-4">Status</div>
-        <div class="col col-4">Action</div>
-      </li>
-      <li class="table-row" *ngFor = "let history of history">
-        <div class="col col-4" data-label="Order Code" >{{history.code}}</div>
-        <div class="col col-4" data-label="Customer" >{{history.user_name}}</div>
-        <div class="col col-4" data-label="Contact No" >{{history.user_contact}}</div>
-        <div class="col col-4" data-label="Address" >{{history.user_address}}</div>
-        <div class="col col-3" data-label="Date" >{{history.date}}</div>
-        <div class="col col-4" data-label="Price" >{{history.total_price}}</div>
-        <div class="col col-4" data-label="Status">
-          <span *ngIf ="history.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
-          <span *ngIf ="history.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
-          <span *ngIf ="history.is_approved == '5'" style="background-color: cyan; color: black;">Deleted Orders</span>
-
-        </div>
-        <div class="col col-4" data-label="Action">
-          <button mat-raised-button color="primary" (click)="openCorBreakDown(history)">View</button>
-          <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(history.code)">Delete</button>
-        </div>
-      </li>
-    </ul>
-
-  </div>
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Driver ID</div>
+                <div class="col col-4">Driver Name</div>
+                <div class="col col-4">Driver Email</div>
+                <div class="col col-4">Driver Status</div>
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let driver of driver">
+                <div class="col col-4" data-label="Driver ID" >{{driver.driver_id}}</div>
+                <div class="col col-4" data-label="Driver Name" >{{driver.driver_name}}</div>
+                <div class="col col-4" data-label="Driver Email" >{{driver.driver_email}}</div>
+                <div class="col col-4" data-label="Driver Status" >Status Here</div>
+                <div class="col col-4" data-label="Status">
+                  <!-- <span *ngIf ="driver.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
+                  <span *ngIf ="driver.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
+                  <span *ngIf ="driver.is_approved == '5'" style="background-color: cyan; color: black;">Deleted Orders</span> -->
+        
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <!-- <button mat-raised-button color="primary" (click)="openCorBreakDown(driver)">View</button> -->
+                  <button class="card-order-action" mat-stroked-button color="warn" (click)="delRider(driver.driver_id)">Delete</button>
+                </div>
+              </li>
+            </ul>
+        
+          </div>
+  
       </div>
-    </mat-sidenav-container>
-
-
+    </div>
+  </mat-sidenav-container>
+  
+      
+  

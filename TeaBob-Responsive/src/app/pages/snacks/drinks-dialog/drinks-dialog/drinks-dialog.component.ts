@@ -264,7 +264,7 @@ minusQty = () =>{
     this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
     this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
-    this.prodInfo.cart_quantity = this.food_qty;
+    this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
     this.prodInfo.add_pearl = this.extraPearl;
     this.prodInfo.add_ccheese = this.extraCcheese;

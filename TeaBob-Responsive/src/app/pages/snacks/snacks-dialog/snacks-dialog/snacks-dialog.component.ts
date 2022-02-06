@@ -139,7 +139,7 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.user_id = localStorage.getItem("id");
     this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
     this.prodInfo.food_name = this.food_name;
-    this.prodInfo.addOns = obj;
+    // this.prodInfo.addOns = obj;
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;

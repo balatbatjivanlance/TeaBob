@@ -373,6 +373,21 @@ class Post{
 		}
     }
 
+    public function delRider($d) {
+        $data = $d;
+        $driver_id = $data->driver_id;
+        $res = $this->gm->delete('tbl_driver', $data, "driver_id = '$driver_id'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
     // // Delete Check
     // public function delCheck($d) {
     //     $data = $d;

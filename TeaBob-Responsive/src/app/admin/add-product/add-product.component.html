@@ -29,6 +29,9 @@
     <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
       <mat-icon>history</mat-icon>&nbsp; History
     </button>
+    <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
+      <mat-icon>motorcycle</mat-icon>&nbsp; Riders
+    </button>
     <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
       <mat-icon>category</mat-icon>&nbsp; Category
     </button> -->
@@ -176,12 +179,12 @@
             <mat-label>Product Name</mat-label>
             <input matInput type="text" [(ngModel)]="food_name" />
           </mat-form-field>
-          <br />
+
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Product Description</mat-label>
             <input type="text" matInput [(ngModel)]="food_description" />
-            <br />
+  
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
@@ -216,28 +219,28 @@
           </mat-form-field>
 
 
-          <br />
+
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Product Price</mat-label>
             <input matInput type="number" [(ngModel)]="food_price" />
           </mat-form-field>
-          <br />
 
-          <br />
+
+
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Product Stocks</mat-label>
             <input matInput type="number" [(ngModel)]="food_stocks" />
           </mat-form-field>
-          <br />
+
 
           <div class="img-container" style="margin-left: 20px">
             <img class="image-container" [src]="imgSrc" alt="img" style="width: 100px; height: 100px; display: none" />
             <input class="input-image" type="file" (change)="onUploadHandler($event)" />
           </div>
 
-          <br /><br />
+<br />
           <button mat-raised-button color="primary" (click)="addProducts()" class="add-button">
             Add
           </button>

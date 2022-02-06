@@ -49,6 +49,7 @@ import { RegisterDriverComponent } from './admin/register-driver/register-driver
 import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order-history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
+import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
 
 
 
@@ -84,6 +85,7 @@ import { ViewOrderComponent } from './home/view-order/view-order.component';
     HistoryComponent,
     ViewOrderHistoryComponent,
     ViewOrderComponent,
+    ManageDriverComponent,
 
   ],
   imports: [
