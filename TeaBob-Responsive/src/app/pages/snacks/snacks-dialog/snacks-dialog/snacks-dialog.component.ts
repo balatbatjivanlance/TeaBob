@@ -39,6 +39,7 @@ export class SnacksDialogComponent implements OnInit {
 
   food_name: any;
   food_price: number = 0;
+  food_stocks: number = 0;
   food_qty: number = 1;
   food_total: number  = 0 ;
 
@@ -51,6 +52,7 @@ export class SnacksDialogComponent implements OnInit {
 
     this.food_name = this.foods[0].food_name;
     this.food_price = this.foods[0].food_price;
+    this.food_stocks = this.foods[0].food_stocks;
     this.food_total = this.food_price;
 
     });
@@ -145,10 +147,7 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.cart_total_price = this.food_total;
     this.prodInfo.add_sauce = this.extraSauce;
     this.prodInfo.add_spicy = this.spicySauce;
-    this.prodInfo.add_pearl = 0;
-    this.prodInfo.add_ccheese = 0;
-    this.prodInfo.add_cpuff = 0;
-    this.prodInfo.add_cookie = 0;
+
     console.log(this.prodInfo)
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
@@ -166,7 +165,7 @@ export class SnacksDialogComponent implements OnInit {
   plusQty = () =>{
 
     this.food_qty += 1;
-    if (this.food_qty > 10){
+    if (this.food_qty > this.food_stocks){
       Swal.fire(
         'Warning job!',
         'You have reached the maximum order',

@@ -173,6 +173,7 @@ export class CartComponent implements OnInit {
       .subscribe((data: any) => {})
     Swal.fire('Deleted', 'Successfully Removed From Cart!', 'success')
     this.pullCart()
+    window.location.reload();
   }
 
   code: any
@@ -202,7 +203,80 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // coInfo: any = {}
+
+
+
+  coInfo: any = {}
+  coCode: any = {}
+
+  cart_id: any
+
+  remarks: any;
+  async checkOutAll() {
+
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Excact Location or Landmark Near You',
+      inputPlaceholder: 'Type here your exact location or where landmark you are near',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+    
+    if (text) {
+      // Swal.fire(text)
+      this.remarks = text;
+
+        var seq = Math.floor(100000000 + Math.random() * 900000000)
+          .toString()
+          .substring(1)
+        this.code = seq
+
+        let data: any = []
+
+        this.cart_payload.forEach(item =>  {
+          this.coInfo.prod_name = item.food_name
+          this.coInfo.add_pearl = item.add_pearl
+          this.coInfo.add_cpuff = item.add_cpuff
+          this.coInfo.add_ccheese = item.add_ccheese
+          this.coInfo.add_cookie = item.add_cookie
+          this.coInfo.add_sauce = item.add_sauce
+          this.coInfo.add_spicy = item.add_spicy
+          this.coInfo.food_quantity = item.food_quantity
+          this.coInfo.user_id = localStorage.getItem('id')
+          this.coInfo.prod_price = item.cart_total_price
+          this.coInfo.user_name = localStorage.getItem('Fullname')
+          this.coInfo.user_contact = localStorage.getItem('user_Contact')
+          this.coInfo.user_address = localStorage.getItem('user_Address')
+          this.coInfo.total_price = this.totalamount
+          this.coInfo.code = this.code
+          this.coInfo.cart_id = item.cart_id
+          this.coInfo.remarks = this.remarks;
+          Swal.fire('Great!', 'Check out successfully!', 'success')
+
+          {
+            data.push(this.coInfo)
+
+            this.coInfo = {}
+          }
+        })
+
+        this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
+        this.router.navigate(['/status']);
+      }
+    }
+
+  
+
+
+
+  sendMessage(): void {
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
+  }
+
+
+    // coInfo: any = {}
   // coCode: any = {}
 
   // cart_id: any
@@ -264,74 +338,4 @@ export class CartComponent implements OnInit {
   //   })
 
   // }
-
-
-  coInfo: any = {}
-  coCode: any = {}
-
-  cart_id: any
-
-  remarks: any;
-  async checkOutAll() {
-
-    const { value: text } = await Swal.fire({
-      input: 'textarea',
-      inputLabel: 'Landmark Near You',
-      inputPlaceholder: 'Type here where landmark you are near',
-      inputAttributes: {
-        'aria-label': 'Type your message here'
-      },
-      showCancelButton: true
-    })
-    
-    if (text) {
-      // Swal.fire(text)
-      this.remarks = text;
-
-        var seq = Math.floor(100000000 + Math.random() * 900000000)
-          .toString()
-          .substring(1)
-        this.code = seq
-
-        let data: any = []
-
-        this.cart_payload.forEach(item =>  {
-          this.coInfo.prod_name = item.food_name
-          this.coInfo.add_pearl = item.add_pearl
-          this.coInfo.add_cpuff = item.add_cpuff
-          this.coInfo.add_ccheese = item.add_ccheese
-          this.coInfo.add_cookie = item.add_cookie
-          this.coInfo.add_sauce = item.add_sauce
-          this.coInfo.add_spicy = item.add_spicy
-          this.coInfo.food_quantity = item.food_quantity
-          this.coInfo.user_id = localStorage.getItem('id')
-          this.coInfo.prod_price = item.cart_total_price
-          this.coInfo.user_name = localStorage.getItem('Fullname')
-          this.coInfo.user_contact = localStorage.getItem('user_Contact')
-          this.coInfo.user_address = localStorage.getItem('user_Address')
-          this.coInfo.total_price = this.totalamount
-          this.coInfo.code = this.code
-          this.coInfo.cart_id = item.cart_id
-          this.coInfo.remarks = this.remarks;
-          Swal.fire('Great!', 'Check out successfully!', 'success')
-
-          {
-            data.push(this.coInfo)
-
-            this.coInfo = {}
-          }
-        })
-
-        this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
-        this.router.navigate(['/status']);
-      }
-    }
-
-  
-
-
-
-  sendMessage(): void {
-    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
-  }
 }

@@ -63,11 +63,11 @@
 
                       
         <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
-            <mat-label>Select Size</mat-label>
-            <select matNativeControl name="size" id="size" (change)="selectChangeHandlerSize($event)"
-            [(ngModel)]="item_size">
+            <mat-label >Select Size</mat-label>
+            <select matNativeControl id="size" (change)="selectChangeHandlerSize($event)"
+            [(ngModel)]="item_size" required>
             <ng-container  *ngFor="let size of size">
-              <option *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}
+              <option *ngIf="size.size_stocks != '0'" value="{{size.size_price}} , {{size.size_name}}">{{size.size_name}}
               </option>
             </ng-container>
             </select>
@@ -78,12 +78,17 @@
                 <div class="input-box">
                     <span class="details">Total Price</span>
                     <input type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
+
+                    <span class="details">Available Stocks</span>
+                    <input type="number" [(ngModel)]="food_stocks" class="input-number" disabled placeholder="">
                 </div>
             </div>
             
 
         </div>
 
+        <button class="button"(click)="addToCart()" 
+        [disabled]="!item_size" title="Choose Size First">Add to Cart</button>
     
 <!-- 
         <ng-container  *ngFor="let addon of addon">
@@ -149,7 +154,7 @@
           </mat-radio-group> -->
 
 
-    <button class="button"(click)="addToCart()" >Add to Cart</button>
+
 <!-- </div> -->
 
 </div>
