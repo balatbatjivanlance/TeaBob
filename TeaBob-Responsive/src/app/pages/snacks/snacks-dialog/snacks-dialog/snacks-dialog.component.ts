@@ -166,11 +166,7 @@ export class SnacksDialogComponent implements OnInit {
 
     this.food_qty += 1;
     if (this.food_qty > this.food_stocks){
-      Swal.fire(
-        'Warning job!',
-        'You have reached the maximum order',
-        'warning'
-      )
+
       this.food_qty -= 1;
     }else{
       if (this.addOnChecker){
@@ -185,13 +181,18 @@ export class SnacksDialogComponent implements OnInit {
     // this.sendMessage();
   }
 
-
-  
   minusQty = () =>{
-    if (this.food_qty > 1){
-      let price : any= sessionStorage.getItem('price');
+    if(this.food_qty > 1){
       this.food_qty -= 1;
-      this.food_total = parseInt(price) + (this.food_qty * this.food_price);
+    }
+
+    if  (this.addOnChecker){
+      let price : any= sessionStorage.getItem('price');
+      this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+    }
+    else {
+
+      this.food_total =  this.food_qty * this.food_price;
       // this.sendMessage();
     }
   } 
