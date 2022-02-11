@@ -19,6 +19,7 @@ import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-add
 import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
 import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
+import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'manage-addons', component: ManageAddonsSizeComponent},
   { path: 'history', component: HistoryComponent},
   { path: 'view-order', component: ViewOrderComponent},
+  { path: 'manage-driver', component: ManageDriverComponent},
  
   { path: '', component: LandingComponent},
 

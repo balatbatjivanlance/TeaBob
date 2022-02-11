@@ -18,7 +18,7 @@
           </div> -->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput type="text" [(ngModel)]="food_name"/>
+            <input matInput type="text" [(ngModel)]="food_name" required/>
           </mat-form-field>
 
           <!-- <div class="input-box">
@@ -28,12 +28,12 @@
           </div> -->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Price</mat-label>
-            <input matInput type="number" [(ngModel)]="food_price"/>
+            <input matInput type="number" [(ngModel)]="food_price" required/>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Description</mat-label>
-            <input matInput type="text" [(ngModel)]="food_description"/>
+            <input matInput type="text" [(ngModel)]="food_description" required/>
           </mat-form-field>
 
           <!-- <div class="input-box">
@@ -42,7 +42,7 @@
           </div> -->
           <div class="img-container" style="margin-left: 20px">
             <img class="image-container" [src]="imgSrc" alt="img" style="width: 100px; height: 100px; display: none" />
-            <input class="input-image" type="file" (change)="onUploadHandler($event)" />
+            <input class="input-image" type="file" (change)="onUploadHandler($event)" required/>
           </div><br>
 
           <!-- <div class="input-box">
@@ -53,7 +53,7 @@
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
-            [(ngModel)]="food_active">
+            [(ngModel)]="food_active" required>
               <option value="Yes">Yes
               </option>
               <option value="No">No
@@ -64,7 +64,7 @@
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Featured</mat-label>
             <select matNativeControl name="featured" id="featured" (change)="selectChangeHandlerfeatured($event)"
-            [(ngModel)]="food_featured" >
+            [(ngModel)]="food_featured" required>
               <option value="Yes">Yes
               </option>
               <option value="No">No
@@ -75,7 +75,7 @@
           <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
             <mat-label>Select Category</mat-label>
             <select matNativeControl name="category" id="category"
-              [(ngModel)]="food_category">
+              [(ngModel)]="food_category" required>
               <option *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}
               </option>
             </select>

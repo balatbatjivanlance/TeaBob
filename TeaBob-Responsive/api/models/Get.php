@@ -73,7 +73,7 @@ class Get{
 		//Pull Status
 		public function pullStatus ($user_id)  {
 
-			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id' ORDER BY cocode_id DESC";
+			$sql = "SELECT * FROM tbl_cocode WHERE user_id = '$user_id'AND  is_approved IN (0,1,2,3,4) ORDER BY cocode_id DESC";
 			
 			$res = $this->gm->generalQuery($sql, "No records found");
 			if ($res['code'] == 200) {
@@ -166,22 +166,22 @@ class Get{
 	}
 
 	 //Pull History
-	 public function pullHist ($user_id) {
+	//  public function pullHist ($user_id) {
 
-		$sql = "SELECT * FROM tbl_history WHERE user_id = '$user_id'";
+	// 	$sql = "SELECT * FROM tbl_history WHERE user_id = '$user_id'";
 
-		$res = $this->gm->generalQuery($sql, "No records found");
-		if ($res['code'] == 200) {
-			$payload = $res['data'];
-			$remarks = "success";
-			$message = "Successfully retrieved requested data";
-		} else {
-			$payload = null;
-			$remarks = "failed";
-			$message = $res['errmsg'];
-		}
-		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
-	}
+	// 	$res = $this->gm->generalQuery($sql, "No records found");
+	// 	if ($res['code'] == 200) {
+	// 		$payload = $res['data'];
+	// 		$remarks = "success";
+	// 		$message = "Successfully retrieved requested data";
+	// 	} else {
+	// 		$payload = null;
+	// 		$remarks = "failed";
+	// 		$message = $res['errmsg'];
+	// 	}
+	// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	// }
 
 
 	// public function updateProfile ($user_id) {
@@ -411,9 +411,8 @@ public function pullDashboard ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
-public function pullHistory ($d) {
-
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4) ORDER BY cocode_id DESC";
+public function pullSales ($d) {
+	$sql = "SELECT SUM(total_price)AS total_price FROM tbl_cocode WHERE is_approved=4";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -427,6 +426,41 @@ public function pullHistory ($d) {
 	}
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
+
+public function pullHistory ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4,5) ORDER BY cocode_id DESC";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+public function pullDriver ($d) {
+
+	$sql = "SELECT * FROM tbl_driver";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
 
 
 // public function getFood ($d) {
@@ -496,6 +530,22 @@ public function PullApproved () {
 
 public function PullDone () {
 	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 2 OR is_approved = 4";
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
+public function PullDriverInfo($dt) {
+	$sql = "SELECT * FROM tbl_cocode WHERE driver = '$dt->driver' AND is_approved = 4";
+
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];

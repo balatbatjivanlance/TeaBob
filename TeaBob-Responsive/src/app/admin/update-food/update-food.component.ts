@@ -115,7 +115,8 @@ export class UpdateFoodComponent implements OnInit {
 
     this.ds.sendApiRequest("updateFood/" + id, this.foodinfo).subscribe((data: { payload: any; }) => {});
 
-        Swal.fire('Saved!', '', 'success')
+        // Swal.fire('Saved!', '', 'success')
+        window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }

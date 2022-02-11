@@ -294,6 +294,11 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->cancelOrder($d), JSON_PRETTY_PRINT);
 					break;
+					//  delete Order
+					case 'deleteOrder':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->deleteOrder($d), JSON_PRETTY_PRINT);
+					break;
 					// case 'cancelOrder':
 					// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
 					// 	echo json_encode($post->cancelOrder($d), JSON_PRETTY_PRINT);
@@ -360,6 +365,13 @@
 							echo json_encode($get->pullDashboard($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					case 'pullSales':
+						if(count($req)>1) {
+							echo json_encode($get->pullSales($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullSales($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
 					case 'adminfood':
 						if(count($req)>1) {
 							echo json_encode($get->adminPullFood($req[0], $req[1]), JSON_PRETTY_PRINT);
@@ -374,6 +386,14 @@
 							echo json_encode($get->PullUserCount($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					case 'pullDriver':
+						if(count($req)>1) {
+							echo json_encode($get->pullDriver($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullDriver($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					
 
 					// Delete Functions Admin
 
@@ -389,6 +409,10 @@
 					case 'delAddons':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->delAddons($d), JSON_PRETTY_PRINT);
+					break;
+					case 'delRider':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->delRider($d), JSON_PRETTY_PRINT);
 					break;
 
 					// case 'updatefood':
@@ -434,6 +458,11 @@
 					case 'cancelDelivery': //for confirming delivery on conclude-order page
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->cancelDelivery($d), JSON_PRETTY_PRINT);
+					break;
+
+					case 'getDriverInfo':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($get->PullDriverInfo($d), JSON_PRETTY_PRINT);    
 					break;
 
 

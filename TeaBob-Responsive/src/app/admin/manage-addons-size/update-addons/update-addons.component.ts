@@ -60,7 +60,8 @@ export class UpdateAddonsComponent implements OnInit {
 
     this.ds.sendApiRequest("updateAddons/" + id, this.addoninfo).subscribe((data: { payload: any; }) => {});
 
-        Swal.fire('Saved!', '', 'success')
+        // Swal.fire('Saved!', '', 'success')
+        window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }

@@ -32,6 +32,9 @@
     <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
       <mat-icon>history</mat-icon>&nbsp; History
     </button>
+    <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
+      <mat-icon>motorcycle</mat-icon>&nbsp; Riders
+    </button>
     <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
       <mat-icon>category</mat-icon>&nbsp; Category
     </button> -->
@@ -80,6 +83,7 @@
         <li class="table-header">
           <div class="col col-4">Name</div>
           <div class="col col-4">Price</div>
+          <div class="col col-4">Stocks</div>
           <div class="col col-4">Image</div>
           <div class="col col-4">Featured</div>
           <div class="col col-4">Active</div>
@@ -88,6 +92,7 @@
         <li class="table-row" *ngFor = "let adminfood of adminfood">
           <div class="col col-4" data-label="Name">{{adminfood.food_name}}</div>
           <div class="col col-2" data-label="Price">{{adminfood.food_price}}</div>
+          <div class="col col-2" data-label="Stocks">{{adminfood.food_stocks}}</div>
           <div class="col col-3" data-label="Image">
             <img src="{{adminfood.food_image_name}}" alt="" class="image-file">
           </div>

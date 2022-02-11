@@ -21,7 +21,8 @@
             <div class="input-box">
                 <span class="details">Quantity</span> 
                 <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
-                <button mat-raised-button color="primary" class="quan-butt" (click)="minusQty()">-</button><button mat-raised-button color="primary" (click)="plusQty()" class="quan-butt">+</button>
+                <button mat-raised-button color="primary" class="quan-butt" (click)="minusQty()">-</button>
+                <button mat-raised-button color="primary" (click)="plusQty()" class="quan-butt">+</button>
             </div>  
             <br>
             <p class="addon">Add Ons </p>
@@ -53,6 +54,9 @@
             <div class="input-box">
                 <span class="details">Total Price</span>
                 <input  type="number" [(ngModel)]="food_total" class="input-number" disabled placeholder="">
+                
+                <span class="details">Available Stocks</span>
+                <input type="number" [(ngModel)]="food_stocks" class="input-number" disabled placeholder="">
             </div>
         </div>
         </div>

@@ -148,6 +148,26 @@ class Post{
       
 }
 
+        // Delete order 
+        
+        public function deleteOrder($dt) {
+            $code = 401;
+            $payload = null;
+            $remarks = "failed";
+            $message = "Unable to retrieve data";
+    
+            $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
+            return $res;
+            if($res['code']==200) {
+                $code = 200;
+                $payload = $res['payload'];
+                $remarks = "success";
+                $message = "Successfully retrieved data";
+            }
+            return $this->gm->sendPayload($payload, $remarks, $message, $code);
+          
+    }
+
         // public function cancelOrder($dt) {
         //     $code = 401;
         //     $payload = null;
@@ -254,11 +274,12 @@ class Post{
             $prod_price[]  = $dt[$i]->prod_price;
             $code[] = $dt[$i]->code;
             $total_price[] = $dt[$i]->total_price;
+            $remarks[] = $dt[$i]->remarks;
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
             $user_address[] = $dt[$i]->user_address;
             $values[] = "('$prod_name[$i]', '$add_pearl[$i]', '$add_cpuff[$i]',  '$add_ccheese[$i]', '$add_cookie[$i]',  '$add_sauce[$i]',  '$add_spicy[$i]', '$food_qty[$i]', '$food_size[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
-            $val2[] = "('$code[$i]',  '$total_price[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
+            $val2[] = "('$code[$i]',  '$total_price[$i]',  '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
         }
 
             //insert the data on the checkout table
@@ -268,7 +289,7 @@ class Post{
         try {
             if($this->pdo->query($this->sql)) {
 
-                $this->sql = "INSERT INTO tbl_cocode (code, total_price, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
+                $this->sql = "INSERT INTO tbl_cocode (code, total_price, remarks, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
            
                 if($this->pdo->query($this->sql)) {
 
@@ -342,6 +363,21 @@ class Post{
         $data = $d;
         $cocode = $data->cocode;
         $res = $this->gm->delete('tbl_cocode', $data, "code = '$cocode'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
+
+    public function delRider($d) {
+        $data = $d;
+        $driver_id = $data->driver_id;
+        $res = $this->gm->delete('tbl_driver', $data, "driver_id = '$driver_id'");
         if ($res['code'] == 200) {
 			$payload = $res['data'];
 			$remarks = "success";
@@ -615,6 +651,7 @@ class Post{
     }
 
     public function confirmDelivery($dt) {
+    
         // print_r($dt);
         $code = 401;
         $payload = null;
@@ -641,6 +678,11 @@ class Post{
         $payload = null;
         $remarks = "failed";
         $message = "Unable to retrieve data";
+
+
+        //nagsingit tayo ng bagong element sa loob ng dt para pag nagupdate tayo alam niya kung ano yung uupdate na columns with value na ipapalit
+        // $dt->last_updated = date("Y-m-d H:i:s");
+        //wala freh hahaha yung key na last_updated para yun sa column name tas value na date(asdassd); para makuha yung current time and date
 
         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
 

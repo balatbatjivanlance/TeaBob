@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
     this.pullCategory();
     this.pullDashboard();
     this.pullUsers();
+    this.pullSales();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -130,6 +131,16 @@ export class DashboardComponent implements OnInit {
 
     })
   
+}
+
+sales: any;
+  
+pullSales() {
+  this.ds.sendApiRequest("pullSales", null).subscribe((data: { payload: any; }) => {
+    this.sales = data.payload;
+
+  })
+
 }
 
 

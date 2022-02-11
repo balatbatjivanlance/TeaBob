@@ -73,11 +73,16 @@
         <div class="order-container">
             <div class="card-container">
                 <div class="card-order" *ngFor="let status of status_payload">
+                  <button  mat-stroked-button style="background-color: red; color: white; float: right;"
+                   *ngIf ="status.is_approved == '2' "(click)="deleteOrder(status.cocode_id)" ><mat-icon style="color: #424242;" *ngIf="isExpanded">delete</mat-icon></button>
+                   <!-- <button  mat-stroked-button style="background-color: red; color: white; float: right;"
+                   *ngIf ="status.is_approved == '4' "(click)="deleteOrder(status.cocode_id)" ><mat-icon style="color: #424242;" *ngIf="isExpanded">delete</mat-icon></button> -->
                     <div class="card-order-info">
                         <div class="code">
                             <p>
                                 <span>{{status.code}}</span>
                                 <span>{{status.date }} </span>
+                                
                             </p>
                         </div>
         
