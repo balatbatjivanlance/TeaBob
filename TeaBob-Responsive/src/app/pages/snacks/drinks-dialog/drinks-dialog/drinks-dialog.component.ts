@@ -22,6 +22,8 @@ export class DrinksDialogComponent implements OnInit {
     this.pullFood_perItem();
     this.pullSize();
     this.pullAddOnsDrinks();
+    sessionStorage.removeItem('price')
+    // console.log(this.selectedSizePrice)
     // this.pullAddonsDetails();
   }
 
@@ -84,18 +86,33 @@ export class DrinksDialogComponent implements OnInit {
 
 addOnChecker : boolean = false;
 addOnArray: any [] = []
-onChangeDemo(event:MatCheckboxChange, name: any){
-  // console.log(event.source.value);
-  let price: any = parseInt(event.source.value)
+priceArr : any [] = []
 
+onChangeDemo(event:MatCheckboxChange, name: any, pricey: any){
+  // console.log(event.source.value);
+  // console.log(pricey)
+  let price: any = parseInt(event.source.value)
   if (event.checked){
+    this.priceArr.push(pricey);
+  if (this.priceArr.length <  1){
+    price = this.priceArr.reduce((a, b) => a + b, 0)
+  }
 
   this.food_total = this.food_total + (price * this.food_qty);
   this.addOnChecker = true
   this.addOnArray.push(name);
-  sessionStorage.setItem('price', price)
+  sessionStorage.setItem('price', this.priceArr.reduce((a, b) => a + b, 0))
   }else {
   this.food_total = this.food_total - (price * this.food_qty);
+  this.priceArr = [];
+  let newPrice: any = sessionStorage.getItem('price');
+  // console.log(parseInt(newPrice) - parseInt(pricey))
+
+  let lastPrice: any = parseInt(newPrice) - parseInt(pricey);
+
+  sessionStorage.removeItem('price')
+
+  sessionStorage.setItem('price', lastPrice);
   if (this.addOnArray){
     let i = this.addOnArray.indexOf(name);
     this.addOnArray.splice(i,1);
@@ -103,7 +120,7 @@ onChangeDemo(event:MatCheckboxChange, name: any){
   }
 
   }
-  // console.log( this.addOnArray)
+  console.log( this.addOnArray)
 }
 
 
@@ -111,15 +128,30 @@ selectedSizePrice: any ;
 selectedSizeName: any ;
 
 selectChangeHandlerSize (event: any){
+  console.log(event)
   this.selectedSizePrice = event.target.value.split(',')[0];
   this.selectedSizeName = event.target.value.split(',')[1];
-  if (this.selectedSizePrice){
-    this.food_total = this.food_price + parseInt(this.selectedSizePrice);
-   
+  let checkboxadddonsPrice: any = sessionStorage.getItem('lastPrice')
+  if(this.addOnChecker){
+    if(this.selectedSizePrice == 0){
+      this.food_total = this.food_total + (parseInt(this.selectedSizePrice) + checkboxadddonsPrice);
+    }else{
+      // let ArraySize: any [] = [];
+      // ArraySize.push(this.selectedSizePrice)
+      // console.log(ArraySize)
+      sessionStorage.setItem('productsize', this.selectedSizePrice); 
+      this.food_total = this.food_total - parseInt(this.selectedSizePrice);
+
+      
+    }
+    this.food_total = (this.food_total - checkboxadddonsPrice) + parseInt(this.selectedSizePrice);
+  }else{
+   this.food_total =  (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
   }
-  // console.log(this.selectedSizeName);
+  // console.log(this.selectedSizePrice);
   this.sendMessage();
 }
+
 
 
 
@@ -129,19 +161,19 @@ plusQty = () =>{
 
   this.food_qty += 1;
   if (this.food_qty > this.food_stocks){
-    Swal.fire(
-      'Warning job!',
-      'You have reached the maximum order',
-      'warning'
-    )
+
     this.food_qty -= 1;
   }else{
     if (this.addOnChecker){
       let price : any = sessionStorage.getItem('price')
-      this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+      // if (this.priceArr.length ===  1){
+      //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
+      // }
+      console.log(price);
+      this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
 
     }else {
-      this.food_total =  this.food_qty * this.food_price;
+      this.food_total = (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
 
     }
   }
@@ -149,17 +181,20 @@ plusQty = () =>{
 }
 
 
-  
+
 minusQty = () =>{
-  if (this.food_qty > 1){
-    let price : any= sessionStorage.getItem('price');
+  if(this.food_qty > 1){
     this.food_qty -= 1;
-    this.food_total = this.food_qty * this.food_price + parseInt(price) * this.food_qty;
-    // this.sendMessage();
+  }
+
+  if  (this.addOnChecker){
+    let price : any= sessionStorage.getItem('price');
+    this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
   }
   else {
-    this.food_total =  this.food_qty * this.food_price;
 
+    this.food_total =  (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
+    // this.sendMessage();
   }
 } 
 
