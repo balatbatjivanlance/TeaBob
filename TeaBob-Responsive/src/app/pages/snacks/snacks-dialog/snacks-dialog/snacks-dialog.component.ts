@@ -91,11 +91,16 @@ export class SnacksDialogComponent implements OnInit {
 
   addOnChecker : boolean = false;
   addOnArray: any [] = []
-  onChangeDemo(event:MatCheckboxChange, name: any){
+  priceArr : any [] = []
+
+  onChangeDemo(event:MatCheckboxChange, name: any, pricey: any){
     // console.log(event.source.value);
     let price: any = parseInt(event.source.value)
-
     if (event.checked){
+      this.priceArr.push(pricey);
+    if (this.priceArr.length <  1){
+      price = this.priceArr.reduce((a, b) => a + b, 0)
+    }
 
     this.food_total = this.food_total + (price * this.food_qty);
     this.addOnChecker = true
@@ -176,6 +181,10 @@ export class SnacksDialogComponent implements OnInit {
     }else{
       if (this.addOnChecker){
         let price : any = sessionStorage.getItem('price')
+        if (this.priceArr.length ===  1){
+          price =  price + this.priceArr.reduce((a, b) => a + b, 0)
+        }
+        console.log(price);
         this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
 
       }else {
