@@ -432,7 +432,7 @@
 
 					case 'getDone':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
-						echo json_encode($get->PullDone(), JSON_PRETTY_PRINT);    
+						echo json_encode($get->PullDone($d), JSON_PRETTY_PRINT);    
 					break;
 
 					case 'getDriver': //Pang login sa driver side

@@ -19,7 +19,11 @@ export class HomePage implements OnInit {
   constructor(public us: UserService, public ds: DataService, private _router: Router) { }
 
   ngOnInit() {
-    console.log("hello");
+    
+  }
+
+  ionViewDidEnter(){
+  //console.log("hello");
     // console.log(this.us.getDriver());
     this.driver_name = this.us.getDriver();
     this.driver_deliveries = this.pullDriverInfo();

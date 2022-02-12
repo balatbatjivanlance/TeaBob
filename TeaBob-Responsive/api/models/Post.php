@@ -673,7 +673,7 @@ class Post{
     }
 
     public function cancelDelivery($dt) {
-        // print_r($dt);
+        print_r($dt);
         $code = 401;
         $payload = null;
         $remarks = "failed";

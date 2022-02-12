@@ -88,9 +88,11 @@
 					}
 
 					$sqlstr .= " WHERE ".$conditionStringPassed;
+				
 					$sql = $this->pdo->prepare($sqlstr);
 					$sql->execute($values);
-					return array("code"=>200, "payload"=>$values, "remarks"=>"success");	
+					return array("code"=>200, "payload"=>$values, "remarks"=>"success");
+					print_r($sqlstr);	
 			}
 			catch(\PDOException $e){
 				$errmsg = $e->getMessage();

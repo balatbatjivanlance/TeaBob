@@ -182,6 +182,7 @@ export class ConcludeOrderPage implements OnInit {
     ).subscribe((data: { payload: any }) => {
       
     });
+    
     this.presentToast("Order Delivered Successfully.");
     this.router.navigate(['/delivery-history']);
   }
@@ -206,7 +207,7 @@ cancelDelivery(isCancelled: any)
         
       });
       this.presentToast("Delivery Cancelled.");
-      this.router.navigate(['/home']);
+      this.router.navigate(['/delivery-history']);
     
   }
 

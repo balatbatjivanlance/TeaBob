@@ -528,8 +528,8 @@ public function PullApproved () {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
-public function PullDone () {
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 2 OR is_approved = 4";
+public function PullDone ($dt) { // AND driver = '$dt->driver'
+	$sql = "SELECT * FROM tbl_cocode WHERE (is_approved = 2 OR is_approved = 4) AND driver = '$dt->driver' ORDER BY `tbl_cocode`.`last_updated` DESC";
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];

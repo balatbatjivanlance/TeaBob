@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+  import { Component, Inject, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { UserService } from 'src/app/services/user.service';
 // import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-delivery-history',
@@ -9,16 +10,23 @@ import { DataService } from 'src/app/services/data.service';
 export class DeliveryHistoryPage implements OnInit {
 
   done:any;
+  driver_name: string = '';
 
-  constructor(public ds: DataService) { }
+  constructor(public ds: DataService, public us: UserService) { }
 
   ngOnInit() {
-    console.log("hello");
+ //   console.log("hello");
+    
+  }
+
+  ionViewDidEnter(){
+    this.driver_name = this.us.getDriver();
+    console.log(this.driver_name);
     this.getDone();
   }
 
   getDone(){
-    this.ds.sendApiRequest("getDone", null).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("getDone", {driver: this.driver_name}).subscribe((data: { payload: any; }) => {
       this.done = data.payload;
 
       console.log(this.done);
