@@ -24,20 +24,21 @@ import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
 // Material Imports
-import {MatDividerModule} from '@angular/material/divider';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatTableModule} from '@angular/material/table';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
@@ -50,8 +51,6 @@ import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order-history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
-
-
 
 @NgModule({
   declarations: [
@@ -86,7 +85,6 @@ import { ManageDriverComponent } from './admin/manage-driver/manage-driver.compo
     ViewOrderHistoryComponent,
     ViewOrderComponent,
     ManageDriverComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -107,9 +105,10 @@ import { ManageDriverComponent } from './admin/manage-driver/manage-driver.compo
     MatSidenavModule,
     MatToolbarModule,
     MatDividerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

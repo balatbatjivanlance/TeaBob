@@ -5,24 +5,33 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-drinks-dialog',
   templateUrl: './drinks-dialog.component.html',
-  styleUrls: ['./drinks-dialog.component.css']
+  styleUrls: ['./drinks-dialog.component.css'],
 })
 export class DrinksDialogComponent implements OnInit {
-  user_id = localStorage.getItem("UID");
+  user_id = localStorage.getItem('UID');
   item: any;
 
-  constructor(private router: Router, private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
+  isDisabled: boolean = true;
+
+  constructor(
+    private router: Router,
+    private ds: DataService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.pullUsers();
     this.pullFood_perItem();
     this.pullSize();
     this.pullAddOnsDrinks();
-    sessionStorage.removeItem('price')
+    sessionStorage.removeItem('price');
     // console.log(this.selectedSizePrice)
     // this.pullAddonsDetails();
   }
@@ -30,186 +39,223 @@ export class DrinksDialogComponent implements OnInit {
   userinfo: any = {};
   user: any;
   pullUsers() {
-    this.userinfo.user_id = localStorage.getItem("id");
-    this.ds.sendApiRequest("users",localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
-    this.user = data.payload;
-
-    }
-    )
+    this.userinfo.user_id = localStorage.getItem('id');
+    this.ds
+      .sendApiRequest('users', localStorage.getItem('id'))
+      .subscribe((data: { payload: any }) => {
+        this.user = data.payload;
+      });
   }
 
-
   foodinfo: any = {};
-  foods: any []=[];
+  foods: any[] = [];
 
   food_name: any;
   food_price: number = 0;
   food_stocks: number = 0;
   food_qty: number = 1;
-  food_total: number  = 0 ;
-
+  food_total: number = 0;
 
   pullFood_perItem() {
-    this.userinfo.user_id = localStorage.getItem("id");
-    this.foodinfo.food_id = this.data.food_id
-    this.ds.sendApiRequest("food_item/", this.foodinfo.food_id).subscribe((data: { payload: any; }) => {
-    this.foods = data.payload;
+    this.userinfo.user_id = localStorage.getItem('id');
+    this.foodinfo.food_id = this.data.food_id;
+    this.ds
+      .sendApiRequest('food_item/', this.foodinfo.food_id)
+      .subscribe((data: { payload: any }) => {
+        this.foods = data.payload;
 
-    this.food_name = this.foods[0].food_name;
-    this.food_price = this.foods[0].food_price;
-    this.food_stocks = this.foods[0].food_stocks;
-    this.food_total = this.food_price;
-
-    });
-
+        this.food_name = this.foods[0].food_name;
+        this.food_price = this.foods[0].food_price;
+        this.food_stocks = this.foods[0].food_stocks;
+        this.food_total = this.food_price;
+      });
   }
-
 
   addon: any;
-  
+
   pullAddOnsDrinks() {
-    this.ds.sendApiRequest("pullAddOnsDrinks", null).subscribe((data: { payload: any; }) => {
-      this.addon = data.payload;
-    })
-  
-}
+    this.ds
+      .sendApiRequest('pullAddOnsDrinks', null)
+      .subscribe((data: { payload: any }) => {
+        this.addon = data.payload;
+      });
+  }
 
-    
   size: any;
-  
+
   pullSize() {
-    this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
-      this.size = data.payload;
-    })
-  
-}
-
-addOnChecker : boolean = false;
-addOnArray: any [] = []
-priceArr : any [] = []
-
-onChangeDemo(event:MatCheckboxChange, name: any, pricey: any){
-  // console.log(event.source.value);
-  // console.log(pricey)
-  let price: any = parseInt(event.source.value)
-  if (event.checked){
-    this.priceArr.push(pricey);
-  if (this.priceArr.length <  1){
-    price = this.priceArr.reduce((a, b) => a + b, 0)
+    this.ds
+      .sendApiRequest('pullSize', null)
+      .subscribe((data: { payload: any }) => {
+        this.size = data.payload;
+      });
   }
 
-  this.food_total = this.food_total + (price * this.food_qty);
-  this.addOnChecker = true
-  this.addOnArray.push(name);
-  sessionStorage.setItem('price', this.priceArr.reduce((a, b) => a + b, 0))
-  }else {
-  this.food_total = this.food_total - (price * this.food_qty);
-  this.priceArr = [];
-  let newPrice: any = sessionStorage.getItem('price');
-  // console.log(parseInt(newPrice) - parseInt(pricey))
+  addOnChecker: boolean = false;
+  addOnArray: any[] = [];
+  priceArr: any[] = [];
 
-  let lastPrice: any = parseInt(newPrice) - parseInt(pricey);
+  onChangeDemo(event: MatCheckboxChange, name: any, pricey: any) {
+    // console.log(event.source.value);
+    // console.log(pricey)
 
-  sessionStorage.removeItem('price')
+    if (this.selectedSizeName) {
+      let price: any = parseInt(event.source.value);
+      if (event.checked) {
+        this.priceArr.push(pricey);
+        if (this.priceArr.length < 1) {
+          price = this.priceArr.reduce((a, b) => a + b, 0);
+        }
 
-  sessionStorage.setItem('price', lastPrice);
-  if (this.addOnArray){
-    let i = this.addOnArray.indexOf(name);
-    this.addOnArray.splice(i,1);
-    this.addOnChecker = false
-  }
+        this.food_total = this.food_total + price * this.food_qty;
+        this.addOnChecker = true;
+        this.addOnArray.push(name);
+        sessionStorage.setItem(
+          'price',
+          this.priceArr.reduce((a, b) => a + b, 0)
+        );
+      } else {
+        this.food_total = this.food_total - price * this.food_qty;
+        this.priceArr = [];
+        let newPrice: any = sessionStorage.getItem('price');
+        // console.log(parseInt(newPrice) - parseInt(pricey))
 
-  }
-  console.log( this.addOnArray)
-}
+        let lastPrice: any = parseInt(newPrice) - parseInt(pricey);
 
+        sessionStorage.removeItem('price');
 
-selectedSizePrice: any ;
-selectedSizeName: any ;
-
-selectChangeHandlerSize (event: any){
-  console.log(event)
-  this.selectedSizePrice = event.target.value.split(',')[0];
-  this.selectedSizeName = event.target.value.split(',')[1];
-  let checkboxadddonsPrice: any = sessionStorage.getItem('lastPrice')
-  if(this.addOnChecker){
-    if(this.selectedSizePrice == 0){
-      this.food_total = this.food_total + (parseInt(this.selectedSizePrice) + checkboxadddonsPrice);
-    }else{
-      // let ArraySize: any [] = [];
-      // ArraySize.push(this.selectedSizePrice)
-      // console.log(ArraySize)
-      sessionStorage.setItem('productsize', this.selectedSizePrice); 
-      this.food_total = this.food_total - parseInt(this.selectedSizePrice);
-
-      
+        sessionStorage.setItem('price', lastPrice);
+        if (this.addOnArray) {
+          let i = this.addOnArray.indexOf(name);
+          this.addOnArray.splice(i, 1);
+          this.addOnChecker = false;
+        }
+      }
+      console.log(this.addOnArray);
+    } else {
+      this.openSnackBar('Please Choose Size First');
     }
-    this.food_total = (this.food_total - checkboxadddonsPrice) + parseInt(this.selectedSizePrice);
-  }else{
-   this.food_total =  (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
+
+    // console.log(this.selectedSizeName);
   }
-  // console.log(this.selectedSizePrice);
-  this.sendMessage();
-}
 
+  selectedSizePrice: any;
+  selectedSizeName: any;
 
+  selectChangeHandlerSize(event: any) {
+    // console.log(event.target[0].value);
+    this.isDisabled = false;
+    this.selectedSizePrice = event.target.value.split(',')[0];
+    this.selectedSizeName = event.target.value.split(',')[1];
 
+    let checkboxadddonsPrice: any = sessionStorage.getItem('lastPrice');
+    console.log(checkboxadddonsPrice);
+    if (this.addOnChecker) {
+      console.log('here');
+      if (this.selectedSizePrice == 0) {
+        this.food_total =
+          this.food_total +
+          (parseInt(this.selectedSizePrice) + checkboxadddonsPrice);
+        console.log('here1');
+      } else {
+        console.log(typeof this.selectedSizeName);
+        console.log(this.selectedSizeName);
+        console.log(this.size);
+        let i = 0;
+        for (i = 0; i < this.size.length; i++) {
+          console.log(this.size[i]);
+          if (this.selectedSizeName == ' ' + this.size[i].size_name) {
+            console.log(this.food_price);
+            console.log(this.size[i].size_price);
 
+            let j: any = sessionStorage.getItem('price');
 
+            this.food_total =
+              this.food_price + this.size[i].size_price + parseInt(j);
+          }
+        }
 
-plusQty = () =>{
+        // if (this.selectedSizeName.toString() === ' Large') {
+        //   this.food_total += 5;
+        //   console.log(this.food_total);
+        // } else if (this.selectedSizeName.toString() === ' Small') {
+        //   this.food_total -= 5;
 
-  this.food_qty += 1;
-  if (this.food_qty > this.food_stocks){
+        //   console.log(this.food_total);
+        // }
 
-    this.food_qty -= 1;
-  }else{
-    if (this.addOnChecker){
-      let price : any = sessionStorage.getItem('price')
-      // if (this.priceArr.length ===  1){
-      //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
-      // }
-      console.log(price);
-      this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+        // let ArraySize: any [] = [];
+        // ArraySize.push(this.selectedSizePrice)
+        // console.log(ArraySize)
+        sessionStorage.setItem('productsize', this.selectedSizePrice);
 
-    }else {
-      this.food_total = (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
+        this.food_total = this.food_total - parseInt(this.selectedSizePrice);
+      }
 
+      this.food_total =
+        this.food_total -
+        checkboxadddonsPrice +
+        parseInt(this.selectedSizePrice);
+    } else {
+      this.food_total =
+        this.food_qty * this.food_price +
+        this.food_qty * parseInt(this.selectedSizePrice);
     }
-  }
-  // this.sendMessage();
-}
-
-
-
-minusQty = () =>{
-  if(this.food_qty > 1){
-    this.food_qty -= 1;
+    // console.log(this.selectedSizePrice);
+    this.sendMessage();
   }
 
-  if  (this.addOnChecker){
-    let price : any= sessionStorage.getItem('price');
-    this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
-  }
-  else {
-
-    this.food_total =  (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
+  plusQty = () => {
+    this.food_qty += 1;
+    if (this.food_qty > this.food_stocks) {
+      this.food_qty -= 1;
+    } else {
+      if (this.addOnChecker) {
+        let price: any = sessionStorage.getItem('price');
+        // if (this.priceArr.length ===  1){
+        //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
+        // }
+        console.log(price);
+        this.food_total =
+          parseInt(this.selectedSizePrice) +
+          this.food_qty * this.food_price +
+          parseInt(price) * this.food_qty;
+      } else {
+        this.food_total =
+          this.food_qty * this.food_price +
+          this.food_qty * parseInt(this.selectedSizePrice);
+      }
+    }
     // this.sendMessage();
-  }
-} 
+  };
 
+  minusQty = () => {
+    if (this.food_qty > 1) {
+      this.food_qty -= 1;
+    }
 
-  
+    if (this.addOnChecker) {
+      let price: any = sessionStorage.getItem('price');
+      this.food_total =
+        parseInt(this.selectedSizePrice) +
+        this.food_qty * this.food_price +
+        parseInt(price) * this.food_qty;
+    } else {
+      this.food_total =
+        this.food_qty * this.food_price +
+        this.food_qty * parseInt(this.selectedSizePrice);
+      // this.sendMessage();
+    }
+  };
+
   prodInfo: any = {};
   info: any;
 
   item_size: any;
 
-
   addToCart() {
-
-    this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+    this.prodInfo.user_id = localStorage.getItem('id');
+    this.prodInfo.food_id = sessionStorage.getItem('prod_Id');
     this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
@@ -227,27 +273,20 @@ minusQty = () =>{
     // console.log(this.prodInfo)
 
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-      if (data.remarks === "success"){
-        Swal.fire(
-          'Nice!',
-          'Added to cart successfully!',
-          'success'
-        )
+      if (data.remarks === 'success') {
+        Swal.fire('Nice!', 'Added to cart successfully!', 'success');
         this.dialog.closeAll();
         // this.router.navigate(['/cart']);
       }
     });
-    
   }
 
   sendMessage(): void {
-    this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
+    this.ds.sendUpdate('Message from Sender Component to Receiver Component!');
   }
 
-
-  
   // addoninfo: any = {};
-  // addon_payload: any [] = []; 
+  // addon_payload: any [] = [];
 
   // addon_name: any;
   // addon_price: any;
@@ -258,14 +297,13 @@ minusQty = () =>{
 
   //   this.ds.sendApiRequest("pullAddonsDetails", this.data.addon_id).subscribe((data: { payload: any; }) => {
   //   this.addon_payload = data.payload;
-    
+
   //   this.addon_name = this.addon_payload[0].addon_name;
   //   this.addon_price = this.addon_payload[0].addon_price;
   //   this.addon_stocks = this.addon_payload[0].addon_stocks;
   //   }
   //   )
   // }
-
 
   // extraPearl: number = 0;
   // extraCcheese: number = 0;
@@ -292,7 +330,7 @@ minusQty = () =>{
   //       this.prodInfo.addon_id = id;
   //   }
   //   this.sendMessage();
-  // } 
+  // }
 
   // addCcheese( addExtra: boolean) {
   //   var isChecked = addExtra;
@@ -309,7 +347,7 @@ minusQty = () =>{
   //       this.prodInfo.add_ccheese = this.extraCcheese;
   //   }
   //   this.sendMessage();
-  // } 
+  // }
 
   // addCPuff( addExtra: boolean) {
   //   var isChecked = addExtra;
@@ -326,7 +364,7 @@ minusQty = () =>{
   //       this.prodInfo.add_cpuff = this.extraCPuff;
   //   }
   //   this.sendMessage();
-  // } 
+  // }
 
   // addCookie( addExtra: boolean) {
   //   var isChecked = addExtra;
@@ -345,5 +383,7 @@ minusQty = () =>{
   //   this.sendMessage();
   // }
 
-
+  openSnackBar(message: string) {
+    this._snackBar.open('Please Choose Size', 'Close', { duration: 2000 });
+  }
 }
