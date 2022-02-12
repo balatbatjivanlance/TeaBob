@@ -4,6 +4,7 @@
     <div class="col col-3">Food name:</div>
     <div class="col col-3">Price:</div>
     <div class="col col-4">Size:</div>
+    <div class="col col-4">Add Ons:</div>
     <div class="col col-4">Quantity:</div>
     <div class="col col-4">Checkout Date:</div>
   </li>
@@ -11,7 +12,8 @@
     <div class="col col-3" data-label="Code:">{{details.code}}</div>
     <div class="col col-3" data-label="Food name:">{{details.prod_name}}</div>
     <div class="col col-3" data-label="Price:">₱{{details.prod_price}}.00</div>
-    <div class="col col-4" data-label="Size:">{{details.food_size}}</div>
+    <div class="col col-4" data-label="Size:">{{details.size_name}}</div>
+    <div class="col col-4" data-label="Size:">{{details.cart_addon_name}}</div>
     <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
     <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
   </li>

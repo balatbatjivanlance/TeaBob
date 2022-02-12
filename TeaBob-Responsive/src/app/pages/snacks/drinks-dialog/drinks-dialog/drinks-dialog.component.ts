@@ -32,6 +32,8 @@ export class DrinksDialogComponent implements OnInit {
     this.pullSize();
     this.pullAddOnsDrinks();
     sessionStorage.removeItem('price');
+    sessionStorage.removeItem('addonname');
+    sessionStorage.removeItem('productsize');
     // console.log(this.selectedSizePrice)
     // this.pullAddonsDetails();
   }
@@ -110,9 +112,7 @@ export class DrinksDialogComponent implements OnInit {
         this.food_total = this.food_total + price * this.food_qty;
         this.addOnChecker = true;
         this.addOnArray.push(name);
-        sessionStorage.setItem(
-          'price',
-          this.priceArr.reduce((a, b) => a + b, 0)
+        sessionStorage.setItem('price', this.priceArr.reduce((a, b) => a + b, 0)
         );
       } else {
         this.food_total = this.food_total - price * this.food_qty;
@@ -131,6 +131,8 @@ export class DrinksDialogComponent implements OnInit {
           this.addOnChecker = false;
         }
       }
+      let arr = this.addOnArray.toString()
+      sessionStorage.setItem('addonname', arr)
       console.log(this.addOnArray);
     } else {
       this.openSnackBar('Please Choose Size First');
@@ -149,14 +151,14 @@ export class DrinksDialogComponent implements OnInit {
     this.selectedSizeName = event.target.value.split(',')[1];
 
     let checkboxadddonsPrice: any = sessionStorage.getItem('lastPrice');
-    console.log(checkboxadddonsPrice);
+    // console.log(checkboxadddonsPrice);
     if (this.addOnChecker) {
-      console.log('here');
+      // console.log('here');
       if (this.selectedSizePrice == 0) {
         this.food_total =
           this.food_total +
           (parseInt(this.selectedSizePrice) + checkboxadddonsPrice);
-        console.log('here1');
+        // console.log('here1');
       } else {
         console.log(typeof this.selectedSizeName);
         console.log(this.selectedSizeName);
@@ -216,14 +218,9 @@ export class DrinksDialogComponent implements OnInit {
         //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
         // }
         console.log(price);
-        this.food_total =
-          parseInt(this.selectedSizePrice) +
-          this.food_qty * this.food_price +
-          parseInt(price) * this.food_qty;
+        this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
       } else {
-        this.food_total =
-          this.food_qty * this.food_price +
-          this.food_qty * parseInt(this.selectedSizePrice);
+        this.food_total = this.food_qty * this.food_price + this.food_qty * parseInt(this.selectedSizePrice);
       }
     }
     // this.sendMessage();
@@ -236,10 +233,7 @@ export class DrinksDialogComponent implements OnInit {
 
     if (this.addOnChecker) {
       let price: any = sessionStorage.getItem('price');
-      this.food_total =
-        parseInt(this.selectedSizePrice) +
-        this.food_qty * this.food_price +
-        parseInt(price) * this.food_qty;
+      this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
     } else {
       this.food_total =
         this.food_qty * this.food_price +
@@ -253,21 +247,26 @@ export class DrinksDialogComponent implements OnInit {
 
   item_size: any;
 
+
+
   addToCart() {
+    let addons: any = sessionStorage.getItem('addonname');
+
     this.prodInfo.user_id = localStorage.getItem('id');
     this.prodInfo.food_id = sessionStorage.getItem('prod_Id');
     this.prodInfo.food_name = this.food_name;
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
+    this.prodInfo.cart_addon_name = addons;
     // this.prodInfo.add_pearl = this.extraPearl;
     // this.prodInfo.add_ccheese = this.extraCcheese;
     // this.prodInfo.add_cpuff = this.extraCPuff;
     // this.prodInfo.add_cookie = this.extraCookie;
     this.prodInfo.size_price = this.selectedSizePrice;
     this.prodInfo.size_name = this.selectedSizeName;
-    this.prodInfo.add_sauce = 0;
-    this.prodInfo.add_spicy = 0;
+    // this.prodInfo.add_sauce = 0;
+    // this.prodInfo.add_spicy = 0;
 
     // this.prodInfo.food_stocks = this.food_qty - this.food_stocks;
     // console.log(this.prodInfo)

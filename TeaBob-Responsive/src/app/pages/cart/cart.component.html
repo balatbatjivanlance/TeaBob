@@ -91,13 +91,14 @@
             <!-- <button class="addons-btn"><mat-icon>highlight_off</mat-icon></button> -->
             <p class="item-content">  {{cart.food_name}}</p>  
             <!-- <p class="item-content"> {{cart.food_description}}</p> -->
-            <p class="item-content" *ngIf="cart.add_pearl == '10'"> Pearl : {{cart.add_pearl | currency:'₱'}}<button (click)="deleteAddOnsPearl(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
+            <!-- <p class="item-content" *ngIf="cart.add_pearl == '10'"> Pearl : {{cart.add_pearl | currency:'₱'}}<button (click)="deleteAddOnsPearl(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
             <p class="item-content" *ngIf="cart.add_cpuff == '10'"> Cream Puff : {{cart.add_cpuff | currency:'₱'}}<button (click)="deleteAddOnsCpuff(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
             <p class="item-content" *ngIf="cart.add_ccheese == '10'"> Cream Cheese : {{cart.add_ccheese | currency:'₱'}}<button (click)="deleteAddOnsCcheese(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>   
             <p class="item-content" *ngIf="cart.add_cookie == '10'"> Cookie : {{cart.add_cookie | currency:'₱'}}<button (click)="deleteAddOnsCookie(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
             <p class="item-content" *ngIf="cart.add_sauce == '10'"> Sauce : {{cart.add_sauce | currency:'₱'}}<button (click)="deleteAddOnsSauce(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
-            <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOnsSpicy(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>
+            <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOnsSpicy(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> -->
             <p class="item-content" *ngIf="cart.size_price != ''">Size: {{cart.size_name}}</p>
+            <p class="item-content" *ngIf="cart.cart_addon_name != ''">Add Ons: {{cart.cart_addon_name}}</p>
             <p class="item-content">Pcs. {{cart.food_quantity}}</p>
             <p class="item-content">₱ {{cart.cart_total_price}} </p> 
           

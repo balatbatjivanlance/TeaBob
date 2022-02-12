@@ -103,66 +103,7 @@ export class CartComponent implements OnInit {
       })
   }
 
-  food_info: any = {}
-  deleteAddOnsPearl = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_pearl = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
 
-  deleteAddOnsCpuff = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_cpuff = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
-
-  deleteAddOnsCcheese = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_ccheese = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
-
-  deleteAddOnsCookie = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_cookie = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
-
-  deleteAddOnsSauce = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_sauce = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
-
-  deleteAddOnsSpicy = (id: any) => {
-    this.food_info.cart_id = id
-    this.food_info.add_spicy = 'none'
-    this.ds
-      .sendApiRequest('removeAddOns/', this.food_info)
-      .subscribe((data: any) => {})
-    Swal.fire('Removed', 'Add Ons Removed!', 'success')
-    this.sendMessage()
-  }
 
   prodinfo: any = {}
 
@@ -237,12 +178,14 @@ export class CartComponent implements OnInit {
 
         this.cart_payload.forEach(item =>  {
           this.coInfo.prod_name = item.food_name
-          this.coInfo.add_pearl = item.add_pearl
-          this.coInfo.add_cpuff = item.add_cpuff
-          this.coInfo.add_ccheese = item.add_ccheese
-          this.coInfo.add_cookie = item.add_cookie
-          this.coInfo.add_sauce = item.add_sauce
-          this.coInfo.add_spicy = item.add_spicy
+          this.coInfo.cart_addon_name = item.cart_addon_name
+          this.coInfo.size_name = item.size_name
+          // this.coInfo.add_pearl = item.add_pearl
+          // this.coInfo.add_cpuff = item.add_cpuff
+          // this.coInfo.add_ccheese = item.add_ccheese
+          // this.coInfo.add_cookie = item.add_cookie
+          // this.coInfo.add_sauce = item.add_sauce
+          // this.coInfo.add_spicy = item.add_spicy
           this.coInfo.food_quantity = item.food_quantity
           this.coInfo.user_id = localStorage.getItem('id')
           this.coInfo.prod_price = item.cart_total_price
@@ -253,6 +196,9 @@ export class CartComponent implements OnInit {
           this.coInfo.code = this.code
           this.coInfo.cart_id = item.cart_id
           this.coInfo.remarks = this.remarks;
+
+          // this.coInfo.food_stocks = item.food_stocks - item.food_quantity;
+          // console.log(this.coInfo.food_stocks)
           Swal.fire('Great!', 'Check out successfully!', 'success')
 
           {
@@ -274,6 +220,68 @@ export class CartComponent implements OnInit {
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
+
+
+  // food_info: any = {}
+  // deleteAddOnsPearl = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_pearl = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
+
+  // deleteAddOnsCpuff = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_cpuff = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
+
+  // deleteAddOnsCcheese = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_ccheese = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
+
+  // deleteAddOnsCookie = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_cookie = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
+
+  // deleteAddOnsSauce = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_sauce = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
+
+  // deleteAddOnsSpicy = (id: any) => {
+  //   this.food_info.cart_id = id
+  //   this.food_info.add_spicy = 'none'
+  //   this.ds
+  //     .sendApiRequest('removeAddOns/', this.food_info)
+  //     .subscribe((data: any) => {})
+  //   Swal.fire('Removed', 'Add Ons Removed!', 'success')
+  //   this.sendMessage()
+  // }
 
 
     // coInfo: any = {}
