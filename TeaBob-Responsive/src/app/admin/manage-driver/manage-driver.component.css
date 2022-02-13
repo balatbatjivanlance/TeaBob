@@ -239,7 +239,7 @@ margin-bottom: 15px;
 .col-3 {
   flex-basis: 25%;
 
-  background-color: red;
+  /* background-color: red; */
 }
 .col-4 {
   flex-basis: 25%;

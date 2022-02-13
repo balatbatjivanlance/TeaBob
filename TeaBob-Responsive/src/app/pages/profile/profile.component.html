@@ -68,14 +68,11 @@
     <!-- THIS IS YOUR CONTENT CONTAINER -->
     <div class="container">
 
-      <div class="status-container">
+      <div class="status-container" *ngFor="let user of user">
           <div class="status-title">User Profile</div>
-      <!-- 
-          <div class="profile-image">
+
       
-          </div> -->
-      
-          <div class="user-details" *ngFor="let user of user">
+          <div class="user-details">
           <div class="input-box">
       
               <span class="details">First Name</span>

@@ -85,8 +85,8 @@ mat-card {
   width: 100%;
   height: 50px;
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  margin-left: 0px;
+  font-size: 18px;
+    margin-left: 0px;
   margin-right: 0px;
   border-radius: 0;
   display: flex;
@@ -94,7 +94,11 @@ mat-card {
   justify-content: center;
   margin-top: 7px;
   flex-direction: row;
+  background: #4B1F0E ;
+  cursor: pointer;
+
 }
+
 
 .button {
   width: 100%;
@@ -169,52 +173,12 @@ mat-card {
   bottom: 0;
 
 }
-.status-container  .user-details{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 0 12px 0;
-}
 
-.status2-container{
-  float: right;
-  margin-top: 15%;
-  margin-right: 5%;
-  max-width: 600px;
-  background: #fff;
-  padding-left: 25px 30px;
-  border-radius: 5px;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-}
-.status2-container .status2-title{
-  font-size: 25px;
-  font-weight: 500;
-  padding: 10px 0 0 15px;
-}
-.status2-container .status2-title::before{
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 30px;
-  background:linear-gradient(135deg, #71b7e6, #9b59b6);
-  left: 0;
-  bottom: 0;
-
-}
-
-.status2-container  .user-details{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 0 12px 0;
-  width: 100%;
-}
 
 .user-details .input-box{
   width: 90%;
-  padding: 0 15px 0 15px;
+  padding: 0 0 0 15px;
   
 }
 .user-details .input-box .details{
@@ -239,24 +203,6 @@ mat-card {
   border-color: #7a7a7a;
   
 }
-.button-update{
-  height: 45px;
-  margin: 5px 0;
-}
-.button-update {
-  height: 50px;
-  width: 90%;
-  margin-left: 35px;
-  outline: none;
-  color: #ffffff;
-  background: #4B1F0E ;
-  border:none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 5px;
-  letter-spacing: 1px;
-
-}
 .button:hover{
   cursor: pointer;
   background: #efc3a4;
@@ -264,160 +210,48 @@ mat-card {
 }
 
 
-@media (max-width: 584px){
+@media (max-width: 1280px){
+  .container{
+    /* background-color: red; */
+    height: 100vh;
+  }
+
+
   .status-container{
-      max-width: 90%;
-      margin-top: 20%;
-      height: 80%;
-  }
-  .status2-container{
-      max-width: 90%;      
-  }
-  .user-details .input-box{
-      margin-bottom: 15px;
       width: 100%;
-  }
-  .status-container  .user-details{
-      max-height: 1000px;
-      overflow-y: scroll;
+      height: 70%;
+      /* background-color: red; */
+      display: grid;
 
   }
+
+
+
+
   .user-details::-webkit-scrollbar{
       width:0;
   }
   .button{
-      margin-right: 7%;
-  }
+    margin-right: 7%;
 }
-
-@media (max-width: 1024px){
-  .status-container{
-      max-width: 90%;
-      margin-top: 20%;
-  }
-  .status2-container{
-      max-width: 90%;
-
-      
-  }
-  .user-details .input-box{
-      margin-bottom: 15px;
-      width: 100%;
-  }
-  .status-container  .user-details{
-      max-height: 450px;
-      overflow-y: scroll;
-
-  }
-  .user-details::-webkit-scrollbar{
-      width:0;
-  }
-  .button{
-      margin-right: 7%;
-  }
+.btn{
+  width: 100%;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 90%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0%;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  /* background-color: yellow; */
+}
 }
   
   
   
 
-@media only screen and (max-width:480px) {
-  mat-sidenav {
-    width: 200px;
-    border-right: none;
-  }
 
-  h1 {
-    display: none;
-  }
-
-  #calendar {
-    font-size: 12px;
-  }
-
-  .calen {
-    width: 10px;
-    height: 10px;
-  }
-
-  .user-container {
-    justify-content: center;
-}
-
-.container {
-    margin-top: 100px;
-}
-
-.container-title-left {
-    width: 100%;
-}
-
-.user-card {
-    width: 320px;
-}
-
-.top {
-    width: 320px;
-}
-
-.toolbar {
-    background-color: #f9f9f9;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    position: fixed;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-  }
-
-}
-
-@media only screen and (min-width: 481px) and (max-width:768px) {
-    mat-sidenav {
-        width: 200px;
-        border-right: none;
-      }
-    
-      h1 {
-        display: none;
-      }
-    
-      #calendar {
-        font-size: 12px;
-      }
-    
-      .calen {
-        width: 10px;
-        height: 10px;
-      }
-    
-      .user-container {
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    
-    .container {
-        margin-top: 100px;
-    }
-    
-    .container-title-left {
-        width: 100%;
-    }
-    
-    .user-card {
-        width: 350px;
-    }
-    
-    .top {
-        width: 350px;
-    }
-    
-    .toolbar {
-        background-color: #f9f9f9;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        position: fixed;
-        position: -webkit-sticky;
-        top: 0;
-        z-index: 1000;
-        width: 100%;
-      }
-}   

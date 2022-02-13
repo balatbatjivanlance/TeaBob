@@ -271,11 +271,16 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($gm->insert("tbl_category",$d), JSON_PRETTY_PRINT);
 					break;
+					
 
 						//  Update Size and Addons
 					case 'updateSize':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->updateSize($d), JSON_PRETTY_PRINT);
+					break;
+					case 'addComment':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->addComment($d), JSON_PRETTY_PRINT);
 					break;
 					case 'updateAddons':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -393,6 +398,7 @@
 							echo json_encode($get->pullDriver($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					
 					
 
 					// Delete Functions Admin
