@@ -97,7 +97,7 @@
             <p class="item-content" *ngIf="cart.add_sauce == '10'"> Sauce : {{cart.add_sauce | currency:'₱'}}<button (click)="deleteAddOnsSauce(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
             <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOnsSpicy(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> -->
             <p class="item-content" *ngIf="cart.size_price != ''">Size: {{cart.size_name}}</p>
-            <p class="item-content" *ngIf="cart.cart_addon_name != ''">Add Ons: {{cart.cart_addon_name}}</p>
+            <p class="item-content" *ngIf="cart.cart_addon_name != null">Add Ons: {{cart.cart_addon_name}}</p>
             <p class="item-content">Pcs. {{cart.food_quantity}}</p>
             <p class="item-content">₱ {{cart.cart_total_price}} </p> 
           

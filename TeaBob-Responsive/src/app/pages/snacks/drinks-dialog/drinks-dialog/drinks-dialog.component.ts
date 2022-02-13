@@ -259,21 +259,21 @@ export class DrinksDialogComponent implements OnInit {
     this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
     this.prodInfo.cart_addon_name = addons;
-    // this.prodInfo.add_pearl = this.extraPearl;
-    // this.prodInfo.add_ccheese = this.extraCcheese;
-    // this.prodInfo.add_cpuff = this.extraCPuff;
-    // this.prodInfo.add_cookie = this.extraCookie;
     this.prodInfo.size_price = this.selectedSizePrice;
     this.prodInfo.size_name = this.selectedSizeName;
     // this.prodInfo.add_sauce = 0;
     // this.prodInfo.add_spicy = 0;
+    // this.prodInfo.add_pearl = this.extraPearl;
+    // this.prodInfo.add_ccheese = this.extraCcheese;
+    // this.prodInfo.add_cpuff = this.extraCPuff;
+    // this.prodInfo.add_cookie = this.extraCookie;
 
     // this.prodInfo.food_stocks = this.food_qty - this.food_stocks;
     // console.log(this.prodInfo)
 
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === 'success') {
-        Swal.fire('Nice!', 'Added to cart successfully!', 'success');
+        Swal.fire('Great!', 'Added to cart successfully!', 'success');
         this.dialog.closeAll();
         // this.router.navigate(['/cart']);
       }

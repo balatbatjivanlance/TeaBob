@@ -69,29 +69,6 @@ export class SnacksDialogComponent implements OnInit {
   
 }
 
-  extraSauce: number = 0;
-  spicySauce:  any = "none";
-  addExtras:any;
-  isChecked: boolean = false
-  addExtra( addExtra: boolean) {
-     this.isChecked = addExtra;
-    if (this.isChecked){
-      
-      let addSauce = 10 * this.food_qty;
-
-      this.food_total = this.food_total + addSauce;
-      this.extraSauce =  10;
-      this.prodInfo.add_sauce = addSauce;
-      console.log(this.food_total);
-    }else{
-        let addSauce =  10 * this.food_qty;
-        this.food_total =  this.food_total - addSauce;
-        this.extraSauce=  10;
-        this.prodInfo.add_sauce = this.extraSauce;
-    }
-    this.sendMessage();
-  } 
-
   addOnChecker : boolean = false;
   addOnArray: any [] = []
   priceArr : any [] = []
@@ -128,24 +105,11 @@ export class SnacksDialogComponent implements OnInit {
     }
 
     }
+    let arr = this.addOnArray.toString()
+    sessionStorage.setItem('addonname', arr)
     console.log( this.addOnArray)
   }
 
-
-  saveSpice: any
-  saveExtras: any
-  addSpicy(addSpice: boolean) {
-    var isChecked = addSpice;
-    if (isChecked == true){
-      this.spicySauce = 'Spicy';
-      this.prodInfo.add_spicy = this.spicySauce;
-      console.log(this.food_total);
-    }else if (isChecked == false){
-        this.spicySauce = 'none';
-        this.prodInfo.add_spicy = this.spicySauce;
-    }
-    this.sendMessage();
-  }
   
   prodInfo: any = {};
   title: any;
@@ -153,7 +117,10 @@ export class SnacksDialogComponent implements OnInit {
 
 
   addToCart() {
-    const obj = Object.assign({}, this.addOnArray);
+    // const obj = Object.assign({}, this.addOnArray);
+
+    let addons: any = sessionStorage.getItem('addonname');
+    
     this.prodInfo.user_id = localStorage.getItem("id");
     this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
     this.prodInfo.food_name = this.food_name;
@@ -161,14 +128,15 @@ export class SnacksDialogComponent implements OnInit {
     this.prodInfo.price = this.food_price;
     this.prodInfo.food_quantity = this.food_qty;
     this.prodInfo.cart_total_price = this.food_total;
-    this.prodInfo.add_sauce = this.extraSauce;
-    this.prodInfo.add_spicy = this.spicySauce;
+    this.prodInfo.cart_addon_name = addons;
+    // this.prodInfo.add_sauce = this.extraSauce;
+    // this.prodInfo.add_spicy = this.spicySauce;
 
     console.log(this.prodInfo)
     this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
         Swal.fire(
-          'Nice!',
+          'Great!',
           'Added to cart successfully!',
           'success'
         )
@@ -222,3 +190,45 @@ export class SnacksDialogComponent implements OnInit {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 }
+
+
+
+
+// saveSpice: any
+// saveExtras: any
+// addSpicy(addSpice: boolean) {
+//   var isChecked = addSpice;
+//   if (isChecked == true){
+//     this.spicySauce = 'Spicy';
+//     this.prodInfo.add_spicy = this.spicySauce;
+//     console.log(this.food_total);
+//   }else if (isChecked == false){
+//       this.spicySauce = 'none';
+//       this.prodInfo.add_spicy = this.spicySauce;
+//   }
+//   this.sendMessage();
+// }
+
+
+// extraSauce: number = 0;
+// spicySauce:  any = "none";
+// addExtras:any;
+// isChecked: boolean = false
+// addExtra( addExtra: boolean) {
+//    this.isChecked = addExtra;
+//   if (this.isChecked){
+    
+//     let addSauce = 10 * this.food_qty;
+
+//     this.food_total = this.food_total + addSauce;
+//     this.extraSauce =  10;
+//     this.prodInfo.add_sauce = addSauce;
+//     console.log(this.food_total);
+//   }else{
+//       let addSauce =  10 * this.food_qty;
+//       this.food_total =  this.food_total - addSauce;
+//       this.extraSauce=  10;
+//       this.prodInfo.add_sauce = this.extraSauce;
+//   }
+//   this.sendMessage();
+// } 
