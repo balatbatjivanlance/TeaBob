@@ -194,6 +194,7 @@ export class AddProductComponent implements OnInit {
     
         this.ds.sendApiRequest("addProducts", JSON.parse(JSON.stringify(this.food_Info))).subscribe((data: any) => {
       
+          this.router.navigate(['/manage-product']);
         });
       }
      

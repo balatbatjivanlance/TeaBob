@@ -129,14 +129,13 @@ async delSize(e:any) {
         // alert('Product Removed');
         // this.pullOrders();
       });
-      window.location.reload();
-
+      
       Swal.fire(
         'Deleted!',
         'Your file has been deleted.',
         'success'
-        
       )
+      window.location.reload();
     }
   })
 

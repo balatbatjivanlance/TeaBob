@@ -31,6 +31,7 @@ export class UpdateFoodComponent implements OnInit {
   food_featured: any;
   food_category: any;
   food_price: any;
+  food_stocks: any;
   food_description : any;
 
   pullFoodDetails() {
@@ -41,6 +42,7 @@ export class UpdateFoodComponent implements OnInit {
     
     this.food_name = this.food_payload[0].food_name;
     this.food_price = this.food_payload[0].food_price;
+    this.food_stocks = this.food_payload[0].food_stocks;
     this.food_description = this.food_payload[0].food_description;
     this.food_category = this.food_payload[0].food_category;
     this.food_active = this.food_payload[0].food_active;
@@ -111,6 +113,7 @@ export class UpdateFoodComponent implements OnInit {
         this.foodinfo.food_featured = this.food_featured = this.selectedCategfeatured;
         this.foodinfo.category_id = this.food_category;
         this.foodinfo.food_price  = this.food_price;
+        this.foodinfo.food_stocks  = this.food_stocks;
         this.foodinfo.food_image_name = this.imgSrc;
 
     this.ds.sendApiRequest("updateFood/" + id, this.foodinfo).subscribe((data: { payload: any; }) => {});

@@ -29,7 +29,7 @@
             <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
           </button>
           <button mat-button class="button" routerLink="/home" *ngIf ="user_role == '1'"  routerLinkActive="selected">
-            <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
+            <mat-icon>space_dashboard</mat-icon>&nbsp; Home
           </button>
           <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
             <mat-icon>add_circle</mat-icon>&nbsp; Add Product
@@ -70,7 +70,7 @@
               <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
               <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
             </button>
-            <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+            <h1 style="color: #424242; font-size: 16px;">Home</h1>
       
             <span class="example-spacer"></span>
       

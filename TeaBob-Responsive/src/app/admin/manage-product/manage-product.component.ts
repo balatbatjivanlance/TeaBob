@@ -134,6 +134,7 @@ async delProd(e:any) {
         'Your file has been deleted.',
         'success'
       )
+      window.location.reload();
     }
   })
 
