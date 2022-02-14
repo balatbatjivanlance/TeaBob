@@ -118,7 +118,7 @@
               </p>
             </div>
           </div>
-          <div class="dashboard-card">
+          <!-- <div class="dashboard-card">
             <div class="dashboard-card-left">
               <img src="./assets/sales.png" alt="">
             </div>
@@ -128,7 +128,7 @@
                 <span>Total Sales</span>
               </p>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="dashboard-bottom">
           
@@ -140,7 +140,10 @@
               <div class="col col-4">Address</div>
               <div class="col col-4">Date</div>
               <div class="col col-4">Price</div>
+              
+              <div class="col col-4">Driver</div>
               <div class="col col-4">Status</div>
+              
               <div class="col col-4">Action</div>
             </li>
             <li class="table-row" *ngFor = "let dashboard of dashboard">
@@ -150,6 +153,8 @@
               <div class="col col-4" data-label="Address">{{dashboard.user_address}}</div>
               <div class="col col-3" data-label="Date">{{dashboard.date}}</div>
               <div class="col col-4" data-label="Price">{{dashboard.total_price}}</div>
+              
+              <div class="col col-4" data-label="Driver">{{dashboard.driver}}</div>
               <div class="col col-4" data-label="Status">
                 <span *ngIf ="dashboard.is_approved == '0'" style="background-color: orange;">Pending</span>
                 <span *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</span>
