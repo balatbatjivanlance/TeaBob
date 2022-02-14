@@ -9,6 +9,7 @@
 
 .responsive-table{
   padding-right: 50px;
+  
 }
   
   .table-header {
@@ -33,4 +34,41 @@
   .col-4 {
     flex-basis: 25%;
   }
+  .col-5 {
+    flex-basis: 25%;
+  }
   
+
+
+  @media (max-width: 600px){
+  .responsive-table li{
+    /* background-color: red; */
+    width: 100%;
+    display: grid;
+    padding: 0%;  
+    height: 65vh;
+    border: 1px solid gray;
+
+  }
+
+  .responsive-table .table-header{
+    display: none;
+
+  }
+  .responsive-table{
+    padding: 0%;
+  }
+  .responsive-table .table-row{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+  }
+  .col-5 {
+    background-color: #794028;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+  }
+  }

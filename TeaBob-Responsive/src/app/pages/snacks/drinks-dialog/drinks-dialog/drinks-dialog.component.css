@@ -251,29 +251,49 @@
     transform: rotate(45deg);
   }
 
-@media (max-width: 584px){
+
+  @media (max-width: 600px){
     .status-container{
-        max-width: 90%;
-        margin-top: 20%;
-    }
-    .status2-container{
-        max-width: 90%;
-        margin-top: 20%;
-    }
-    .user-details .input-box{
-        margin-bottom: 15px;
+        /* background-color: darkblue; */
+        height: 65vh;
+        display: grid;
         width: 100%;
-        padding-top: 10px;
     }
-    .status-container  .user-details{
-        max-height: 300px;
+    .user-details{
+        /* background-color: red; */
+        display: grid;
+        width: 100%;
+        max-height: 700px;
         overflow-y: scroll;
 
     }
-    .user-details::-webkit-scrollbar{
-        width:0;
+    .left-container{
+        display: grid;
+        width: 100%;
+        /* background-color: yellow; */
+
     }
-    .button{
-        margin-right: 7%;
+    .right-container{
+        display: grid;
+        width: 100%;
+        /* background-color: green */
+        border: none;
     }
+    .user-details .input-box input{
+        width: 100%;
+        padding: 50 15px 0 15px;
+        
+    }
+    .add-ons  {
+        display: grid;
+        font-size: 20px;
+      }
+      .total{
+          padding-top: 0%;
+      }
+      .button{
+          margin-left: 0%;
+          width: 100%;
+      }
 }
+

@@ -2,10 +2,6 @@
 <div class="status-container">
 
     <div class="status-title">Order Info</div>
-<!-- 
-    <div class="profile-image">
-
-    </div> -->
 
     <div class="user-details">
 
@@ -34,12 +30,6 @@
             <p class="addon">Toppings </p>
        
             <div class="add-ons">
-               
-                <!-- <section  class="container1" *ngFor="let addon of addon">     
-                    <mat-checkbox class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-                     value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
-                  </section> -->
-
                   <section  class="container1" *ngFor="let addon of addon">
                     <mat-checkbox (change)="onChangeDemo($event, addon.addon_name, addon.addon_price)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
                      value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
@@ -55,7 +45,7 @@
                 <input type="number" [(ngModel)]="food_price" disabled class="input-number">
             </div> 
         </div>
-        <br>
+       
         <div class="total">
             <div class="input-box">
                 <span class="details">Total Price</span>
@@ -101,4 +91,5 @@
     <button class="button"(click)="addToCart()">Add to Cart</button>
 <!-- </div> -->
 
+</div>
 </div>

@@ -9,12 +9,12 @@
     <div class="col col-4">Checkout Date:</div>
   </li>
   <li class="table-row" *ngFor = "let details of details">
-    <div class="col col-3" data-label="Code:">{{details.code}}</div>
-    <div class="col col-3" data-label="Food name:">{{details.prod_name}}</div>
-    <div class="col col-3" data-label="Price:">₱{{details.prod_price}}.00</div>
+    <div class="col col-5" data-label="Code:">{{details.code}}</div>
+    <div class="col col-4" data-label="Food name:">{{details.prod_name}}</div>
+    <div class="col col-4" data-label="Price:">₱{{details.prod_price}}.00</div>
     <div class="col col-4" data-label="Size:">{{details.size_name}}</div>
     <div class="col col-4" data-label="Size:">{{details.cart_addon_name}}</div>
-    <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
+    <div class="col col-4" data-label="Quantity:">{{details.food_quantity}} piece/s</div>
     <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
   </li>
 
