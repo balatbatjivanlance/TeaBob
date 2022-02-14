@@ -212,16 +212,24 @@ export class DrinksDialogComponent implements OnInit {
     if (this.food_qty > this.food_stocks) {
       this.food_qty -= 1;
     } else {
-      if (this.addOnChecker) {
+
+      console.log(this.addOnArray);
+
+      if (this.addOnArray.length > 0) {
+        console.log("here");
         let price: any = sessionStorage.getItem('price');
         // if (this.priceArr.length ===  1){
         //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
         // }
         console.log(price);
-        this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+        this.food_total = (parseInt(this.selectedSizePrice) * this.food_qty) + (this.food_qty * this.food_price) + (parseInt(price) * this.food_qty);
       } else {
-        this.food_total = this.food_qty * this.food_price + this.food_qty * parseInt(this.selectedSizePrice);
+        console.log("here2");
+
+        this.food_total = (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
       }
+
+
     }
     // this.sendMessage();
   };
@@ -231,12 +239,25 @@ export class DrinksDialogComponent implements OnInit {
       this.food_qty -= 1;
     }
 
-    if (this.addOnChecker) {
+    // console.log(this.addOnChecker);
+
+    if (this.addOnArray.length) {
+      console.log(this.food_total);
+      
+      // this.food_total -=;
       let price: any = sessionStorage.getItem('price');
-      this.food_total = parseInt(this.selectedSizePrice) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
+
+      console.log(this.selectedSizePrice*this.food_qty);
+      console.log((this.food_price + parseInt(price))*this.food_qty);
+
+
+      this.food_total = (parseInt(this.selectedSizePrice)*this.food_qty) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;
     } else {
+
+    
+
       this.food_total =
-        this.food_qty * this.food_price +
+        (this.food_qty * this.food_price) +
         this.food_qty * parseInt(this.selectedSizePrice);
       // this.sendMessage();
     }

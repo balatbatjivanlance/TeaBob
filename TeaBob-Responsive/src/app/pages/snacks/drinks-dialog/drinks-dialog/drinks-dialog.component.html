@@ -13,6 +13,27 @@
       </div>
       <br />
 
+      <mat-form-field
+            class="example-full-width"
+            appearance="outline"
+            style="width: 90%">
+            <mat-label>Select Size</mat-label>
+            <select
+              matNativeControl
+              id="size"
+              (change)="selectChangeHandlerSize($event)"
+              [(ngModel)]="item_size"
+              required>
+              <ng-container *ngFor="let size of size">
+                <option
+                  *ngIf="size.size_stocks != '0'"
+                  value="{{ size.size_price }} , {{ size.size_name }}">
+                  {{ size.size_name }}
+                </option>
+              </ng-container>
+            </select>
+          </mat-form-field>
+
       <div class="input-box">
         <span class="details">Quantity</span>
         <input [(ngModel)]="food_qty" disabled class="input-number" min="1" />
@@ -34,23 +55,6 @@
       </div>
       <br />
 
-      <p class="addon">Add Ons</p>
-      <div class="add-ons">
-        <!-- <section  class="container1" *ngFor="let addon of addon">
-                    <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-                     value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
-                  </section> -->
-        <section class="container1" *ngFor="let addon of addon">
-          <mat-checkbox
-            (change)="onChangeDemo($event, addon.addon_name, addon.addon_price)"
-            class="example-margin"
-            *ngIf="addon.addon_stocks != '0'"
-            [disabled]="isDisabled"
-            value="{{ addon.addon_price }}"
-            >{{ addon.addon_name }}</mat-checkbox
-          >
-        </section>
-      </div>
     </div>
 
     <div class="right-container">
@@ -80,29 +84,24 @@
                         </select>
                       </mat-form-field> -->
 
-          <mat-form-field
-            class="example-full-width"
-            appearance="outline"
-            style="width: 90%"
-          >
-            <mat-label>Select Size</mat-label>
-            <select
-              matNativeControl
-              id="size"
-              (change)="selectChangeHandlerSize($event)"
-              [(ngModel)]="item_size"
-              required
-            >
-              <ng-container *ngFor="let size of size">
-                <option
-                  *ngIf="size.size_stocks != '0'"
-                  value="{{ size.size_price }} , {{ size.size_name }}"
-                >
-                  {{ size.size_name }}
-                </option>
-              </ng-container>
-            </select>
-          </mat-form-field>
+                      <p class="addon">Add Ons</p>
+                      <div class="add-ons">
+                        <!-- <section  class="container1" *ngFor="let addon of addon">
+                                    <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
+                                     value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
+                                  </section> -->
+                        <section class="container1" *ngFor="let addon of addon">
+                          <mat-checkbox
+                            (change)="onChangeDemo($event, addon.addon_name, addon.addon_price)"
+                            class="example-margin"
+                            *ngIf="addon.addon_stocks != '0'"
+                            [disabled]="isDisabled"
+                            value="{{ addon.addon_price }}"
+                            >{{ addon.addon_name }}</mat-checkbox
+                          >
+                        </section>
+                      </div>
+
         </div>
         <div class="input-box">
           <span class="details">Total Price</span>
@@ -111,8 +110,7 @@
             [(ngModel)]="food_total"
             class="input-number"
             disabled
-            placeholder=""
-          />
+            placeholder=""/>
 
           <span class="details">Available Stocks</span>
           <input
@@ -120,8 +118,7 @@
             [(ngModel)]="food_stocks"
             class="input-number"
             disabled
-            placeholder=""
-          />
+            placeholder=""/>
         </div>
       </div>
     </div>
@@ -130,8 +127,7 @@
       class="button"
       (click)="addToCart()"
       [disabled]="!item_size"
-      title="Choose Size First"
-    >
+      title="Choose Size First">
       Add to Cart
     </button>
 
