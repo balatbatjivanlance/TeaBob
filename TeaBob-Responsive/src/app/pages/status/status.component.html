@@ -80,6 +80,7 @@
                     <div class="card-order-info">
                         <div class="code">
                             <p>
+                                
                                 <span>{{status.code}}</span>
                                 <span>{{status.date }} </span>
                                 
@@ -93,7 +94,8 @@
                         <div class="p-content">
                             
                             <div class="quant">
-                                <span>Total Price:  </span><span class="quantity">{{status.total_price}}  </span>
+                                <span>Total Price:  </span><span class="quantity">{{status.total_price}}  </span><br><br>
+                                <span>Driver:  </span><span class="quantity">{{status.driver}}  </span>
                                 <div class="order-button">
                                   <button class="card-order-action" mat-stroked-button (click)="openCorBreakDown(status)">View Orders</button>
                                   <button class="card-order-action" mat-stroked-button style="background-color: green; color: white;" *ngIf ="status.is_approved == '1'" disabled >Order Approved</button>

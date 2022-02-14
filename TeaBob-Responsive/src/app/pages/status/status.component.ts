@@ -105,7 +105,7 @@ export class StatusComponent implements OnInit {
     this.ds.sendApiRequest("status/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.status_payload = data.payload;
     
-    console.log(this.is_approved)
+    // console.log(this.is_approved)
     }
     )
   }

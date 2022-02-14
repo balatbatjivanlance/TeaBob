@@ -6,8 +6,6 @@
     <div class="col col-4">Size:</div>
     <div class="col col-4">Add Ons:</div>
     <div class="col col-4">Quantity:</div>
-    <div class="col col-4">Note:</div>
-    <div class="col col-4">Driver Name:</div>
     <div class="col col-4">Checkout Date:</div>
   </li>
   <li class="table-row" *ngFor = "let details of details">
@@ -17,8 +15,6 @@
     <div class="col col-4" data-label="Size:">{{details.size_name}}</div>
     <div class="col col-4" data-label="Size:">{{details.cart_addon_name}}</div>
     <div class="col col-4" data-label="Quantity:">{{details.food_quantity}} piece/s</div>
-    <div class="col col-4" data-label="Remarks:">{{details.remarks}}</div>
-    <div class="col col-4" data-label="Driver:">{{details.driver}}</div>
     <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
   </li>
 
