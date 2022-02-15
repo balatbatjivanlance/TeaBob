@@ -40,7 +40,9 @@
     <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
       <mat-icon>motorcycle</mat-icon>&nbsp; Riders
     </button>
-
+    <button mat-button class="button" routerLink="/report" *ngIf ="user_role == '0'">
+      <mat-icon>motorcycle</mat-icon>&nbsp; Reports
+    </button>
     <button mat-button class="button" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
     </button>
@@ -118,7 +120,7 @@
               </p>
             </div>
           </div>
-          <!-- <div class="dashboard-card">
+          <div class="dashboard-card">
             <div class="dashboard-card-left">
               <img src="./assets/sales.png" alt="">
             </div>
@@ -128,7 +130,7 @@
                 <span>Total Sales</span>
               </p>
             </div>
-          </div> -->
+          </div>
         </div>
         <div class="dashboard-bottom">
           

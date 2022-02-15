@@ -514,7 +514,7 @@ public function PullUserCount ($d) {
 // Driver Functions
 
 public function PullApproved () {
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 1";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 1 ORDER BY cocode_id DESC";
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];

@@ -51,6 +51,7 @@ import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order-history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
+import { ReportComponent } from './admin/report/report.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { ManageDriverComponent } from './admin/manage-driver/manage-driver.compo
     ViewOrderHistoryComponent,
     ViewOrderComponent,
     ManageDriverComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
