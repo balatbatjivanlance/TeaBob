@@ -33,7 +33,7 @@
         <mat-icon>motorcycle</mat-icon>&nbsp; Riders
       </button>
       <button mat-button class="button" routerLink="/report" *ngIf ="user_role == '0'">
-        <mat-icon>motorcycle</mat-icon>&nbsp; Reports
+        <mat-icon>receipt</mat-icon>&nbsp; Reports
       </button>
       <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
         <mat-icon>category</mat-icon>&nbsp; Category
@@ -92,7 +92,7 @@
         <div class="col col-4" data-label="Customer" >{{history.user_name}}</div>
         <div class="col col-4" data-label="Contact No" >{{history.user_contact}}</div>
         <div class="col col-4" data-label="Address" >{{history.user_address}}</div>
-        <div class="col col-3" data-label="Date" >{{history.date}}</div>
+        <div class="col col-3" data-label="Date" >{{history.date | date:'medium'}}</div>
         <div class="col col-4" data-label="Price" >{{history.total_price}}</div>
         <div class="col col-4" data-label="Driver" >{{history.driver}}</div>
         <div class="col col-4" data-label="Status">

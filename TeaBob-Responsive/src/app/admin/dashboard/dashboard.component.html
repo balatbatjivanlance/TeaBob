@@ -41,7 +41,7 @@
       <mat-icon>motorcycle</mat-icon>&nbsp; Riders
     </button>
     <button mat-button class="button" routerLink="/report" *ngIf ="user_role == '0'">
-      <mat-icon>motorcycle</mat-icon>&nbsp; Reports
+      <mat-icon>receipt</mat-icon>&nbsp; Reports
     </button>
     <button mat-button class="button" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>&nbsp; Logout
@@ -85,53 +85,64 @@
     <!-- THIS IS YOUR CONTENT CONTAINER -->
     <div class="container">
 
-
-        <div class="dashboard-top">
-          <div class="dashboard-card">
-            <div class="dashboard-card-left">
-              <img src="./assets/product.png" alt="">
-            </div>
-            <div class="dashboard-card-right">
-              <p>
-                <span>{{prodCounter}}</span>
-                <span>Total Products</span>
-              </p>
-            </div>
+      <div class="dashboard-top">
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/product.png" alt="">
           </div>
-          <div class="dashboard-card">
-            <div class="dashboard-card-left">
-              <img src="./assets/categories.png" alt="">
-            </div>
-            <div class="dashboard-card-right">
-              <p>
-                <span>{{categCounter}}</span>
-                <span>Total Categories</span>
-              </p>
-            </div>
-          </div>
-          <div class="dashboard-card">
-            <div class="dashboard-card-left">
-              <img src="./assets/group.png" alt="">
-            </div>
-            <div class="dashboard-card-right">
-              <p>
-                <span>{{userCounter}}</span>
-                <span>Total Users</span>
-              </p>
-            </div>
-          </div>
-          <div class="dashboard-card">
-            <div class="dashboard-card-left">
-              <img src="./assets/sales.png" alt="">
-            </div>
-            <div class="dashboard-card-right">
-              <p>
-              <span>0</span>
-                <span>Total Sales</span>
-              </p>
-            </div>
+          <div class="dashboard-card-right">
+            <p>
+              <span>{{prodCounter}}</span>
+              <span>Total Products</span>
+            </p>
           </div>
         </div>
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/categories.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+              <span>{{categCounter}}</span>
+              <span>Total Categories</span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/group.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+              <span>{{userCounter}}</span>
+              <span>Total Users</span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/sales.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span>0</span>
+              <span>Total Sales</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <div class="top-btn">
+          <button class="dashboard-btn"><mat-icon>pending</mat-icon>&nbsp;Pending</button>
+
+          <button class="dashboard-btn"><mat-icon>recommend</mat-icon>&nbsp;Approved</button>
+
+          <button class="dashboard-btn"><mat-icon>delivery_dining</mat-icon>&nbsp;On Delivery</button>
+
+          <button class="dashboard-btn"><mat-icon>done_all</mat-icon>&nbsp;Delivered</button>
+
+        </div>
+
         <div class="dashboard-bottom">
           
           <ul class="responsive-table">
@@ -140,37 +151,45 @@
               <div class="col col-4">Customer</div>
               <div class="col col-4">Contact No.</div>
               <div class="col col-4">Address</div>
-              <div class="col col-4">Date</div>
-              <div class="col col-4">Price</div>
+              <div class="col col-5">Date</div>
+              <div class="col col-5">Price</div>
               
-              <div class="col col-4">Driver</div>
+              <!-- <div class="col col-4">Driver</div> -->
               <div class="col col-4">Status</div>
               
               <div class="col col-4">Action</div>
             </li>
-            <li class="table-row" *ngFor = "let dashboard of dashboard">
-              <div class="col col-4" data-label="Order Code">{{dashboard.code}}</div>
-              <div class="col col-4" data-label="Customer">{{dashboard.user_name}}</div>
-              <div class="col col-4" data-label="Contact No">{{dashboard.user_contact}}</div>
-              <div class="col col-4" data-label="Address">{{dashboard.user_address}}</div>
-              <div class="col col-3" data-label="Date">{{dashboard.date}}</div>
-              <div class="col col-4" data-label="Price">{{dashboard.total_price}}</div>
+            <li class="table-row" *ngFor = "let pending of pending">
+              <div class="col col-4" data-label="Order Code">{{pending.code}}</div>
+              <div class="col col-4" data-label="Customer">{{pending.user_name}}</div>
+              <div class="col col-4" data-label="Contact No">{{pending.user_contact}}</div>
+              <div class="col col-4" data-label="Address">{{pending.user_address}}</div>
+              <div class="col col-4" data-label="Date">{{pending.date | date:'medium'}}</div>
+              <div class="col col-5" data-label="Price">{{pending.total_price}}</div>
               
-              <div class="col col-4" data-label="Driver">{{dashboard.driver}}</div>
+              <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
               <div class="col col-4" data-label="Status">
-                <span *ngIf ="dashboard.is_approved == '0'" style="background-color: orange;">Pending</span>
-                <span *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</span>
-                <span *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</span>
-                <span *ngIf ="dashboard.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
-                <span *ngIf ="dashboard.is_approved == '4'" style="background-color: blue;">Delivered</span>
+                <span *ngIf ="pending.is_approved == '0'" style="background-color: orange;">Pending</span>
+                <!-- <span *ngIf ="pending.is_approved == '1'" style="background-color: green;">Approved</span>
+                <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span>
+                <span *ngIf ="pending.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
+                <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
 
               </div>
               <div class="col col-4" data-label="Action">
-                <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
-                <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button> -->
+                <button mat-raised-button color="primary" (click)="openCorBreakDown(pending)">View</button>
+                <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
               </div>
             </li>
           </ul>
+        </div>
+         
+
+    </div>
+  </div>
+</mat-sidenav-container>
+
+
             <!-- <table>
                 <tr>
                     <th>Order Code </th>
@@ -182,35 +201,25 @@
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
-                <tr *ngFor = "let dashboard of dashboard">
-                  <td>{{dashboard.code}}</td>
-                  <td>{{dashboard.user_name}}</td>
-                  <td>{{dashboard.user_contact}}</td>
-                  <td>{{dashboard.user_address}}</td>
-                  <td>{{dashboard.date}}</td>
-                  <td>{{dashboard.total_price}}</td>
-                  <td *ngIf ="dashboard.is_approved == '0'" style="background-color: yellow;">Pending</td>
-                  <td *ngIf ="dashboard.is_approved == '1'" style="background-color: green;">Approved</td>
-                  <td *ngIf ="dashboard.is_approved == '2'" style="background-color: red;">Cancelled</td>
-                  <td *ngIf ="dashboard.is_approved == '3'" style="background-color: blue;">On Delivery</td>
+                <tr *ngFor = "let pending of pending">
+                  <td>{{pending.code}}</td>
+                  <td>{{pending.user_name}}</td>
+                  <td>{{pending.user_contact}}</td>
+                  <td>{{pending.user_address}}</td>
+                  <td>{{pending.date}}</td>
+                  <td>{{pending.total_price}}</td>
+                  <td *ngIf ="pending.is_approved == '0'" style="background-color: yellow;">Pending</td>
+                  <td *ngIf ="pending.is_approved == '1'" style="background-color: green;">Approved</td>
+                  <td *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</td>
+                  <td *ngIf ="pending.is_approved == '3'" style="background-color: blue;">On Delivery</td>
                     <td width="200px">
-                        <button mat-raised-button color="primary" (click)="openCorBreakDown(dashboard)">View</button>
-                        <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(dashboard.code)">Delete</button>
+                        <button mat-raised-button color="primary" (click)="openCorBreakDown(pending)">View</button>
+                        <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button>
                     </td>
                 </tr>
             
               </table> -->
       
-        </div>
-      
-      
-      
-
-      
-
-    </div>
-  </div>
-</mat-sidenav-container>
 
 
 

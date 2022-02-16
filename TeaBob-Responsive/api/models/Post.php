@@ -380,7 +380,7 @@ class Post{
 		}
     }
 
-    public function delRider($d) {
+    public function delDriver($d) {
         $data = $d;
         $driver_id = $data->driver_id;
         $res = $this->gm->delete('tbl_driver', $data, "driver_id = '$driver_id'");

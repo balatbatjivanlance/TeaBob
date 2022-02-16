@@ -110,6 +110,11 @@ export class StatusComponent implements OnInit {
     )
   }
 
+  sda = "remarks here";
+  remarksAlert(){  
+    Swal.fire(this.sda);  
+  } 
+
   // cancelorder: any = {};
 
   // cancelOrder = (id:any) => {

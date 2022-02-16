@@ -363,13 +363,34 @@
 							echo json_encode($get->pullHistory($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
-					case 'dashboard':
+					case 'pending':
 						if(count($req)>1) {
-							echo json_encode($get->pullDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);
+							echo json_encode($get->pullPending($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
-							echo json_encode($get->pullDashboard($req[0], null), JSON_PRETTY_PRINT);
+							echo json_encode($get->pullPending($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					// case 'approved':
+					// 	if(count($req)>1) {
+					// 		echo json_encode($get->pullApprovedOrders($req[0], $req[1]), JSON_PRETTY_PRINT);
+					// 	} else {
+					// 		echo json_encode($get->pullApprovedOrders($req[0], null), JSON_PRETTY_PRINT);
+					// 	}
+					// break;
+					// case 'ondelivery':
+					// 	if(count($req)>1) {
+					// 		echo json_encode($get->pullOndelivery($req[0], $req[1]), JSON_PRETTY_PRINT);
+					// 	} else {
+					// 		echo json_encode($get->pullOndelivery($req[0], null), JSON_PRETTY_PRINT);
+					// 	}
+					// break;
+					// case 'delivered':
+					// 	if(count($req)>1) {
+					// 		echo json_encode($get->pullDelivered($req[0], $req[1]), JSON_PRETTY_PRINT);
+					// 	} else {
+					// 		echo json_encode($get->pullDelivered($req[0], null), JSON_PRETTY_PRINT);
+					// 	}
+					// break;
 					case 'pullSales':
 						if(count($req)>1) {
 							echo json_encode($get->pullSales($req[0], $req[1]), JSON_PRETTY_PRINT);
@@ -416,9 +437,9 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->delAddons($d), JSON_PRETTY_PRINT);
 					break;
-					case 'delRider':
+					case 'delDriver':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
-						echo json_encode($post->delRider($d), JSON_PRETTY_PRINT);
+						echo json_encode($post->delDriver($d), JSON_PRETTY_PRINT);
 					break;
 
 					// case 'updatefood':

@@ -25,7 +25,7 @@
 
   <div class="status-container">
 
-    <mat-form-field class="example-full-width" appearance="outline" class="status-mat">
+    <!-- <mat-form-field class="example-full-width" appearance="outline" class="status-mat">
       <mat-label>Status</mat-label>
       <select matNativeControl name="status" id="status" (change)="selectChangeHandler($event)"
       [(ngModel)]="is_approved" >
@@ -35,7 +35,7 @@
       <option value='3'>On Delivery</option>
       <option value='4'>Delivered</option>
       </select>
-    </mat-form-field>
+    </mat-form-field> -->
     
 
   </div>
@@ -44,6 +44,6 @@
 
     <div class="buttoncontainer">
       
-      <button mat-raised-button color="primary" (click)="updateStatus()">Update</button>
+      <button mat-raised-button color="primary" (click)="updateStatus()">Approved Order</button>
     </div>
 </div>

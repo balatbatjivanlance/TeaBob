@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
+import { RegisterDriverComponent } from '../register-driver/register-driver.component';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -68,36 +69,47 @@ this.ds.sendApiRequest("pullDriver", null).subscribe((data: { payload: any; }) =
 
 }
 
+driverInfo: any  = {};
 
+async delDriver(e:any) {
+  
+  Swal.fire({
+    title: 'Are you sure to fire this Driver?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
+      this.driverInfo.driver_id = e;
 
-riderInfo: any  = {};
+      this.ds.sendApiRequest("delDriver", JSON.parse(JSON.stringify(this.driverInfo))).subscribe((data: any) => {
 
-async delRider(e:any) {
-Swal.fire({
-title: 'Are you sure to remove this rider?',
-text: "You won't be able to revert this!",
-icon: 'warning',
-showCancelButton: true,
-confirmButtonColor: '#3085d6',
-cancelButtonColor: '#d33',
-confirmButtonText: 'Yes, delete it!'
-}).then((result) => {
-if (result.isConfirmed) {
+      });
+      window.location.reload();
+      
+      Swal.fire(
+        'You`re Fired!',
+        'The Driver has been fired.',
+        'success'
+      )
+    }
+  })
 
-  this.riderInfo.cocode = e;
-
-  this.ds.sendApiRequest("delRider", JSON.parse(JSON.stringify(this.riderInfo))).subscribe((data: any) => {
-    // alert('Order Removed');
-    // this.pullOrders();
-  });
-  window.location.reload();
-  Swal.fire(
-    'Deleted!',
-    'Your file has been deleted.',
-    'success'
-  )
 }
-})
+
+
+openModal() {
+
+    const dialog = this.dialog.open(RegisterDriverComponent, {
+      autoFocus: false, width:"70%", height:"70%",
+    });
+    dialog.afterClosed().subscribe( ()=>{
+    });
+  
 
 }
 

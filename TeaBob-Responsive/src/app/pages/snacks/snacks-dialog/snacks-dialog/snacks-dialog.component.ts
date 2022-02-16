@@ -21,6 +21,7 @@ export class SnacksDialogComponent implements OnInit {
     this.pullFood_perItem();
     this.pullAddOnsSnacks();
     sessionStorage.removeItem('price')
+    sessionStorage.removeItem('addonname')
   }
 
   userinfo: any = {};
@@ -119,31 +120,37 @@ export class SnacksDialogComponent implements OnInit {
   addToCart() {
     // const obj = Object.assign({}, this.addOnArray);
 
-    let addons: any = sessionStorage.getItem('addonname');
-    
-    this.prodInfo.user_id = localStorage.getItem("id");
-    this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
-    this.prodInfo.food_name = this.food_name;
-    // this.prodInfo.addOns = obj;
-    this.prodInfo.price = this.food_price;
-    this.prodInfo.food_quantity = this.food_qty;
-    this.prodInfo.cart_total_price = this.food_total;
-    this.prodInfo.cart_addon_name = addons;
-    // this.prodInfo.add_sauce = this.extraSauce;
-    // this.prodInfo.add_spicy = this.spicySauce;
+    if(this.food_stocks == 0){
+      Swal.fire(this.food_name,"out of Stock")
+    }else{
 
-    console.log(this.prodInfo)
-    this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
-      if (data.remarks === "success"){
-        Swal.fire(
-          'Great!',
-          'Added to cart successfully!',
-          'success'
-        )
-        this.dialog.closeAll();
-      }
-      // this.router.navigate(['/cart']);
-    });
+      let addons: any = sessionStorage.getItem('addonname');
+    
+      this.prodInfo.user_id = localStorage.getItem("id");
+      this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+      this.prodInfo.food_name = this.food_name;
+      // this.prodInfo.addOns = obj;
+      this.prodInfo.price = this.food_price;
+      this.prodInfo.food_quantity = this.food_qty;
+      this.prodInfo.cart_total_price = this.food_total;
+      this.prodInfo.cart_addon_name = addons;
+      // this.prodInfo.add_sauce = this.extraSauce;
+      // this.prodInfo.add_spicy = this.spicySauce;
+  
+      console.log(this.prodInfo)
+      this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
+        if (data.remarks === "success"){
+          Swal.fire(
+            'Great!',
+            'Added to cart successfully!',
+            'success'
+          )
+          this.dialog.closeAll();
+        }
+        // this.router.navigate(['/cart']);
+      });
+    }
+
   }
 
   plusQty = () =>{

@@ -66,13 +66,13 @@ export class ViewOrdersComponent implements OnInit {
   // }
 
 
-  selectedStatus: string = '';
+  // selectedStatus: string = '';
 
-  selectChangeHandler (event: any){
-    this.selectedStatus = event.target.value;
+  // selectChangeHandler (event: any){
+  //   this.selectedStatus = event.target.value;
 
-    console.log(this.selectedStatus);
-  }
+  //   console.log(this.selectedStatus);
+  // }
 
   
   is_approved: any;
@@ -92,7 +92,8 @@ export class ViewOrdersComponent implements OnInit {
         let cocode_id  = this.status.cocode_id;
 
         this.codeinfo.cocode_id =  cocode_id;
-        this.codeinfo.is_approved = this.is_approved = this.selectedStatus;
+        // this.codeinfo.is_approved = this.is_approved = this.selectedStatus;
+        this.codeinfo.is_approved = 1;
 
     this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
 
@@ -103,7 +104,7 @@ export class ViewOrdersComponent implements OnInit {
       }
     })
     this.dialog.closeAll();
-    console.log(this.selectedStatus)
+    console.log(this.codeinfo.is_approved)
   }
 
 

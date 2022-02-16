@@ -36,7 +36,7 @@
         <mat-icon>motorcycle</mat-icon>&nbsp; Riders
       </button>
       <button mat-button class="button" routerLink="/report" *ngIf ="user_role == '0'">
-        <mat-icon>motorcycle</mat-icon>&nbsp; Reports
+        <mat-icon>receipt</mat-icon>&nbsp; Reports
       </button>
       <!-- <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
         <mat-icon>category</mat-icon>&nbsp; Category
@@ -84,7 +84,7 @@
       <div class="container">
   
         <div class="dashboard-bottom">
-          
+          <button (click)="openModal()" >Add Driver</button>
             <ul class="responsive-table">
               <li class="table-header">
                 <div class="col col-4">Driver ID</div>
@@ -105,7 +105,7 @@
         
                 <!-- </div> -->
                 <div class="col col-3" data-label="Action">
-                  <button class="card-order-action" mat-stroked-button color="warn" (click)="delRider(driver.driver_id)">Delete</button>
+                  <button class="card-order-action" mat-stroked-button color="warn" (click)="delDriver(driver.driver_id)">Delete</button>
                 </div>
               </li>
             </ul>

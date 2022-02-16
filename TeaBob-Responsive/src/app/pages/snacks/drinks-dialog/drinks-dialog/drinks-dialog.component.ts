@@ -271,6 +271,11 @@ export class DrinksDialogComponent implements OnInit {
 
 
   addToCart() {
+
+    if(this.food_stocks == 0){
+      Swal.fire(this.food_name,"out of Stock")
+    }else{
+
     let addons: any = sessionStorage.getItem('addonname');
 
     this.prodInfo.user_id = localStorage.getItem('id');
@@ -300,10 +305,12 @@ export class DrinksDialogComponent implements OnInit {
       }
     });
   }
+}
 
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!');
   }
+  
 
   // addoninfo: any = {};
   // addon_payload: any [] = [];

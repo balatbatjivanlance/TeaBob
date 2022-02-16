@@ -248,7 +248,8 @@ mat-card {
     position: relative;
   }
 
-  .category__container{
+  .category_container{
+    margin-top: 5%;
     display: flex;
     justify-content: center;
   }

@@ -22,9 +22,13 @@ export class DashboardComponent implements OnInit {
 
     this.pullProd();
     this.pullCategory();
-    this.pullDashboard();
     this.pullUsers();
     this.pullSales();
+    this.pullPending();
+    // this.pullApprovedOrders();
+    // this.pullOndelivery();
+    // this.pullDelivered();
+    
   }
 
   user_role = localStorage.getItem("user_role");
@@ -123,15 +127,34 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  dashboard: any;
-  
-  pullDashboard() {
-    this.ds.sendApiRequest("dashboard", null).subscribe((data: { payload: any; }) => {
-      this.dashboard = data.payload;
+  pending: any; 
+  pullPending() {
+    this.ds.sendApiRequest("pending", null).subscribe((data: { payload: any; }) => {
+      this.pending = data.payload;
 
     })
-  
 }
+// approved: any; 
+// pullApprovedOrders() {
+//   this.ds.sendApiRequest("approved", null).subscribe((data: { payload: any; }) => {
+//     this.approved = data.payload;
+
+//   })
+// }
+// ondelivery: any; 
+// pullOndelivery() {
+//   this.ds.sendApiRequest("ondelivery", null).subscribe((data: { payload: any; }) => {
+//     this.ondelivery = data.payload;
+
+//   })
+// }
+// delivered: any; 
+// pullDelivered() {
+//   this.ds.sendApiRequest("delivered", null).subscribe((data: { payload: any; }) => {
+//     this.delivered = data.payload;
+
+//   })
+// }
 
 sales: any;
   
