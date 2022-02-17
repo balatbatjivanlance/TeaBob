@@ -370,27 +370,27 @@
 							echo json_encode($get->pullPending($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
-					// case 'approved':
-					// 	if(count($req)>1) {
-					// 		echo json_encode($get->pullApprovedOrders($req[0], $req[1]), JSON_PRETTY_PRINT);
-					// 	} else {
-					// 		echo json_encode($get->pullApprovedOrders($req[0], null), JSON_PRETTY_PRINT);
-					// 	}
-					// break;
-					// case 'ondelivery':
-					// 	if(count($req)>1) {
-					// 		echo json_encode($get->pullOndelivery($req[0], $req[1]), JSON_PRETTY_PRINT);
-					// 	} else {
-					// 		echo json_encode($get->pullOndelivery($req[0], null), JSON_PRETTY_PRINT);
-					// 	}
-					// break;
-					// case 'delivered':
-					// 	if(count($req)>1) {
-					// 		echo json_encode($get->pullDelivered($req[0], $req[1]), JSON_PRETTY_PRINT);
-					// 	} else {
-					// 		echo json_encode($get->pullDelivered($req[0], null), JSON_PRETTY_PRINT);
-					// 	}
-					// break;
+					case 'approved':
+						if(count($req)>1) {
+							echo json_encode($get->pullApprovedOrders($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullApprovedOrders($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'ondelivery':
+						if(count($req)>1) {
+							echo json_encode($get->pullOndelivery($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullOndelivery($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'delivered':
+						if(count($req)>1) {
+							echo json_encode($get->pullDelivered($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullDelivered($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
 					case 'pullSales':
 						if(count($req)>1) {
 							echo json_encode($get->pullSales($req[0], $req[1]), JSON_PRETTY_PRINT);

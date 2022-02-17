@@ -23,6 +23,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
+
+
 // Material Imports
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -52,6 +54,8 @@ import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
 import { ReportComponent } from './admin/report/report.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -109,6 +113,7 @@ import { ReportComponent } from './admin/report/report.component';
     MatDividerModule,
     MatCheckboxModule,
     MatSnackBarModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

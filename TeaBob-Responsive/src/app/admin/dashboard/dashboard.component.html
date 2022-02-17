@@ -132,57 +132,224 @@
         </div>
       </div>
 
-        <div class="top-btn">
-          <button class="dashboard-btn"><mat-icon>pending</mat-icon>&nbsp;Pending</button>
 
-          <button class="dashboard-btn"><mat-icon>recommend</mat-icon>&nbsp;Approved</button>
+      <mat-tab-group class="sliding" mat-align-tabs="center">
 
-          <button class="dashboard-btn"><mat-icon>delivery_dining</mat-icon>&nbsp;On Delivery</button>
 
-          <button class="dashboard-btn"><mat-icon>done_all</mat-icon>&nbsp;Delivered</button>
+        <!-- pending datas -->
 
-        </div>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>pending</mat-icon>Pending
+          </ng-template>  
 
-        <div class="dashboard-bottom">
+          <!--pending info -->
+
+          <div class="dashboard-bottom">
           
-          <ul class="responsive-table">
-            <li class="table-header">
-              <div class="col col-4">Order Code</div>
-              <div class="col col-4">Customer</div>
-              <div class="col col-4">Contact No.</div>
-              <div class="col col-4">Address</div>
-              <div class="col col-5">Date</div>
-              <div class="col col-5">Price</div>
-              
-              <!-- <div class="col col-4">Driver</div> -->
-              <div class="col col-4">Status</div>
-              
-              <div class="col col-4">Action</div>
-            </li>
-            <li class="table-row" *ngFor = "let pending of pending">
-              <div class="col col-4" data-label="Order Code">{{pending.code}}</div>
-              <div class="col col-4" data-label="Customer">{{pending.user_name}}</div>
-              <div class="col col-4" data-label="Contact No">{{pending.user_contact}}</div>
-              <div class="col col-4" data-label="Address">{{pending.user_address}}</div>
-              <div class="col col-4" data-label="Date">{{pending.date | date:'medium'}}</div>
-              <div class="col col-5" data-label="Price">{{pending.total_price}}</div>
-              
-              <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
-              <div class="col col-4" data-label="Status">
-                <span *ngIf ="pending.is_approved == '0'" style="background-color: orange;">Pending</span>
-                <!-- <span *ngIf ="pending.is_approved == '1'" style="background-color: green;">Approved</span>
-                <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span>
-                <span *ngIf ="pending.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
-                <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                
+                <!-- <div class="col col-4">Driver</div> -->
+                <div class="col col-4">Status</div>
+                
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let pending of pending">
+                <div class="col col-4" data-label="Order Code">{{pending.code}}</div>
+                <div class="col col-4" data-label="Customer">{{pending.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{pending.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{pending.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{pending.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">{{pending.total_price}}</div>
+                
+                <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
+                <div class="col col-4" data-label="Status">
+                  <span *ngIf ="pending.is_approved == '0'" style="background-color: orange;">Pending</span>
+                  <!-- <span *ngIf ="pending.is_approved == '1'" style="background-color: green;">Approved</span>
+                  <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span>
+                  <span *ngIf ="pending.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
+                  <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
+  
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" (click)="openCorBreakDown(pending)">View</button>
+                  <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
+                </div>
+              </li>
+            </ul>
+          </div>
 
-              </div>
-              <div class="col col-4" data-label="Action">
-                <button mat-raised-button color="primary" (click)="openCorBreakDown(pending)">View</button>
-                <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
-              </div>
-            </li>
-          </ul>
-        </div>
+        </mat-tab>
+
+
+
+
+        <!-- approved datas -->
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>recommend</mat-icon>&nbsp;Approved
+          </ng-template>
+
+
+          <!-- approved info -->
+          <div class="dashboard-bottom">
+          
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                
+                <!-- <div class="col col-4">Driver</div> -->
+                <div class="col col-4">Status</div>
+                
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let approved of approved">
+                <div class="col col-4" data-label="Order Code">{{approved.code}}</div>
+                <div class="col col-4" data-label="Customer">{{approved.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{approved.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{approved.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{approved.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">{{approved.total_price}}</div>
+                
+                <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
+                <div class="col col-4" data-label="Status">
+                  <!-- <span *ngIf ="approved.is_approved == '0'" style="background-color: orange;">Pending</span> -->
+                  <span *ngIf ="approved.is_approved == '1'" style="background-color: green;">Approved</span>
+                  <!-- <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span> -->
+                  <!-- <span *ngIf ="pending.is_approved == '3'" style="background-color: yellow;">On Delivery</span> -->
+                  <!-- <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
+  
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" (click)="openCorBreakDown(approved)">View</button>
+                  <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>delivery_dining</mat-icon>&nbsp;On Delivery
+          </ng-template>
+        
+          <!-- on delivery info -->
+          <div class="dashboard-bottom">
+          
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                
+                <!-- <div class="col col-4">Driver</div> -->
+                <div class="col col-4">Status</div>
+                
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let ondelivery of ondelivery">
+                <div class="col col-4" data-label="Order Code">{{ondelivery.code}}</div>
+                <div class="col col-4" data-label="Customer">{{ondelivery.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{ondelivery.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{ondelivery.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{ondelivery.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">{{ondelivery.total_price}}</div>
+                
+                <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
+                <div class="col col-4" data-label="Status">
+                  <!-- <span *ngIf ="approved.is_approved == '0'" style="background-color: orange;">Pending</span> -->
+                  <!-- <span *ngIf ="approved.is_approved == '1'" style="background-color: green;">Approved</span> -->
+                  <!-- <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span> -->
+                  <span *ngIf ="ondelivery.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
+                  <!-- <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
+  
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" (click)="openCorBreakDown(ondelivery)">View</button>
+                  <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+        </mat-tab>
+
+        <mat-tab >
+          <ng-template mat-tab-label>
+            <mat-icon>done_all</mat-icon>&nbsp;Delivered
+          </ng-template>
+
+
+                
+          <!-- delivered info -->
+          <div class="dashboard-bottom">
+          
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                
+                <!-- <div class="col col-4">Driver</div> -->
+                <div class="col col-4">Status</div>
+                
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let delivered of delivered">
+                <div class="col col-4" data-label="Order Code">{{delivered.code}}</div>
+                <div class="col col-4" data-label="Customer">{{delivered.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{delivered.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{delivered.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{delivered.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">{{delivered.total_price}}</div>
+                
+                <!-- <div class="col col-4" data-label="Driver">{{pending.driver}}</div> -->
+                <div class="col col-4" data-label="Status">
+                  <!-- <span *ngIf ="approved.is_approved == '0'" style="background-color: orange;">Pending</span> -->
+                  <!-- <span *ngIf ="approved.is_approved == '1'" style="background-color: green;">Approved</span> -->
+                  <!-- <span *ngIf ="pending.is_approved == '2'" style="background-color: red;">Cancelled</span> -->
+                  <!-- <span *ngIf ="ondelivery.is_approved == '3'" style="background-color: yellow;">On Delivery</span> -->
+                  <span *ngIf ="delivered.is_approved == '4'" style="background-color: blue;">Delivered</span>
+  
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" (click)="openCorBreakDown(delivered)">View</button>
+                  <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+
+
+
+
+
+
+        
          
 
     </div>

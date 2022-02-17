@@ -346,6 +346,16 @@ mat-card {
 
 }
 
+.sliding{ 
+  width: 100%;
+}
+
+::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+
+  padding: 3px!important;
+
+ }
+
 @media only screen and (min-width: 481px) and (max-width:768px) {
     mat-sidenav {
         width: 200px;
