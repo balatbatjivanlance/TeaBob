@@ -92,7 +92,10 @@
           </div> -->
       
           
-          <button class="button" (click)="updateFood()">Update Product</button>
+          <button mat-raised-button  class="button" (click)="updateFood()"
+          [disabled]="!food_name || !food_description || !food_active || !food_featured
+          || !food_category || !food_price || !food_stocks">
+          Update Product</button>
           <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
       
           

@@ -3,7 +3,7 @@
 <input id="driver-fname" type="text"></input> -->
 
 
-<form ngNativeValidate (submit)="onSubmit($event)">
+<!-- <form ngNativeValidate (submit)="onSubmit($event)">
     <label for="driver_fname">First name:</label>
     <input type="text" id="fname" name="fname" required><br><br>
 
@@ -20,4 +20,45 @@
     <input type="password" id="lname" name="lname" required><br><br>
 
     <input type="submit" value="Submit">
-</form>
+</form> -->
+
+<div class="container">
+
+    <div class="status-container">
+        
+        <div class="status-title">Driver Profile</div><br>
+
+    
+        <div class="user-details">
+        <form ngNativeValidate (submit)="onSubmit($event)">
+        <div class="input-box">
+    
+            <span class="details">First Name</span>
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+        </div>
+        <div class="input-box">
+    
+            <span class="details">Last Name</span>
+            <input type="text" id="lname" name="lname" placeholder="Last Name"  required>
+        </div>
+        <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" id="lname" name="lname" placeholder="Example: driver@gmail.com"  required>
+        </div>
+        <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="lname" name="lname" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" id="lname" name="lname" required>
+        </div>
+    
+        
+        <!-- <button mat-raised-button color="primary" class="btn">Add Driver</button> -->
+        <input mat-raised-button class="btn" type="submit" value="Submit">
+    
+    </form>
+        </div>
+    </div>
+    </div>

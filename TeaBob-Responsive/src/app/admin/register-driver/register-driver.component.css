@@ -1,0 +1,186 @@
+
+
+
+mat-card {
+  overflow: auto;
+}
+
+.dashboardcontent {
+  padding: 10px;
+}
+
+.btn{
+  width: 100%;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  flex-direction: row;
+  background: #4B1F0E ;
+  color: white;
+  cursor: pointer;
+
+}
+
+
+.button {
+  width: 100%;
+  height: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 7px;
+  flex-direction: row;
+}
+
+.button mat-icon {
+  font-size: 22px;
+}
+
+.selected {
+  background-color: #794028;
+  color: #ffffff;
+}
+
+.user-profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+}
+
+/* END OF SIDENAV AND TOOLBAR CODE */
+
+
+/* INSERT YOUR NEW CODE HERE  */
+
+
+
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-container{
+  margin-bottom: 10px;
+  max-width: 700px;
+  background: rgb(255, 255, 255);
+  padding-left: 25px 30px;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+
+}
+.status-container .status-title{
+  font-size: 25px;
+  font-weight: 500;
+  padding: 10px 0 0 15px;
+}
+.status-container .status-title::before{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  background:linear-gradient(135deg, #71b7e6, #9b59b6);
+  left: 0;
+  bottom: 0;
+
+}
+
+
+
+.user-details .input-box{
+  width: 90%;
+  padding: 0 0 0 15px;
+  
+}
+.user-details .input-box .details{
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+/* animations */
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #7a7a7a;
+  
+}
+.button:hover{
+  cursor: pointer;
+  background: #efc3a4;
+  color:rgb(0, 0, 0);
+}
+
+
+@media (max-width: 1280px){
+  .container{
+    /* background-color: red; */
+    height: 100vh;
+  }
+
+
+  .status-container{
+      width: 100%;
+      height: 70%;
+      /* background-color: red; */
+      display: grid;
+
+  }
+
+
+
+
+  .user-details::-webkit-scrollbar{
+      width:0;
+  }
+  .button{
+    margin-right: 7%;
+}
+.btn{
+  width: 100%;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 90%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0%;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  /* background-color: yellow; */
+}
+}
+  
+  
+  
+
+

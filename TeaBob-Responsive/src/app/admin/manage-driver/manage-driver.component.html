@@ -84,7 +84,7 @@
       <div class="container">
   
         <div class="dashboard-bottom">
-          <button (click)="openModal()" >Add Driver</button>
+          
             <ul class="responsive-table">
               <li class="table-header">
                 <div class="col col-4">Driver ID</div>
@@ -93,6 +93,7 @@
                 <div class="col col-4">Driver Status</div>
                 <div class="col col-4">Action</div>
               </li>
+              <button (click)="openModal()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Driver</button><br><br>
               <li class="table-row" *ngFor = "let driver of driver">
                 <div class="col col-3" data-label="Driver ID" >{{driver.driver_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{driver.driver_name}}</div>

@@ -36,6 +36,7 @@ export class RegisterDriverComponent implements OnInit {
       });
       
       Swal.fire('Register Successfully')
+      window.location.reload();
     }
     else
     {

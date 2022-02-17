@@ -179,7 +179,7 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="openCorBreakDown(pending)">View</button>
+                  <button mat-raised-button color="primary" (click)="ViewandApproved(pending)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
                 </div>
               </li>
@@ -233,7 +233,7 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="openCorBreakDown(approved)">View</button>
+                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(approved)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
                 </div>
               </li>
@@ -282,7 +282,7 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="openCorBreakDown(ondelivery)">View</button>
+                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(ondelivery)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
                 </div>
               </li>
@@ -334,7 +334,7 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="openCorBreakDown(delivered)">View</button>
+                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(delivered)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
                 </div>
               </li>

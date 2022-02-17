@@ -44,9 +44,9 @@ export class UpdateFoodComponent implements OnInit {
     this.food_price = this.food_payload[0].food_price;
     this.food_stocks = this.food_payload[0].food_stocks;
     this.food_description = this.food_payload[0].food_description;
-    this.food_category = this.food_payload[0].food_category;
-    this.food_active = this.food_payload[0].food_active;
-    this.food_featured = this.food_payload[0].food_featured;
+    // this.food_category = this.food_payload[0].food_category;
+    // this.food_active = this.food_payload[0].food_active;
+    // this.food_featured = this.food_payload[0].food_featured;
     }
     )
   }

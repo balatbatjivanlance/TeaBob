@@ -280,10 +280,4 @@ export class AddProductComponent implements OnInit {
 
 
 
-
-  // onSubmit() {
-
-  // }
-
-
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ViewOrdersComponent } from '../view-orders/view-orders.component';
+import { ViewOrdersOnlyComponent } from '../view-orders-only/view-orders-only.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -169,9 +170,19 @@ pullSales() {
 }
 
 
-openCorBreakDown(dashboard: any) {
+ViewandApproved(dashboard: any) {
   // console.log(code);
   const dialogRef = this.dialog.open(ViewOrdersComponent , {
+    height: '70%',
+    width: '60%',
+    data: 
+    dashboard
+  });
+}
+
+ViewOrdersOnly(dashboard: any) {
+  // console.log(code);
+  const dialogRef = this.dialog.open(ViewOrdersOnlyComponent , {
     height: '70%',
     width: '60%',
     data: 

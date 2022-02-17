@@ -55,6 +55,7 @@ import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
 import { ReportComponent } from './admin/report/report.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ViewOrdersOnlyComponent } from './admin/view-orders-only/view-orders-only.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     ViewOrderComponent,
     ManageDriverComponent,
     ReportComponent,
+    ViewOrdersOnlyComponent,
   ],
   imports: [
     BrowserModule,

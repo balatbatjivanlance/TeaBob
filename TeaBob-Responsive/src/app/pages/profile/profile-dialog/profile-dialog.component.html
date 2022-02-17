@@ -54,7 +54,9 @@
         <input matInput type="text"  [(ngModel)]="user_address"/>
       </mat-form-field>
     
-    <button class="button" (click)="updateProfile()">Save Profile</button>
+    <button mat-raised-button class="button" (click)="updateProfile()"
+    [disabled]="!user_name || !user_lname || !user_name || !user_uname || !user_contact || !user_address"
+    >Save Profile</button>
     
 </div>
 

@@ -17,6 +17,19 @@ export class UpdateAddonsComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullAddons();
+    this.pullCategory();
+  }
+
+    
+  category: any;
+
+  pullCategory(){
+    this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
+    this.category = data.payload;
+
+    console.log(this.category)
+    })
+  
   }
 
   addoninfo: any = {};
@@ -25,6 +38,7 @@ export class UpdateAddonsComponent implements OnInit {
   addon_name: any;
   addon_price: any;
   addon_stocks: any;
+  addon_category: any;
 
   pullAddons() {
     this.addoninfo.addon_id = this.data.addon_id;
@@ -57,6 +71,7 @@ export class UpdateAddonsComponent implements OnInit {
    this.addoninfo.addon_name =  this.addon_name
    this.addoninfo.addon_price =  this.addon_price
    this.addoninfo.addon_stocks =  this.addon_stocks
+   this.addoninfo.category_id =  this.addon_category
 
     this.ds.sendApiRequest("updateAddons/" + id, this.addoninfo).subscribe((data: { payload: any; }) => {});
 
