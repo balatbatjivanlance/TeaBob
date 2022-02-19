@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'view-order',
     loadChildren: () => import('./pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
-  },  {
+  },
+  {
     path: 'conclude-order',
     loadChildren: () => import('./pages/conclude-order/conclude-order.module').then( m => m.ConcludeOrderPageModule)
   }

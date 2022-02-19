@@ -131,6 +131,7 @@
 		public function sendPayload($payload, $remarks, $message, $code) {
 			$status = array("remarks"=>$remarks, "message"=>$message);
 			http_response_code($code);
+		
 			return array(
 				"status"=>$status,
 				"payload"=>$payload,

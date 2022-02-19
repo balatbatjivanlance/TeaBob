@@ -475,6 +475,97 @@ public function pullSales ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+public function deliveryToday ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 4";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function driverDelivery ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function cancelledToday ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 2";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function stocksToday ($d) {
+
+	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code WHERE tbl_checkout.checkout_date >= CURDATE() AND tbl_cocode.is_approved != 0";
+
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function profitToday ($d) {
+	// $sql = "SELECT SUM(total_price)AS total_price FROM tbl_cocode WHERE is_approved = 4 AND last_updated >= CURDATE()";
+	$sql = "SELECT * FROM tbl_checkout WHERE checkout_date >= CURDATE()";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
 public function pullHistory ($d) {
 
 	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (2,4,5) ORDER BY cocode_id DESC";
