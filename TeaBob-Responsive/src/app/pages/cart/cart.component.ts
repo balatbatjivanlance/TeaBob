@@ -188,6 +188,8 @@ export class CartComponent implements OnInit {
           // this.coInfo.add_spicy = item.add_spicy
           this.coInfo.food_quantity = item.food_quantity
           this.coInfo.user_id = localStorage.getItem('id')
+          this.coInfo.food_id = item.food_id
+          this.coInfo.size_id = item.size_id
           this.coInfo.prod_price = item.cart_total_price
           this.coInfo.user_name = localStorage.getItem('Fullname')
           this.coInfo.user_contact = localStorage.getItem('user_Contact')
@@ -197,8 +199,8 @@ export class CartComponent implements OnInit {
           this.coInfo.cart_id = item.cart_id
           this.coInfo.remarks = this.remarks;
 
-          this.coInfo.food_stocks = item.food_stocks - item.food_quantity;
-          // this.coInfo.size_stocks = item.size_stocks - item.food_quantity;
+          this.coInfo.food_stocks = item.food_stocks
+          this.coInfo.size_stocks = item.size_stocks
           // this.coInfo.addon_stocks = item.addon_stocks - item.food_quantity;
           // console.log(this.coInfo.size_stocks)
           // console.log(this.coInfo.addon_stocks)
@@ -213,6 +215,7 @@ export class CartComponent implements OnInit {
 
         this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
         this.router.navigate(['/status']);
+        console.log(this.coInfo.food_id)
       }
     }
 

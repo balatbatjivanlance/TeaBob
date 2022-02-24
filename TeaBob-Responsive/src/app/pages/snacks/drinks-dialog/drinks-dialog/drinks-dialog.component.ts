@@ -143,12 +143,14 @@ export class DrinksDialogComponent implements OnInit {
 
   selectedSizePrice: any;
   selectedSizeName: any;
+  selectedSizeId: any;
 
   selectChangeHandlerSize(event: any) {
     // console.log(event.target[0].value);
     this.isDisabled = false;
     this.selectedSizePrice = event.target.value.split(',')[0];
     this.selectedSizeName = event.target.value.split(',')[1];
+    this.selectedSizeId = event.target.value.split(',')[2];
 
     let checkboxadddonsPrice: any = sessionStorage.getItem('lastPrice');
     // console.log(checkboxadddonsPrice);
@@ -287,6 +289,7 @@ export class DrinksDialogComponent implements OnInit {
     this.prodInfo.cart_addon_name = addons;
     this.prodInfo.size_price = this.selectedSizePrice;
     this.prodInfo.size_name = this.selectedSizeName;
+    this.prodInfo.size_id = this.selectedSizeId;
     // this.prodInfo.add_sauce = 0;
     // this.prodInfo.add_spicy = 0;
     // this.prodInfo.add_pearl = this.extraPearl;

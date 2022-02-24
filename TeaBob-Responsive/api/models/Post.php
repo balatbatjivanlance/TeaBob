@@ -285,14 +285,11 @@ class Post{
             //tbl_food
             $food_stocks[] = $dt[$i]->food_stocks;
             //tbl_size
-            // $size_stocks[] = $dt[$i]->size_stocks;
-            // //tbl_addons
-            // $addon_stocks[] = $dt[$i]->addon_stocks;
+            $size_stocks[] = $dt[$i]->size_stocks;
+
             $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
             $val2[] = "('$code[$i]',  '$total_price[$i]',  '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
-            $val3[] = "('$food_stocks[$i]')";
-            // $val4[] = "('$size_stocks[$i]')";
-            // $val5[] = "('$addon_stocks[$i]')";
+            
         }
 
             //insert the data on the checkout table
@@ -308,21 +305,38 @@ class Post{
 
                     for ($j= 0 ; $j < sizeof($dt); $j++){
                         $cart_id[] = $dt[$j]->cart_id;
+                        $food_id [] = $dt[$j]->food_id;
+                        $size_id[] = $dt[$j]->size_id;
+                        $food_qty[]  = $dt[$j]->food_quantity; 
+
                         $this->sql = "DELETE FROM tbl_cart WHERE cart_id = '$cart_id[$j]'";
                         $this->pdo->query($this->sql);
-                    }
+ 
+                        if($this->pdo->query($this->sql)){
+                            $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
+                            $this->pdo->query($this->sql);
+                        }
+                        if($size_id[$j] != null){
+                            $this->sql = "UPDATE tbl_size SET size_stocks = size_stocks - $food_qty[$j] WHERE size_id = $size_id[$j]";
+                            $this->pdo->query($this->sql);
+                            
+                        }
 
-                    if($this->pdo->query($this->sql)) {
-                        $this->sql = "UPDATE tbl_food (food_stocks) VALUES $val3[0]";
-                        return array("code"=>200, "remarks"=>"success");
-                        // if($this->pdo->query($this->sql)) {
-                        //     $this->sql = "UPDATE tbl_size (size_stocks) VALUES $val4[0]";
-                        //     if($this->pdo->query($this->sql)) {
-                        //         $this->sql = "UPDATE tbl_addon (addon_stocks) VALUES $val5[0]";
-                        //         // return array("code"=>200, "remarks"=>"success");
-                        //     }
-                        // }
                     }
+                    return array("code"=>200, "remarks"=>"success");
+                      
+                    // if($this->pdo->query($this->sql)) {
+                        
+                    //     for ($i = 0; $i < sizeof($dt); $i++){
+                            
+                    //         $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$i] WHERE food_id = $food_id[$i]";
+                    //         return $this->sql;
+                    //         // $this->pdo->query($this->sql)
+                    //     }
+                    //     return array("code"=>200, "remarks"=>"success");
+                    //     // $code = 200; $errmsg = null;
+                    // }
+                    
                 }
             }
         } catch (\PDOException $e) {

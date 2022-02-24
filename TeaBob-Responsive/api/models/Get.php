@@ -110,7 +110,8 @@ class Get{
     public function pullCart ($table, $filter_data) {
 	
 		$this->sql = "SELECT * FROM $table LEFT JOIN tbl_user 
-		ON $table.user_id = tbl_user.user_id LEFT JOIN tbl_food ON $table.food_id = tbl_food.food_id";
+		ON $table.user_id = tbl_user.user_id LEFT JOIN tbl_food ON $table.food_id = tbl_food.food_id
+		LEFT JOIN tbl_size ON $table.size_id = tbl_size.size_id";
 		
 		if($filter_data) {
 			$this->sql .= " WHERE tbl_user.user_id = $filter_data";
