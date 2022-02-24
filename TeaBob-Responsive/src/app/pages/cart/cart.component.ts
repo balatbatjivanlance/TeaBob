@@ -197,8 +197,11 @@ export class CartComponent implements OnInit {
           this.coInfo.cart_id = item.cart_id
           this.coInfo.remarks = this.remarks;
 
-          // this.coInfo.food_stocks = item.food_stocks - item.food_quantity;
-          // console.log(this.coInfo.food_stocks)
+          this.coInfo.food_stocks = item.food_stocks - item.food_quantity;
+          // this.coInfo.size_stocks = item.size_stocks - item.food_quantity;
+          // this.coInfo.addon_stocks = item.addon_stocks - item.food_quantity;
+          // console.log(this.coInfo.size_stocks)
+          // console.log(this.coInfo.addon_stocks)
           Swal.fire('Great!', 'Check out successfully!', 'success')
 
           {
@@ -221,6 +224,7 @@ export class CartComponent implements OnInit {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 
+}
 
   // food_info: any = {}
   // deleteAddOnsPearl = (id: any) => {
@@ -346,4 +350,4 @@ export class CartComponent implements OnInit {
   //   })
 
   // }
-}
+

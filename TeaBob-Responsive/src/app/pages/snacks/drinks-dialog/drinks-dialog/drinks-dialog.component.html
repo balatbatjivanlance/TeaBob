@@ -45,6 +45,7 @@
         >
           -</button
         ><button
+        [disabled]="!item_size"
           mat-raised-button
           color="primary"
           (click)="plusQty()"
@@ -97,8 +98,8 @@
                             *ngIf="addon.addon_stocks != '0'"
                             [disabled]="isDisabled"
                             value="{{ addon.addon_price }}"
-                            >{{ addon.addon_name }}</mat-checkbox
-                          >
+                            >{{ addon.addon_name }}</mat-checkbox>
+                          <!-- <span *ngIf="addon.addon_stocks != '0'" class="details">stocks:{{addon.addon_stocks}}</span> -->
                         </section>
                       </div>
 
@@ -131,7 +132,12 @@
       Add to Cart
     </button>
 
-    <!-- 
+ 
+  </div>
+</div>
+
+
+   <!-- 
         <ng-container  *ngFor="let addon of addon">
             <label class="container1">{{addon.addon_name}}
                 <input #addPearlCheckBox
@@ -191,5 +197,3 @@
           </mat-radio-group> -->
 
     <!-- </div> -->
-  </div>
-</div>

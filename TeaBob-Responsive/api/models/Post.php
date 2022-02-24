@@ -282,10 +282,17 @@ class Post{
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
             $user_address[] = $dt[$i]->user_address;
-            // $food_stocks[] = $dt[$i]->food_stocks;
+            //tbl_food
+            $food_stocks[] = $dt[$i]->food_stocks;
+            //tbl_size
+            // $size_stocks[] = $dt[$i]->size_stocks;
+            // //tbl_addons
+            // $addon_stocks[] = $dt[$i]->addon_stocks;
             $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
             $val2[] = "('$code[$i]',  '$total_price[$i]',  '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
-            // $val3[] = "('$food_stocks[$i]')";
+            $val3[] = "('$food_stocks[$i]')";
+            // $val4[] = "('$size_stocks[$i]')";
+            // $val5[] = "('$addon_stocks[$i]')";
         }
 
             //insert the data on the checkout table
@@ -304,7 +311,18 @@ class Post{
                         $this->sql = "DELETE FROM tbl_cart WHERE cart_id = '$cart_id[$j]'";
                         $this->pdo->query($this->sql);
                     }
-                    return array("code"=>200, "remarks"=>"success");
+
+                    if($this->pdo->query($this->sql)) {
+                        $this->sql = "UPDATE tbl_food (food_stocks) VALUES $val3[0]";
+                        return array("code"=>200, "remarks"=>"success");
+                        // if($this->pdo->query($this->sql)) {
+                        //     $this->sql = "UPDATE tbl_size (size_stocks) VALUES $val4[0]";
+                        //     if($this->pdo->query($this->sql)) {
+                        //         $this->sql = "UPDATE tbl_addon (addon_stocks) VALUES $val5[0]";
+                        //         // return array("code"=>200, "remarks"=>"success");
+                        //     }
+                        // }
+                    }
                 }
             }
         } catch (\PDOException $e) {

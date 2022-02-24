@@ -635,7 +635,7 @@ public function adminPullFood ($d) {
 }
 
 public function PullUserCount ($d) {
-	$sql = "SELECT * FROM tbl_user";
+	$sql = "SELECT * FROM tbl_user WHERE user_role = 1";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
