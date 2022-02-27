@@ -95,7 +95,6 @@
                           <mat-checkbox
                             (change)="onChangeDemo($event, addon.addon_name, addon.addon_price)"
                             class="example-margin"
-                            *ngIf="addon.addon_stocks != '0'"
                             [disabled]="isDisabled"
                             value="{{ addon.addon_price }}"
                             >{{ addon.addon_name }}</mat-checkbox>

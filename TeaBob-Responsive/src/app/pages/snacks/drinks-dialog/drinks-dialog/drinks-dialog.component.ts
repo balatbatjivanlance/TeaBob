@@ -62,8 +62,7 @@ export class DrinksDialogComponent implements OnInit {
     this.userinfo.user_id = localStorage.getItem('id');
     this.foodinfo.food_id = this.data.food_id;
     this.ds
-      .sendApiRequest('food_item/', this.foodinfo.food_id)
-      .subscribe((data: { payload: any }) => {
+      .sendApiRequest('food_item/', this.foodinfo.food_id).subscribe((data: { payload: any }) => {
         this.foods = data.payload;
 
         this.food_name = this.foods[0].food_name;
