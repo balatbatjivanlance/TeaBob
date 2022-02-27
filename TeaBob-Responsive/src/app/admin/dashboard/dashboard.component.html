@@ -261,6 +261,7 @@
                 
                 <!-- <div class="col col-4">Driver</div> -->
                 <div class="col col-4">Status</div>
+                <div class="col col-4">Driver Name</div>
                 
                 <div class="col col-4">Action</div>
               </li>
@@ -281,6 +282,7 @@
                   <!-- <span *ngIf ="pending.is_approved == '4'" style="background-color: blue;">Delivered</span> -->
   
                 </div>
+                <div class="col col-5" data-label="Price">{{ondelivery.driver}}</div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" (click)="ViewOrdersOnly(ondelivery)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->
@@ -313,6 +315,7 @@
                 
                 <!-- <div class="col col-4">Driver</div> -->
                 <div class="col col-4">Status</div>
+                <div class="col col-4">Driver Name</div>
                 
                 <div class="col col-4">Action</div>
               </li>
@@ -333,6 +336,7 @@
                   <span *ngIf ="delivered.is_approved == '4'" style="background-color: blue;">Delivered</span>
   
                 </div>
+                <div class="col col-5" data-label="Price">{{delivered.driver}}</div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" (click)="ViewOrdersOnly(delivered)">View</button>
                   <!-- <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(pending.code)">Delete</button> -->

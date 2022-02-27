@@ -24,6 +24,7 @@ export class ViewOrderPage implements OnInit {
   orderAccepted: any;
 
   cocode_id:number;
+  remarks: any;
 
   //element's variable sa baba
   //mga need mo madisplay sa frontend
@@ -47,6 +48,7 @@ export class ViewOrderPage implements OnInit {
     console.log(this.viewOrder);
     
     this.user_address = this.viewOrder.user_address;
+    this.remarks = this.viewOrder.remarks;
     this.user_name = this.viewOrder.user_name;
     this.user_contact = this.viewOrder.user_contact;
     this.date = this.viewOrder.date;

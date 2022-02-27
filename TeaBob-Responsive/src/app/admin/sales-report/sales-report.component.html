@@ -86,6 +86,12 @@
       </ul>
 
       <p >Deliveries made: {{total_deliveries}}</p>
+
+      <br>
+      <div *ngFor="let driver of driver_breakdown">
+        <p > {{driver.driver}} : {{driver.number_deliveries}}</p> 
+      </div>
+      
 <br>
       <p>deliveries cancelled: {{total_cancelled}}</p>
 

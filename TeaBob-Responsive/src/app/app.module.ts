@@ -53,7 +53,6 @@ import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderHistoryComponent } from './admin/view-order-history/view-order-history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
-import { ReportComponent } from './admin/report/report.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ViewOrdersOnlyComponent } from './admin/view-orders-only/view-orders-only.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
@@ -92,7 +91,6 @@ import { SalesReportComponent } from './admin/sales-report/sales-report.componen
     ViewOrderHistoryComponent,
     ViewOrderComponent,
     ManageDriverComponent,
-    ReportComponent,
     ViewOrdersOnlyComponent,
     SalesReportComponent,
   ],

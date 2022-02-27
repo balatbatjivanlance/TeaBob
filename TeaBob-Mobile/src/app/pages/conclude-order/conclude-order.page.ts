@@ -25,6 +25,7 @@ export class ConcludeOrderPage implements OnInit {
   cocode_id:number;
 
   selectedValue: any;
+  remarks: any;
 
   constructor(private toast: ToastController,private router: Router, public ds: DataService, private us: UserService, private alert: AlertController ) { 
 
@@ -33,6 +34,7 @@ export class ConcludeOrderPage implements OnInit {
     console.log(this.viewOrder);
     
     this.user_address = this.viewOrder.user_address;
+    this.remarks = this.viewOrder.remarks;
     this.user_name = this.viewOrder.user_name;
     this.user_contact = this.viewOrder.user_contact;
     this.date = this.viewOrder.date;

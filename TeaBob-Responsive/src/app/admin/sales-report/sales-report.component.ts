@@ -5,13 +5,20 @@ import { ViewOrdersComponent } from '../view-orders/view-orders.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
+interface LooseObject {
+  [key: string]: any
+}
 
 @Component({
   selector: 'app-sales-report',
   templateUrl: './sales-report.component.html',
   styleUrls: ['./sales-report.component.css']
 })
+
+
 export class SalesReportComponent implements OnInit {
+
 
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
@@ -76,13 +83,78 @@ deliveryToday(){
   this.total_deliveries = this.delivery.length;
 
     for (let i = 0; i < data.payload.length; i++) {
-      console.log(data.payload[i]);
+      console.log('Helo',data.payload[i]);
 
       this.profit += data.payload[i].total_price;
     }
-  })
+    //nagcall ako new function keycount()
+    //para di sama sama mga codes ko sa iisang function
+    //kmbaga eto yung signal na irurun mo na tong function na to
+    this.keycount();
+  });
+
+}
+
+driver_breakdown:any;
+driver_final:any;
+//eto siya
+keycount() {
+
+  //ngayon tong fileLicenses siya yung kukuha ng driver names sa json regardless kung nauulit o hindi
+  var fileLicenses = [];
+
+
+  //oo men push sa array palang
+  for ( var i = 0, arrLen = this.delivery.length; i < arrLen; ++i ) {
+      fileLicenses.push(this.delivery[i]["driver"]);
+  }
+
+  // console.log(fileLicenses);
+
+  var keyCount : LooseObject = {};
+
+
+  for(i = 0; i < fileLicenses.length; ++i) {
+    
+    if(!keyCount[fileLicenses[i]]){
+      keyCount[fileLicenses[i]] = 0;
+    }
+   
+      ++keyCount[fileLicenses[i]];
+  }
 
   
+  // ganto logic niya bale
+  // yung keyCount pag nagconsole log ka is ganto balue niya
+  // var feed = {bojo driver: 1, enzo driver: 1, jivan driver: 1};ganto siya
+  //pero di mo pa yan madidisplay sa html mo kasi di siya mkukuha sa for loop mo pero tama na yan
+
+var data = [];
+//tas ito gagawin mo to {bojo driver: 1, enzo driver: 1, jivan driver: 1}
+//para maging ganto {bojo driver: 1} {enzo driver: 1} {jivan driver: 1}
+//oo preeee
+// tapos pag nahimay mo na yan
+// push mo isa isa sa array
+//para enclosed with [] tingnan mo print [{},{},{}] ganto nakalagay
+
+// uu pre kaso sa snacks drinks and add ons
+
+
+  for(var key in keyCount){
+    // console.log(keyCount[key]);
+    // console.log(key);
+    var postdata = { driver: key, number_deliveries: keyCount[key]};
+  
+    data.push(postdata);
+ }
+
+
+//  console.log(data);
+  
+    // console.log(keyCount);
+    this.driver_breakdown = data;
+    console.log("Breakdown:",this.driver_breakdown);
+
 }
 
 // driver_deliveries : number = 0;
