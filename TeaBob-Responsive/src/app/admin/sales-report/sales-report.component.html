@@ -70,14 +70,111 @@
           <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
           <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
         </button>
-        <h1 style="color: #424242; font-size: 16px;">Dashboard</h1>
+        <h1 style="color: #424242; font-size: 16px;">Sales Report</h1>
   
         <span class="example-spacer"></span>
   
       </mat-toolbar>
 
+<!-- end of nav -->
 
 
+<div class="container">
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Profit</p>
+    </div>
+  </div>
+    <div class="newcontainer">
+      
+    <div class="table1">
+
+      
+      <table>
+
+        <tr  *ngFor = "let driver of driver">
+    
+        </tr>
+        
+        <tr *ngFor="let driver of driver_breakdown">
+        <th>{{driver.driver}}  </th>
+          <td> {{driver.number_deliveries}}</td>
+      
+        </tr>
+        <tr>
+          <th>Total Deliveries made: </th>
+            <td>{{total_deliveries}}</td>
+        
+          </tr>
+      </table>
+      
+
+
+</div>
+
+  <div class="table2">
+    <div class="table2half">
+    <table>
+
+      <tr>
+      <th>Drinks: </th>
+        <td>sample</td>
+    
+      </tr>
+      <tr>
+      <th>Snacks: </th>
+        <td>sample</td>
+    
+      </tr>
+      <tr>
+      <th>Add ons: </th>
+        <td>sample</td>
+    
+      </tr>
+      <tr>
+        <th>Total Profit:</th>
+          <td> {{profit| number : '1.2-2'}} </td>
+      
+        </tr>
+        
+    </table>
+  </div>
+  
+<div class="table2newhalf">
+
+  <div class="prodreduce">
+    <p>Product Reduced</p>
+  </div>
+  <table>
+
+    <tr>
+    <th>Drinks: </th>
+      <td>{{drinks}}</td>
+  
+    </tr>
+    <tr>
+    <th>Snacks: </th>
+      <td>{{snacks}}</td>
+  
+    </tr>
+    <tr>
+    <th>Add ons: </th>
+      <td>{{addons}}</td>
+  
+    </tr>
+  
+  </table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- 
       <p>Sales Report</p>
       <p>Date</p>
 <br>
@@ -107,4 +204,4 @@
       <p>Snacks: </p>
       <p>drinks</p>
       <p>add ons</p>
-      <p>total profit: {{profit| number : '1.2-2'}}</p>
+      <p>total profit: {{profit| number : '1.2-2'}}</p> -->
