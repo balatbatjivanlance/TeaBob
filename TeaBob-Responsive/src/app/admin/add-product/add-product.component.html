@@ -87,7 +87,7 @@
 
 
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="fill" >
             <mat-label>Product Name</mat-label>
             <input matInput type="text" [(ngModel)]="food_name" required/>
           </mat-form-field>
@@ -99,7 +99,7 @@
   
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
               [(ngModel)]="food_categoryactive" required>
@@ -110,7 +110,7 @@
             </select>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Featured</mat-label>
             <select matNativeControl name="featured" id="featured" (change)="selectChangeHandlerfeatured($event)"
               [(ngModel)]="food_categoryfeatured" required>
@@ -121,7 +121,7 @@
             </select>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Select Category</mat-label>
             <select matNativeControl name="category" id="category" (change)="selectChangeHandler($event)"
               [(ngModel)]="food_category" required>
@@ -133,7 +133,7 @@
 
 
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
             <mat-label>Product Price</mat-label>
             <input matInput type="number" [(ngModel)]="food_price" required/>
           </mat-form-field>
@@ -141,7 +141,7 @@
 
 
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
             <mat-label>Product Stocks</mat-label>
             <input matInput type="number" [(ngModel)]="food_stocks" required/>
           </mat-form-field>
@@ -168,12 +168,12 @@
 
         <div class="var-card">
     
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
             <mat-label>Add Ons Name</mat-label>
             <input matInput type="text" [(ngModel)]="addon_name" required/>
           </mat-form-field>
     
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
             <mat-label>Price</mat-label>
             <input matInput type="number" [(ngModel)]="addon_price" required/>
           </mat-form-field>
@@ -183,7 +183,7 @@
             <input matInput type="number" [(ngModel)]="addon_stocks" required/>
           </mat-form-field> -->
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;" >
             <mat-label>Select Category for Addons</mat-label>
             <select matNativeControl name="category" id="category" (change)="selectChangeHandlerAddon($event)"
               [(ngModel)]="addon_category" required>
@@ -208,17 +208,17 @@
 
   <div class="var-card">
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
       <mat-label>Size Name</mat-label>
       <input matInput type="text"  [(ngModel)]="size_name" required/>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
       <mat-label>Price</mat-label>
       <input matInput type="number"   [(ngModel)]="size_price" required/>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
       <mat-label>Stocks</mat-label>
       <input matInput type="number"  [(ngModel)]="size_stocks" required/>
     </mat-form-field>

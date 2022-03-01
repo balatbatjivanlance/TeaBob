@@ -55,7 +55,7 @@
               <input disabled type="number" class="input-number" placeholder="">
           </div> -->
           
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
             [(ngModel)]="food_active" required>
@@ -66,7 +66,7 @@
             </select>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Featured</mat-label>
             <select matNativeControl name="featured" id="featured" (change)="selectChangeHandlerfeatured($event)"
             [(ngModel)]="food_featured" required>
@@ -77,7 +77,7 @@
             </select>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
+          <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Select Category</mat-label>
             <select matNativeControl name="category" id="category"
               [(ngModel)]="food_category" required>

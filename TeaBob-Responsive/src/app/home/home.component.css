@@ -207,16 +207,28 @@ height: 300px;
 }
 
 .info{
-width: 100%;
-height: 20%;
-display: flex;
+  width: 100%;
+  height: 20%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.food-title{
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif ;
+  padding-top: 10px;
+  font-weight: bold;
+  color: #362417;
 }
 
-.desc {
-display: grid;
-width: 70%;
-padding: 10px 0px 0px 10px;
+.food-desc{
+  padding-left: 10px;
+  font-family: 'Poppins', sans-serif ;
+  text-align: center;
 }
+
+
 
 .button-view {
 display: flex;
