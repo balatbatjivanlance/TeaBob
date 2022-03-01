@@ -33,13 +33,16 @@
       <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
     </button>
     <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
-      <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+      <mat-icon>shopping_cart</mat-icon>&nbsp; Cart 
     </button>
     <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
       <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
     </button>
     <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">
       <mat-icon>account_box</mat-icon>&nbsp; Profile
+    </button>
+    <button mat-button class="button" routerLink="/aboutus"  *ngIf ="user_role == '1'">
+      <mat-icon>information</mat-icon>&nbsp; About Us
     </button>
     <button mat-button class="button" (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>&nbsp; Logout

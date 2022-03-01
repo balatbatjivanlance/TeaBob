@@ -40,7 +40,7 @@
         <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
       </button>
       <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
-        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart <span matBadge="{{cartCounter}}" matBadgeOverlap="false"></span>
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart
       </button>
       <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
@@ -66,7 +66,7 @@
           <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
           <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
         </button>
-        <h1 style="color: #424242; font-size: 16px;">Cart</h1>
+        <h1 style="color: #424242; font-size: 16px;">About Us</h1>
   
         <span class="example-spacer"></span>
   
@@ -81,46 +81,7 @@
             
     <div class="container">
 
-    <div class="product-container">
-    <div class="prodcard" *ngFor="let cart of cart_payload">
-        
-        <div class="image-container">
-            <img class="img-card" src="{{cart.food_image_name}}" alt="">
-        </div>
-
-
-        <div class="info">
-            <!-- <button class="addons-btn"><mat-icon>highlight_off</mat-icon></button> -->
-            <p class="item-content">  {{cart.food_name}}</p>  
-            <!-- <p class="item-content"> {{cart.food_description}}</p> -->
-            <!-- <p class="item-content" *ngIf="cart.add_pearl == '10'"> Pearl : {{cart.add_pearl | currency:'₱'}}<button (click)="deleteAddOnsPearl(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
-            <p class="item-content" *ngIf="cart.add_cpuff == '10'"> Cream Puff : {{cart.add_cpuff | currency:'₱'}}<button (click)="deleteAddOnsCpuff(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
-            <p class="item-content" *ngIf="cart.add_ccheese == '10'"> Cream Cheese : {{cart.add_ccheese | currency:'₱'}}<button (click)="deleteAddOnsCcheese(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>   
-            <p class="item-content" *ngIf="cart.add_cookie == '10'"> Cookie : {{cart.add_cookie | currency:'₱'}}<button (click)="deleteAddOnsCookie(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p>  
-            <p class="item-content" *ngIf="cart.add_sauce == '10'"> Sauce : {{cart.add_sauce | currency:'₱'}}<button (click)="deleteAddOnsSauce(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> 
-            <p class="item-content" *ngIf="cart.add_spicy == 'Spicy'">{{cart.add_spicy}}<button (click)="deleteAddOnsSpicy(cart.cart_id)" class="addons-btn"><mat-icon>highlight_off</mat-icon></button></p> -->
-            <p class="item-content" *ngIf="cart.size_price != ''">Size: {{cart.size_name}}</p>
-            <p class="item-content" *ngIf="cart.cart_addon_name != null">Add Ons: {{cart.cart_addon_name}}</p>
-            <p class="item-content">Pcs. {{cart.food_quantity}}</p>
-            <p class="item-content">₱ {{cart.cart_total_price}} </p> 
-          
-            <button class="button-act" (click)="delCart(cart.cart_id)" ><mat-icon>delete</mat-icon></button>
-            
-        </div>
-        
-    </div>
     
-</div>
-<div class="checkoutcontainer">
-<div class="checkout-but">
-    
-        <p>Total Amount of Payment: &nbsp;</p>
-        <p>₱ {{totalamount}}</p>
-   
-        <button  class="button-act" (click)="checkOutAll()"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button>
-
-</div>
-</div>
 
       </div>
     </div>

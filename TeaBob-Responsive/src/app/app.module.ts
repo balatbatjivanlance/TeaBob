@@ -41,6 +41,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgxPrintModule } from 'ngx-print';
+
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
 import { SampleComponentComponent } from './sample-component/sample-component.component';
@@ -56,6 +58,7 @@ import { ManageDriverComponent } from './admin/manage-driver/manage-driver.compo
 import {MatTabsModule} from '@angular/material/tabs';
 import { ViewOrdersOnlyComponent } from './admin/view-orders-only/view-orders-only.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 
 @NgModule({
@@ -93,6 +96,7 @@ import { SalesReportComponent } from './admin/sales-report/sales-report.componen
     ManageDriverComponent,
     ViewOrdersOnlyComponent,
     SalesReportComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,6 +120,7 @@ import { SalesReportComponent } from './admin/sales-report/sales-report.componen
     MatCheckboxModule,
     MatSnackBarModule,
     MatTabsModule,
+    NgxPrintModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -21,6 +21,7 @@ import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent},
   { path: 'view-order', component: ViewOrderComponent},
   { path: 'manage-driver', component: ManageDriverComponent},  
-  { path: 'sales', component: SalesReportComponent},
+  { path: 'sales', component: SalesReportComponent},  
+  { path: 'aboutus', component: AboutusComponent},
   
  
   { path: '', component: LandingComponent},

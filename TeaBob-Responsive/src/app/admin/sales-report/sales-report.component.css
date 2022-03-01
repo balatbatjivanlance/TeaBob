@@ -119,6 +119,17 @@
   th, td {
     padding: 15px;
   }
+  .print{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: #4B1F0E;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 30%;
+  }
   
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   
