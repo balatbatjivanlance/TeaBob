@@ -44,16 +44,11 @@
     /* padding-top: 100px; */
 }
 
-.add-ons{
-    display: flex;
-
-}
 
 .status-container{ 
-    /* background-color: red; */
     padding-left: 25px 30px;
     height: auto;
-    width: auto;
+    width: 100%;
 
 }
 
@@ -120,6 +115,7 @@
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
+
 
 .user-details .input-box{
     width: 100%;
@@ -287,7 +283,12 @@
     .add-ons  {
         display: grid;
         font-size: 20px;
+        /* background-color: red; */
       }
+
+ 
+
+
       .total{
           padding-top: 0%;
       }

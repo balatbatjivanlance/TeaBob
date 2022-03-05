@@ -83,8 +83,9 @@
                     <div class="card-order-info">
                         <div class="code">
                           <button  mat-raised-button color="primary" class="remarks"
-                          (click)="remarksAlert()"><mat-icon>!</mat-icon></button>
+                          (click)="remarksAlert(status.remarks)"><mat-icon>!</mat-icon></button>
                             <p>
+                              
                               
                                 <span>{{status.code}}</span>
                                 <span>{{status.date | date:'medium'}} </span>

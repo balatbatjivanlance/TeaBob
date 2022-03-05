@@ -23,10 +23,10 @@ export class SalesReportComponent implements OnInit {
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
   ngOnInit(): void {
-    this.cancelledToday();
+    // this.cancelledToday();
     this.deliveryToday();
     this.stocksToday();
-    this.driverDelivery();
+    // this.driverDelivery();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -170,28 +170,34 @@ driverDelivery() {
     })
 }
 
-total_cancelled: number = 0;
-cancelled: any = {};
-cancelledToday(){
+// total_cancelled: number = 0;
+// cancelled: any = {};
+// cancelledToday(){
   
-  this.ds.sendApiRequest("cancelledToday", null).subscribe((data: { payload: any; }) => {
-  this.cancelled = data.payload;
-  console.log(this.cancelled);
+//   this.ds.sendApiRequest("cancelledToday", null).subscribe((data: { payload: any; }) => {
+//   this.cancelled = data.payload;
+//   console.log(this.cancelled);
   
-this.total_cancelled = this.cancelled.length;
-  })
+// this.total_cancelled = this.cancelled.length;
+//   })
 
   
-}
+// }
 
 
 drinks:number=0;
 snacks:number=0;
 addons:number=0;
+
+drinks_profit:number=0;
+snacks_profit:number=0;
+addons_profit:number=0;
+stocks:any;
 stocksToday(){
   // dito niyo nalagn din kunin profit sa drinks snacks addons modify niyo nalang code para madalian kayo hahha
   this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
-  // console.log(data.payload);
+  console.log("Stcoks",data.payload);
+  this.stocks = data.payload;
 
     // Loop lahat ng obj sa json
     for (let i = 0; i < data.payload.length; i++) {
@@ -202,25 +208,33 @@ stocksToday(){
       if(data.payload[i].size_name){
         //add sa drinks var
         this.drinks+= data.payload[i].food_quantity;
+        console.log(data.payload[i].prod_price);
+        this.drinks_profit += data.payload[i].prod_price;
+    
        
         // check if may laman si addon
         //pag meron split pag may nakita na ',' then store sa arr variable tas count length
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
         
-          this.addons += addons.length;
+          this.addons += addons.length*data.payload[i].food_quantity;
+          this.addons_profit+= (addons.length*10)*data.payload[i].food_quantity;
+          this.drinks_profit = this.drinks_profit-((addons.length*10)*data.payload[i].food_quantity);
+          
+         
         }
       }
       else{
         //add sa snacks var
         this.snacks+= data.payload[i].food_quantity;
+        this.snacks_profit+= data.payload[i].prod_price;
 
         // check if may laman si addon
         //pag meron split pag may nakita na ',' then store sa arr variable tas count length
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
-          this.addons += addons.length;
-
+          this.addons += addons.length*data.payload[i].food_quantity;
+          this.addons_profit+= addons.length*10;
           // oks na jo
         }
         
@@ -228,7 +242,104 @@ stocksToday(){
       }
      
     }
+
+    this.items_keycount();
   });
+
+ 
 }
+
+
+drinks_breakdown:any;
+snacks_breakdown:any;
+
+  items_keycount() {
+    console.log("Stock",this.stocks);
+    var drinks = [];
+    var snacks2 = [];
+
+    
+
+
+    for ( var i = 0, arrLen = this.stocks.length; i < arrLen; ++i ) {
+       
+
+        if(this.stocks[i]['size_name']){
+            
+          
+          for(var j = 0; j < this.stocks[i]["food_quantity"]; j++){
+            drinks.push(this.stocks[i]["prod_name"]);
+          
+          }
+          
+         
+        }
+        else{
+
+          for(var j = 0; j < this.stocks[i]["food_quantity"]; j++){
+            snacks2.push(this.stocks[i]["prod_name"]);
+          }
+          
+         }
+    }
+
+    console.log(snacks2);
+    console.log(drinks);
+
+    var keyCount : LooseObject = {};
+
+
+    for(i = 0; i < drinks.length; ++i) {
+      
+      if(!keyCount[drinks[i]]){
+        keyCount[drinks[i]] = 0;
+      }
+    
+        ++keyCount[drinks[i]];
+    }
+
+    
+
+  var data = [];
+        for(var key in keyCount){
+          var drinks_arr = { snack: key, quantity: keyCount[key]};
+          
+            data.push(drinks_arr);
+      }
+
+      // console.log(data);
+
+      this.drinks_breakdown = data;
+
+
+      var keyCount : LooseObject = {};
+
+
+      for(i = 0; i < snacks2.length; ++i) {
+        
+        if(!keyCount[snacks2[i]]){
+          keyCount[snacks2[i]] = 0;
+        }
+      
+          ++keyCount[snacks2[i]];
+      }
+  
+      
+  
+    var data = [];
+          for(var key in keyCount){
+            var snacks_arr = { snack: key, quantity: keyCount[key]};
+          
+            data.push(snacks_arr);
+        }
+  
+   
+        this.snacks_breakdown = data;
+
+      console.log("Breakdown:",this.drinks_breakdown);
+      console.log("Breakdown:",this.snacks_breakdown);
+      // loop niyo nalang pre sa front end niyo haha
+
+  }
 
 }

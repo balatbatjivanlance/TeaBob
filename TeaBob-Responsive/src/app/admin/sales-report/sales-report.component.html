@@ -77,10 +77,13 @@
       </mat-toolbar>
 
 <!-- end of nav -->
-
-
-<div id="print" class="container">
+<div class="printbutton">
   <button printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+
+</div>
+<div id="print" class="container">
+
+  
   <div class="twotext">
     <div class="add-ons">
       <p>Deliveries</p>
@@ -101,7 +104,7 @@
         </tr>
         
         <tr *ngFor="let driver of driver_breakdown">
-        <th>{{driver.driver}}  </th>
+        <th>Rider: {{driver.driver}}  </th>
           <td> {{driver.number_deliveries}}</td>
       
         </tr>
@@ -122,22 +125,23 @@
 
       <tr>
       <th>Drinks: </th>
-        <td>sample</td>
+        <td>₱{{drinks_profit}}.00</td>
     
       </tr>
       <tr>
       <th>Snacks: </th>
-        <td>sample</td>
+        <td>₱{{snacks_profit}}.00</td>
+   
     
       </tr>
       <tr>
       <th>Add ons: </th>
-        <td>sample</td>
+        <td>₱{{addons_profit}}.00</td>
     
       </tr>
       <tr>
         <th>Total Profit:</th>
-          <td> {{profit| number : '1.2-2'}} </td>
+          <td> ₱{{profit| number : '1.2-2'}} </td>
       
         </tr>
         
@@ -153,17 +157,17 @@
 
     <tr>
     <th>Drinks: </th>
-      <td>{{drinks}}</td>
+      <td>{{drinks}} </td>
   
     </tr>
     <tr>
     <th>Snacks: </th>
-      <td>{{snacks}}</td>
+      <td>{{snacks}} </td>
   
     </tr>
     <tr>
     <th>Add ons: </th>
-      <td>{{addons}}</td>
+      <td>{{addons}} </td>
   
     </tr>
   
@@ -175,6 +179,15 @@
 </div>
 </div>
 
+<div *ngFor = "let snacks of snacks_breakdown">
+  <p>{{snacks.snack}}</p>
+  <p>{{snacks.quantity}}</p>
+</div>
+
+<div *ngFor = "let drinks of drinks_breakdown">
+  <p>{{drinks.snack}} : {{drinks.quantity}}</p>
+
+</div>
 <!-- 
       <p>Sales Report</p>
       <p>Date</p>
