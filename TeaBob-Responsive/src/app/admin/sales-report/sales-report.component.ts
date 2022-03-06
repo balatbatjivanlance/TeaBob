@@ -252,16 +252,38 @@ stocksToday(){
 
 drinks_breakdown:any;
 snacks_breakdown:any;
+addons_breakdown:any;
 
   items_keycount() {
     console.log("Stock",this.stocks);
     var drinks = [];
     var snacks2 = [];
+    var addons2 = [];
 
     
 
 
     for ( var i = 0, arrLen = this.stocks.length; i < arrLen; ++i ) {
+ 
+
+      if(this.stocks[i]["cart_addon_name"]){
+        let addons =  this.stocks[i].cart_addon_name.split(",");
+ 
+        // this.addons += addons.length*data.payload[i].food_quantity;
+
+        for(var j = 0; j < addons.length; j++){
+        
+                 
+          for(var k = 0; k < this.stocks[i]["food_quantity"]; k++){
+            addons2.push(addons[j]); 
+            
+          
+          }
+        }
+
+      }
+
+   
        
 
         if(this.stocks[i]['size_name']){
@@ -269,6 +291,7 @@ snacks_breakdown:any;
           
           for(var j = 0; j < this.stocks[i]["food_quantity"]; j++){
             drinks.push(this.stocks[i]["prod_name"]);
+            
           
           }
           
@@ -284,6 +307,7 @@ snacks_breakdown:any;
     }
 
     console.log(snacks2);
+    console.log(addons2);
     console.log(drinks);
 
     var keyCount : LooseObject = {};
@@ -339,6 +363,35 @@ snacks_breakdown:any;
       console.log("Breakdown:",this.drinks_breakdown);
       console.log("Breakdown:",this.snacks_breakdown);
       // loop niyo nalang pre sa front end niyo haha
+
+      var keyCount : LooseObject = {};
+
+
+      for(i = 0; i < addons2.length; ++i) {
+        
+        if(!keyCount[addons2[i]]){
+          keyCount[addons2[i]] = 0;
+        }
+      
+          ++keyCount[addons2[i]];
+      }
+  
+      
+  
+    var data = [];
+          for(var key in keyCount){
+            var addons_arr = { addons: key, quantity: keyCount[key]};
+            
+              data.push(addons_arr);
+        }
+  
+        // console.log(data);
+  
+        this.addons_breakdown = data;
+        console.log( this.addons_breakdown);
+  
+  
+       
 
   }
 
