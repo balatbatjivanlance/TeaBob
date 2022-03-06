@@ -59,6 +59,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ViewOrdersOnlyComponent } from './admin/view-orders-only/view-orders-only.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { ManageAdminComponent } from './admin/manage-admin/manage-admin.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
     ViewOrdersOnlyComponent,
     SalesReportComponent,
     AboutusComponent,
+    ManageAdminComponent,
   ],
   imports: [
     BrowserModule,

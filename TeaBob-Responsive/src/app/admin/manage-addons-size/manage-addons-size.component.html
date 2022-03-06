@@ -29,6 +29,9 @@
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
         <mat-icon>history</mat-icon>&nbsp; History
       </button>
+      <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'">
+        <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
+      </button>
       <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
         <mat-icon>motorcycle</mat-icon>&nbsp; Riders
       </button>

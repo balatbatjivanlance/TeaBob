@@ -452,6 +452,21 @@ class Post{
 			$message = $res['errmsg'];
 		}
     }
+//delete admin
+    public function delAdmin($d) {
+        $data = $d;
+        $user_id = $data->user_id;
+        $res = $this->gm->delete('tbl_user', $data, "user_id = '$user_id'");
+        if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+    }
 
     // // Delete Check
     // public function delCheck($d) {

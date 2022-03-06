@@ -157,8 +157,8 @@ export class CartComponent implements OnInit {
 
     const { value: text } = await Swal.fire({
       input: 'textarea',
-      inputLabel: 'Exact Location or Landmark Near You',
-      inputPlaceholder: 'Type here your exact location or where landmark you are near',
+      inputLabel: 'Landmark Near You',
+      inputPlaceholder: 'Ex: color of gate, near school, etc.',
       inputAttributes: {
         'aria-label': 'Type your message here'
       },

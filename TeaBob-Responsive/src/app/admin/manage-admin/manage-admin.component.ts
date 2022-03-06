@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
-import { RegisterDriverComponent } from '../register-driver/register-driver.component';
+import { AdminRegisterComponent } from '../admin-register/admin-register.component';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-manage-driver',
-  templateUrl: './manage-driver.component.html',
-  styleUrls: ['./manage-driver.component.css']
+  selector: 'app-manage-admin',
+  templateUrl: './manage-admin.component.html',
+  styleUrls: ['./manage-admin.component.css']
 })
-export class ManageDriverComponent implements OnInit {
+export class ManageAdminComponent implements OnInit {
 
   constructor( private ds: DataService ,public router: Router, public dialog: MatDialog ) { }
 
   ngOnInit(): void {
-    this.pullDriver();
+    this.pullUserAdmin();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -59,22 +58,22 @@ export class ManageDriverComponent implements OnInit {
     this.router.navigate(['/login']);
 }
 
-driver: any;
+admin: any;
 
-pullDriver() {
-this.ds.sendApiRequest("pullDriver", null).subscribe((data: { payload: any; }) => {
-  this.driver = data.payload;
+pullUserAdmin() {
+this.ds.sendApiRequest("pullUserAdmin", null).subscribe((data: { payload: any; }) => {
+  this.admin = data.payload;
 
 })
 
 }
 
-driverInfo: any  = {};
+adminInfo: any  = {};
 
-async delDriver(e:any) {
+async delAdmin(e:any) {
   
   Swal.fire({
-    title: 'Are you sure to fire this Driver?',
+    title: 'Are you sure to fire this Admin?',
     text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,
@@ -84,16 +83,16 @@ async delDriver(e:any) {
   }).then((result) => {
     if (result.isConfirmed) {
       
-      this.driverInfo.driver_id = e;
+      this.adminInfo.user_id = e;
 
-      this.ds.sendApiRequest("delDriver", JSON.parse(JSON.stringify(this.driverInfo))).subscribe((data: any) => {
+      this.ds.sendApiRequest("delAdmin", JSON.parse(JSON.stringify(this.adminInfo))).subscribe((data: any) => {
 
       });
       window.location.reload();
       
       Swal.fire(
-        'You`re Fired!',
-        'The Driver has been fired.',
+        'Deleted!',
+        'The Admin has been Deleted.',
         'success'
       )
     }
@@ -102,9 +101,9 @@ async delDriver(e:any) {
 }
 
 
-openModal() {
+openModalAdmin() {
 
-    const dialog = this.dialog.open(RegisterDriverComponent, {
+    const dialog = this.dialog.open(AdminRegisterComponent, {
       autoFocus: false, width:"50%", height:"70%",
     });
     dialog.afterClosed().subscribe( ()=>{
@@ -112,5 +111,6 @@ openModal() {
   
 
 }
+
 
 }

@@ -652,6 +652,22 @@ public function PullUserCount ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+public function pullUserAdmin ($d) {
+	$sql = "SELECT * FROM tbl_user WHERE user_role = 0";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
 // Driver Functions
 
 public function PullApproved () {

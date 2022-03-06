@@ -100,8 +100,7 @@ export class LoginComponent implements OnInit {
         //   text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
         // })
         Swal.fire({
-          title: 'Login Successfully!',
-          text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!',
+          title: 'Verified Successfully!',
           icon: 'success'
         }
         );
@@ -119,7 +118,7 @@ export class LoginComponent implements OnInit {
         return this.router.navigate(['/home']);
 
       default:
-          return this.router.navigate(['/home']);
+          return this.router.navigate(['/login']);
     }
   }
 

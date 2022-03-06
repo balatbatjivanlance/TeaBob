@@ -20,6 +20,7 @@ import { RegisterDriverComponent } from './admin/register-driver/register-driver
 import { HistoryComponent } from './admin/history/history.component';
 import { ViewOrderComponent } from './home/view-order/view-order.component';
 import { ManageDriverComponent } from './admin/manage-driver/manage-driver.component';
+import { ManageAdminComponent } from './admin/manage-admin/manage-admin.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent},
   { path: 'view-order', component: ViewOrderComponent},
   { path: 'manage-driver', component: ManageDriverComponent},  
+  { path: 'manage-admin', component: ManageAdminComponent}, 
   { path: 'sales', component: SalesReportComponent},  
   { path: 'aboutus', component: AboutusComponent},
   

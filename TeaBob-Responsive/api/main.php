@@ -107,6 +107,15 @@
 						echo json_encode($get->pullUsers($d), JSON_PRETTY_PRINT);
 					}
 				break;
+				// Pull data of the user admin
+				case 'pullUserAdmin':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+                    if(count($req)>1) {
+						echo json_encode($get->pullUserAdmin($d), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullUserAdmin($d), JSON_PRETTY_PRINT);
+					}
+				break;
 				// Pull cart items function
 				case 'cart':
 					if(count($req)>1) {
@@ -493,6 +502,10 @@
 					case 'delDriver':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->delDriver($d), JSON_PRETTY_PRINT);
+					break;
+					case 'delAdmin':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						echo json_encode($post->delAdmin($d), JSON_PRETTY_PRINT);
 					break;
 
 					// case 'updatefood':

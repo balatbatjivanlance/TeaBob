@@ -1,9 +1,9 @@
-<app-landing-nav></app-landing-nav>
+
 <body>
     
 
 <div class="register-container">
-    <div class="register-title">Registration</div>
+    <div class="register-title">Admin Registration</div>
     <div class="user-details">
     <div class="input-box">
         <span class="details">First Name</span>
@@ -15,7 +15,7 @@
     </div>
     <div class="input-box">
         <span class="details">Email Address</span>
-        <input type="text" placeholder="Email Address" [(ngModel)]="user_uname">
+        <input type="email" placeholder="Email Address" [(ngModel)]="user_uname">
     </div>
     <div class="input-box">
         <span class="details">Contact no.</span>
@@ -34,6 +34,8 @@
         <input type="password" placeholder="Confirm Password" [(ngModel)]="user_Confpword">
     </div>
 </div>
-    <button class="button" (click)="regUser()">Register</button>
+    <button mat-raised-button class="button" (click)="regUser()"
+    [disabled]="!user_name|| !user_uname || !user_lname || !user_contact || !user_address || !user_pword || !user_Confpword"
+    title="Fill up the Form">Register</button>
 
 </div></body>

@@ -15,7 +15,7 @@ export class AdminRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  OTP:any;
   userInfo: any = {};
   user_name: any;
   user_lname: any;
@@ -36,16 +36,40 @@ export class AdminRegisterComponent implements OnInit {
     this.userInfo.user_Confpword = this.user_Confpword;
 
 
+    this.OTP = this.makeid(5);
+    this.userInfo.user_otp = this.OTP;
+
+
     this.ds.sendApiRequest("regUser", JSON.parse(JSON.stringify(this.userInfo))).subscribe((data: any) => {
     });
 
     Swal.fire('Register Successfully')
-    this.router.navigate(['/login']);
+    this.mail();
+    // this.router.navigate(['/login']);
     }
     
     else
     Swal.fire('Password did not match!')
 
   }
+
+
+  public mail(){
+   
+    this.ds.sendApiRequest("mailer", {email: this.user_uname, body: "hello", OTP:this.OTP}).subscribe((res: { payload: null; }) => {
+      console.log(res.payload);
+    });
+  }
+
+  makeid(length:number) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
 
 }

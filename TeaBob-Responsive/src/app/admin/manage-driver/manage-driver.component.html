@@ -32,6 +32,9 @@
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
         <mat-icon>history</mat-icon>&nbsp; History
       </button>
+      <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'">
+        <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
+      </button>
       <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
         <mat-icon>motorcycle</mat-icon>&nbsp; Riders
       </button>
@@ -89,16 +92,18 @@
               <li class="table-header">
                 <div class="col col-4">Driver ID</div>
                 <div class="col col-4">Driver Name</div>
+                <div class="col col-4">Driver Contact</div>
                 <div class="col col-4">Driver Email</div>
-                <div class="col col-4">Driver Status</div>
+                <!-- <div class="col col-4">Driver Status</div> -->
                 <div class="col col-4">Action</div>
               </li>
               <button (click)="openModal()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Driver</button><br><br>
               <li class="table-row" *ngFor = "let driver of driver">
                 <div class="col col-3" data-label="Driver ID" >{{driver.driver_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{driver.driver_name}}</div>
+                <div class="col col-3" data-label="Driver Name" >{{driver.driver_contact}}</div>
                 <div class="col col-3" data-label="Driver Email" >{{driver.driver_email}}</div>
-                <div class="col col-3" data-label="Driver Status" >Status Here</div>
+                <!-- <div class="col col-3" data-label="Driver Status" >Status Here</div> -->
                 <!-- <div class="col col-3" data-label="Status"> -->
                   <!-- <span *ngIf ="driver.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
                   <span *ngIf ="driver.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
