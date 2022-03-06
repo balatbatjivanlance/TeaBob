@@ -20,17 +20,17 @@ export class RegisterDriverComponent implements OnInit {
     
      let driver_fname = event.target[0].value;
      let driver_lname = event.target[1].value;
+    //  let driver_contact = event.target[2].value;
      let driver_email = event.target[2].value;
-     let driver_contact = event.target[3].value;
-     let driver_password = event.target[4].value;
-     let driver_confirmpassword = event.target[5].value;
+     let driver_password = event.target[3].value;
+     let driver_confirmpassword = event.target[4].value;
 
     if (driver_password == driver_confirmpassword) 
     {
       this.ds.sendApiRequest("registerDriver", {
         driver_fname,
         driver_lname,
-        driver_contact,
+        // driver_contact,
         driver_email,
         driver_password
       }).subscribe((data: any) => {
