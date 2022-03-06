@@ -198,14 +198,9 @@ mat-card {
         justify-content: flex-start;
         align-items: flex-start;
     }
+
     
-    .container {
-        margin-top: 100px;
-    }
-    
-    .container-title-left {
-        width: 100%;
-    }
+
     
     .user-card {
         width: 350px;
@@ -231,13 +226,14 @@ mat-card {
 
 
   .container{
-      background-color: #ffffff;
+      /* background-color: red; */
+      background-color: #f9f9f9;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 100vh;
-
+      
   }
   .dib {
     margin-top: 100px;
@@ -249,9 +245,10 @@ mat-card {
   }
 
   .category_container{
-    margin-top: 5%;
+    margin-top: 3%;
     display: flex;
     justify-content: center;
+    background-color: #f9f9f9;
   }
   .dib h1 {
       font-size: 40px;
@@ -265,7 +262,8 @@ mat-card {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-
+      /* background-color: beige; */
+      flex-wrap: wrap;
   }
   .product-container > div{
       margin: 10px;

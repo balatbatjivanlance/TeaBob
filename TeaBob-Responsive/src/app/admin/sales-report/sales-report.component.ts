@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ViewOrdersComponent } from '../view-orders/view-orders.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { MatAccordion } from '@angular/material/expansion';
+
 import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
+
+
 interface LooseObject {
   [key: string]: any
 }
@@ -18,7 +22,9 @@ interface LooseObject {
 
 
 export class SalesReportComponent implements OnInit {
+ 
 
+  
 
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
@@ -40,6 +46,8 @@ export class SalesReportComponent implements OnInit {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
+
+
 
   mouseenter() {
     if (!this.isExpanded) {

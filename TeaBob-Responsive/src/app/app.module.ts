@@ -42,6 +42,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxPrintModule } from 'ngx-print';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
@@ -123,6 +124,7 @@ import { ManageAdminComponent } from './admin/manage-admin/manage-admin.componen
     MatSnackBarModule,
     MatTabsModule,
     NgxPrintModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

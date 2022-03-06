@@ -1,5 +1,5 @@
 
-<body>
+
     
 
 <div class="register-container">
@@ -19,7 +19,11 @@
     </div>
     <div class="input-box">
         <span class="details">Contact no.</span>
-        <input type="number" class="input-number" placeholder="eg.09*********" [(ngModel)]="user_contact">
+        <input type="number" class="input-number"  placeholder="eg.09*********" [(ngModel)]="user_contact" 
+            oninput="javascript: 
+                if (this.value.length > this.maxLength)
+                    this.value = this.value.slice(0, this.maxLength);"
+                        maxlength = "11">
     </div>
     <div class="input-box">
         <span class="details">Address</span>
@@ -38,4 +42,4 @@
     [disabled]="!user_name|| !user_uname || !user_lname || !user_contact || !user_address || !user_pword || !user_Confpword"
     title="Fill up the Form">Register</button>
 
-</div></body>
+</div>

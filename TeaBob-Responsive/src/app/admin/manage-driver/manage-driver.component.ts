@@ -105,7 +105,7 @@ async delDriver(e:any) {
 openModal() {
 
     const dialog = this.dialog.open(RegisterDriverComponent, {
-      autoFocus: false, width:"50%", height:"70%",
+      autoFocus: false, width:"50%", height:"83%",
     });
     dialog.afterClosed().subscribe( ()=>{
     });

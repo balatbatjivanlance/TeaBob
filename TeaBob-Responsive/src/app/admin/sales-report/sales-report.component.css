@@ -372,7 +372,7 @@
   .table2{
     width: 50%;
     height: 650px;
-    overflow-y:auto;
+    /* overflow-y:scroll; */
     
 /* background-color: rgb(94, 94, 94); */
 
@@ -390,8 +390,33 @@
     /* background-color: rgb(19, 19, 19); */
   }
 
+
   .prodreduce p{
     margin-top: 20px;
     font-size: 25px;
     font-weight: 700;
+  }
+
+  /* material accordion */
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-action-buttons {
+    padding-bottom: 20px;
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-title,
+  .example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .example-headers-align .mat-form-field + .mat-form-field {
+    margin-left: 8px;
   }

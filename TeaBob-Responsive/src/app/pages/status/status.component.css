@@ -59,6 +59,7 @@ mat-sidenav-container,
 mat-sidenav-content {
   height: 100%;
   background-color: #f9f9f9;
+  margin: 0;
 }
 
 mat-sidenav {

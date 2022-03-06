@@ -22,7 +22,7 @@
     <input type="submit" value="Submit">
 </form> -->
 
-<div class="container">
+
 
     <div class="status-container">
         
@@ -44,7 +44,11 @@
         <div class="input-box">
     
             <span class="details">Contact Number</span>
-            <input type="number" id="driver_contact" name="driver_contact" placeholder="Example: 09*********"  required>
+            <input type="number" id="driver_contact" name="driver_contact" placeholder="Example: 09*********"  required
+                oninput="javascript: 
+                    if (this.value.length > this.maxLength)
+                        this.value = this.value.slice(0, this.maxLength);"
+                            maxlength = "11">
         </div>
         <div class="input-box">
             <span class="details">Email</span>
@@ -66,4 +70,4 @@
     </form>
         </div>
     </div>
-    </div>
+ 
