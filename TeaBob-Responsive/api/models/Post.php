@@ -109,6 +109,31 @@ class Post{
       
     }
 
+        // Update Profile
+        public function verifyUser($dt) {
+            // print_r($dt);
+            $code = 401;
+            $payload = null;
+            $remarks = "failed";
+            $message = "Unable to retrieve data";
+         
+            $dt->is_verified = 1;
+
+            $res = $this->gm->update('tbl_user', $dt, "user_id = $dt->user_id && user_otp = '$dt->user_otp'");
+           
+            return $res;
+            if($res['code']==200) {
+                $code = 200;
+                $payload = $res['payload'];
+                $remarks = "success";
+                $message = "Successfully retrieved data";
+            }
+            return $this->gm->sendPayload($payload, $remarks, $message, $code);
+          
+           
+          
+        }
+
         // Update cart
      public function updateCart($dt) {
             $code = 401;
@@ -323,6 +348,7 @@ class Post{
                         }
 
                     }
+                  
                     return array("code"=>200, "remarks"=>"success");
                       
                     // if($this->pdo->query($this->sql)) {

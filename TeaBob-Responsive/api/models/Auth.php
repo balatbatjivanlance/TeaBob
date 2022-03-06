@@ -68,6 +68,7 @@
 		}
 
 		public function regUser($dt){
+			
 			$payload = "";
 			$remarks = "";
 			$message = "";
@@ -79,8 +80,8 @@
                 'pword'=>$this->encrypt_password($dt->user_pword)
             );
 
-            $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword, user_role) 
-                           VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword', '$dt->user_role')";
+            $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword, user_role, user_otp) 
+                           VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword', '$dt->user_role', '$dt->user_otp')";
                      
 
                            $data = array(); $code = 0; $errmsg= ""; $remarks = "";
@@ -123,13 +124,14 @@
 					$user_contact =$res['data'][0]['user_contact'];
 					$user_address = $res['data'][0]['user_address'];
 					$user_role = $res['data'][0]['user_role'];
+					$is_verified = $res['data'][0]['is_verified'];
 		
 				
 
 					$code = 200;
 					$remarks = "success";
 					$message = "Logged in successfully";
-					$payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role);
+					$payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role, "is_verified"=>$is_verified);
 				} else {
 					$payload = null; 
 					$remarks = "failed"; 

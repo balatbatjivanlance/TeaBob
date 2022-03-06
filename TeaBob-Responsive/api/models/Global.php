@@ -88,7 +88,7 @@
 					}
 
 					$sqlstr .= " WHERE ".$conditionStringPassed;
-				
+					// print_r($sqlstr);
 					$sql = $this->pdo->prepare($sqlstr);
 					$sql->execute($values);
 					return array("code"=>200, "payload"=>$values, "remarks"=>"success");

@@ -1,5 +1,6 @@
 <?php 
 	require_once("./config/Config.php");
+	require_once("./models/mail.php");
 
 	$db = new Connection();
 	$pdo = $db->connect();
@@ -7,6 +8,7 @@
 	$post = new Post($pdo);
 	$get = new Get($pdo);
 	$auth = new Auth($pdo);
+	$mail = new Mailer($pdo);
 
 	if (isset($_REQUEST['request'])) {
 		$req = explode('/', rtrim($_REQUEST['request'], '/'));
@@ -203,6 +205,11 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateProfile($d), JSON_PRETTY_PRINT);
 				break;
+
+				case 'verifyUser':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->verifyUser($d), JSON_PRETTY_PRINT);
+				break;
 					// remove addons
 				case 'removeAddOns':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -240,6 +247,11 @@
 					} else {
 						echo json_encode($get->pullAddOnsDrinks($req[0], null), JSON_PRETTY_PRINT);
 					}
+				break;
+
+				case 'mailer':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					print_r($mail->mailer($d));
 				break;
 				// case 'pullSizeUser':
 				// 	if(count($req)>1) {
