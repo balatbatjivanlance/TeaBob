@@ -44,6 +44,7 @@ export class AdminRegisterComponent implements OnInit {
     });
 
     Swal.fire('Register Successfully')
+    window.location.reload();
     this.mail();
     // this.router.navigate(['/login']);
     }

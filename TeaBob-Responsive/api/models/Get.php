@@ -430,7 +430,7 @@ public function pullApprovedOrders ($d) {
 }
 
 public function pullOndelivery ($d) {
-	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (1) ORDER BY cocode_id DESC";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (3) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {

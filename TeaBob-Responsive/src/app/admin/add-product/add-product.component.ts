@@ -259,7 +259,7 @@ export class AddProductComponent implements OnInit {
       confirmButtonText: 'Add'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigate(['/manage-size']);
+        this.router.navigate(['/manage-addons']);
         Swal.fire(
           'Add Successfully!',
           'Your product has been added.',
