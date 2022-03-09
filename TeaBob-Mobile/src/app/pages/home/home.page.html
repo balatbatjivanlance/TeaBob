@@ -4,12 +4,6 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Orders</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
-      </ion-button>
-      <ion-badge color="danger">1</ion-badge>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +15,8 @@
       </ion-avatar>
       <ion-label>
         <h1>{{driver_name}}</h1>
-        <p>Deliveries made: <span class="deliveries_made">{{driver_deliveries}} Deliveries</span></p>
+        <p *ngIf="driver_deliveries == 0">No Deliveries yet</p>
+        <p *ngIf="driver_deliveries != 0">Deliveries made: <span class="deliveries_made">{{driver_deliveries}} Deliveries</span></p>
       </ion-label>
     </ion-item>
   </ion-list>

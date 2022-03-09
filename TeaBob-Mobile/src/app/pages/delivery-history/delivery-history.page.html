@@ -7,13 +7,6 @@
     
     <ion-title>Delivery History</ion-title>
 
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
-      </ion-button>
-      <ion-badge color="danger">1</ion-badge>
-    </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
@@ -30,7 +23,7 @@
           Delivered
           <p>Receipt code: {{done.code}}</p>
           <p>Customer: {{done.user_name}}</p>
-          <p>Order placed: {{done.date}}</p>         
+          <p>Delivered on: {{done.last_updated}}</p>         
         </ion-label>
         <ion-label *ngIf="done.is_approved == 2">
           Cancelled
