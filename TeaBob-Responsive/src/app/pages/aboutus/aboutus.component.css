@@ -121,88 +121,116 @@ mat-card {
 
 /* INSERT YOUR NEW CODE HERE  */
 
+
 .container{
-  height: 100vh;
   width: 100%;
-  display: grid;
-  /* background-color: red; */
+  height: 100vh;
+  /* background-color: red;   */
+
+
 }
 
-.logo-container{
-  height: 50vh;
+.icon1 , .icon2{
+  padding-right: 10px;
+
+}
+.two-container{
+  display: flex;
+  /* margin-top: 100px; */
+  height: 100%;
   width: 100%;
+  /* margin-bottom: 100px; */
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+}
+.first{
+  width: 100%;
+  margin-top: 100px;
+  height: 65%;
+  /* background-color: yellow; */
+
+  border-right: 1px solid rgb(151, 151, 151);
+}
+
+.first-first{
   display: grid;
   align-items: center;
   justify-content: center;
-  /* background-color: blue; */
+
+}
+.first-second{
+  padding-left: 50px;
+  margin-top: 50px;
 }
 .tealogo{
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 300px;
+  height: 250px;
 }
-
-.aboutus-container{
-  height: 50vh;
-  /* background-color: yellow;  */
-
+.second{
   width: 100%;
-  /* border-top: 1px solid rgb(151, 151, 151); */
-}
-
-.aboutus-title{
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 30px;
-  padding-top: 5px;
-}
-
-.aboutus-content{
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  padding-left: 20px;
-  padding-top: 5px;
-}
-.aboutus-content2{
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  padding-left: 20px;
-  padding-top: 5px;
-}
-.aboutus-content p{
-  text-indent: 50px;
-  line-height: 1.8;
+  height: 65%;
+  margin-top: 80px;
+  /* background-color: gray; */
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 1.5;
   word-spacing: 8px;
 }
-
-.footer {
-  height: 100px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  /* background-color: red; */
-  color: white;
-  text-align: center;
+.first-content{
+  font-size: 18px;
+  text-align: justify;
+  text-indent: 50px;
+  /* background-color: #ddd; */
 }
 
 
-@media (max-width:1024px) {
+@media (max-width:1024px){
   .container{
     width: 100%;
+    background-color: #f9f9f9;
     height: 100%;
-    background-color: red;
-    display: grid;
-    align-items: center;
-    justify-content: center;
   }
-  .aboutus-content{
-    width: 90%;
-    background-color: rgb(124, 124, 124);
+
+  .two-container{
     display: grid;
-    align-items: center;
+    width: 100%;
+  
+  }
+  .first{
+    /* background-color: yellow; */
+    width: 99%;
+    height:50%;
+    display: grid;
     justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    border: none;
+  }
+
+  .second{
+    /* background-color: green; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .first-content{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(151, 151, 151);
+    /* background-color: #ddd; */
+  }
+
+  .second-content2{
+    padding-top: 5px;
+
   }
 }
