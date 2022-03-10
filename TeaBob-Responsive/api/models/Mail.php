@@ -19,7 +19,7 @@ use PHPMailer\PHPMailer\Exception;
         print_r($d);
 
         $receiver = $d->email;
-        $subj = 'TEABOB';
+        $subj = 'TEABOB Verification Code for your account';
         $content = $d->OTP;
 
         $mail = new PHPMailer(true);
