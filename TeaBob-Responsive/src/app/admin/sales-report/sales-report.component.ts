@@ -86,12 +86,12 @@ deliveryToday(){
   
   this.ds.sendApiRequest("deliveryToday", null).subscribe((data: { payload: any; }) => {
   this.delivery = data.payload;
-  console.log("delivery:",this.delivery);
+  // console.log("delivery:",this.delivery);
   
   this.total_deliveries = this.delivery.length;
 
     for (let i = 0; i < data.payload.length; i++) {
-      console.log('Helo',data.payload[i]);
+      // console.log('Helo',data.payload[i]);
 
       this.profit += data.payload[i].total_price;
     }
@@ -161,7 +161,7 @@ var data = [];
   
     // console.log(keyCount);
     this.driver_breakdown = data;
-    console.log("Breakdown:",this.driver_breakdown);
+    // console.log("Breakdown:",this.driver_breakdown);
 
 }
 
@@ -170,7 +170,7 @@ driver: any;
 driverDelivery() {
     this.ds.sendApiRequest("driverDelivery", null).subscribe((data: { payload: any; }) => {
     this.driver = data.payload;
-    console.log(this.driver);
+    // console.log(this.driver);
     
     // var keyCount  = Object.keys(data.payload).length;
       
@@ -204,7 +204,7 @@ stocks:any;
 stocksToday(){
   // dito niyo nalagn din kunin profit sa drinks snacks addons modify niyo nalang code para madalian kayo hahha
   this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
-  console.log("Stcoks",data.payload);
+  // console.log("Stcoks",data.payload);
   this.stocks = data.payload;
 
     // Loop lahat ng obj sa json
@@ -216,7 +216,7 @@ stocksToday(){
       if(data.payload[i].size_name){
         //add sa drinks var
         this.drinks+= data.payload[i].food_quantity;
-        console.log(data.payload[i].prod_price);
+        // console.log(data.payload[i].prod_price);
         this.drinks_profit += data.payload[i].prod_price;
     
        
@@ -263,7 +263,7 @@ snacks_breakdown:any;
 addons_breakdown:any;
 
   items_keycount() {
-    console.log("Stock",this.stocks);
+    // console.log("Stock",this.stocks);
     var drinks = [];
     var snacks2 = [];
     var addons2 = [];
@@ -314,9 +314,9 @@ addons_breakdown:any;
          }
     }
 
-    console.log(snacks2);
-    console.log(addons2);
-    console.log(drinks);
+    // console.log(snacks2);
+    // console.log(addons2);
+    // console.log(drinks);
 
     var keyCount : LooseObject = {};
 
@@ -368,8 +368,8 @@ addons_breakdown:any;
    
         this.snacks_breakdown = data;
 
-      console.log("Breakdown:",this.drinks_breakdown);
-      console.log("Breakdown:",this.snacks_breakdown);
+      // console.log("Breakdown:",this.drinks_breakdown);
+      // console.log("Breakdown:",this.snacks_breakdown);
       // loop niyo nalang pre sa front end niyo haha
 
       var keyCount : LooseObject = {};
@@ -396,7 +396,7 @@ addons_breakdown:any;
         // console.log(data);
   
         this.addons_breakdown = data;
-        console.log( this.addons_breakdown);
+        // console.log( this.addons_breakdown);
   
   
        

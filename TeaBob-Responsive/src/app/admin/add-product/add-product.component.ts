@@ -74,7 +74,7 @@ export class AddProductComponent implements OnInit {
     this.ds.sendApiRequest("products", null).subscribe((data: { payload: any; }) => {
     this.product = data.payload;
 
-    console.log(this.product)
+    // console.log(this.product)
     })
   
   }
@@ -85,7 +85,7 @@ export class AddProductComponent implements OnInit {
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
 
-    console.log(this.category)
+    // console.log(this.category)
     })
   
   }
@@ -95,7 +95,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandleractive (event: any){
     this.selectedCategactive = event.target.value;
 
-    console.log(this.selectedCategactive);
+    // console.log(this.selectedCategactive);
   }
 
 
@@ -104,7 +104,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandlerfeatured (event: any){
     this.selectedCategfeatured = event.target.value;
 
-    console.log(this.selectedCategfeatured);
+    // console.log(this.selectedCategfeatured);
   }
 
 
@@ -115,7 +115,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandler (event: any){
     this.selectedCateg = event.target.value;
 
-    console.log(this.selectedCateg);
+    // console.log(this.selectedCateg);
 
     // if (this.selectedCateg == '24')
     // {
@@ -133,7 +133,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandlerAddon (event: any){
     this.selectedCategAddon = event.target.value;
 
-    console.log(this.selectedCategAddon);
+    // console.log(this.selectedCategAddon);
 
     // if (this.selectedCateg == '24')
     // {
@@ -151,7 +151,7 @@ export class AddProductComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any) =>{
         this.imgSrc = event.target.result;
-        console.log(this.imgSrc);
+        // console.log(this.imgSrc);
       }
     }
   }

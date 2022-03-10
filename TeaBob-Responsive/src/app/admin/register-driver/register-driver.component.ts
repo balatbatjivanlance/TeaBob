@@ -34,7 +34,7 @@ export class RegisterDriverComponent implements OnInit {
         driver_email,
         driver_password
       }).subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
       });
       
       Swal.fire('Register Successfully')

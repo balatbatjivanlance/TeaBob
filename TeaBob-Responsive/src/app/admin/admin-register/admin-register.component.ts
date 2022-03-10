@@ -58,7 +58,7 @@ export class AdminRegisterComponent implements OnInit {
   public mail(){
    
     this.ds.sendApiRequest("mailer", {email: this.user_uname, body: "hello", OTP:this.OTP}).subscribe((res: { payload: null; }) => {
-      console.log(res.payload);
+      // console.log(res.payload);
     });
   }
 

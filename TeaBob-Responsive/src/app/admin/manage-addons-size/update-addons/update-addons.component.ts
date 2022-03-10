@@ -27,7 +27,7 @@ export class UpdateAddonsComponent implements OnInit {
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
 
-    console.log(this.category)
+    // console.log(this.category)
     })
   
   }

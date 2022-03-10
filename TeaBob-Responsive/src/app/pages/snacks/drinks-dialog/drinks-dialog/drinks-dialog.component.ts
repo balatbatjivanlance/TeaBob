@@ -132,7 +132,7 @@ export class DrinksDialogComponent implements OnInit {
       }
       let arr = this.addOnArray.toString()
       sessionStorage.setItem('addonname', arr)
-      console.log(this.addOnArray);
+      // console.log(this.addOnArray);
     } else {
       this.openSnackBar('Please Choose Size First');
     }
@@ -161,15 +161,15 @@ export class DrinksDialogComponent implements OnInit {
           (parseInt(this.selectedSizePrice) + checkboxadddonsPrice);
         // console.log('here1');
       } else {
-        console.log(typeof this.selectedSizeName);
-        console.log(this.selectedSizeName);
-        console.log(this.size);
+        // console.log(typeof this.selectedSizeName);
+        // console.log(this.selectedSizeName);
+        // console.log(this.size);
         let i = 0;
         for (i = 0; i < this.size.length; i++) {
-          console.log(this.size[i]);
+          // console.log(this.size[i]);
           if (this.selectedSizeName == ' ' + this.size[i].size_name) {
-            console.log(this.food_price);
-            console.log(this.size[i].size_price);
+            // console.log(this.food_price);
+            // console.log(this.size[i].size_price);
 
             let j: any = sessionStorage.getItem('price');
 
@@ -214,18 +214,18 @@ export class DrinksDialogComponent implements OnInit {
       this.food_qty -= 1;
     } else {
 
-      console.log(this.addOnArray);
+      // console.log(this.addOnArray);
 
       if (this.addOnArray.length > 0) {
-        console.log("here");
+        // console.log("here");
         let price: any = sessionStorage.getItem('price');
         // if (this.priceArr.length ===  1){
         //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
         // }
-        console.log(price);
+        // console.log(price);
         this.food_total = (parseInt(this.selectedSizePrice) * this.food_qty) + (this.food_qty * this.food_price) + (parseInt(price) * this.food_qty);
       } else {
-        console.log("here2");
+        // console.log("here2");
 
         this.food_total = (this.food_qty * this.food_price) + (this.food_qty * parseInt(this.selectedSizePrice));
       }
@@ -243,13 +243,13 @@ export class DrinksDialogComponent implements OnInit {
     // console.log(this.addOnChecker);
 
     if (this.addOnArray.length) {
-      console.log(this.food_total);
+      // console.log(this.food_total);
       
       // this.food_total -=;
       let price: any = sessionStorage.getItem('price');
 
-      console.log(this.selectedSizePrice*this.food_qty);
-      console.log((this.food_price + parseInt(price))*this.food_qty);
+      // console.log(this.selectedSizePrice*this.food_qty);
+      // console.log((this.food_price + parseInt(price))*this.food_qty);
 
 
       this.food_total = (parseInt(this.selectedSizePrice)*this.food_qty) + this.food_qty * this.food_price + parseInt(price) * this.food_qty;

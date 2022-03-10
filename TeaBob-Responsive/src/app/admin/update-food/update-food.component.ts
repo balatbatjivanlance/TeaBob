@@ -58,7 +58,7 @@ export class UpdateFoodComponent implements OnInit {
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
 
-    console.log(this.category)
+    // console.log(this.category)
     })
   
   }
@@ -68,7 +68,7 @@ export class UpdateFoodComponent implements OnInit {
   selectChangeHandleractive (event: any){
     this.selectedCategactive = event.target.value;
 
-    console.log(this.selectedCategactive);
+    // console.log(this.selectedCategactive);
   }
 
 
@@ -77,7 +77,7 @@ export class UpdateFoodComponent implements OnInit {
   selectChangeHandlerfeatured (event: any){
     this.selectedCategfeatured = event.target.value;
 
-    console.log(this.selectedCategfeatured);
+    // console.log(this.selectedCategfeatured);
   }
 
   
@@ -89,7 +89,7 @@ export class UpdateFoodComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any) =>{
         this.imgSrc = event.target.result;
-        console.log(this.imgSrc);
+        // console.log(this.imgSrc);
       }
     }
   }

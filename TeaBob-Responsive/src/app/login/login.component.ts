@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     await this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: any | null; }) => {
 
-        console.log(res.payload);
+        // console.log(res.payload);
         this.user_id = res.payload.user_id;
 
       if (res.payload == null) {
@@ -85,9 +85,9 @@ export class LoginComponent implements OnInit {
   }
 
   verify(otp:any){
-    console.log( this.user_id);
+    // console.log( this.user_id);
     this.ds.sendApiRequest("verifyUser", {user_otp:otp, user_id:this.user_id}).subscribe((res: { payload: any | null; }) => {
-      console.log(res.payload);
+      // console.log(res.payload);
       if(res.payload){
         window.localStorage.setItem("Fullname", res.payload.Fullname);
         window.localStorage.setItem("id", res.payload.user_id);

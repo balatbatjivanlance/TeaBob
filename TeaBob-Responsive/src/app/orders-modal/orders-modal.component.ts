@@ -17,7 +17,7 @@ export class OrdersModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullCheckoutDetails();
-    console.log(this.status)
+    // console.log(this.status)
   }
 
   corNumInfo: any = {};
@@ -30,7 +30,7 @@ export class OrdersModalComponent implements OnInit {
     this.ds.sendApiRequest("pullCodeDetails", this.status.code).subscribe((data: { payload: any; }) => {
       this.details = data.payload;
 
-      console.log(this.details);
+      // console.log(this.details);
 
     })
   }

@@ -71,7 +71,7 @@ export class ManageProductComponent implements OnInit {
       this.ds.sendApiRequest("adminfood", null).subscribe((data: { payload: any; }) => {
         this.adminfood = data.payload;
         
-        console.log(this.adminfood);
+        // console.log(this.adminfood);
       })
     
   }

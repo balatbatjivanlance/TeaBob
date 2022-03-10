@@ -91,7 +91,7 @@ export class CartComponent implements OnInit {
       .sendApiRequest('cart/' + localStorage.getItem('id'), null)
       .subscribe((data: { payload: any }) => {
         this.cart_payload = data.payload
-        console.log('cart_payload', this.cart_payload)
+        // console.log('cart_payload', this.cart_payload)
         this.getTotal()
 
         // if(this.cart != null){
@@ -124,7 +124,7 @@ export class CartComponent implements OnInit {
       .substring(1)
     this.code = seq
 
-    console.log(this.code)
+    // console.log(this.code)
   }
 
   totalamount = 0
@@ -215,7 +215,7 @@ export class CartComponent implements OnInit {
 
         this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
         this.router.navigate(['/status']);
-        console.log(this.coInfo.food_id)
+        // console.log(this.coInfo.food_id)
       }
     }
 

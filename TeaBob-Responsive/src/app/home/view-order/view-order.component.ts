@@ -39,7 +39,7 @@ export class ViewOrderComponent implements OnInit {
   pullFoodFeatured(){
     this.ds.sendApiRequest("foodfeatured/", null).subscribe((data: { payload: any; }) => {
     this.foods = data.payload;
-    console.log(this.foods);
+    // console.log(this.foods);
     })
   }
 

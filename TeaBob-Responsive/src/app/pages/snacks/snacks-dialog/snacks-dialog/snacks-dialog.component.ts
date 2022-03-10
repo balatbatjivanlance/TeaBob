@@ -108,7 +108,7 @@ export class SnacksDialogComponent implements OnInit {
     }
     let arr = this.addOnArray.toString()
     sessionStorage.setItem('addonname', arr)
-    console.log( this.addOnArray)
+  //  console.log( this.addOnArray)
   }
 
   
@@ -137,7 +137,7 @@ export class SnacksDialogComponent implements OnInit {
       // this.prodInfo.add_sauce = this.extraSauce;
       // this.prodInfo.add_spicy = this.spicySauce;
   
-      console.log(this.prodInfo)
+      // console.log(this.prodInfo)
       this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
         if (data.remarks === "success"){
           Swal.fire(
@@ -165,7 +165,7 @@ export class SnacksDialogComponent implements OnInit {
         // if (this.priceArr.length ===  1){
         //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
         // }
-        console.log(price);
+        // console.log(price);
         this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
 
       }else {

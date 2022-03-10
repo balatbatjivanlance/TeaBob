@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
   pullFoodFeatured(){
     this.ds.sendApiRequest("foodfeatured/", null).subscribe((data: { payload: any; }) => {
     this.foods = data.payload;
-    console.log(this.foods);
+    // console.log(this.foods);
     })
   }
 
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
       autoFocus: false, width:"70%", height:"50%"
     });
     dialog.afterClosed().subscribe( ()=>{
-      console.log("closed")
+      // console.log("closed")
     });
   
   }

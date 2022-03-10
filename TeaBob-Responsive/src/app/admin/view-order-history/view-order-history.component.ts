@@ -18,7 +18,7 @@ export class ViewOrderHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.pullCodeDetails();
     // this.pullCoCodeDetails();
-    console.log(this.status)
+    // console.log(this.status)
   }
 
   

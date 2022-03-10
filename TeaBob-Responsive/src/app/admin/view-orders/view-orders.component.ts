@@ -19,7 +19,7 @@ export class ViewOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.pullCodeDetails();
     // this.pullCoCodeDetails();
-    console.log(this.status)
+    // console.log(this.status)
   }
 
   corNumInfo: any = {};
@@ -104,7 +104,7 @@ export class ViewOrdersComponent implements OnInit {
       }
     })
     this.dialog.closeAll();
-    console.log(this.codeinfo.is_approved)
+    // console.log(this.codeinfo.is_approved)
   }
 
 

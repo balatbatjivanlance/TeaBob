@@ -72,7 +72,7 @@ export class ManageAddonsSizeComponent implements OnInit {
     this.ds.sendApiRequest("pullAddOns", null).subscribe((data: { payload: any; }) => {
     this.addons = data.payload;
 
-    console.log(this.addons)
+    // console.log(this.addons)
     })
   
   }
@@ -92,7 +92,7 @@ export class ManageAddonsSizeComponent implements OnInit {
     this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
     this.size = data.payload;
 
-    console.log(this.size)
+    // console.log(this.size)
     })
   
   }
