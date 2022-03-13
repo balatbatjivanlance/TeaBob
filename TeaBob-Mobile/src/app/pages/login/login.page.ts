@@ -19,6 +19,13 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  ionViewDidEnter(){
+    console.log("hello");
+    if(this.us.isUserLoggedIn()){
+      this.router.navigate(['/home']);
+    }
+  
+  }
 
   async presentToast(msg) {
     const toast = await this.toastController.create({
@@ -52,7 +59,8 @@ export class LoginPage implements OnInit {
       {
         this.us.saveDriver(this.login.payload.Fullname);
 
-        
+        this.us.setUser();
+
         this.presentToast("Login success");
         this.router.navigate(["/home"]);
 

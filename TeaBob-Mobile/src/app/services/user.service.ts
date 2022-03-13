@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   public driver_name: string = "";
+  isLoggedIn: boolean = false;
 
   saveDriver(driver_name:string) 
   {
@@ -21,4 +22,17 @@ export class UserService {
   }
 
   constructor() { }
+
+  setUserLoggedOut(): void {
+    this.isLoggedIn = false;
+  }
+
+  setUser() {
+    this.isLoggedIn = true;
+
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.isLoggedIn;
+  }
 }

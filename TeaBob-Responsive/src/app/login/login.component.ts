@@ -14,6 +14,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewChecked(){
+    console.log("hello");
+    if(this.ds.isUserLoggedIn()){
+      this.router.navigate(['/home']);
+    }
+  
+  }
 
   user_id:any;
 

@@ -55,8 +55,6 @@ export class HomeComponent implements OnInit {
   logout(){
     localStorage.clear();
     window.localStorage.removeItem('id');
-    //etong line 60 lang
-    //basta may logout lagay niyo to oo pre 
     this.ds.setUserLoggedOut();
     this.router.navigate(['/login']);
 }

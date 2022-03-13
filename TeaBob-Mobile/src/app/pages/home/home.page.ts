@@ -23,6 +23,7 @@ export class HomePage implements OnInit {
   }
 
   ionViewDidEnter(){
+   
   //console.log("hello");
     // console.log(this.us.getDriver());
     this.driver_name = this.us.getDriver();
