@@ -77,6 +77,7 @@ export class LoginComponent implements OnInit {
           icon: 'success'
         }
         );
+        this.ds.setUser();
         }
         
    
@@ -86,15 +87,15 @@ export class LoginComponent implements OnInit {
 
   verify(otp:any){
     // console.log( this.user_id);
-    this.ds.sendApiRequest("verifyUser", {user_otp:otp, user_id:this.user_id}).subscribe((res: { payload: any | null; }) => {
-      // console.log(res.payload.user_otp);
-      if(res.payload){
-        window.localStorage.setItem("Fullname", res.payload.Fullname);
-        window.localStorage.setItem("id", res.payload.user_id);
-        window.localStorage.setItem("user_Contact", res.payload.user_Contact);
-        window.localStorage.setItem("user_Address", res.payload.user_Address);
-        window.localStorage.setItem("user_role", res.payload.user_role);
-        this.checkRole(res.payload.user_role);
+    this.ds.sendApiRequest("verifyUser", {user_otp:otp, user_id:this.user_id}).subscribe((res: { payload: any | null; status:any|null }) => {
+      console.log(res.payload);
+      if(res.status.remarks == 'success'){
+        // window.localStorage.setItem("Fullname", res.payload.Fullname);
+        // window.localStorage.setItem("id", res.payload.user_id);
+        // window.localStorage.setItem("user_Contact", res.payload.user_Contact);
+        // window.localStorage.setItem("user_Address", res.payload.user_Address);
+        // window.localStorage.setItem("user_role", res.payload.user_role);
+        // this.checkRole(res.payload.user_role);
         // Swal.fire({
         //   title: 'Login Successfully!',
         //   text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
@@ -102,6 +103,14 @@ export class LoginComponent implements OnInit {
         Swal.fire({
           title: 'Verified Successfully!',
           icon: 'success'
+        }
+        );
+
+        this.loginUser();
+      }else{
+        Swal.fire({
+          title: 'Wrong Code',
+          icon: 'warning'
         }
         );
       }

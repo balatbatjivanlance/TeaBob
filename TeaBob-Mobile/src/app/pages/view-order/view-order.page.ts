@@ -122,7 +122,7 @@ export class ViewOrderPage implements OnInit {
       {
        cocode_id:this.cocode_id,
        is_approved: 3,
-       driver: this.us.getDriver()
+       driver: this.us.getDriver(),
       }
       ).subscribe((data: { payload: any }) => {
         

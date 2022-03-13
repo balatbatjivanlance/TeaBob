@@ -17,7 +17,7 @@
 				"typ"=>"JWT",
 				"alg"=>'HS256',
 				"app"=>"Mark-IT",
-				"dev"=>"Diestro, Aquino, Laguisma"
+				"dev"=>"Balatbat, Laguatan, Santos"
 			];
 			return str_replace(['+','/','='],['-','_',''], base64_encode(json_encode($h)));
 		}
@@ -27,8 +27,8 @@
 				'uid'=>$uid,
 				'un'=>$un,
 				'fn'=>$fn,
-				'iby'=>'Diestro Lawrenz Sese',
-				'ie'=>'ramirez@futuredev.com',
+				'iby'=>'Balatbat Jivan Lance G.',
+				'ie'=>'balatbat@futuredev.com',
 				'idate'=>date_create()
 			];
 			return str_replace(['+','/','='],['-','_',''], base64_encode(json_encode($p)));
@@ -73,14 +73,22 @@
 			$remarks = "";
 			$message = "";
             $payload = $dt;
+			$code = 200;
             $encryptedPassword = $this->encrypt_password($dt->user_pword);
 
             $payload = array(
                 'uname'=>$dt->user_uname,
                 'pword'=>$this->encrypt_password($dt->user_pword)
             );
-
-            $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword, user_role, user_otp) 
+			$sql = "SELECT * FROM tbl_user WHERE user_uname='$dt->user_uname' LIMIT 1";
+            $res = $this->gm->exec_query($sql, "Incorrect username or password");
+            // print_r($res);
+            if($res['code'] == 200) {
+				$payload = null; 
+                $remarks = "failed"; 
+                $message = "Cannot connect";
+			}  else {
+				 $sql = "INSERT INTO tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword, user_role, user_otp) 
                            VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword', '$dt->user_role', '$dt->user_otp')";
                      
 
@@ -97,7 +105,14 @@
                                $errmsg = $e->getMessage();
                                $code = 403;
                            }
-						   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
+
+               
+            }
+	
+
+           
+
+			 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
 
 

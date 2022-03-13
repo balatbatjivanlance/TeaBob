@@ -9,6 +9,8 @@ import { Observable, Subject } from 'rxjs';
 export class DataService {
 
   constructor(private http: HttpClient) {}
+  
+  private isLoggedIn: boolean = false;
 
   apiURL = "http://localhost/TeaBob/TeaBob-Responsive/api/";
 
@@ -34,4 +36,20 @@ export class DataService {
       this.http.post(this.apiURL + method + condition, btoa(JSON.stringify(data)))
     )
   }
+
+  // copy niyo nalang codes men hahhaa
+  // di na men yung gagawin niyo nalang is dagdag niyo to sa logout function niyo
+  setUserLoggedOut(): void {
+    this.isLoggedIn = false;
+  }
+
+  setUser() {
+    this.isLoggedIn = true;
+
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.isLoggedIn;
+  }
+
 }

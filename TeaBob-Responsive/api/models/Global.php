@@ -92,7 +92,7 @@
 					$sql = $this->pdo->prepare($sqlstr);
 					$sql->execute($values);
 					return array("code"=>200, "payload"=>$values, "remarks"=>"success");
-					print_r($sqlstr);	
+					// print_r($sqlstr);	
 			}
 			catch(\PDOException $e){
 				$errmsg = $e->getMessage();
@@ -139,6 +139,29 @@
 				"timestamp"=>date_create());
 		} 
 
+
+		public function exec_query($sql, $err) {
+			$data = array();
+			$errmsg = "";
+			$code = 0;
+			try {
+				if($result = $this->pdo->query($sql)->fetchAll()){
+					foreach ($result as $record)
+						array_push($data, $record);
+					$result = null;
+					$code = 200;
+					return array("code"=>$code, "data"=>$data);
+				}
+				else {
+					$errmsg = $err;
+					$code = 404;
+				}
+			} catch (\PDOException $e) {
+				$errmsg = $e->getMessage();
+				$code = 403;
+			}
+			return array("code"=>$code, "errmsg"=>$errmsg);
+		}
 		
 	
 

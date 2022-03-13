@@ -23,32 +23,33 @@ import { ManageDriverComponent } from './admin/manage-driver/manage-driver.compo
 import { ManageAdminComponent } from './admin/manage-admin/manage-admin.component';
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
-  { path: 'snacks', component: SnacksComponent},
-  { path: 'order', component: OrderComponent},
-  { path: 'cart', component: CartComponent},
-  { path: 'status', component: StatusComponent},
-  { path: 'profile', component: ProfileComponent},
+  { path: 'home', component: HomeComponent,    canActivate: [AuthGuard],},
+  { path: 'snacks', component: SnacksComponent,    canActivate: [AuthGuard]},
+  { path: 'order', component: OrderComponent,    canActivate: [AuthGuard]},
+  { path: 'cart', component: CartComponent,    canActivate: [AuthGuard]},
+  { path: 'status', component: StatusComponent,    canActivate: [AuthGuard]},
+  { path: 'profile', component: ProfileComponent,    canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'admin-register', component: AdminRegisterComponent},
   { path: 'register-driver', component: RegisterDriverComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'add-product', component: AddProductComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'category', component: CategoryComponent},
-  { path: 'manage-product', component: ManageProductComponent},
-  { path: 'manage-addons', component: ManageAddonsSizeComponent},
-  { path: 'history', component: HistoryComponent},
-  { path: 'view-order', component: ViewOrderComponent},
-  { path: 'manage-driver', component: ManageDriverComponent},  
-  { path: 'manage-admin', component: ManageAdminComponent}, 
-  { path: 'sales', component: SalesReportComponent},  
-  { path: 'aboutus', component: AboutusComponent},
+  { path: 'add-product', component: AddProductComponent,    canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent,    canActivate: [AuthGuard]},
+  { path: 'category', component: CategoryComponent,    canActivate: [AuthGuard]},
+  { path: 'manage-product', component: ManageProductComponent,    canActivate: [AuthGuard]},
+  { path: 'manage-addons', component: ManageAddonsSizeComponent,    canActivate: [AuthGuard]},
+  { path: 'history', component: HistoryComponent,    canActivate: [AuthGuard]},
+  { path: 'view-order', component: ViewOrderComponent,    canActivate: [AuthGuard]},
+  { path: 'manage-driver', component: ManageDriverComponent,    canActivate: [AuthGuard]},  
+  { path: 'manage-admin', component: ManageAdminComponent,    canActivate: [AuthGuard]}, 
+  { path: 'sales', component: SalesReportComponent,    canActivate: [AuthGuard]},  
+  { path: 'aboutus', component: AboutusComponent,    canActivate: [AuthGuard]},
   
- 
+//  register lang nababalikan pero the rest ng pages di na napupuntahan pag nagspam ka back button 
   { path: '', component: LandingComponent},
 
 

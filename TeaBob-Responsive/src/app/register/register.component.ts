@@ -41,15 +41,22 @@ export class RegisterComponent implements OnInit {
 
 
     this.ds.sendApiRequest("regUser", JSON.parse(JSON.stringify(this.userInfo))).subscribe((data: any) => {
+      console.log(data);
+      if(data.status.remarks == 'failed'){
+        Swal.fire('Email Address is already taken.')
+      }else{
+        // yrrejsecilan@gmail.com
+        Swal.fire('Register Successfully');
+        this.mail();
+        this.router.navigate(['/login']);
+        
+      }
     });
 
-    Swal.fire('Register Successfully');
-    this.mail();
-    this.router.navigate(['/login']);
-    }
+   
+  }
+   
     
-    else
-    Swal.fire('Password did not match!')
 
   }
 

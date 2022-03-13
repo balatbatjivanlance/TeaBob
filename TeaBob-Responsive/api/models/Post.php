@@ -119,19 +119,31 @@ class Post{
          
             $dt->is_verified = 1;
 
-            $res = $this->gm->update('tbl_user', $dt, "user_id = $dt->user_id && user_otp = '$dt->user_otp'");
+            // $res = $this->gm->update('tbl_user', $dt, "user_id = $dt->user_id && user_otp = '$dt->user_otp'");
            
-            return $res;
-            if($res['code']==200) {
+            // return $res;
+           
+     
+
+            $sqlstr = "UPDATE tbl_user set is_verified=1 WHERE user_id= $dt->user_id && user_otp = '$dt->user_otp'";
+           
+            $sql = $this->pdo->prepare($sqlstr);
+            $result = $sql->execute([]);
+            $count = $sql->rowCount();
+       
+            // print_r($count);
+            if($count == 1) {
                 $code = 200;
-                $payload = $res['payload'];
+                $payload = null;
                 $remarks = "success";
                 $message = "Successfully retrieved data";
+            }else{
+                $code = 200;
+                $payload = null;
+                $remarks = "failed";
+                $message = "Failed to Update";
             }
             return $this->gm->sendPayload($payload, $remarks, $message, $code);
-          
-           
-          
         }
 
         // Update cart
@@ -742,10 +754,19 @@ class Post{
         // 'tbl_size', $dt, "size_id = '$dt->size_id'"
         return $res;
         if($res['code']==200) {
-            $code = 200;
-            $payload = $res['payload'];
-            $remarks = "success";
-            $message = "Successfully retrieved data";
+        //    print_r("run");
+        //     $data = [];
+        //     $data['driver_status']=1;
+        //     // 'tbl_size', $dt, "size_id = '$dt->size_id'"
+        //     $res = $this->gm->update('tbl_driver', $dt, "driver_name = '$dt->driver'");
+        //     return $res;
+        //     if($res['code']==200) {
+        //         $code = 200;
+        //         $payload = $res['payload'];
+        //         $remarks = "success";
+        //         $message = "Successfully retrieved data";
+        //         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
+        //     }
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
