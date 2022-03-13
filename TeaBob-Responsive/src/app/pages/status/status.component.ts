@@ -76,6 +76,7 @@ export class StatusComponent implements OnInit {
   logout(){
     localStorage.clear();
     window.localStorage.removeItem('id');
+    this.ds.setUserLoggedOut();
     this.router.navigate(['/login']);
 }
 
