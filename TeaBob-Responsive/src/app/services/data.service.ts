@@ -35,8 +35,7 @@ export class DataService {
     )
   }
 
-  // copy niyo nalang codes men hahhaa
-  // di na men yung gagawin niyo nalang is dagdag niyo to sa logout function niyo
+  
   setUserLoggedOut(): void {
     this.isLoggedIn = false;
   }

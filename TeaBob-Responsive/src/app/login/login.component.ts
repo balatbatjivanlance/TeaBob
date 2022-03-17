@@ -14,8 +14,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   ngAfterViewChecked(){
-    console.log("hello");
+    // console.log("hello");
     if(this.ds.isUserLoggedIn()){
       this.router.navigate(['/home']);
     }
@@ -38,14 +39,15 @@ export class LoginComponent implements OnInit {
     await this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: any | null; }) => {
 
         // console.log(res.payload);
-        this.user_id = res.payload.user_id;
+        // this.user_id = res.payload.user_id;
 
       if (res.payload == null) {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'Wrong Username or Password!'
-        })
+        });
+        
       }
       else{
         if(res.payload.is_verified == 0){
@@ -61,8 +63,7 @@ export class LoginComponent implements OnInit {
             showLoaderOnConfirm: true,
             preConfirm: (login) => {
           
-            //gawa nalang another request dito pre 
-            // para to check if yung inenter na OTP is equal dun sa nakalagay na OTP kay user tas if yes, then set is_verified to 1 
+          
              this.verify(login);
             },
             allowOutsideClick: () => !Swal.isLoading()

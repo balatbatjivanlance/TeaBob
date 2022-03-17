@@ -12,12 +12,24 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!this.data.isUserLoggedIn()) {
-        this.router.navigate(['login']);
-        return false;
-      }
+      // if (!this.data.isUserLoggedIn()) {
+      //   this.router.navigate(['login']);
+      //   return false;
+      // }
   
-      return true;
+      // return true;
+      
+      let role = localStorage.getItem('user_role');
+      if(role == '1'){
+        return true;
+      } else if(role == '0'){
+        //this.router.navigate(["consAdmin"]);
+        return true;
+      }
+      this.router.navigate(['home']);
+      return false;
   }
+
+  
   
 }
