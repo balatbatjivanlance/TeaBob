@@ -18,9 +18,14 @@ export class AppComponent {
 
   logout(){
     this.us.setUserLoggedOut();
+    window.localStorage.removeItem("Fullname");
+    window.localStorage.removeItem("Driver_email");
+    window.localStorage.removeItem("Driver_id");
+    window.localStorage.removeItem("is_logged_in");
     this._router.navigate(['/login']);
     // copy mo nalang codes sa kabila men pag wala pa dun sa responsive
     // wait gawin ko saglit
     //sige pre
   }
+
 }

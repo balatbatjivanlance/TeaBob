@@ -71,7 +71,6 @@ export class StatusComponent implements OnInit {
         return false;
     }
   }
-
   
   logout(){
     localStorage.clear();

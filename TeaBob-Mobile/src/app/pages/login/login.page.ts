@@ -62,6 +62,13 @@ export class LoginPage implements OnInit {
         this.us.setUser();
 
         this.presentToast("Login success");
+
+        window.localStorage.setItem("Fullname", this.login.payload.Fullname);
+        window.localStorage.setItem("Driver_email", this.login.payload.driver_email);
+        window.localStorage.setItem("Driver_id",this.login.payload.driver_id);
+        window.localStorage.setItem("is_logged_in", '1');
+  
+
         this.router.navigate(["/home"]);
 
       }

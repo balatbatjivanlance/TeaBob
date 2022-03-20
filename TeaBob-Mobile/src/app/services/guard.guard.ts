@@ -13,11 +13,10 @@ export class GuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (!this.user.isUserLoggedIn()) {
+      if (window.localStorage.getItem("is_logged_in") != '1') {
         this.router.navigate(['login']);
         return false;
       }
-  
       return true;
   }
   

@@ -14,12 +14,11 @@ export class HomePage implements OnInit {
   approved:any;
 
   driver_name: string = '';
-  driver_deliveries: any;
+  driver_deliveries: any= 0;
 
   constructor(public us: UserService, public ds: DataService, private _router: Router) { }
 
   ngOnInit() {
-    
   }
 
   ionViewDidEnter(){
@@ -28,6 +27,8 @@ export class HomePage implements OnInit {
     // console.log(this.us.getDriver());
     this.driver_name = this.us.getDriver();
     this.driver_deliveries = this.pullDriverInfo();
+   
+    // console.log(this.driver_deliveries);
     this.getApproved();
   }
 
@@ -35,7 +36,7 @@ export class HomePage implements OnInit {
     this.ds.sendApiRequest("getApproved", null).subscribe((data: { payload: any; }) => {
       this.approved = data.payload;
 
-      console.log(this.approved);
+      // console.log(this.approved);
       
 
     })
@@ -43,6 +44,7 @@ export class HomePage implements OnInit {
   }
 
   pullDriverInfo(){
+    console.log(this.us.getDriver());
     this.ds.sendApiRequest("getDriverInfo", 
     {
       driver: this.us.getDriver()
@@ -52,9 +54,16 @@ export class HomePage implements OnInit {
 
       // console.log(this.driver_deliveries);
 
-      var keyCount  = Object.keys(data.payload).length;
+     
+
+      try{
+        var keyCount  = Object.keys(data.payload).length;
+        this.driver_deliveries = keyCount;
+      }catch(e){
+        this.driver_deliveries = 0;
+      }
       
-      this.driver_deliveries = keyCount;
+      
 
     })
 

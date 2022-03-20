@@ -17,10 +17,9 @@ export class UserService {
   getDriver()
   {
     console.log(this.driver_name);
-    return this.driver_name;
+    return localStorage.getItem('Fullname');
 
   }
-
   constructor() { }
 
   setUserLoggedOut(): void {

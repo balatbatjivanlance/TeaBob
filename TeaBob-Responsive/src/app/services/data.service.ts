@@ -12,7 +12,6 @@ export class DataService {
   private isLoggedIn: boolean = false;
 
   apiURL = "http://localhost/TeaBob/TeaBob-Responsive/api/";
-
   private subject = new Subject<any>()
 
   sendApiRequest(method:any, data:any) {

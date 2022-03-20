@@ -701,6 +701,7 @@ public function PullDone ($dt) { // AND driver = '$dt->driver'
 }
 
 public function PullDriverInfo($dt) {
+	
 	$sql = "SELECT * FROM tbl_cocode WHERE driver = '$dt->driver' AND is_approved = 4";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
@@ -709,6 +710,7 @@ public function PullDriverInfo($dt) {
 		$remarks = "success";
 		$message = "Successfully retrieved requested data";
 	} else {
+		$res['code'] = 200;
 		$payload = null;
 		$remarks = "failed";
 		$message = $res['errmsg'];
