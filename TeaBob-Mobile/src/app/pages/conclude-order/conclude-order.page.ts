@@ -182,7 +182,16 @@ export class ConcludeOrderPage implements OnInit {
      is_approved: 4, //eto yung mga fields na ginagamit sa Post.php
     }
     ).subscribe((data: { payload: any }) => {
-      
+      if(data.payload){
+        this.ds.sendApiRequest("updateDriverStatus", 
+        {
+         driver_id:localStorage.getItem('Driver_id'),
+         driver_status: 0,
+        }
+        ).subscribe((data: { payload: any }) => {
+
+        });
+      }
     });
     
     this.presentToast("Order Delivered Successfully.");

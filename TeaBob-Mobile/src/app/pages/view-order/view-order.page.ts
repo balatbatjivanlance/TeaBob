@@ -125,7 +125,17 @@ export class ViewOrderPage implements OnInit {
        driver: this.us.getDriver(),
       }
       ).subscribe((data: { payload: any }) => {
-        
+
+        if(data.payload){
+          this.ds.sendApiRequest("updateDriverStatus", 
+          {
+           driver_id:localStorage.getItem('Driver_id'),
+           driver_status: 1,
+          }
+          ).subscribe((data: { payload: any }) => {
+
+          });
+        }
       });
 
       this.presentToast("Delivery Accepted Successfully.");
