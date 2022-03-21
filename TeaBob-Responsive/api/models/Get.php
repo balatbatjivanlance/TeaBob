@@ -11,7 +11,8 @@ class Get{
 
     //Pull Products
     public function pullFood ($column, $filter_data) {
-		$this->sql = "SELECT * FROM tbl_$column LEFT JOIN tbl_category ON tbl_food.category_id = tbl_category.category_id WHERE food_active = 'Yes'";
+		$this->sql = "SELECT * FROM tbl_$column LEFT JOIN tbl_category ON tbl_food.category_id = tbl_category.category_id WHERE food_active = 'Yes' 
+		AND food_stocks != (0) ";
 
 		if ($filter_data != null){
 			$this->sql .= " AND tbl_$column.category_id = '$filter_data'";
