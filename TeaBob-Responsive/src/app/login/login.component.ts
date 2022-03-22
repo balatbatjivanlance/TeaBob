@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         
       }
       else{
+        this.user_id = res.payload.user_id;
         if(res.payload.is_verified == 0){
           Swal.fire({
             icon: 'info',
