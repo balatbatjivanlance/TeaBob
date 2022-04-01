@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 .prod-container {
   width: 35%;
   height: 90vh;
@@ -67,8 +70,6 @@
   align-self: flex-end;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 .toolbar {
   background-color: #f9f9f9;

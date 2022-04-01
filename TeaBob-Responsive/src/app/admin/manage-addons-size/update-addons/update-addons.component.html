@@ -18,11 +18,6 @@
               <input matInput type="number" [(ngModel)]="addon_price"/>
             </mat-form-field>
 
-            <!-- <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Stocks</mat-label>
-                <input matInput type="number" [(ngModel)]="addon_stocks"/>
-              </mat-form-field> -->
-
               <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
                 <mat-label>Select Category</mat-label>
                 <select matNativeControl name="category" id="category"
@@ -35,7 +30,6 @@
               <button mat-raised-button class="button" (click)="updateAddons()"
               [disabled]="!addon_name || !addon_price || !addon_category"
               >Update Addons</button>
-            <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
         
             
         </div>

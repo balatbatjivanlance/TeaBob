@@ -10,9 +10,11 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
   
-  // private isLoggedIn: boolean = false;
 
   apiURL = "http://localhost/TeaBob/TeaBob-Responsive/api/";
+  
+  // apiURL = "https://gordoncollegeccs.edu.ph/projects/teabob/api/";
+  
 
   private subject = new Subject<any>()
 
@@ -36,18 +38,5 @@ export class DataService {
       this.http.post(this.apiURL + method + condition, btoa(JSON.stringify(data)))
     )
   }
-
-  // setUserLoggedOut(): void {
-  //   this.isLoggedIn = false;
-  // }
-
-  // setUser() {
-  //   this.isLoggedIn = true;
-
-  // }
-
-  // isUserLoggedIn(): boolean {
-  //   return this.isLoggedIn;
-  // }
 
 }

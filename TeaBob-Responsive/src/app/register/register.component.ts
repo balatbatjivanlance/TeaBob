@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
       if(data.status.remarks == 'failed'){
         Swal.fire('Email Address is already taken.')
       }else{
-        // yrrejsecilan@gmail.com
         Swal.fire('Register Successfully');
         this.mail();
         this.router.navigate(['/login']);
@@ -63,7 +62,7 @@ export class RegisterComponent implements OnInit {
   public mail(){
    
     this.ds.sendApiRequest("mailer", {email: this.user_uname, body: "hello", OTP:this.OTP}).subscribe((res: { payload: null; }) => {
-      // console.log(res.payload);
+ 
     });
   }
 

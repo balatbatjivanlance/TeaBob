@@ -49,7 +49,6 @@ const routes: Routes = [
   { path: 'sales', component: SalesReportComponent,    canActivate: [AuthGuard]},  
   { path: 'aboutus', component: AboutusComponent,    canActivate: [AuthGuard]},
   
-//  register lang nababalikan pero the rest ng pages di na napupuntahan pag nagspam ka back button 
   { path: '', component: LandingComponent},
 
 

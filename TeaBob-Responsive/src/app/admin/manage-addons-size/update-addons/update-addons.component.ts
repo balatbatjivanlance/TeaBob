@@ -27,7 +27,6 @@ export class UpdateAddonsComponent implements OnInit {
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
 
-    // console.log(this.category)
     })
   
   }
@@ -37,7 +36,6 @@ export class UpdateAddonsComponent implements OnInit {
 
   addon_name: any;
   addon_price: any;
-  // addon_stocks: any;
   addon_category: any;
 
   pullAddons() {
@@ -48,7 +46,6 @@ export class UpdateAddonsComponent implements OnInit {
     
     this.addon_name = this.addon_payload[0].addon_name;
     this.addon_price = this.addon_payload[0].addon_price;
-    // this.addon_stocks = this.addon_payload[0].addon_stocks;
     }
     )
   }
@@ -63,19 +60,17 @@ export class UpdateAddonsComponent implements OnInit {
       confirmButtonText: 'Save',
       denyButtonText: `Don't save`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         let id  = this.data.addon_id;
 
    this.addoninfo.addon_id =  id;
    this.addoninfo.addon_name =  this.addon_name
    this.addoninfo.addon_price =  this.addon_price
-  //  this.addoninfo.addon_stocks =  this.addon_stocks
    this.addoninfo.category_id =  this.addon_category
 
     this.ds.sendApiRequest("updateAddons/" + id, this.addoninfo).subscribe((data: { payload: any; }) => {});
 
-        // Swal.fire('Saved!', '', 'success')
+        Swal.fire('Saved!', '', 'success')
         window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

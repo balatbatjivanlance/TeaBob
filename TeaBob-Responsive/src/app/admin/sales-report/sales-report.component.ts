@@ -29,10 +29,8 @@ export class SalesReportComponent implements OnInit {
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
   ngOnInit(): void {
-    // this.cancelledToday();
     this.deliveryToday();
     this.stocksToday();
-    // this.driverDelivery();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -87,18 +85,13 @@ deliveryToday(){
   
   this.ds.sendApiRequest("deliveryToday", null).subscribe((data: { payload: any; }) => {
   this.delivery = data.payload;
-  // console.log("delivery:",this.delivery);
   
   this.total_deliveries = this.delivery.length;
 
     for (let i = 0; i < data.payload.length; i++) {
-      // console.log('Helo',data.payload[i]);
 
       this.profit += data.payload[i].total_price;
     }
-    //nagcall ako new function keycount()
-    //para di sama sama mga codes ko sa iisang function
-    //kmbaga eto yung signal na irurun mo na tong function na to
     this.keycount();
   });
 
@@ -106,19 +99,13 @@ deliveryToday(){
 
 driver_breakdown:any;
 driver_final:any;
-//eto siya
 keycount() {
 
-  //ngayon tong fileLicenses siya yung kukuha ng driver names sa json regardless kung nauulit o hindi
   var fileLicenses = [];
 
-
-  //oo men push sa array palang
   for ( var i = 0, arrLen = this.delivery.length; i < arrLen; ++i ) {
       fileLicenses.push(this.delivery[i]["driver"]);
   }
-
-  // console.log(fileLicenses);
 
   var keyCount : LooseObject = {};
 
@@ -132,67 +119,25 @@ keycount() {
       ++keyCount[fileLicenses[i]];
   }
 
-  
-  // ganto logic niya bale
-  // yung keyCount pag nagconsole log ka is ganto balue niya
-  // var feed = {bojo driver: 1, enzo driver: 1, jivan driver: 1};ganto siya
-  //pero di mo pa yan madidisplay sa html mo kasi di siya mkukuha sa for loop mo pero tama na yan
 
 var data = [];
-//tas ito gagawin mo to {bojo driver: 1, enzo driver: 1, jivan driver: 1}
-//para maging ganto {bojo driver: 1} {enzo driver: 1} {jivan driver: 1}
-//oo preeee
-// tapos pag nahimay mo na yan
-// push mo isa isa sa array
-//para enclosed with [] tingnan mo print [{},{},{}] ganto nakalagay
-
-// uu pre kaso sa snacks drinks and add ons
-
 
   for(var key in keyCount){
-    // console.log(keyCount[key]);
-    // console.log(key);
     var postdata = { driver: key, number_deliveries: keyCount[key]};
   
     data.push(postdata);
  }
 
-
-//  console.log(data);
-  
-    // console.log(keyCount);
     this.driver_breakdown = data;
-    // console.log("Breakdown:",this.driver_breakdown);
 
 }
 
-// driver_deliveries : number = 0;
 driver: any;
 driverDelivery() {
     this.ds.sendApiRequest("driverDelivery", null).subscribe((data: { payload: any; }) => {
     this.driver = data.payload;
-    // console.log(this.driver);
-    
-    // var keyCount  = Object.keys(data.payload).length;
-      
-    // this.driver_deliveries = keyCount;
     })
 }
-
-// total_cancelled: number = 0;
-// cancelled: any = {};
-// cancelledToday(){
-  
-//   this.ds.sendApiRequest("cancelledToday", null).subscribe((data: { payload: any; }) => {
-//   this.cancelled = data.payload;
-//   console.log(this.cancelled);
-  
-// this.total_cancelled = this.cancelled.length;
-//   })
-
-  
-// }
-
 
 drinks:number=0;
 snacks:number=0;
@@ -203,26 +148,18 @@ snacks_profit:number=0;
 addons_profit:number=0;
 stocks:any;
 stocksToday(){
-  // dito niyo nalagn din kunin profit sa drinks snacks addons modify niyo nalang code para madalian kayo hahha
   this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
-  // console.log("Stcoks",data.payload);
   this.stocks = data.payload;
 
-    // Loop lahat ng obj sa json
+    // Loop of all  obj in json
     for (let i = 0; i < data.payload.length; i++) {
-      // console.log(data.payload[i]);
 
-      // check if may sizename
-      //inassume ko na pag may sizename drink pag wala, snack
       if(data.payload[i].size_name){
-        //add sa drinks var
+        //add  drinks var
         this.drinks+= data.payload[i].food_quantity;
-        // console.log(data.payload[i].prod_price);
+
         this.drinks_profit += data.payload[i].prod_price;
     
-       
-        // check if may laman si addon
-        //pag meron split pag may nakita na ',' then store sa arr variable tas count length
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
         
@@ -234,17 +171,15 @@ stocksToday(){
         }
       }
       else{
-        //add sa snacks var
+        //add snacks var
         this.snacks+= data.payload[i].food_quantity;
         this.snacks_profit+= data.payload[i].prod_price;
 
-        // check if may laman si addon
-        //pag meron split pag may nakita na ',' then store sa arr variable tas count length
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
           this.addons += addons.length*data.payload[i].food_quantity;
           this.addons_profit+= addons.length*10;
-          // oks na jo
+
         }
         
         
@@ -264,7 +199,6 @@ snacks_breakdown:any;
 addons_breakdown:any;
 
   items_keycount() {
-    // console.log("Stock",this.stocks);
     var drinks = [];
     var snacks2 = [];
     var addons2 = [];
@@ -277,8 +211,6 @@ addons_breakdown:any;
 
       if(this.stocks[i]["cart_addon_name"]){
         let addons =  this.stocks[i].cart_addon_name.split(",");
- 
-        // this.addons += addons.length*data.payload[i].food_quantity;
 
         for(var j = 0; j < addons.length; j++){
         
@@ -315,10 +247,6 @@ addons_breakdown:any;
          }
     }
 
-    // console.log(snacks2);
-    // console.log(addons2);
-    // console.log(drinks);
-
     var keyCount : LooseObject = {};
 
 
@@ -339,8 +267,6 @@ addons_breakdown:any;
           
             data.push(drinks_arr);
       }
-
-      // console.log(data);
 
       this.drinks_breakdown = data;
 
@@ -369,10 +295,6 @@ addons_breakdown:any;
    
         this.snacks_breakdown = data;
 
-      // console.log("Breakdown:",this.drinks_breakdown);
-      // console.log("Breakdown:",this.snacks_breakdown);
-      // loop niyo nalang pre sa front end niyo haha
-
       var keyCount : LooseObject = {};
 
 
@@ -394,10 +316,8 @@ addons_breakdown:any;
               data.push(addons_arr);
         }
   
-        // console.log(data);
   
         this.addons_breakdown = data;
-        // console.log( this.addons_breakdown);
   
   
        

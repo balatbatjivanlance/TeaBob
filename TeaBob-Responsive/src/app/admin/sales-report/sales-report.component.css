@@ -1,4 +1,5 @@
 
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 .dashboard-top {
     width: 100%;
@@ -137,7 +138,6 @@
     width: 100%;
   }
   
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   
   .toolbar {
     background-color: #f9f9f9;
@@ -280,14 +280,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: red; */
     margin-top: 40px;
   }
 
   .prodreduce{
     width: 100%;
-    /* background-color: blue; */
-
     display: flex;
     height: 70px;
     align-items: center;
@@ -311,7 +308,6 @@
 
   } 
   .add-ons p{
-    /* margin-top: 80px; */
     font-size: 25px;
     font-weight: 700;
   }
@@ -324,7 +320,6 @@
     justify-content: center;
   }
   .size p{
-    /* margin-top: 80px; */
     font-size: 25px;
     font-weight: 700;
   }
@@ -345,26 +340,20 @@
   }
 
   .table1{
-   
     width: 50%;
     height: 650px;
     overflow-y:auto;
-
-/* background-color: red; */
-    /* margin-bottom: 100px; */
 
   }
   .table1half{
     height: 50%;
     width: 100%;
-    /* background-color: yellow; */
     
   }
 
   .tablenewhalf{
     height: 50%;
     width: 100%;
-    /* background-color: green; */
     max-height: 350px;
     overflow-y: hidden;
   }
@@ -372,22 +361,15 @@
   .table2{
     width: 50%;
     height: 650px;
-    /* overflow-y:scroll; */
-    
-/* background-color: rgb(94, 94, 94); */
-
-    /* margin-bottom: 100px; */
 
   }
   .table2newhalf{
     height: 50%;
     width: 100%;
-    /* background-color: yellow; */
   }
   .table2half{
     height: 40%;
     width: 100%;
-    /* background-color: rgb(19, 19, 19); */
   }
 
 

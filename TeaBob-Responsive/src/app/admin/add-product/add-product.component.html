@@ -180,11 +180,6 @@
             <mat-label>Price</mat-label>
             <input matInput type="number" [(ngModel)]="addon_price" required/>
           </mat-form-field>
-    
-          <!-- <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Stocks</mat-label>
-            <input matInput type="number" [(ngModel)]="addon_stocks" required/>
-          </mat-form-field> -->
 
           <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;" >
             <mat-label>Select Category for Addons</mat-label>
@@ -197,7 +192,7 @@
     
         </div>
 
-        <!-- <button class="delvar"><mat-icon>delete</mat-icon></button> -->
+
         <div class="cta">
           <button mat-raised-button color="primary" (click)="AddOns()"
           [disabled]="!addon_name || !addon_price || !addon_category"
@@ -226,10 +221,6 @@
       <input matInput type="number"  [(ngModel)]="size_stocks" required/>
     </mat-form-field>
 
-    <!-- <mat-form-field *ngIf = "categval" class="example-full-width" appearance="fill">
-      <mat-label>Size</mat-label>
-      <input matInput type="text"  [(ngModel)]="var_size" />
-    </mat-form-field> -->
 
   </div>
 
@@ -238,7 +229,6 @@
     [disabled]="!size_name || !size_price || !size_stocks"
     ><mat-icon>add</mat-icon> Size</button>
   </div>
-  <!-- <button class="delvar"><mat-icon>delete</mat-icon></button> -->
   
 </div>
    
@@ -247,99 +237,4 @@
     </div>
   </div>
 </mat-sidenav-container>
-
-
-      <!-- <div class="prod-container">
-        <mat-card class="prod-card">
-          <h1>Add Product</h1>
-    
-     
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Product Name</mat-label>
-            <input matInput type="text" [(ngModel)]="food_name" />
-          </mat-form-field>
-          <br />
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Product Description</mat-label>
-            <input type="text" matInput [(ngModel)]="food_description" />
-            <br />
-          </mat-form-field>
-    
-          <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
-            <mat-label>Select Role</mat-label>
-            <select matNativeControl name="country" id="country" (change)="selectChangeHandler($event)"
-              [(ngModel)]="food_category" >
-              <option  *ngFor="let category of category" value="{{category.category_id}}">{{category.category_name}}</option>
-            </select>
-          </mat-form-field>
-    
-    
-          <br />
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Product Price</mat-label>
-            <input matInput type="number" [(ngModel)]="food_price" />
-          </mat-form-field>
-          <br />
-    
-          <div class="img-container" style="margin-left: 20px">
-            <img
-              class="image-container"
-              [src]="imgSrc"
-              alt="img"
-              style="width: 100px; height: 100px; display: none"
-            />
-            <input  
-              class="input-image"
-              type="file"
-              (change)="onUploadHandler($event)"
-            />
-          </div>
-    
-          <br /><br />
-          <button
-            mat-stroked-button
-            color="primary"
-            (click)="addProducts()"
-            class="add-button"
-          >
-            Add 
-          </button>
-        </mat-card>
-      </div>
-    
-     
-      <div class="var-container">
-        <div class="cta">
-          <button routerLink="/">Add Variation</button>
-        </div>
-        <div class="var-card">
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Variation Name</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Price</mat-label>
-            <input matInput type="number"  />
-          </mat-form-field>
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Stocks</mat-label>
-            <input matInput type="number"  />
-          </mat-form-field>
-    
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Size</mat-label>
-            <input matInput type="text"  />
-          </mat-form-field>
-    
-        </div>
-    
-        <div class="del-var">
-        <button><mat-icon>delete</mat-icon></button>
-      </div> -->
 

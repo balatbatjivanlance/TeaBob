@@ -105,42 +105,15 @@ export class StatusComponent implements OnInit {
     this.ds.sendApiRequest("status/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.status_payload = data.payload;
     
-    // console.log(this.is_approved)
     }
     )
   }
 
 
   remarksAlert(msg:any){  
-    // Swal.fire(this.sda);  
     Swal.fire(msg);  
   } 
 
-  // cancelorder: any = {};
-
-  // cancelOrder = (id:any) => {
-
-  //        Swal.fire({
-  //     title: 'Are you sure to cancel your orders?',
-  //     showDenyButton: true,
-  //     confirmButtonText: 'Yes!',
-  //     denyButtonText: `No!`,
-  //   }).then((result) => {
-  //     /* Read more about isConfirmed, isDenied below */
-  //     if (result.isConfirmed) {
-  //   this.cancelorder.cocode_id = id;
-  //   this.cancelorder.is_approved = 2;
-  //   this.ds.sendApiRequest('cancelOrder/', this.cancelorder).subscribe((data: any) => { });
-
-  //   this.sendMessage();
-    
-  //       Swal.fire('Order Cancelled', '', 'success')
-  //     } else if (result.isDenied) {
-  //       Swal.fire('Thank you for your fast update', '', 'info')
-  //     }
-  //   })
-  //    this.dialog.closeAll();
-  // }
 
   cancelorder: any = {};
   remarks: any;
@@ -158,7 +131,6 @@ export class StatusComponent implements OnInit {
     })
     
     if (text) {
-      // Swal.fire(text)
       this.remarks = text;
 
       this.cancelorder.cocode_id = id;
@@ -201,52 +173,12 @@ export class StatusComponent implements OnInit {
      this.dialog.closeAll();
   }
 
-  // cancelOrder() {
-    
-  //    Swal.fire({
-  //     title: 'Are you sure to cancel your orders?',
-  //     showDenyButton: true,
-  //     confirmButtonText: 'Yes!',
-  //     denyButtonText: `No!`,
-  //   }).then((result) => {
-  //     /* Read more about isConfirmed, isDenied below */
-  //     if (result.isConfirmed) {
-  //       let id  = localStorage.getItem("id");
- 
-  //   this.cancelorder.user_id =  id;
-  //   this.cancelorder.is_approved =  2;
-  //    this.ds.sendApiRequest("cancelOrder/" + id, this.cancelorder).subscribe((data: { payload: any; }) => {});
-  //    this.sendMessage();
-
-  //       Swal.fire('Order Cancelled', '', 'success')
-  //     } else if (result.isDenied) {
-  //       Swal.fire('Thank you for your fast update', '', 'info')
-  //     }
-  //   })
-  //    this.dialog.closeAll();
-  //  }
-
-
-    
-  // statusModal() {
-  //   const dialog = this.dialog.open(StatusDialogComponent, {
-  //     autoFocus: false, width:"70%", height:"60%"
-  //   });
-  //   dialog.afterClosed().subscribe( ()=>{
-  //     console.log("closed")
-  //   });
-  
-  // }
-
- 
-
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
 
 
   openCorBreakDown(status: any) {
-    // console.log(code);
     const dialogRef = this.dialog.open(OrdersModalComponent , {
       height: '80%',
       width: '70%',
@@ -262,7 +194,6 @@ export class StatusComponent implements OnInit {
 
         this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
           alert('Order Removed');
-          // this.pullOrders();
         });
 
   }

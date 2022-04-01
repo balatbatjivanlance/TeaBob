@@ -130,9 +130,6 @@ mat-card {
     border-right: none;
   }
 
-  /* h1 {
-    display: none;
-  } */
 
   #calendar {
     font-size: 12px;
@@ -147,9 +144,6 @@ mat-card {
     justify-content: center;
 }
 
-/* .container {
-    margin-top: 100px;
-} */
 
 .container-title-left {
     width: 100%;
@@ -163,15 +157,6 @@ mat-card {
     width: 320px;
 }
 
-/* .toolbar {
-    background-color: #f9f9f9;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    position: fixed;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-  } */
 
 }
 
@@ -180,10 +165,6 @@ mat-card {
         width: 200px;
         border-right: none;
       }
-/*     
-      h1 {
-        display: none;
-      } */
     
       #calendar {
         font-size: 12px;
@@ -226,7 +207,7 @@ mat-card {
 
 
   .container{
-      /* background-color: red; */
+
       background-color: #f9f9f9;
       display: flex;
       justify-content: center;
@@ -262,7 +243,7 @@ mat-card {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      /* background-color: beige; */
+
       flex-wrap: wrap;
   }
   .product-container > div{

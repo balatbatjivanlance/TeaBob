@@ -11,7 +11,6 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullFoodFeatured();
-    // this.pullCart();
   }
 
   foods: any[]=[];
@@ -19,7 +18,6 @@ export class OrderComponent implements OnInit {
   pullFoodFeatured(){
     this.ds.sendApiRequest("foodfeatured/", null).subscribe((data: { payload: any; }) => {
     this.foods = data.payload;
-    // console.log(this.foods);
     })
   }
 

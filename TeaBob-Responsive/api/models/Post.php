@@ -43,29 +43,6 @@ class Post{
 			$message = $res['errmsg'];
 		}
     }
-
-
-
-    // ADD PRODUCT
-    // public function addProduct($data) {
-
-    //     $code = 401;
-    //     $payload = null;
-    //     $remarks = "failed";
-    //     $message = "Unable to retrieve data";
-    //     $prodInfo = $data->prodInfo;
-
-    //     $res = $this->gm->insert('tbl_products', $prodInfo);
-
-    //     if($res['code']==200) {
-    //         $code = 200;
-    //         $payload = $res['data'];
-    //         $remarks = "success";
-    //         $message = "Successfully retrieved data";
-    //     }
-    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
-    // }
-    
 		
 		
 
@@ -84,7 +61,6 @@ class Post{
             $payload = $res['data'];
             $remarks = "success";
             $message = "Successfully retrieved data";
-            // return $this->get->pullCart(null);
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
@@ -111,7 +87,6 @@ class Post{
 
         // Update Profile
         public function verifyUser($dt) {
-            // print_r($dt);
             $code = 401;
             $payload = null;
             $remarks = "failed";
@@ -119,19 +94,12 @@ class Post{
          
             $dt->is_verified = 1;
 
-            // $res = $this->gm->update('tbl_user', $dt, "user_id = $dt->user_id && user_otp = '$dt->user_otp'");
-           
-            // return $res;
-           
-     
-
             $sqlstr = "UPDATE tbl_user set is_verified=1 WHERE user_id= $dt->user_id && user_otp = '$dt->user_otp'";
            
             $sql = $this->pdo->prepare($sqlstr);
             $result = $sql->execute([]);
             $count = $sql->rowCount();
-       
-            // print_r($count);
+
             if($count == 1) {
                 $code = 200;
                 $payload = null;
@@ -205,24 +173,6 @@ class Post{
           
     }
 
-        // public function cancelOrder($dt) {
-        //     $code = 401;
-        //     $payload = null;
-        //     $remarks = "failed";
-        //     $message = "Unable to retrieve data";
-    
-        //     $res = $this->gm->update('tbl_cocode', $dt, "user_id = '$dt->user_id'");
-        //     return $res;
-        //     if($res['code']==200) {
-        //         $code = 200;
-        //         $payload = $res['payload'];
-        //         $remarks = "success";
-        //         $message = "Successfully retrieved data";
-        //     }
-        //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
-          
-        // }
-
     //CHECK OUT
     public function addCheck($data) {
 
@@ -241,7 +191,6 @@ class Post{
             $payload = $res['data'];
             $remarks = "success";
             $message = "Successfully retrieved data";
-            // return $this->get->pullCart(null);
         }
         
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
@@ -266,14 +215,11 @@ class Post{
             $payload = $res['data'];
             $remarks = "success";
             $message = "Successfully retrieved data";
-            // return $this->get->pullCart(null);
         }
         
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
-
-    //comment
    
 
     public function checkOutAll($d)
@@ -291,7 +237,6 @@ class Post{
             $payload = $res;
             $remarks = "success";
             $message = "Successfully retrieved data";
-            // return $this->get->pullCart(null);
         }
 
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
@@ -304,12 +249,6 @@ class Post{
             $prod_name[]  = $dt[$i]->prod_name;
             $user_id[] = $dt[$i]->user_id;
             $cart_addon_name[] = $dt[$i]->cart_addon_name;
-            // $add_pearl[] =$dt[$i]->add_pearl;
-            // $add_cpuff[] = $dt[$i]->add_cpuff;
-            // $add_ccheese[]= $dt[$i]->add_ccheese;
-            // $add_cookie[]= $dt[$i]->add_cookie;
-            // $add_sauce[]= $dt[$i]->add_sauce;
-            // $add_spicy[] =  $dt[$i]->add_spicy;
             $food_qty[]  = $dt[$i]->food_quantity;
             $size_name[]  = $dt[$i]->size_name;
             $prod_price[]  = $dt[$i]->prod_price;
@@ -319,9 +258,9 @@ class Post{
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
             $user_address[] = $dt[$i]->user_address;
-            //tbl_food
+
             $food_stocks[] = $dt[$i]->food_stocks;
-            //tbl_size
+
             $size_stocks[] = $dt[$i]->size_stocks;
 
             $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
@@ -332,7 +271,6 @@ class Post{
             //insert the data on the checkout table
         $this->sql = "INSERT INTO tbl_checkout(prod_name, cart_addon_name, food_quantity, size_name, user_id, prod_price, code) VALUES " . implode(', ', $values);
         //INNER JOIN
-        //SELECT * FROM `tbl_checkout` INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code WHERE tbl_cocode.code = "77688857";
         try {
             if($this->pdo->query($this->sql)) {
 
@@ -363,17 +301,6 @@ class Post{
                   
                     return array("code"=>200, "remarks"=>"success");
                       
-                    // if($this->pdo->query($this->sql)) {
-                        
-                    //     for ($i = 0; $i < sizeof($dt); $i++){
-                            
-                    //         $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$i] WHERE food_id = $food_id[$i]";
-                    //         return $this->sql;
-                    //         // $this->pdo->query($this->sql)
-                    //     }
-                    //     return array("code"=>200, "remarks"=>"success");
-                    //     // $code = 200; $errmsg = null;
-                    // }
                     
                 }
             }
@@ -398,7 +325,6 @@ class Post{
             $payload = $res;
             $remarks = "success";
             $message = "Successfully retrieved data";
-            // return $this->get->pullCart(null);
         }
 
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
@@ -419,21 +345,6 @@ class Post{
 		}
     }
 
-    // Delete Product
-    // public function delProd($d) {
-    //     $data = $d;
-    //     $prod_id = $data->prod_id;
-    //     $res = $this->gm->delete('tbl_food', $data, "id = '$prod_id'");
-    //     if ($res['code'] == 200) {
-	// 		$payload = $res['data'];
-	// 		$remarks = "success";
-	// 		$message = "Successfully retrieved requested data";
-	// 	} else {
-	// 		$payload = null;
-	// 		$remarks = "failed";
-	// 		$message = $res['errmsg'];
-	// 	}
-    // }
 
     public function delOrder($d) {
         $data = $d;
@@ -479,22 +390,6 @@ class Post{
 			$message = $res['errmsg'];
 		}
     }
-
-    // // Delete Check
-    // public function delCheck($d) {
-    //     $data = $d;
-    //     $check_id = $data->check_id;
-    //     $res = $this->gm->delete('tbl_checkout', $data, "check_id = '$check_id'");
-    //     if ($res['code'] == 200) {
-	// 		$payload = $res['data'];
-	// 		$remarks = "success";
-	// 		$message = "Successfully retrieved requested data";
-	// 	} else {
-	// 		$payload = null;
-	// 		$remarks = "failed";
-	// 		$message = $res['errmsg'];
-	// 	}
-    // }
 
 
     // ADMIN CODES
@@ -616,7 +511,6 @@ class Post{
                     return $this->gm->sendPayload($payload, $remarks, $message, $code);
                   
                 }
-                //comment
 
                 
                 public function addComment($dt) {
@@ -761,7 +655,6 @@ class Post{
     //Driver Functions
 
     public function acceptOrder($dt) {
-        // print_r($dt);
         $code = 401;
         $payload = null;
         $remarks = "failed";
@@ -769,22 +662,9 @@ class Post{
 
         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
 
-        // 'tbl_size', $dt, "size_id = '$dt->size_id'"
         return $res;
         if($res['code']==200) {
-        //    print_r("run");
-        //     $data = [];
-        //     $data['driver_status']=1;
-        //     // 'tbl_size', $dt, "size_id = '$dt->size_id'"
-        //     $res = $this->gm->update('tbl_driver', $dt, "driver_name = '$dt->driver'");
-        //     return $res;
-        //     if($res['code']==200) {
-        //         $code = 200;
-        //         $payload = $res['payload'];
-        //         $remarks = "success";
-        //         $message = "Successfully retrieved data";
-        //         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
-        //     }
+
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
@@ -792,7 +672,6 @@ class Post{
 
     public function confirmDelivery($dt) {
     
-        // print_r($dt);
         $code = 401;
         $payload = null;
         $remarks = "failed";
@@ -800,7 +679,6 @@ class Post{
 
         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
 
-        // 'tbl_size', $dt, "size_id = '$dt->size_id'"
         return $res;
         if($res['code']==200) {
             $code = 200;
@@ -819,14 +697,8 @@ class Post{
         $remarks = "failed";
         $message = "Unable to retrieve data";
 
-
-        //nagsingit tayo ng bagong element sa loob ng dt para pag nagupdate tayo alam niya kung ano yung uupdate na columns with value na ipapalit
-        // $dt->last_updated = date("Y-m-d H:i:s");
-        //wala freh hahaha yung key na last_updated para yun sa column name tas value na date(asdassd); para makuha yung current time and date
-
         $res = $this->gm->update('tbl_cocode', $dt, "cocode_id = '$dt->cocode_id'");
 
-        // 'tbl_size', $dt, "size_id = '$dt->size_id'"
         return $res;
         if($res['code']==200) {
             $code = 200;

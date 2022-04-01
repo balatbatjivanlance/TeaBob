@@ -22,12 +22,3 @@ export class GuardGuard implements CanActivate {
   
 }
 
-// let role = localStorage.getItem('user_role');
-// if(role == '1'){
-//   return true;
-// } else if(role == '0'){
-//   //this.router.navigate(["consAdmin"]);
-//   return true;
-// }
-// this.router.navigate(['home']);
-// return false;

@@ -42,13 +42,6 @@
 						echo json_encode($get->pullFoodFeatured('tbl_food', null), JSON_PRETTY_PRINT);
 					}
 				break;
-				// case 'foodactive':
-				// 	if(count($req)>1) {
-				// 		echo json_encode($get->pullFoodActive($req[0], $req[1]), JSON_PRETTY_PRINT);
-				// 	} else {
-				// 		echo json_encode($get->pullFoodActive($req[0], null), JSON_PRETTY_PRINT);
-				// 	}
-				// break;
 				case 'food_item':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($get->pullFood_perItem($d), JSON_PRETTY_PRINT);
@@ -193,11 +186,6 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->delCarts($d), JSON_PRETTY_PRINT);
 				break;
-				// Delete check items
-				// case 'delCheck':
-				// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
-				// 	echo json_encode($post->delCheck($d), JSON_PRETTY_PRINT);
-				// break;
 				// Register User function 
 				case 'regUser':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -262,13 +250,6 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					print_r($mail->mailer($d));
 				break;
-				// case 'pullSizeUser':
-				// 	if(count($req)>1) {
-				// 		echo json_encode($get->pullSizeUser($req[0], $req[1]), JSON_PRETTY_PRINT);
-				// 	} else {
-				// 		echo json_encode($get->pullSizeUser($req[0], null), JSON_PRETTY_PRINT);
-				// 	}
-				// break;
 
 
 
@@ -330,10 +311,6 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($post->deleteOrder($d), JSON_PRETTY_PRINT);
 					break;
-					// case 'cancelOrder':
-					// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
-					// 	echo json_encode($post->cancelOrder($d), JSON_PRETTY_PRINT);
-					// break;
 					
 
 					// Pull Functions Admin
@@ -414,13 +391,6 @@
 										echo json_encode($get->profitToday($req[0], null), JSON_PRETTY_PRINT);
 									}
 									break;
-						
-					// case 'pullHistory':
-					// 	if(count($req)>1) {
-					// 		echo json_encode($get->pullHistory('tbl_cocode', $req[1]), JSON_PRETTY_PRINT);
-					// 	} else {
-					// 		echo json_encode($get->pullHistory('tbl_cocode', null), JSON_PRETTY_PRINT);
-					// 	}
 					
 
 					case 'pullHistory':
@@ -513,15 +483,6 @@
 						echo json_encode($post->delAdmin($d), JSON_PRETTY_PRINT);
 					break;
 
-					// case 'updatefood':
-					// 	if(count($req)>1) {
-					// 		echo json_encode($get->updateFood($req[0], $req[1]), JSON_PRETTY_PRINT);
-					// 	} else {
-					// 		echo json_encode($get->updateFood($req[0], null), JSON_PRETTY_PRINT);
-					// 	}
-					// break;
-
-
 					//NEW DRIVER CODES
 					case 'getApproved':
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -533,8 +494,8 @@
 						echo json_encode($get->PullDone($d), JSON_PRETTY_PRINT);    
 					break;
 
-					case 'getDriver': //Pang login sa driver side
-						$d = json_decode(base64_decode(file_get_contents("php://input"))); //etong line na to igeget mo yung pinapasa which is eto pero isesave mo siya sa variable na $d
+					case 'getDriver': // login driver side
+						$d = json_decode(base64_decode(file_get_contents("php://input"))); 
 						echo json_encode($auth->loginDriver($d), JSON_PRETTY_PRINT);    
 					break;
 

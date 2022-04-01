@@ -132,7 +132,6 @@ export class SnacksComponent implements OnInit {
 
   cartinfo: any={};
   cart:any;
-  // cartCounter: any;
   
 
   pullCart() {

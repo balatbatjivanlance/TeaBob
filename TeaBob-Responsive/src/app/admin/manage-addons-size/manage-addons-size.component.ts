@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 
 import { UpdateSizeComponent } from './update-size/update-size.component';
 import { UpdateAddonsComponent } from './update-addons/update-addons.component';
-// import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 
@@ -73,12 +72,10 @@ export class ManageAddonsSizeComponent implements OnInit {
     this.ds.sendApiRequest("pullAddOns", null).subscribe((data: { payload: any; }) => {
     this.addons = data.payload;
 
-    // console.log(this.addons)
     })
   
   }
   openCorBreakDownAddons(addons: any) {
-    // console.log(code);
     const dialogRef = this.dialog.open(UpdateAddonsComponent , {
       height: '50%',
       width: '50%',
@@ -93,13 +90,11 @@ export class ManageAddonsSizeComponent implements OnInit {
     this.ds.sendApiRequest("pullSize", null).subscribe((data: { payload: any; }) => {
     this.size = data.payload;
 
-    // console.log(this.size)
     })
   
   }
 
   openCorBreakDown(size: any) {
-    // console.log(code);
     const dialogRef = this.dialog.open(UpdateSizeComponent , {
       height: '50%',
       width: '50%',
@@ -127,8 +122,6 @@ async delSize(e:any) {
       this.sizeInfo.size_id = e;
 
       this.ds.sendApiRequest("delSize", JSON.parse(JSON.stringify(this.sizeInfo))).subscribe((data: any) => {
-        // alert('Product Removed');
-        // this.pullOrders();
       });
       
       Swal.fire(
@@ -160,8 +153,6 @@ async delAddons(e:any) {
       this.addonInfo.addon_id = e;
 
       this.ds.sendApiRequest("delAddons", JSON.parse(JSON.stringify(this.addonInfo))).subscribe((data: any) => {
-        // alert('Product Removed');
-        // this.pullOrders();
       });
       window.location.reload();
       

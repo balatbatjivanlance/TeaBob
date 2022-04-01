@@ -75,8 +75,6 @@ export class SnacksDialogComponent implements OnInit {
   priceArr : any [] = []
 
   onChangeDemo(event:MatCheckboxChange, name: any, pricey: any){
-    // console.log(event.source.value);
-    // console.log(pricey)
     let price: any = parseInt(event.source.value)
     if (event.checked){
       this.priceArr.push(pricey);
@@ -92,7 +90,6 @@ export class SnacksDialogComponent implements OnInit {
     this.food_total = this.food_total - (price * this.food_qty);
     this.priceArr = [];
     let newPrice: any = sessionStorage.getItem('price');
-    // console.log(parseInt(newPrice) - parseInt(pricey))
 
     let lastPrice: any = parseInt(newPrice) - parseInt(pricey);
 
@@ -108,7 +105,6 @@ export class SnacksDialogComponent implements OnInit {
     }
     let arr = this.addOnArray.toString()
     sessionStorage.setItem('addonname', arr)
-  //  console.log( this.addOnArray)
   }
 
   
@@ -118,7 +114,6 @@ export class SnacksDialogComponent implements OnInit {
 
 
   addToCart() {
-    // const obj = Object.assign({}, this.addOnArray);
 
     if(this.food_stocks == 0){
       Swal.fire(this.food_name,"out of Stock")
@@ -129,15 +124,10 @@ export class SnacksDialogComponent implements OnInit {
       this.prodInfo.user_id = localStorage.getItem("id");
       this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
       this.prodInfo.food_name = this.food_name;
-      // this.prodInfo.addOns = obj;
       this.prodInfo.price = this.food_price;
       this.prodInfo.food_quantity = this.food_qty;
       this.prodInfo.cart_total_price = this.food_total;
       this.prodInfo.cart_addon_name = addons;
-      // this.prodInfo.add_sauce = this.extraSauce;
-      // this.prodInfo.add_spicy = this.spicySauce;
-  
-      // console.log(this.prodInfo)
       this.ds.sendApiRequest('addCart/', this.prodInfo).subscribe((data: any) => {
         if (data.remarks === "success"){
           Swal.fire(
@@ -147,7 +137,6 @@ export class SnacksDialogComponent implements OnInit {
           )
           this.dialog.closeAll();
         }
-        // this.router.navigate(['/cart']);
       });
     }
 
@@ -162,10 +151,6 @@ export class SnacksDialogComponent implements OnInit {
     }else{
       if (this.addOnChecker){
         let price : any = sessionStorage.getItem('price')
-        // if (this.priceArr.length ===  1){
-        //   price =  price + this.priceArr.reduce((a, b) => a + b, 0)
-        // }
-        // console.log(price);
         this.food_total =  this.food_qty * this.food_price + parseInt(price) * this.food_qty;
 
       }else {
@@ -173,7 +158,6 @@ export class SnacksDialogComponent implements OnInit {
 
       }
     }
-    // this.sendMessage();
   }
 
   minusQty = () =>{
@@ -188,7 +172,6 @@ export class SnacksDialogComponent implements OnInit {
     else {
 
       this.food_total =  this.food_qty * this.food_price;
-      // this.sendMessage();
     }
   } 
 
@@ -196,46 +179,5 @@ export class SnacksDialogComponent implements OnInit {
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
   }
+  
 }
-
-
-
-
-// saveSpice: any
-// saveExtras: any
-// addSpicy(addSpice: boolean) {
-//   var isChecked = addSpice;
-//   if (isChecked == true){
-//     this.spicySauce = 'Spicy';
-//     this.prodInfo.add_spicy = this.spicySauce;
-//     console.log(this.food_total);
-//   }else if (isChecked == false){
-//       this.spicySauce = 'none';
-//       this.prodInfo.add_spicy = this.spicySauce;
-//   }
-//   this.sendMessage();
-// }
-
-
-// extraSauce: number = 0;
-// spicySauce:  any = "none";
-// addExtras:any;
-// isChecked: boolean = false
-// addExtra( addExtra: boolean) {
-//    this.isChecked = addExtra;
-//   if (this.isChecked){
-    
-//     let addSauce = 10 * this.food_qty;
-
-//     this.food_total = this.food_total + addSauce;
-//     this.extraSauce =  10;
-//     this.prodInfo.add_sauce = addSauce;
-//     console.log(this.food_total);
-//   }else{
-//       let addSauce =  10 * this.food_qty;
-//       this.food_total =  this.food_total - addSauce;
-//       this.extraSauce=  10;
-//       this.prodInfo.add_sauce = this.extraSauce;
-//   }
-//   this.sendMessage();
-// } 

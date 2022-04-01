@@ -165,16 +165,6 @@ mat-card {
   justify-content: flex-start;
   align-items: flex-start;
 }
-/* @media only screen and (max-width:480px) {
-  mat-sidenav {
-    width: 200px;
-    border-right: none;
-  }
-  
-  } */
-  /* h1 {
-    display: none;
-  } */
   
   .card-container > div {
     margin: 5px;
@@ -188,10 +178,6 @@ mat-card {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 7px;
   border-radius: 10px;
-  /* background-image: url('/assets/tealogopng.png'); */
-  /* background-repeat: no-repeat;
-  background-position: -50px 85px;
-  background-size: 50%; */
   padding: 10px 0 20px 10px;
   padding: 0px 0 20px 0px;
 
@@ -295,14 +281,12 @@ mat-card {
 
 @media (max-width: 600px){
   .container{
-    /* background-color: red; */
     padding-top: 0%;
     width: 100%;
   }
   .order-container{
     height: 85%;
     margin-top: 70px;
-    /* background-color: blue; */
     display: grid;
     justify-content:center;
     align-items: flex-start;
@@ -310,7 +294,6 @@ mat-card {
     overflow: scroll;
   }
   .card-container{
-    /* background-color: green; */
     display: grid;
     height:auto;
     justify-content:center;
@@ -326,169 +309,3 @@ mat-card {
 
 
 }
-
-
-
-
-
-
-
-
-  
-
-/* @media only screen and (max-width:480px) {
-  mat-sidenav {
-    width: 200px;
-    border-right: none;
-  }
-
-  h1 {
-    display: none;
-  }
-
-  #calendar {
-    font-size: 12px;
-  }
-
-  .calen {
-    width: 10px;
-    height: 10px;
-  }
-
-  .user-container {
-    justify-content: center;
-}
-
-.container {
-    margin-top: 100px;
-}
-
-.container-title-left {
-    width: 100%;
-}
-
-.user-card {
-    width: 320px;
-}
-
-.top {
-    width: 320px;
-}
-
-.toolbar {
-    background-color: #f9f9f9;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    position: fixed;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-  }
-
-} */
-/* 
-@media only screen and (min-width: 481px) and (max-width:768px) {
-    mat-sidenav {
-        width: 200px;
-        border-right: none;
-      }
-    
-      h1 {
-        display: none;
-      }
-    
-      #calendar {
-        font-size: 12px;
-      }
-    
-      .calen {
-        width: 10px;
-        height: 10px;
-      }
-    
-      .user-container {
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    
-    .container {
-        margin-top: 100px;
-    }
-    
-    .container-title-left {
-        width: 100%;
-    }
-    
-    .user-card {
-        width: 350px;
-    }
-    
-    .top {
-        width: 350px;
-    }
-    
-    .toolbar {
-        background-color: #f9f9f9;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        position: fixed;
-        position: -webkit-sticky;
-        top: 0;
-        z-index: 1000;
-        width: 100%;
-      }
-}    */
-
-
-
-/* 
-@media (max-width: 584px){
-    .status-container{
-        max-width: 90%;
-        margin-top: 20%;
-    }
-    .status2-container{
-        max-width: 90%;      
-    }
-    .user-details .input-box{
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    .status-container  .user-details{
-        max-height: 450px;
-        overflow-y: scroll;
-
-    }
-    .user-details::-webkit-scrollbar{
-        width:0;
-    }
-    .button{
-        margin-right: 7%;
-    }
-} */
-/* 
-@media (max-width: 1024px){
-    .status-container{
-        max-width: 90%;
-        margin-top: 20%;
-    }
-    .status2-container{
-        max-width: 90%;
-
-        
-    }
-    .user-details .input-box{
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    .status-container  .user-details{
-        max-height: 450px;
-        overflow-y: scroll;
-
-    }
-    .user-details::-webkit-scrollbar{
-        width:0;
-    }
-    .button{
-        margin-right: 7%;
-    }
-} */

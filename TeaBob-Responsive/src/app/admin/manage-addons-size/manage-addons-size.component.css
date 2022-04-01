@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 .prod-container {
     width: 35%;
     height: 90vh;
-    /* background-color: red; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -24,7 +25,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     margin-top: 10%;
   }
   .var-container > div {
@@ -66,10 +66,7 @@
     display: flex;
     align-self: flex-end;
   }
-  
-  
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
-  
+   
   .toolbar {
     background-color: #f9f9f9;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -271,9 +268,6 @@ table, td, th {
     width: 50%;
     height: 650px;
     overflow-y:auto;
-
-
-    /* margin-bottom: 100px; */
     max-height: 650px;
   }
 
@@ -282,9 +276,6 @@ table, td, th {
     height: 650px;
     overflow-y:auto;
     padding-right: 40px;
-
-
-    /* margin-bottom: 100px; */
     max-height: 650px;
   }
   

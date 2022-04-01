@@ -4,7 +4,6 @@ import {MatDialog} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
-// import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 
@@ -74,8 +73,6 @@ export class AddProductComponent implements OnInit {
   pullProduct(){
     this.ds.sendApiRequest("products", null).subscribe((data: { payload: any; }) => {
     this.product = data.payload;
-
-    // console.log(this.product)
     })
   
   }
@@ -85,8 +82,6 @@ export class AddProductComponent implements OnInit {
   pullCategory(){
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
-
-    // console.log(this.category)
     })
   
   }
@@ -96,7 +91,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandleractive (event: any){
     this.selectedCategactive = event.target.value;
 
-    // console.log(this.selectedCategactive);
+
   }
 
 
@@ -105,7 +100,7 @@ export class AddProductComponent implements OnInit {
   selectChangeHandlerfeatured (event: any){
     this.selectedCategfeatured = event.target.value;
 
-    // console.log(this.selectedCategfeatured);
+
   }
 
 
@@ -115,34 +110,14 @@ export class AddProductComponent implements OnInit {
 
   selectChangeHandler (event: any){
     this.selectedCateg = event.target.value;
-
-    // console.log(this.selectedCateg);
-
-    // if (this.selectedCateg == '24')
-    // {
-    //   this.categval = false
-    // }
-    // else{
-    // this.categval = true
-    // }
   }
 
   selectedCategAddon: string = '';
 
-  // categval = true;
+ 
 
   selectChangeHandlerAddon (event: any){
     this.selectedCategAddon = event.target.value;
-
-    // console.log(this.selectedCategAddon);
-
-    // if (this.selectedCateg == '24')
-    // {
-    //   this.categval = false
-    // }
-    // else{
-    // this.categval = true
-    // }
   }
 
   imgSrc: string = "../../../assets/logo1.jpeg";
@@ -152,7 +127,7 @@ export class AddProductComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any) =>{
         this.imgSrc = event.target.result;
-        // console.log(this.imgSrc);
+        
       }
     }
   }
@@ -241,14 +216,10 @@ export class AddProductComponent implements OnInit {
 
   }
 
-  // addon_name: any;
-  // addon_price: any;
-  // addon_stocks: any;
   
   size_name: any;
   size_price: any;
   size_stocks: any;
-  // var_size: any;
   size_Info : any = {};
   AddSize() {
 

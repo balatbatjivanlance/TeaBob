@@ -101,7 +101,6 @@ export class ProfileComponent implements OnInit {
       autoFocus: false, width:"70%", height:"50%"
     });
     dialog.afterClosed().subscribe( ()=>{
-      // console.log("closed")
     });
   
   }

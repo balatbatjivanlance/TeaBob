@@ -44,9 +44,6 @@ export class UpdateFoodComponent implements OnInit {
     this.food_price = this.food_payload[0].food_price;
     this.food_stocks = this.food_payload[0].food_stocks;
     this.food_description = this.food_payload[0].food_description;
-    // this.food_category = this.food_payload[0].food_category;
-    // this.food_active = this.food_payload[0].food_active;
-    // this.food_featured = this.food_payload[0].food_featured;
     }
     )
   }
@@ -58,7 +55,6 @@ export class UpdateFoodComponent implements OnInit {
     this.ds.sendApiRequest("category", null).subscribe((data: { payload: any; }) => {
     this.category = data.payload;
 
-    // console.log(this.category)
     })
   
   }
@@ -68,7 +64,6 @@ export class UpdateFoodComponent implements OnInit {
   selectChangeHandleractive (event: any){
     this.selectedCategactive = event.target.value;
 
-    // console.log(this.selectedCategactive);
   }
 
 
@@ -77,7 +72,6 @@ export class UpdateFoodComponent implements OnInit {
   selectChangeHandlerfeatured (event: any){
     this.selectedCategfeatured = event.target.value;
 
-    // console.log(this.selectedCategfeatured);
   }
 
   
@@ -89,7 +83,6 @@ export class UpdateFoodComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event:any) =>{
         this.imgSrc = event.target.result;
-        // console.log(this.imgSrc);
       }
     }
   }
@@ -118,7 +111,7 @@ export class UpdateFoodComponent implements OnInit {
 
     this.ds.sendApiRequest("updateFood/" + id, this.foodinfo).subscribe((data: { payload: any; }) => {});
 
-        // Swal.fire('Saved!', '', 'success')
+        Swal.fire('Saved!', '', 'success')
         window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
@@ -127,13 +120,4 @@ export class UpdateFoodComponent implements OnInit {
     this.dialog.closeAll();
   }
 
-
-  // updatefood: any;
-  // updateFood(){
-  //       this.ds.sendApiRequest("updatefood", null).subscribe((data: { payload: any; }) => {
-  //       this.updatefood = data.payload;
-      
-  //     console.log(this.updatefood);
-  //   })
-  // }
 }

@@ -9,7 +9,6 @@
 .left-container{
     width: 50%;
     display: grid;
-    /* background-color: blue; */
     padding: 5px 10px 5px 5px;
 
 }
@@ -18,7 +17,6 @@
 .right-container{
     width: 50%;
     display: grid;
-    /* background-color: yellow; */
     border-left: 4px solid rgb(228, 228, 228);
     padding: 5px 5px 5px 10px;
 }
@@ -26,13 +24,11 @@
 .price{
     height: 100%;
     display: grid;
-    /* background-color: violet; */
 }
 
 .total{
     height: 100%;
     display: grid;
-    /* background-color: #4B1F0E; */
     padding-top: 0px;
 }
 
@@ -42,7 +38,6 @@
 }
 
 .status-container{ 
-    /* background-color: red; */
     padding-left: 25px 30px;
     height: auto;
     width: auto;
@@ -67,7 +62,6 @@
 }
 
 .user-details{
-    /* background-color: green; */
     width: 100%;
     display: flex;
 }
@@ -245,13 +239,11 @@
 
 @media (max-width: 600px){
     .status-container{
-        /* background-color: darkblue; */
         height: 65vh;
         display: grid;
         width: 100%;
     }
     .user-details{
-        /* background-color: red; */
         display: grid;
         width: 100%;
         max-height: 700px;
@@ -261,13 +253,11 @@
     .left-container{
         display: grid;
         width: 100%;
-        /* background-color: yellow; */
         
     }
     .right-container{
         display: grid;
         width: 100%;
-        /* background-color: green */
         border: none;
     }
     .user-details .input-box input{

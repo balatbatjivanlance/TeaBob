@@ -172,7 +172,7 @@ pullSales() {
 
 
 ViewandApproved(dashboard: any) {
-  // console.log(code);
+  
   const dialogRef = this.dialog.open(ViewOrdersComponent , {
     height: '70%',
     width: '60%',
@@ -182,7 +182,7 @@ ViewandApproved(dashboard: any) {
 }
 
 ViewOrdersOnly(dashboard: any) {
-  // console.log(code);
+  
   const dialogRef = this.dialog.open(ViewOrdersOnlyComponent , {
     height: '70%',
     width: '60%',
@@ -208,8 +208,7 @@ async delorder(e:any) {
       this.orderInfo.cocode = e;
 
       this.ds.sendApiRequest("delOrder", JSON.parse(JSON.stringify(this.orderInfo))).subscribe((data: any) => {
-        // alert('Order Removed');
-        // this.pullOrders();
+     
       });
 
       Swal.fire(

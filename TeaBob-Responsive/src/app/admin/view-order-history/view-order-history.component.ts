@@ -17,16 +17,11 @@ export class ViewOrderHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullCodeDetails();
-    // this.pullCoCodeDetails();
-    // console.log(this.status)
   }
 
   
   corNumInfo: any = {};
   details: any;
-
-
-  // code: any;
 
   prod_name: any;
   prod_price: any;
@@ -44,8 +39,6 @@ export class ViewOrderHistoryComponent implements OnInit {
     this.prod_price = this.details[0].prod_price;
     this.food_quantity = this.details[0].food_quantity;
     this.checkout_date = this.details[0].checkout_date;
-    // this.is_approved = this.details[0].is_approved;
-      // console.log(this.details);
 
     })
   }

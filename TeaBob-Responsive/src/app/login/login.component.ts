@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngAfterViewChecked(){
-    // console.log("hello");
     if(this.ds.isUserLoggedIn()){
       this.router.navigate(['/home']);
     }
@@ -37,9 +36,6 @@ export class LoginComponent implements OnInit {
     this.userInfo.user_address = this.user_address;
 
     await this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: any | null; }) => {
-
-        // console.log(res.payload);
-        // this.user_id = res.payload.user_id;
 
       if (res.payload == null) {
         Swal.fire({
@@ -76,10 +72,6 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("user_Address", res.payload.user_Address);
         window.localStorage.setItem("user_role", res.payload.user_role);
         this.checkRole(res.payload.user_role);
-        // Swal.fire({
-        //   title: 'Login Successfully!',
-        //   text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
-        // })
         Swal.fire({
           title: 'Login Successfully!',
           text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!',
@@ -95,20 +87,9 @@ export class LoginComponent implements OnInit {
   }
 
   verify(otp:any){
-    // console.log( this.user_id);
     this.ds.sendApiRequest("verifyUser", {user_otp:otp, user_id:this.user_id}).subscribe((res: { payload: any | null; status:any|null }) => {
       console.log(res.payload);
       if(res.status.remarks == 'success'){
-        // window.localStorage.setItem("Fullname", res.payload.Fullname);
-        // window.localStorage.setItem("id", res.payload.user_id);
-        // window.localStorage.setItem("user_Contact", res.payload.user_Contact);
-        // window.localStorage.setItem("user_Address", res.payload.user_Address);
-        // window.localStorage.setItem("user_role", res.payload.user_role);
-        // this.checkRole(res.payload.user_role);
-        // Swal.fire({
-        //   title: 'Login Successfully!',
-        //   text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!'
-        // })
         Swal.fire({
           title: 'Verified Successfully!',
           icon: 'success'

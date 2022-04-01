@@ -5,27 +5,15 @@
 
       <div class="status-container">
           <div class="status-title">Product Info</div>
-      <!-- 
-          <div class="profile-image">
-      
-          </div> -->
+
       
           <div class="user-details">
-          <!-- <div class="input-box">
-      
-              <span class="details">Name</span>
-              <input disabled type="text" placeholder="">
-          </div> -->
+
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
             <input matInput type="text" [(ngModel)]="food_name" required/>
           </mat-form-field>
 
-          <!-- <div class="input-box">
-      
-              <span class="details">Price</span>
-              <input disabled type="text" placeholder="">
-          </div> -->
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Price</mat-label>
             <input matInput type="number" [(ngModel)]="food_price" required/>
@@ -41,20 +29,11 @@
             <input matInput type="text" [(ngModel)]="food_description" required/>
           </mat-form-field>
 
-          <!-- <div class="input-box">
-              <span class="details">Image</span>
-              <input disabled type="text" placeholder="">
-          </div> -->
           <div class="img-container" style="margin-left: 20px">
             <img class="image-container" [src]="imgSrc" alt="img" style="width: 100px; height: 100px; display: none" />
             <input class="input-image" type="file" (change)="onUploadHandler($event)" required/>
           </div><br>
 
-          <!-- <div class="input-box">
-              <span class="details">Featured</span>
-              <input disabled type="number" class="input-number" placeholder="">
-          </div> -->
-          
           <mat-form-field class="example-full-width" appearance="outline" style="width: 100%;">
             <mat-label>Active</mat-label>
             <select matNativeControl name="active" id="active" (change)="selectChangeHandleractive($event)"
@@ -85,18 +64,12 @@
               </option>
             </select>
           </mat-form-field>
-<!-- 
-          <div class="input-box">
-              <span class="details">Active</span>
-              <input disabled type="text" placeholder="">
-          </div> -->
       
           
           <button mat-raised-button  class="button" (click)="updateFood()"
           [disabled]="!food_name || !food_description || !food_active || !food_featured
           || !food_category || !food_price || !food_stocks">
           Update Product</button>
-          <!-- <button (click)="statusModal()" class="button">Change Password</button> -->
       
           
       </div>

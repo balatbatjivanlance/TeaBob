@@ -1,9 +1,5 @@
 <div class="status-container">
   <div class="status-title">Order Info</div>
-  <!-- 
-    <div class="profile-image">
-
-    </div> -->
 
   <div class="user-details">
     <div class="left-container">
@@ -73,24 +69,11 @@
 
       <div class="total">
         <div class="variations">
-          <!-- <span class="details">Select Size</span> -->
-          <!-- <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
-                        <mat-label>Select Size</mat-label>
-                        <select matNativeControl name="size" id="size" (change)="selectChangeHandlerSize($event)"
-                        [(ngModel)]="item_size">
-                        <ng-container  *ngFor="let size of size">
-                          <option *ngIf="size.size_stocks != '0'" value="{{size.size_name}}">{{size.size_name}}
-                          </option>
-                        </ng-container>
-                        </select>
-                      </mat-form-field> -->
+
 
                       <p class="addon">Add Ons</p>
                       <div class="add-ons">
-                        <!-- <section  class="container1" *ngFor="let addon of addon">
-                                    <mat-checkbox #addPearlCheckBox [checked]="savePearl"  (change)="addPearl(addPearlCheckBox.checked, addon.addon_id)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-                                     value="{{addon.addon_id}}">{{addon.addon_name}}</mat-checkbox>
-                                  </section> -->
+
                         <section class="container1" *ngFor="let addon of addon">
                           <mat-checkbox
                             (change)="onChangeDemo($event, addon.addon_name, addon.addon_price)"
@@ -98,7 +81,6 @@
                             [disabled]="isDisabled"
                             value="{{ addon.addon_price }}"
                             >{{ addon.addon_name }}</mat-checkbox>
-                          <!-- <span *ngIf="addon.addon_stocks != '0'" class="details">stocks:{{addon.addon_stocks}}</span> -->
                         </section>
                       </div>
 
@@ -134,65 +116,3 @@
  
   </div>
 </div>
-
-
-   <!-- 
-        <ng-container  *ngFor="let addon of addon">
-            <label class="container1">{{addon.addon_name}}
-                <input #addPearlCheckBox
-                type="checkbox" 
-                [checked]="savePearl" 
-                (change)="addPearl(addPearlCheckBox.checked)" />
-                <span class="checkmark1"></span>
-            </label>
-            </ng-container> -->
-
-    <!-- <label class="container1">Pearl (₱10)
-            <input #addPearlCheckBox
-            type="checkbox" 
-            [checked]="savePearl" 
-            (change)="addPearl(addPearlCheckBox.checked)" />
-            <span class="checkmark1"></span>
-        </label>
-
-        <label class="container1">Cream Puff (₱10)
-            <input #addCcheeseCheckBox
-            type="checkbox" 
-            [checked]="saveCcheese" 
-            (change)="addCcheese(addCcheeseCheckBox.checked)" />
-        <span class="checkmark1"></span>
-    </label>
-        <label class="container1">Cream Cheese (₱10)
-            <input #addCPuffCheckBox
-            type="checkbox" 
-            [checked]="saveCPuff" 
-            (change)="addCPuff(addCPuffCheckBox.checked)" />
-        <span class="checkmark1"></span>
-      </label>
-
-      <label class="container1">Cookies (₱10)
-        <input #addCookieCheckBox
-        type="checkbox" 
-        [checked]="saveCookie" 
-        (change)="addCookie(addCookieCheckBox.checked)" />
-        <span class="checkmark1"></span>
-      </label> -->
-
-    <!-- <div class="variations"> -->
-    <!-- 
-        <mat-form-field class="example-full-width" appearance="outline" style="width: 90%;">
-            <mat-label>Select Size</mat-label>
-            <select matNativeControl name="size" id="size" (change)="selectChangeHandlerSize($event)"
-            [(ngModel)]="item_size">
-            <ng-container  *ngFor="let size of size">
-              <option *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}
-              </option>
-            </ng-container>
-            </select>
-          </mat-form-field> -->
-
-    <!-- <mat-radio-group class="container2" *ngFor = "let size of size">
-            <mat-radio-button  *ngIf="size.size_stocks != '0'" value="{{size.size_price}}">{{size.size_name}}</mat-radio-button>
-          </mat-radio-group> -->
-
-    <!-- </div> -->

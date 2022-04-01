@@ -22,13 +22,10 @@ export class HomePage implements OnInit {
   }
 
   ionViewDidEnter(){
-   
-  //console.log("hello");
-    // console.log(this.us.getDriver());
+  
     this.driver_name = this.us.getDriver();
     this.driver_deliveries = this.pullDriverInfo();
    
-    // console.log(this.driver_deliveries);
     this.getApproved();
   }
 
@@ -36,25 +33,16 @@ export class HomePage implements OnInit {
     this.ds.sendApiRequest("getApproved", null).subscribe((data: { payload: any; }) => {
       this.approved = data.payload;
 
-      // console.log(this.approved);
-      
-
     })
 
   }
 
   pullDriverInfo(){
-    console.log(this.us.getDriver());
     this.ds.sendApiRequest("getDriverInfo", 
     {
       driver: this.us.getDriver()
      }
      ).subscribe((data: { payload: any; }) => {
-      // this.driver_deliveries = data.payload;
-
-      // console.log(this.driver_deliveries);
-
-     
 
       try{
         var keyCount  = Object.keys(data.payload).length;
@@ -72,7 +60,6 @@ export class HomePage implements OnInit {
 
   viewOrder(approved:any){
 
-    // console.log(approved);
     this._router.navigate(['/view-order'], {state: approved});
   }
 

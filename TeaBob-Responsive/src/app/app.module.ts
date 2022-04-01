@@ -23,7 +23,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
 
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // Material Imports
 import { MatDividerModule } from '@angular/material/divider';
@@ -126,7 +126,9 @@ import { ManageAdminComponent } from './admin/manage-admin/manage-admin.componen
     NgxPrintModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy, useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

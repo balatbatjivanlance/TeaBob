@@ -10,6 +10,7 @@ export class AppComponent {
 
   public appPages = [
     {title: 'Orders', url: '/home', icon : 'basket'},
+    {title: 'Current Delivery', url: '/conclude-order', icon : 'bicycle'},
     {title: 'History', url: '/delivery-history', icon : 'archive'},
     {title: 'Logout', url: '/login', icon : 'log-out'}
 

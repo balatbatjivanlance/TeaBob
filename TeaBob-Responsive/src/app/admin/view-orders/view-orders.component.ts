@@ -18,15 +18,11 @@ export class ViewOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.pullCodeDetails();
-    // this.pullCoCodeDetails();
-    // console.log(this.status)
   }
 
   corNumInfo: any = {};
   details: any;
 
-
-  // code: any;
 
   prod_name: any;
   prod_price: any;
@@ -44,35 +40,9 @@ export class ViewOrdersComponent implements OnInit {
     this.prod_price = this.details[0].prod_price;
     this.food_quantity = this.details[0].food_quantity;
     this.checkout_date = this.details[0].checkout_date;
-    // this.is_approved = this.details[0].is_approved;
-      // console.log(this.details);
 
     })
   }
-
-  // codeInfo: any = {};
-  // cocodedetails: any;
-
-  // pullCoCodeDetails() {
-  //   this.codeInfo.code = this.status.code;
-
-  //   this.ds.sendApiRequest("pullCoCodeDetails", this.status.code).subscribe((data: { payload: any; }) => {
-  //     this.cocodedetails = data.payload;
-
-  //   this.is_approved = this.cocodedetails[0].is_approved;
-  //     // console.log(this.details);
-
-  //   })
-  // }
-
-
-  // selectedStatus: string = '';
-
-  // selectChangeHandler (event: any){
-  //   this.selectedStatus = event.target.value;
-
-  //   console.log(this.selectedStatus);
-  // }
 
   
   is_approved: any;
@@ -92,19 +62,17 @@ export class ViewOrdersComponent implements OnInit {
         let cocode_id  = this.status.cocode_id;
 
         this.codeinfo.cocode_id =  cocode_id;
-        // this.codeinfo.is_approved = this.is_approved = this.selectedStatus;
         this.codeinfo.is_approved = 1;
 
     this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
 
-        // Swal.fire('Saved!', '', 'success')
+        Swal.fire('Saved!', '', 'success')
         window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }
     })
     this.dialog.closeAll();
-    // console.log(this.codeinfo.is_approved)
   }
 
 

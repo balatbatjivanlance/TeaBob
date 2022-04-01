@@ -31,7 +31,7 @@ export class ConcludeOrderPage implements OnInit {
 
     this.viewOrder = this.router.getCurrentNavigation().extras.state;
 
-    console.log(this.viewOrder);
+
     
     this.user_address = this.viewOrder.user_address;
     this.remarks = this.viewOrder.remarks;
@@ -41,7 +41,7 @@ export class ConcludeOrderPage implements OnInit {
     this.code = this.viewOrder.code;
     this.total_price = this.viewOrder.total_price;
 
-    // ID ng tbl_cocode for updating
+    // ID of tbl_cocode for updating
     this.cocode_id = this.viewOrder.cocode_id;
 
   }
@@ -97,7 +97,6 @@ export class ConcludeOrderPage implements OnInit {
           value: 'Vehicle malfunction',
           handler: (data) => {
            this.selectedValue = data.value;
-           console.log(this.selectedValue);
           }
         },
         {
@@ -107,7 +106,6 @@ export class ConcludeOrderPage implements OnInit {
           value: 'No response from customer',
           handler: (data) => {
             this.selectedValue = data.value;
-            console.log(this.selectedValue);
           }
         },
         {
@@ -117,7 +115,6 @@ export class ConcludeOrderPage implements OnInit {
           value: 'Order took too long',
           handler: (data) => {
            this.selectedValue = data.value;
-           console.log(this.selectedValue);
           }
         },
         {
@@ -127,7 +124,6 @@ export class ConcludeOrderPage implements OnInit {
           value: 'Wrong order',
           handler: (data) => {
            this.selectedValue = data.value;
-           console.log(this.selectedValue);
           }
         },
         {
@@ -137,7 +133,6 @@ export class ConcludeOrderPage implements OnInit {
           value: 'Other',
           handler: (data) => {
            this.selectedValue = data.value;
-           console.log(this.selectedValue);
           }
         }       
       ],
@@ -172,14 +167,14 @@ export class ConcludeOrderPage implements OnInit {
 
   confirmDelivery(isDelivered: any)
 {
-  console.log(isDelivered);
+
   if(isDelivered=="delivered")
   {
 
     this.ds.sendApiRequest("confirmDelivery", 
     {
      cocode_id:this.cocode_id,
-     is_approved: 4, //eto yung mga fields na ginagamit sa Post.php
+     is_approved: 4, 
     }
     ).subscribe((data: { payload: any }) => {
       if(data.payload){
@@ -204,8 +199,7 @@ cancelDelivery(isCancelled: any)
   
   if(isCancelled=="confirmed")
   {
-    console.log(isCancelled);
-    console.log(this.selectedValue);
+
       
       this.ds.sendApiRequest("cancelDelivery", 
       {

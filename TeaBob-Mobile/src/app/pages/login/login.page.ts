@@ -20,7 +20,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   ionViewDidEnter(){
-    console.log("hello");
     if(this.us.isUserLoggedIn()){
       this.router.navigate(['/home']);
     }
@@ -36,7 +35,6 @@ export class LoginPage implements OnInit {
   }
 
   loginDriver() {
-    console.log(this.driver_email,this.driver_password);
     this.ds.sendApiRequest("getDriver", 
     {
       driver_email:this.driver_email, 
@@ -45,16 +43,6 @@ export class LoginPage implements OnInit {
     ).subscribe((data: { payload: any }) => {
       this.login = data;
 
-      // pag may ipapasa ka na data sa api Nnyo ganto syntax pre
-      // oo pre
-      // kunyare may update ka diba 
-      // oo ganyan din pre 
-      // basta may ipapasa ka na data kay api ganyan
-      // oo pre
-      // pwede din pag may condition ka sa get where id=$driver_id kunyare1
-      //hThis is a comment
-
-      console.log(this.login);
       if(this.login.status.remarks == "success")
       {
         this.us.saveDriver(this.login.payload.Fullname);

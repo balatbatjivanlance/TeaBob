@@ -1,5 +1,3 @@
-<!-- <app-navbar></app-navbar> -->
-
 
 <mat-sidenav-container autosize>
 
@@ -78,8 +76,6 @@
                 <div class="card-order" *ngFor="let status of status_payload">
                   <button  mat-stroked-button style="background-color: red; color: white; float: right;"
                    *ngIf ="status.is_approved == '2' "(click)="deleteOrder(status.cocode_id)" ><mat-icon style="color: #424242;" *ngIf="isExpanded">delete</mat-icon></button>
-                   <!-- <button  mat-stroked-button style="background-color: red; color: white; float: right;"
-                   *ngIf ="status.is_approved == '4' "(click)="deleteOrder(status.cocode_id)" ><mat-icon style="color: #424242;" *ngIf="isExpanded">delete</mat-icon></button> -->
                     <div class="card-order-info">
                         <div class="code">
                           <button  mat-raised-button color="primary" class="remarks"
@@ -110,7 +106,6 @@
                                   <button class="card-order-action" mat-stroked-button style="background-color: red; color: white;" *ngIf ="status.is_approved == '0' "(click)="cancelOrder(status.cocode_id)" >Cancel Order</button>
                                   <button class="card-order-action" mat-raised-button style="background-color: gray; color: white;" *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
 
-                                  <!-- <button class="card-order-action" mat-stroked-button color="primary" (click)="delorder(status.code)">Delete</button> -->
                               </div>
                             </div>
                             

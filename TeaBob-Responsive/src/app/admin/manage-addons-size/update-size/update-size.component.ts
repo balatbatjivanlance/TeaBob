@@ -61,7 +61,7 @@ export class UpdateSizeComponent implements OnInit {
 
     this.ds.sendApiRequest("updateSize/" + id, this.sizeinfo).subscribe((data: { payload: any; }) => {});
 
-        // Swal.fire('Saved!', '', 'success')
+        Swal.fire('Saved!', '', 'success')
         window.location.reload();
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

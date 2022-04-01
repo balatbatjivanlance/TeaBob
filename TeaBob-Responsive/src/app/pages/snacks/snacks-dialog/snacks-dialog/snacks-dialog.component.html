@@ -7,12 +7,6 @@
 
         <div class="left-container">
 
-    <!-- <div class="input-box">
-        <span class="details">Quantity</span> 
-        <input [(ngModel)]="food_qty" disabled class="input-number" min="1">
-        <button class="quan-butt" (click)="minusQty()">-</button>
-        <button (click)="plusQty()" class="quan-butt">+</button>
-    </div> -->
     <div class="input-box">
         <span class="details">Food Name</span>
         <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
@@ -57,39 +51,7 @@
         </div>
         </div>
     
-
-    
-
-    
-    
-
-    
-    <!-- <div class="input-box1">
-        
-        <section  class="container1" *ngFor="let addon of addon">
-            <mat-checkbox (change)="onChangeDemo($event, addon.addon_name)" class="example-margin" *ngIf="addon.addon_stocks != '0'" 
-             value="{{addon.addon_price}}">{{addon.addon_name}}</mat-checkbox>
-          </section> -->
-
-    
-    
-    
-        <!-- <label class="container1">Extra Sauce (₱10)
-            <input #addExtraCheckBox
-            type="checkbox" 
-            [checked]="saveExtras" 
-            (change)="addExtra(addExtraCheckBox.checked)" />
-        <span class="checkmark1"></span>
-    </label>
-        <label class="container1">Spicy (free)
-            <input #addSpicyCheckBox
-            type="checkbox" 
-            [checked]="saveSpice" 
-            (change)="addSpicy(addSpicyCheckBox.checked)" />
-        <span class="checkmark1"></span>
-      </label> -->
     <button class="button"(click)="addToCart()">Add to Cart</button>
-<!-- </div> -->
 
 </div>
 </div>

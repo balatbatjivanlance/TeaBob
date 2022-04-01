@@ -10,23 +10,10 @@
 }
 .container{
     width: 100%;
-    /* margin-top: 50px; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: red; */
 }
-/* .status-container{
-
-    max-width: 700px;
-    background: #fff;
-    padding-left: 25px 30px;
-    border-radius: 5px;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    
-
-} */
 .status-container .status-title{
     font-size: 25px;
     font-weight: 500;
