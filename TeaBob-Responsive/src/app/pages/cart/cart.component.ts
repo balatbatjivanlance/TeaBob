@@ -141,11 +141,9 @@ export class CartComponent implements OnInit {
 
 
   coInfo: any = {}
-  coCode: any = {}
-
   cart_id: any
-
   remarks: any;
+  
   async checkOutAll() {
 
     const { value: text } = await Swal.fire({

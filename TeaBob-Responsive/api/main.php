@@ -100,6 +100,14 @@
 						echo json_encode($get->pullUsers($d), JSON_PRETTY_PRINT);
 					}
 				break;
+				// Pull comments
+				case 'comment':
+					if(count($req)>1) {
+						echo json_encode($get->pullComment($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullComment($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				// Pull data of the user admin
 				case 'pullUserAdmin':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
@@ -147,16 +155,26 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($gm->insert("tbl_cart", $d), JSON_PRETTY_PRINT);
 				break;
+				// Add to check out one item
+				case 'CheckoutOneItem':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($gm->insert("tbl_checkout", $d), JSON_PRETTY_PRINT);
+				break;
+				case 'CheckoutCodeOneItem':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($gm->insert("tbl_cocode", $d), JSON_PRETTY_PRINT);
+				break;
+				
 				// Add to checkout function
 				case 'addCheck':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($gm->insert("tbl_checkout",$d), JSON_PRETTY_PRINT);
 				break;
-				case 'checkOutAll':
-					$d = json_decode(base64_decode(file_get_contents("php://input")));
-					echo json_encode($post->checkOutAll($d), JSON_PRETTY_PRINT);
+				// case 'checkOutAll':
+				// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
+				// 	echo json_encode($post->checkOutAll($d), JSON_PRETTY_PRINT);
 
-				break;
+				// break;
 				case 'placeOrder':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->placeOrder($d), JSON_PRETTY_PRINT);
@@ -249,6 +267,12 @@
 				case 'mailer':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					print_r($mail->mailer($d));
+				break;
+
+				// Add Comment
+				case 'AddComment':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($gm->insert("tbl_comment",$d), JSON_PRETTY_PRINT);
 				break;
 
 

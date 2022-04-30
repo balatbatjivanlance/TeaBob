@@ -217,8 +217,9 @@ export class DrinksDialogComponent implements OnInit {
   };
 
   prodInfo: any = {};
+  cocodeInfo:any = {};
+  food_update:any = {};
   info: any;
-
   item_size: any;
 
 
@@ -250,6 +251,74 @@ export class DrinksDialogComponent implements OnInit {
     });
   }
 }
+
+
+code: any;
+upfs: any;
+remarks: any;
+async CheckoutOneItem() {
+
+  const { value: text } = await Swal.fire({
+    input: 'textarea',
+    inputLabel: 'Landmark Near You',
+    inputPlaceholder: 'Ex: color of gate, near school, etc.',
+    inputAttributes: {
+      'aria-label': 'Type your message here'
+    },
+    showCancelButton: true
+  })
+
+  if (text) {
+    this.remarks = text;
+
+    var seq = Math.floor(100000000 + Math.random() * 900000000).toString().substring(1)
+  this.code = seq
+
+    var fs = this.food_stocks - this.food_qty;
+    this.upfs = fs
+
+  //checkout info
+    let addons: any = sessionStorage.getItem('addonname');
+    this.prodInfo.user_id = localStorage.getItem("id");
+    this.prodInfo.prod_name = this.food_name;
+    this.prodInfo.prod_price = this.food_price;
+    this.prodInfo.food_quantity = this.food_qty;
+    this.prodInfo.cart_addon_name = addons;
+    this.prodInfo.size_name = this.selectedSizeName;
+    this.prodInfo.code = this.code;
+    // this.prodInfo.cart_total_price = this.food_total;
+    // this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+
+    //cocode info
+    this.cocodeInfo.code = this.code;
+    this.cocodeInfo.user_name = localStorage.getItem("Fullname")
+    this.cocodeInfo.user_id = localStorage.getItem("id")
+    this.cocodeInfo.user_contact = localStorage.getItem('user_Contact')
+    this.cocodeInfo.user_address = localStorage.getItem('user_Address')
+    this.cocodeInfo.total_price = this.food_total;
+    this.cocodeInfo.remarks = this.remarks;
+
+    //food update stocks
+    this.food_update.food_stocks = this.upfs;
+    // console.log(this.food_update.food_stocks)
+
+    this.ds.sendApiRequest('CheckoutOneItem/', this.prodInfo).subscribe((data: any) => {
+      if (data.remarks === "success"){
+        Swal.fire(
+          'Great!',
+          'Successfully Checked Out!',
+          'success'
+        )
+        this.dialog.closeAll();
+      }
+    });
+    this.ds.sendApiRequest('CheckoutCodeOneItem/', this.cocodeInfo).subscribe((data: any) => {
+
+    });
+  
+  
+  }
+} 
 
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!');

@@ -65,6 +65,43 @@ class Post{
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
       
     }
+
+    public function CheckoutOneItem($data) {
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $prodInfo = $data->prodInfo;
+
+        $res = $this->gm->insert('tbl_checkout', $prodInfo);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
+    }
+
+    public function CheckoutCodeOneItem($data) {
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $cocodeInfo = $data->cocodeInfo;
+
+        $res = $this->gm->insert('tbl_cocode', $cocodeInfo);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
     
     // Update Profile
     public function updateProfile($dt) {
@@ -113,6 +150,27 @@ class Post{
             }
             return $this->gm->sendPayload($payload, $remarks, $message, $code);
         }
+
+        //add Comment
+            
+    public function AddComment($data) {
+
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+        $com_Info = $data->com_Info;
+
+        $res = $this->gm->insert('tbl_comment', $com_Info);
+
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['data'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    }
 
         // Update cart
      public function updateCart($dt) {
@@ -222,25 +280,25 @@ class Post{
     }
    
 
-    public function checkOutAll($d)
-    {
-        $code = 401;
-        $payload = null;
-        $remarks = "failed";
-        $message = "Unable to retrieve data";
+    // public function checkOutAll($d)
+    // {
+    //     $code = 401;
+    //     $payload = null;
+    //     $remarks = "failed";
+    //     $message = "Unable to retrieve data";
 
-        $res = $this->gm->insert('tbl_checkout', $d);
+    //     $res = $this->gm->insert('tbl_checkout', $d);
 
 
-        if($res['code']==200) {
-            $code = 200;
-            $payload = $res;
-            $remarks = "success";
-            $message = "Successfully retrieved data";
-        }
+    //     if($res['code']==200) {
+    //         $code = 200;
+    //         $payload = $res;
+    //         $remarks = "success";
+    //         $message = "Successfully retrieved data";
+    //     }
 
-        return $this->gm->sendPayload($payload, $remarks, $message, $code);
-    }   
+    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    // }   
 
 
     public function placeOrder($dt){
@@ -311,24 +369,24 @@ class Post{
         return array("code"=>$code, "errmsg"=>$errmsg);
     }
 
-    public function checkOutCode($d)
-    {
-        $code = 401;
-        $payload = null;
-        $remarks = "failed";
-        $message = "Unable to retrieve data";
+    // public function checkOutCode($d)
+    // {
+    //     $code = 401;
+    //     $payload = null;
+    //     $remarks = "failed";
+    //     $message = "Unable to retrieve data";
 
-        $res = $this->gm->insert('tbl_cocode', $d);
+    //     $res = $this->gm->insert('tbl_cocode', $d);
 
-        if($res['code']==200) {
-            $code = 200;
-            $payload = $res;
-            $remarks = "success";
-            $message = "Successfully retrieved data";
-        }
+    //     if($res['code']==200) {
+    //         $code = 200;
+    //         $payload = $res;
+    //         $remarks = "success";
+    //         $message = "Successfully retrieved data";
+    //     }
 
-        return $this->gm->sendPayload($payload, $remarks, $message, $code);
-    }
+    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    // }
 
     // Delete Cart
     public function delCarts($d) {
@@ -513,23 +571,23 @@ class Post{
                 }
 
                 
-                public function addComment($dt) {
-                    $code = 401;
-                    $payload = null;
-                    $remarks = "failed";
-                    $message = "Unable to retrieve data";
+                // public function addComment($dt) {
+                //     $code = 401;
+                //     $payload = null;
+                //     $remarks = "failed";
+                //     $message = "Unable to retrieve data";
             
-                    $res = $this->gm->update('tbl_food', $dt, "food_id = '$dt->food_id'");
-                    return $res;
-                    if($res['code']==200) {
-                        $code = 200;
-                        $payload = $res['payload'];
-                        $remarks = "success";
-                        $message = "Successfully retrieved data";
-                    }
-                    return $this->gm->sendPayload($payload, $remarks, $message, $code);
+                //     $res = $this->gm->update('tbl_food', $dt, "food_id = '$dt->food_id'");
+                //     return $res;
+                //     if($res['code']==200) {
+                //         $code = 200;
+                //         $payload = $res['payload'];
+                //         $remarks = "success";
+                //         $message = "Successfully retrieved data";
+                //     }
+                //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
                   
-                }
+                // }
 
                 // update Status
                 public function updateStatus($dt) {

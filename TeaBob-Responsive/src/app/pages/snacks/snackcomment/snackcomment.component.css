@@ -1,0 +1,288 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.left-container{
+    width: 50%;
+    display: grid;
+    padding: 5px 10px 5px 5px;
+
+}
+img{
+    width: 30%;
+}
+
+.right-container{
+    width: 50%;
+    display: grid;
+    border-left: 4px solid rgb(228, 228, 228);
+    padding: 5px 5px 5px 10px;
+}
+
+.price{
+    height: 100%;
+    display: grid;
+}
+
+.total{
+    height: 100%;
+    display: grid;
+    padding-top: 0px;
+}
+
+.add-ons{
+    display: flex;
+
+}
+
+.status-container{ 
+    padding-left: 25px 30px;
+    height: auto;
+    width: auto;
+
+}
+
+.comcard{
+    
+    background-color: red;
+    border: 1px solid black;
+    height: 40%;
+}
+
+
+.status-container .status-title{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 20px 0 0 15px;
+}
+.status-container .status-title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+    left: 0;
+    bottom: 0;
+
+}
+
+.user-details{
+    width: 100%;
+    display: flex;
+}
+
+.status-container  .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.status2-container{
+    float: right;
+    margin-top: -20%;
+    margin-right: 5%;
+    max-width: 700px;
+    background: #fff;
+    padding-left: 25px 30px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.status2-container .status2-title{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 10px 0 0 15px;
+}
+.status2-container .status2-title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+    left: 0;
+    bottom: 0;
+
+}
+.status2-container  .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.user-details .input-box{
+    width: 100%;
+    padding: 50 15px 0 15px;
+    
+}
+
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+/* animations */
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #7a7a7a;
+    
+}
+
+.button {
+    height: 50px;
+    width: 90%;
+    margin-left: 35px;
+    outline: none;
+    color: #ffffff;
+    background: #4B1F0E ;
+    border:none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+.button:hover{
+    cursor: pointer;
+    background: #efc3a4;
+    color:rgb(0, 0, 0);
+}
+.quan-butt{
+    width: 25%;
+    height: 30%;
+    font-size: medium;
+}
+
+/* snacks checkbox */
+.container1 {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 3px;
+    margin-bottom: 9px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .input-box1{
+    padding-top: 10px;
+    justify-content: space-between;
+      
+  }
+
+
+
+  /* Hide the browser's default checkbox */
+  .container1 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container1:hover input ~ .checkmark1 {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container1 input:checked ~ .checkmark1 {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark1:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container1 input:checked ~ .checkmark1:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container1 .checkmark1:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+@media (max-width: 600px){
+    .status-container{
+        height: 65vh;
+        display: grid;
+        width: 100%;
+    }
+    .user-details{
+        display: grid;
+        width: 100%;
+        max-height: 700px;
+        overflow-y: scroll;
+
+    }
+    .left-container{
+        display: grid;
+        width: 80%;
+        
+    }
+    .right-container{
+        display: grid;
+        width: 100%;
+        border: none;
+    }
+    .user-details .input-box input{
+        width: 100%;
+        padding: 50 15px 0 15px;
+        
+    }
+    .add-ons  {
+        display: grid;
+        font-size: 20px;
+      }
+      .total{
+          padding-top: 0%;
+      }
+      .button{
+          margin-left: 0%;
+          width: 100%;
+      }
+}

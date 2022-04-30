@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { SnacksDialogComponent } from './snacks-dialog/snacks-dialog/snacks-dialog.component';
+import { SnackcommentComponent } from './snackcomment/snackcomment.component';
 import {MatFormField} from '@angular/material/form-field';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -154,6 +155,24 @@ export class SnacksComponent implements OnInit {
     }
     else if(id == 26){
       const drinksdialog = this.dialog.open(DrinksDialogComponent, {
+        autoFocus: false, width:"70%", height:"78%", data: {food_id}
+      });
+      drinksdialog.afterClosed().subscribe( ()=>{
+      });
+    }
+    sessionStorage.setItem('prod_Id', food_id);
+  }
+
+  openComment(id: any, food_id: any) {
+    if (id == 24) {
+      const dialog = this.dialog.open(SnackcommentComponent, {
+        autoFocus: false, width:"70%", height:"70%", data:{food_id},
+      });
+      dialog.afterClosed().subscribe( ()=>{
+      });
+    }
+    else if(id == 26){
+      const drinksdialog = this.dialog.open(SnackcommentComponent, {
         autoFocus: false, width:"70%", height:"78%", data: {food_id}
       });
       drinksdialog.afterClosed().subscribe( ()=>{

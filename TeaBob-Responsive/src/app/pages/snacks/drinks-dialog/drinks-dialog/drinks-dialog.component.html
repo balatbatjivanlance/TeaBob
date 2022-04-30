@@ -113,6 +113,16 @@
       Add to Cart
     </button>
 
+    <button mat-raised-button 
+      class="button"
+      (click)="CheckoutOneItem()"
+      [disabled]="!item_size"
+      title="Choose Size First">
+      Check Out
+    </button>
+    
+    <!-- <button class="button"(click)="CheckoutOneItem()">Check Out</button> -->
+
  
   </div>
 </div>

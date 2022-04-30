@@ -61,6 +61,7 @@ import { ViewOrdersOnlyComponent } from './admin/view-orders-only/view-orders-on
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ManageAdminComponent } from './admin/manage-admin/manage-admin.component';
+import { SnackcommentComponent } from './pages/snacks/snackcomment/snackcomment.component';
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import { ManageAdminComponent } from './admin/manage-admin/manage-admin.componen
     SalesReportComponent,
     AboutusComponent,
     ManageAdminComponent,
+    SnackcommentComponent,
   ],
   imports: [
     BrowserModule,

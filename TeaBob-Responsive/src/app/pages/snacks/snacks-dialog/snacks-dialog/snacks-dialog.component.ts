@@ -109,6 +109,7 @@ export class SnacksDialogComponent implements OnInit {
 
   
   prodInfo: any = {};
+  cocodeInfo: any = {};
   title: any;
   info: any;
 
@@ -172,6 +173,64 @@ export class SnacksDialogComponent implements OnInit {
     else {
 
       this.food_total =  this.food_qty * this.food_price;
+    }
+  }
+
+  code: any;
+  remarks: any;
+  async CheckoutOneItem() {
+
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Landmark Near You',
+      inputPlaceholder: 'Ex: color of gate, near school, etc.',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+
+    if (text) {
+      this.remarks = text;
+
+      var seq = Math.floor(100000000 + Math.random() * 900000000).toString().substring(1)
+    this.code = seq
+
+    //checkout info
+      let addons: any = sessionStorage.getItem('addonname');
+      this.prodInfo.user_id = localStorage.getItem("id");
+      this.prodInfo.prod_name = this.food_name;
+      this.prodInfo.prod_price = this.food_price;
+      this.prodInfo.food_quantity = this.food_qty;
+      this.prodInfo.cart_addon_name = addons;
+      this.prodInfo.code = this.code;
+      // this.prodInfo.cart_total_price = this.food_total;
+      // this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+
+      //cocode info
+      this.cocodeInfo.code = this.code;
+      this.cocodeInfo.user_name = localStorage.getItem("Fullname")
+      this.cocodeInfo.user_id = localStorage.getItem("id")
+      this.cocodeInfo.user_contact = localStorage.getItem('user_Contact')
+      this.cocodeInfo.user_address = localStorage.getItem('user_Address')
+      this.cocodeInfo.total_price = this.food_total;
+      this.cocodeInfo.remarks = this.remarks;
+
+      this.ds.sendApiRequest('CheckoutOneItem/', this.prodInfo).subscribe((data: any) => {
+        if (data.remarks === "success"){
+          Swal.fire(
+            'Great!',
+            'Successfully Checked Out!',
+            'success'
+          )
+          this.dialog.closeAll();
+        }
+      });
+      this.ds.sendApiRequest('CheckoutCodeOneItem/', this.cocodeInfo).subscribe((data: any) => {
+
+      });
+    
+    
     }
   } 
 

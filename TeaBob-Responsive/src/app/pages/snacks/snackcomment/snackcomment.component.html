@@ -1,0 +1,45 @@
+
+<div class="status-container">
+
+    <div class="status-title">Comments</div>
+
+    <div class="user-details">
+
+        <div class="left-container">
+
+    <div class="input-box">
+        <span class="details">Food Name</span>
+        <input type="text" [(ngModel)]="food_name" disabled placeholder="" >
+
+        <div class="image-container">
+            <img class="img-card" src="{{food_image_name}}">
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+            <mat-label>Your Comment</mat-label>
+            <input matInput type="text"  [(ngModel)]="com_comment"/>
+          </mat-form-field>
+
+            <button class="button" mat-raised-button color="primary" (click)="AddComment()">Comment</button>
+
+            <!-- <input type="text" placeholder="Comments Here" >
+            <button>post</button> -->
+
+    </div>
+    <br>
+    
+
+
+        </div>
+
+        <div class="right-container">
+            <div class="comcard"  *ngFor="let comment of comments">
+            <p>{{comment.com_comment}}</p>
+            </div>
+       
+
+        </div>
+    
+
+</div>
+</div>
