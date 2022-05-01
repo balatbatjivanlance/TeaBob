@@ -16,6 +16,13 @@ img{
     width: 30%;
 }
 
+.commentname{
+    margin-left: 10px;
+}
+.commentdate{
+    margin-left: 180px;
+}
+
 .right-container{
     width: 50%;
     display: grid;

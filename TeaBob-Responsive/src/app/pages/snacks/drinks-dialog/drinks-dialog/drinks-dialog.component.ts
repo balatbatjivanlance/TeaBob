@@ -254,7 +254,6 @@ export class DrinksDialogComponent implements OnInit {
 
 
 code: any;
-upfs: any;
 remarks: any;
 async CheckoutOneItem() {
 
@@ -274,8 +273,7 @@ async CheckoutOneItem() {
     var seq = Math.floor(100000000 + Math.random() * 900000000).toString().substring(1)
   this.code = seq
 
-    var fs = this.food_stocks - this.food_qty;
-    this.upfs = fs
+
 
   //checkout info
     let addons: any = sessionStorage.getItem('addonname');
@@ -298,9 +296,6 @@ async CheckoutOneItem() {
     this.cocodeInfo.total_price = this.food_total;
     this.cocodeInfo.remarks = this.remarks;
 
-    //food update stocks
-    this.food_update.food_stocks = this.upfs;
-    // console.log(this.food_update.food_stocks)
 
     this.ds.sendApiRequest('CheckoutOneItem/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){

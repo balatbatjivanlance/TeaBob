@@ -34,9 +34,13 @@
 
         <div class="right-container">
             <div class="comcard"  *ngFor="let comment of comments">
-                
+                <div *ngIf="comments.length != null; else blank">
+                <mat-label class="commentname">{{comment.user_fullname}}</mat-label> <mat-label class="commentdate">{{comment.date}}</mat-label>
                 <input class="inp" type="text"  disabled value="{{comment.com_comment}}">
-            <!-- <p>{{comment.com_comment}}</p> -->
+                </div>
+                <ng-template #blank>
+                    <span>There still no comments</span>
+                </ng-template>
             </div>
        
 

@@ -66,13 +66,15 @@ export class SnackcommentComponent implements OnInit {
   comments: any[]=[];
 
   pullComment(){
-    this.ds.sendApiRequest("comment/", null).subscribe((data: { payload: any; }) => {
+    this.ds.sendApiRequest("comment/", this.foodinfo.food_id).subscribe((data: { payload: any; }) => {
     this.comments = data.payload;
     })
   }
 
   com_comment: any;
   com_Info : any = {};
+  fullname: any;
+  lastname: any;
 
   AddComment() {
 
@@ -91,10 +93,15 @@ export class SnackcommentComponent implements OnInit {
           'success'
         )
 
+        this.fullname = localStorage.getItem("Fullname")
+        this.lastname = localStorage.getItem("Lastname")
+
         this.com_Info.com_comment = this.com_comment;
         this.com_Info.user_id = localStorage.getItem("id");
         this.com_Info.food_id = sessionStorage.getItem("prod_Id");
+        this.com_Info.user_fullname = this.fullname + " " +  this.lastname;
     
+        window.location.reload()
         this.ds.sendApiRequest("AddComment", JSON.parse(JSON.stringify(this.com_Info))).subscribe((data: any) => {
       
         });

@@ -143,6 +143,8 @@ export class CartComponent implements OnInit {
   coInfo: any = {}
   cart_id: any
   remarks: any;
+  fullname: any;
+  lastname: any;
   
   async checkOutAll() {
 
@@ -166,6 +168,9 @@ export class CartComponent implements OnInit {
 
         let data: any = []
 
+        this.fullname = localStorage.getItem("Fullname")
+        this.lastname = localStorage.getItem("Lastname")
+
         this.cart_payload.forEach(item =>  {
           this.coInfo.prod_name = item.food_name
           this.coInfo.cart_addon_name = item.cart_addon_name
@@ -175,7 +180,7 @@ export class CartComponent implements OnInit {
           this.coInfo.food_id = item.food_id
           this.coInfo.size_id = item.size_id
           this.coInfo.prod_price = item.cart_total_price
-          this.coInfo.user_name = localStorage.getItem('Fullname')
+          this.coInfo.user_name =  this.fullname + " " +  this.lastname;
           this.coInfo.user_contact = localStorage.getItem('user_Contact')
           this.coInfo.user_address = localStorage.getItem('user_Address')
           this.coInfo.total_price = this.totalamount
@@ -185,6 +190,7 @@ export class CartComponent implements OnInit {
 
           this.coInfo.food_stocks = item.food_stocks
           this.coInfo.size_stocks = item.size_stocks
+          // console.log(this.coInfo.user_name)
           Swal.fire('Great!', 'Check out successfully!', 'success')
 
           {

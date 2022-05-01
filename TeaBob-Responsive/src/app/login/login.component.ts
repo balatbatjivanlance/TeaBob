@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
           });
         }else{
           window.localStorage.setItem("Fullname", res.payload.Fullname);
+          window.localStorage.setItem("Lastname", res.payload.Lastname);
         window.localStorage.setItem("id", res.payload.user_id);
         window.localStorage.setItem("user_Contact", res.payload.user_Contact);
         window.localStorage.setItem("user_Address", res.payload.user_Address);

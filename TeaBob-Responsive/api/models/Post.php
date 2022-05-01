@@ -91,10 +91,34 @@ class Post{
         $remarks = "failed";
         $message = "Unable to retrieve data";
         $cocodeInfo = $data->cocodeInfo;
-
         $res = $this->gm->insert('tbl_cocode', $cocodeInfo);
 
         if($res['code']==200) {
+
+            for ($j= 0 ; $j < sizeof($data); $j++){
+              
+                $food_id [] = $data[$j]->food_id;
+                $size_id[] = $data[$j]->size_id;
+                $food_qty[]  = $data[$j]->food_quantity; 
+
+                $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
+                return $this->sql;
+                $this->pdo->query($this->sql);
+                
+                // if($food_qty[$j] != null){
+                //     $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
+                //     return $this->sql;
+                //     $this->pdo->query($this->sql);
+                // }
+                // if($size_id[$j] != null){
+                //     $this->sql = "UPDATE tbl_size SET size_stocks = size_stocks - $food_qty[$j] WHERE size_id = $size_id[$j]";
+                //     return $this->sql;
+                //     $this->pdo->query($this->sql);
+                    
+                // }
+
+            }
+
             $code = 200;
             $payload = $res['data'];
             $remarks = "success";
