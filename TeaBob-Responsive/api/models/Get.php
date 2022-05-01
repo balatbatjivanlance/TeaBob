@@ -72,7 +72,7 @@ class Get{
 
 	    //Pull Comments
 		public function pullComment ($d) {
-			$sql = "SELECT * FROM tbl_comment";
+			$sql = "SELECT * FROM tbl_comment ORDER BY com_id DESC";
 			
 			$res = $this->gm->generalQuery($sql, "No records found");
 			if ($res['code'] == 200) {
