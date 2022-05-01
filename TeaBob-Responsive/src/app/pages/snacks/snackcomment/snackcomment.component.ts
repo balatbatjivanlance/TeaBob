@@ -61,6 +61,8 @@ export class SnackcommentComponent implements OnInit {
 
   }
 
+  //pulling comments but still not properly working
+
   comments: any[]=[];
 
   pullComment(){
