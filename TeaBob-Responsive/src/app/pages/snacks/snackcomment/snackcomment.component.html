@@ -16,8 +16,8 @@
         </div>
 
         <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
-            <mat-label>Your Comment</mat-label>
-            <input matInput type="text"  [(ngModel)]="com_comment"/>
+            <mat-label>Your Comment maximum of 30 letter/number</mat-label>
+            <input matInput type="text" maxlength="30"  [(ngModel)]="com_comment"/>
           </mat-form-field>
 
             <button class="button" mat-raised-button color="primary" (click)="AddComment()">Comment</button>
@@ -35,8 +35,8 @@
         <div class="right-container">
             <div class="comcard"  *ngFor="let comment of comments">
                 
-            <button class="moreoption" mat-icon-button><mat-icon>home</mat-icon></button>
-            <p>{{comment.com_comment}}</p>
+                <input class="inp" type="text"  disabled value="{{comment.com_comment}}">
+            <!-- <p>{{comment.com_comment}}</p> -->
             </div>
        
 

@@ -20,7 +20,11 @@ img{
     width: 50%;
     display: grid;
     border-left: 4px solid rgb(228, 228, 228);
-    padding: 5px 5px 5px 10px;
+    height: 100%;
+    padding-left: 10px;
+    max-height: 400px;
+    overflow-y: scroll  ;
+    /* background-color: red; */
 }
 
 .price{
@@ -46,9 +50,10 @@ img{
 
 .status-container{ 
     padding-left: 25px 30px;
-    height: auto;
+    /* background-color: blue;   */
     width: auto;
-
+    height: 100%;
+    
 }
 
 .comcard{
@@ -56,9 +61,20 @@ img{
     background-color: rgb(240, 236, 236);
     border-radius: 10px;
     border: 1px solid rgb(182, 181, 181);
-    height: 40%;
+    word-wrap: break-word;
+    width: 100%;
+    height: 50px;   
+    margin-bottom: 20px;
 }
 
+.inp{
+    border: none;
+    font-size: 20px;
+    
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+}
 
 .status-container .status-title{
     font-size: 25px;
@@ -268,13 +284,9 @@ img{
     .left-container{
         display: grid;
         width: 80%;
-        
+        background-color: green;
     }
-    .right-container{
-        display: grid;
-        width: 100%;
-        border: none;
-    }
+
     .user-details .input-box input{
         width: 100%;
         padding: 50 15px 0 15px;
