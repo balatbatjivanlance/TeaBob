@@ -296,6 +296,12 @@ async CheckoutOneItem() {
     this.cocodeInfo.total_price = this.food_total;
     this.cocodeInfo.remarks = this.remarks;
 
+    
+      // update food stocks
+      let id  =  this.data.food_id;
+
+      this.foodinfo.food_id =  id;
+      this.foodinfo.food_stocks =  this.food_stocks - this.food_qty;
 
     this.ds.sendApiRequest('CheckoutOneItem/', this.prodInfo).subscribe((data: any) => {
       if (data.remarks === "success"){
@@ -307,9 +313,11 @@ async CheckoutOneItem() {
         this.dialog.closeAll();
       }
     });
-    this.ds.sendApiRequest('CheckoutCodeOneItem/', this.cocodeInfo).subscribe((data: any) => {
 
-    });
+    this.ds.sendApiRequest('CheckoutCodeOneItem/', this.cocodeInfo).subscribe((data: any) => {});
+
+    this.ds.sendApiRequest('UpdateStocksOneItem/' + id, this.foodinfo).subscribe((data: any) => {});
+    
   
   
   }

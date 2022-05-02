@@ -91,41 +91,78 @@ class Post{
         $remarks = "failed";
         $message = "Unable to retrieve data";
         $cocodeInfo = $data->cocodeInfo;
+
         $res = $this->gm->insert('tbl_cocode', $cocodeInfo);
 
         if($res['code']==200) {
-
-            for ($j= 0 ; $j < sizeof($data); $j++){
-              
-                $food_id [] = $data[$j]->food_id;
-                $size_id[] = $data[$j]->size_id;
-                $food_qty[]  = $data[$j]->food_quantity; 
-
-                $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
-                return $this->sql;
-                $this->pdo->query($this->sql);
-                
-                // if($food_qty[$j] != null){
-                //     $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
-                //     return $this->sql;
-                //     $this->pdo->query($this->sql);
-                // }
-                // if($size_id[$j] != null){
-                //     $this->sql = "UPDATE tbl_size SET size_stocks = size_stocks - $food_qty[$j] WHERE size_id = $size_id[$j]";
-                //     return $this->sql;
-                //     $this->pdo->query($this->sql);
-                    
-                // }
-
-            }
-
             $code = 200;
             $payload = $res['data'];
             $remarks = "success";
             $message = "Successfully retrieved data";
         }
         return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
     }
+
+    public function UpdateStocksOneItem($dt) {
+        $code = 401;
+        $payload = null;
+        $remarks = "failed";
+        $message = "Unable to retrieve data";
+
+        $res = $this->gm->update('tbl_food', $dt, "food_id = '$dt->food_id'");
+        return $res;
+        if($res['code']==200) {
+            $code = 200;
+            $payload = $res['payload'];
+            $remarks = "success";
+            $message = "Successfully retrieved data";
+        }
+        return $this->gm->sendPayload($payload, $remarks, $message, $code);
+      
+    }
+
+    // public function CheckoutCodeOneItem($data) {
+    //     $code = 401;
+    //     $payload = null;
+    //     $remarks = "failed";
+    //     $message = "Unable to retrieve data";
+    //     $cocodeInfo = $data->cocodeInfo;
+    //     $res = $this->gm->insert('tbl_cocode', $cocodeInfo);
+
+    //     if($res['code']==200) {
+
+    //         for ($j= 0 ; $j < sizeof($data); $j++){
+              
+    //             $food_id [] = $data[$j]->food_id;
+    //             $size_id[] = $data[$j]->size_id;
+    //             $food_qty[]  = $data[$j]->food_quantity; 
+
+    //             $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
+    //             return $this->sql;
+    //             $this->pdo->query($this->sql);
+                
+    //             // if($food_qty[$j] != null){
+    //             //     $this->sql = "UPDATE tbl_food SET food_stocks = food_stocks - $food_qty[$j] WHERE food_id = $food_id[$j]";
+    //             //     return $this->sql;
+    //             //     $this->pdo->query($this->sql);
+    //             // }
+    //             // if($size_id[$j] != null){
+    //             //     $this->sql = "UPDATE tbl_size SET size_stocks = size_stocks - $food_qty[$j] WHERE size_id = $size_id[$j]";
+    //             //     return $this->sql;
+    //             //     $this->pdo->query($this->sql);
+                    
+    //             // }
+
+    //         }
+
+    //         $code = 200;
+    //         $payload = $res['data'];
+    //         $remarks = "success";
+    //         $message = "Successfully retrieved data";
+    //     }
+    //     return $this->gm->sendPayload($payload, $remarks, $message, $code);
+    // }
     
     // Update Profile
     public function updateProfile($dt) {

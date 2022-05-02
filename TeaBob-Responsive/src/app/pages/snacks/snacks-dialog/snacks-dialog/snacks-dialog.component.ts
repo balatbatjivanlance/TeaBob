@@ -182,6 +182,7 @@ export class SnacksDialogComponent implements OnInit {
   remarks: any;
   fullname: any;
   lastname: any;
+
   async CheckoutOneItem() {
 
     const { value: text } = await Swal.fire({
@@ -208,8 +209,6 @@ export class SnacksDialogComponent implements OnInit {
       this.prodInfo.food_quantity = this.food_qty;
       this.prodInfo.cart_addon_name = addons;
       this.prodInfo.code = this.code;
-      // this.prodInfo.cart_total_price = this.food_total;
-      // this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
 
       //cocode info
       
@@ -223,37 +222,30 @@ export class SnacksDialogComponent implements OnInit {
       this.cocodeInfo.user_address = localStorage.getItem('user_Address')
       this.cocodeInfo.total_price = this.food_total;
       this.cocodeInfo.remarks = this.remarks;
+
+      // update food stocks
+      let id  =  this.data.food_id;
+
+      this.foodinfo.food_id =  id;
+      this.foodinfo.food_stocks =  this.food_stocks - this.food_qty;
       
-      this.cocodeInfo.food_id = sessionStorage.getItem("prod_Id");
-
-      // food update stocks info
-      this.cocodeInfo.food_quantity = this.food_qty;
-
-      let codearray: any [] = [];
-
-      codearray.push(this.cocodeInfo);
-      
-      this.cocodeInfo = {};
 
       this.ds.sendApiRequest('CheckoutOneItem/', this.prodInfo).subscribe((data: any) => {
         if (data.remarks === "success"){
-
-          this.ds.sendApiRequest('CheckoutCodeOneItem/', codearray).subscribe((data2: any) => {
-            if (data2.remarks === "success"){
-              Swal.fire(
-                'Great!',
-                'Successfully Checked Out!',
-                'success'
-              )
-            }
-          });
-
-          this.dialog.closeAll();
+          Swal.fire(
+            'Great!',
+            'Successfully Checked Out!',
+            'success'
+          )
         }
+          this.dialog.closeAll();
+        
       });
 
-      
-    
+      this.ds.sendApiRequest('CheckoutCodeOneItem/', this.cocodeInfo).subscribe((data: any) => {});
+
+      this.ds.sendApiRequest('UpdateStocksOneItem/' + id, this.foodinfo).subscribe((data: any) => {});
+
     
     }
   } 

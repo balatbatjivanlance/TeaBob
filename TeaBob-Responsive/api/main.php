@@ -164,6 +164,11 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($gm->insert("tbl_cocode", $d), JSON_PRETTY_PRINT);
 				break;
+				// update food stocks
+				case 'UpdateStocksOneItem':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->UpdateStocksOneItem($d), JSON_PRETTY_PRINT);
+				break;
 				
 				// Add to checkout function
 				case 'addCheck':
