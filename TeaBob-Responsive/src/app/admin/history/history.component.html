@@ -98,7 +98,8 @@
         <div class="col col-4" data-label="Status">
           <span *ngIf ="history.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
           <span *ngIf ="history.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
-          <span *ngIf ="history.is_approved == '5'" style="background-color: cyan; color: black;">Deleted Orders</span>
+          <span *ngIf ="history.is_approved == '5'" style="background-color: cyan; color: black;">Deleted/Canceled/Not Approved Orders</span>
+          <span *ngIf ="history.is_approved == '6'" style="background-color: gray; color: white;">Not Approved</span>
 
         </div>
         <div class="col col-4" data-label="Action">

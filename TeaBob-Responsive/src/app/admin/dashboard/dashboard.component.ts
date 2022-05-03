@@ -213,7 +213,7 @@ async delorder(e:any) {
 
       Swal.fire(
         'Deleted!',
-        'Your file has been deleted.',
+        'File has been Deleted',
         'success'
       )
     }

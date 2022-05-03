@@ -75,5 +75,40 @@ export class ViewOrdersComponent implements OnInit {
     this.dialog.closeAll();
   }
 
+  async updateStatusNotApproved() {
+   
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Reason why not approved?',
+      inputPlaceholder: 'Type your message here...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        let cocode_id  = this.status.cocode_id;
+
+        this.codeinfo.cocode_id =  cocode_id;
+        this.codeinfo.is_approved = 6;
+
+    this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
+
+        Swal.fire('Saved!', '', 'success')
+        window.location.reload();
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    this.dialog.closeAll();
+  }
 
 }
