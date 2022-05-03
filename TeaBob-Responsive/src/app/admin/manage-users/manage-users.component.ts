@@ -73,12 +73,12 @@ this.ds.sendApiRequest("user", null).subscribe((data: { payload: any; }) => {
 
 }
 
-driverInfo: any  = {};
+adminInfo: any  = {};
 
-async delDriver(e:any) {
+async delAdmin(e:any) {
   
   Swal.fire({
-    title: 'Are you sure to fire this Driver?',
+    title: 'Are you sure to remove this user?',
     text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,
@@ -88,9 +88,9 @@ async delDriver(e:any) {
   }).then((result) => {
     if (result.isConfirmed) {
       
-      this.driverInfo.driver_id = e;
+      this.adminInfo.user_id = e;
 
-      this.ds.sendApiRequest("delDriver", JSON.parse(JSON.stringify(this.driverInfo))).subscribe((data: any) => {
+      this.ds.sendApiRequest("delAdmin", JSON.parse(JSON.stringify(this.adminInfo))).subscribe((data: any) => {
 
       });
       window.location.reload();

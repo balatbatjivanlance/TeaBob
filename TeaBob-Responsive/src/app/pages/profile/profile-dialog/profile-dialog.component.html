@@ -14,11 +14,11 @@
             <mat-label>Last Name</mat-label>
             <input matInput type="text"  [(ngModel)]="user_lname"/>
           </mat-form-field>
-
+<!-- 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>User Name</mat-label>
         <input matInput type="text"  [(ngModel)]="user_uname"/>
-      </mat-form-field>
+      </mat-form-field> -->
       
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Contact No.</mat-label>
@@ -28,6 +28,21 @@
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Address</mat-label>
         <input matInput type="text"  [(ngModel)]="user_address"/>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Old Password</mat-label>
+        <input matInput type="text"  [(ngModel)]="user_pword"/>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>New Password</mat-label>
+        <input matInput type="text"  />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Confirm New Password</mat-label>
+        <input matInput type="text"  />
       </mat-form-field>
     
     <button mat-raised-button class="button" (click)="updateProfile()"

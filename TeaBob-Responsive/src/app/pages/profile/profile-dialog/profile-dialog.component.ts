@@ -28,6 +28,7 @@ export class ProfileDialogComponent implements OnInit {
   user_contact: any;
   user_address: any;
 
+
   pullUsers() {
     this.ds.sendApiRequest("users/", localStorage.getItem("id")).subscribe((data: { payload: any; }) => {
     this.user_payload = data.payload;
@@ -37,12 +38,18 @@ export class ProfileDialogComponent implements OnInit {
     this.user_uname = this.user_payload[0].user_uname;
     this.user_contact = this.user_payload[0].user_contact;
     this.user_address = this.user_payload[0].user_address;
+    
     }
     )
   }
 
 
   userupdate: any [] = [];
+
+  
+  user_pword: any;
+  new_pword: any;
+  cnew_pword: any;
   
   updateProfile() {
    
@@ -62,6 +69,7 @@ export class ProfileDialogComponent implements OnInit {
    this.userinfo.user_uname =  this.user_uname
    this.userinfo.user_contact = this.user_contact
    this.userinfo.user_address = this.user_address
+
     this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
     this.sendMessage();
         Swal.fire('Saved!', '', 'success')

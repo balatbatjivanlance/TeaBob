@@ -14,7 +14,6 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { ManageProductComponent } from './admin/manage-product/manage-product.component';
-import { SampleComponentComponent } from './sample-component/sample-component.component';
 import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
 import { RegisterDriverComponent } from './admin/register-driver/register-driver.component';
 import { HistoryComponent } from './admin/history/history.component';
@@ -50,11 +49,10 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent,    canActivate: [AuthGuard]},
   { path: 'manage-users', component: ManageUsersComponent,    canActivate: [AuthGuard]},
   
-  { path: '', component: LandingComponent},
+  { path: '', component: LandingComponent}
 
 
 
-  {path: 'sample', component: SampleComponentComponent}
 ];
 
 @NgModule({

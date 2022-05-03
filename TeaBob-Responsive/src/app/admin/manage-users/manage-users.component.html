@@ -35,7 +35,7 @@
         <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
       </button>
       <button mat-button class="button" routerLink="/manage-users" *ngIf ="user_role == '0'">
-        <mat-icon>receipt</mat-icon>&nbsp; Manage Users
+        <mat-icon>supervisor_account</mat-icon>&nbsp; Manage Users
       </button>
       <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
         <mat-icon>motorcycle</mat-icon>&nbsp; Riders
@@ -92,6 +92,7 @@
               <li class="table-header">
                 <div class="col col-4">User ID</div>
                 <div class="col col-4">Full Name</div>
+                <div class="col col-4">Email Address</div>
                 <div class="col col-4">Contact No.</div>
                 <div class="col col-4">Address</div>
                 <div class="col col-4">Action</div>
@@ -99,11 +100,12 @@
               <li class="table-row" *ngFor = "let user of user">
                 <div class="col col-3" data-label="Driver ID" >{{user.user_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{user.user_name}} &nbsp;{{user.user_lname}}</div>
+                <div class="col col-3" data-label="Driver ID" >{{user.user_uname}}</div>
                 <div class="col col-3" data-label="Driver Email" >{{user.user_contact}}</div>
                 <div class="col col-3" data-label="Driver Email" >{{user.user_address}}</div>                                
 
                 <div class="col col-3" data-label="Action">
-                  <button class="card-order-action" mat-stroked-button color="warn" (click)="delDriver(user.user_id)">Delete</button>
+                  <button class="card-order-action" mat-stroked-button color="warn" (click)="delAdmin(user.user_id)">Delete</button>
                 </div>
               </li>
             </ul>

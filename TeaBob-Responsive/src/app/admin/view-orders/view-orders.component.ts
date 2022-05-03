@@ -75,6 +75,9 @@ export class ViewOrdersComponent implements OnInit {
     this.dialog.closeAll();
   }
 
+  
+  remarks: any;
+
   async updateStatusNotApproved() {
    
     const { value: text } = await Swal.fire({
@@ -95,10 +98,13 @@ export class ViewOrdersComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        let cocode_id  = this.status.cocode_id;
 
+        this.remarks = text;
+
+        let cocode_id  = this.status.cocode_id;
         this.codeinfo.cocode_id =  cocode_id;
         this.codeinfo.is_approved = 6;
+        this.codeinfo.remarks = this.remarks;
 
     this.ds.sendApiRequest("updateStatus/" + cocode_id, this.codeinfo).subscribe((data: { payload: any; }) => {});
 

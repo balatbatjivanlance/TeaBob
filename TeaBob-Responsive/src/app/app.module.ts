@@ -46,7 +46,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
-import { SampleComponentComponent } from './sample-component/sample-component.component';
 import { UpdateCategoryComponent } from './admin/update-category/update-category.component';
 import { ManageAddonsSizeComponent } from './admin/manage-addons-size/manage-addons-size.component';
 import { UpdateAddonsComponent } from './admin/manage-addons-size/update-addons/update-addons.component';
@@ -88,7 +87,6 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
     ViewOrdersComponent,
     UpdateFoodComponent,
     UpdateCategoryComponent,
-    SampleComponentComponent,
     AdminRegisterComponent,
     ManageAddonsSizeComponent,
     UpdateAddonsComponent,

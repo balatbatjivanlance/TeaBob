@@ -74,7 +74,7 @@
         <div class="order-container">
             <div class="card-container">
                 <div class="card-order" *ngFor="let status of status_payload">
-                  <button  mat-stroked-button style="background-color: red; color: white; float: right;"
+                  <button  mat-stroked-button style="background-color: orangered; color: white; float: right;"
                    *ngIf ="status.is_approved === '2' || status.is_approved === '6' "(click)="deleteOrder(status.cocode_id)" ><mat-icon style="color: #424242;" *ngIf="isExpanded">delete</mat-icon></button>
                     <div class="card-order-info">
                         <div class="code">
@@ -105,6 +105,7 @@
                                   <button class="card-order-action" mat-stroked-button style="background-color: blue; color: white;" *ngIf ="status.is_approved == '4'" disabled >Delivered</button>
                                   <button class="card-order-action" mat-stroked-button style="background-color: orangered; color: white;" *ngIf ="status.is_approved == '0' "(click)="cancelOrder(status.cocode_id)" >Cancel Order</button>
                                   <button class="card-order-action" mat-raised-button style="background-color: gray; color: white;" *ngIf ="status.is_approved == '2'" disabled>Cancelled</button>
+                                  <button class="card-order-action" mat-raised-button style="background-color: rgb(54, 53, 53); color: white;" *ngIf ="status.is_approved == '6'" disabled>Not Approved</button>
 
                               </div>
                             </div>
