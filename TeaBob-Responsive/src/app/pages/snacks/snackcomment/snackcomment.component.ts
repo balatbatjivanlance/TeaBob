@@ -33,6 +33,49 @@ export class SnackcommentComponent implements OnInit {
     )
   }
 
+  
+  com_Info : any = {};
+  fullname: any;
+  lastname: any;
+  
+  com_comments: any;
+
+  AddComment() {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Add'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/snacks']);
+        Swal.fire(
+          'Add Successfully!',
+          'Your comment has been added.',
+          'success'
+        )
+
+        this.fullname = localStorage.getItem("Fullname")
+        this.lastname = localStorage.getItem("Lastname")
+
+        this.com_Info.com_comment = this.com_comments;
+        this.com_Info.user_id = localStorage.getItem("id");
+        this.com_Info.food_id = sessionStorage.getItem("prod_Id");
+        this.com_Info.user_fullname = this.fullname + " " +  this.lastname;
+    
+        window.location.reload()
+        this.ds.sendApiRequest("AddComment", JSON.parse(JSON.stringify(this.com_Info))).subscribe((data: any) => {
+      
+        });
+      }
+     
+    })
+
+
+  }
+
 
   foodinfo: any = {};
   foods: any []=[];
@@ -63,53 +106,34 @@ export class SnackcommentComponent implements OnInit {
 
   //pulling comments but still not properly working
 
-  comments: any[]=[];
-
-  pullComment(){
-    this.ds.sendApiRequest("comment/", this.foodinfo.food_id).subscribe((data: { payload: any; }) => {
-    this.comments = data.payload;
-    })
-  }
-
+  comInfo: any = {};
+  comments: any []=[];
   com_comment: any;
-  com_Info : any = {};
-  fullname: any;
-  lastname: any;
 
-  AddComment() {
+  user_fullname: any;
+  date: any;
 
-    Swal.fire({
-      title: 'Are you sure?',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Add'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/snacks']);
-        Swal.fire(
-          'Add Successfully!',
-          'Your comment has been added.',
-          'success'
-        )
 
-        this.fullname = localStorage.getItem("Fullname")
-        this.lastname = localStorage.getItem("Lastname")
-
-        this.com_Info.com_comment = this.com_comment;
-        this.com_Info.user_id = localStorage.getItem("id");
-        this.com_Info.food_id = sessionStorage.getItem("prod_Id");
-        this.com_Info.user_fullname = this.fullname + " " +  this.lastname;
+  pullComment() {
     
-        window.location.reload()
-        this.ds.sendApiRequest("AddComment", JSON.parse(JSON.stringify(this.com_Info))).subscribe((data: any) => {
-      
-        });
-      }
-     
-    })
+    this.comInfo.food_id = this.data.food_id
+    this.ds.sendApiRequest("comment/", this.comInfo.food_id).subscribe((data: { payload: any; }) => {
+    this.comments = data.payload;
 
+    this.com_comment = this.comments[0].com_comment;
+    this.user_fullname = this.comments[0].user_fullname;
+    this.date = this.comments[0].date;
+    });
 
   }
+
+  // comments: any[]=[];
+
+  // pullComment(){
+  //   this.ds.sendApiRequest("comment/", this.foodinfo.food_id).subscribe((data: { payload: any; }) => {
+  //   this.comments = data.payload;
+  //   })
+  // }
+
 
 }

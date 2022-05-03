@@ -102,12 +102,17 @@
 				break;
 				// Pull comments
 				case 'comment':
-					if(count($req)>1) {
-						echo json_encode($get->pullComment($req[0], $req[1]), JSON_PRETTY_PRINT);
-					} else {
-						echo json_encode($get->pullComment($req[0], null), JSON_PRETTY_PRINT);
-					}
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($get->pullComment($d), JSON_PRETTY_PRINT);
 				break;
+				// case 'comment':
+				// 	$d = json_decode(base64_decode(file_get_contents("php://input")));
+                //     if(count($req)>1) {
+				// 		echo json_encode($get->pullComment($d), JSON_PRETTY_PRINT);
+				// 	} else {
+				// 		echo json_encode($get->pullComment($d), JSON_PRETTY_PRINT);
+				// 	}
+				// break;
 				// Pull data of the user admin
 				case 'pullUserAdmin':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));

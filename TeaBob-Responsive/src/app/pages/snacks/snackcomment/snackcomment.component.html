@@ -17,7 +17,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
             <mat-label>Your Comment maximum of 30 letter/number</mat-label>
-            <input matInput type="text" maxlength="30"  [(ngModel)]="com_comment"/>
+            <input matInput type="text" maxlength="30"  [(ngModel)]="com_comments"/>
           </mat-form-field>
 
             <button class="button" mat-raised-button color="primary" (click)="AddComment()">Comment</button>
@@ -35,7 +35,8 @@
         <div class="right-container">
             <div class="comcard"  *ngFor="let comment of comments">
                 <div *ngIf="comments.length != null; else blank">
-                <mat-label class="commentname">{{comment.user_fullname}}</mat-label> <mat-label class="commentdate">{{comment.date}}</mat-label>
+                <mat-label class="commentname">{{comment.user_fullname}}</mat-label> 
+                <mat-label class="commentdate">{{comment.date | date:'medium'}}</mat-label>
                 <input class="inp" type="text"  disabled value="{{comment.com_comment}}">
                 </div>
                 <ng-template #blank>

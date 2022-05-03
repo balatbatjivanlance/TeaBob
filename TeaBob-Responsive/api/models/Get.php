@@ -71,10 +71,14 @@ class Get{
 	}
 
 	    //Pull Comments
-		public function pullComment ($d) {
-			$sql = "SELECT * FROM tbl_comment";
-			
-			$res = $this->gm->generalQuery($sql, "No records found");
+		public function pullComment ($filter_data) {
+			$this->sql = "SELECT * FROM tbl_comment";
+	
+			if ($filter_data){
+				$this->sql .= " WHERE food_id = $filter_data" ;
+			}
+		
+			$res = $this->gm->generalQuery($this->sql, "No records found");
 			if ($res['code'] == 200) {
 				$payload = $res['data'];
 				$remarks = "success";
@@ -86,6 +90,21 @@ class Get{
 			}
 			return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 		}
+		// public function pullComment ($com_id) {
+		// 	$sql = "SELECT * FROM tbl_comment";
+			
+		// 	$res = $this->gm->generalQuery($sql, "No records found");
+		// 	if ($res['code'] == 200) {
+		// 		$payload = $res['data'];
+		// 		$remarks = "success";
+		// 		$message = "Successfully retrieved requested data";
+		// 	} else {
+		// 		$payload = null;
+		// 		$remarks = "failed";
+		// 		$message = $res['errmsg'];
+		// 	}
+		// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+		// }
 
 
 		//Pull Status
