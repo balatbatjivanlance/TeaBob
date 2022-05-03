@@ -24,7 +24,7 @@ import { ManageAdminComponent } from './admin/manage-admin/manage-admin.componen
 import { SalesReportComponent } from './admin/sales-report/sales-report.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AuthGuard } from './services/auth.guard';
-
+import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,    canActivate: [AuthGuard],},
@@ -48,6 +48,7 @@ const routes: Routes = [
   { path: 'manage-admin', component: ManageAdminComponent,    canActivate: [AuthGuard]}, 
   { path: 'sales', component: SalesReportComponent,    canActivate: [AuthGuard]},  
   { path: 'aboutus', component: AboutusComponent,    canActivate: [AuthGuard]},
+  { path: 'manage-users', component: ManageUsersComponent,    canActivate: [AuthGuard]},
   
   { path: '', component: LandingComponent},
 

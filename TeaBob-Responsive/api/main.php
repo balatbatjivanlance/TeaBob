@@ -100,6 +100,16 @@
 						echo json_encode($get->pullUsers($d), JSON_PRETTY_PRINT);
 					}
 				break;
+
+				case 'user':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+                    if(count($req)>1) {
+						echo json_encode($get->pullUser1($d), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullUser1($d), JSON_PRETTY_PRINT);
+					}
+				break;
+
 				// Pull comments
 				case 'comment':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
