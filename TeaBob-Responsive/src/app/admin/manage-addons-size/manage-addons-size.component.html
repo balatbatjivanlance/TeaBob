@@ -104,7 +104,7 @@
           <div class="col col-4"  *ngIf ="addons.category_id == '26'" data-label="Stocks">Drinks</div>
           <div class="col col-3" data-label="Action">
               <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDownAddons(addons)">View</button>
-              <button class="card-order-action" mat-stroked-button color="warn" (click)="delAddons(addons.addon_id)">Delete</button>
+              <button class="card-order-action" mat-stroked-button color="orangered" (click)="delAddons(addons.addon_id)">Delete</button>
           </div>
         </li>
       </ul>
@@ -125,7 +125,7 @@
         <div class="col col-4" data-label="Stocks">{{size.size_stocks}}</div>
         <div class="col col-3" data-label="Action">
             <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDown(size)">View</button>
-            <button class="card-order-action" mat-stroked-button color="warn" (click)="delSize(size.size_id)">Delete</button>
+            <button class="card-order-action" mat-stroked-button color="orangered" (click)="delSize(size.size_id)">Delete</button>
         </div>
       </li>
     </ul>

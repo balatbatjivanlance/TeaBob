@@ -100,7 +100,7 @@
         <div class="col col-4" data-label="Price" >{{history.total_price}}</div>
         <div class="col col-4" data-label="Driver" >{{history.driver}}</div>
         <div class="col col-4" data-label="Status">
-          <span *ngIf ="history.is_approved == '2'" style="background-color: red; color: white;">Cancelled</span>
+          <span *ngIf ="history.is_approved == '2'" style="background-color: orangered; color: white;">Cancelled</span>
           <span *ngIf ="history.is_approved == '4'" style="background-color: blue; color: white;">Delivered</span>
           <span *ngIf ="history.is_approved == '5'" style="background-color: cyan; color: black;">Deleted/Canceled/Not Approved Orders</span>
           <span *ngIf ="history.is_approved == '6'" style="background-color: gray; color: white;">Not Approved</span>
@@ -108,7 +108,7 @@
         </div>
         <div class="col col-4" data-label="Action">
           <button mat-raised-button color="primary" (click)="openCorBreakDown(history)">View</button>
-          <button class="card-order-action" mat-stroked-button color="warn" (click)="delorder(history.code)">Delete</button>
+          <button class="card-order-action" mat-stroked-button color="orangered" (click)="delorder(history.code)">Delete</button>
         </div>
       </li>
     </ul>
