@@ -240,6 +240,11 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateProfile($d), JSON_PRETTY_PRINT);
 				break;
+				//  Change password
+				case 'ChangePassword':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($auth->ChangePassword($d), JSON_PRETTY_PRINT);
+				break;
 
 				case 'verifyUser':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));

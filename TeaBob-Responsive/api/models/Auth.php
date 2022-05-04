@@ -105,15 +105,54 @@
                                $errmsg = $e->getMessage();
                                $code = 403;
                            }
-
                
             }
-	
-
-           
-
 			 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
+
+		 // Update Profile
+		//  public function ChangePassword($dt){
+			
+		// 	$payload = "";
+		// 	$remarks = "";
+		// 	$message = "";
+        //     $payload = $dt;
+		// 	$code = 200;
+        //     $encryptedPassword = $this->encrypt_password($dt->user_pword);
+
+        //     $payload = array(
+        //         'uname'=>$dt->user_uname,
+        //         'pword'=>$this->encrypt_password($dt->user_pword)
+        //     );
+		// 	$sql = "SELECT * FROM tbl_user WHERE user_uname='$dt->user_uname' LIMIT 1";
+        //     $res = $this->gm->exec_query($sql, "Incorrect username or password");
+        
+        //     if($res['code'] == 200) {
+		// 		$payload = null; 
+        //         $remarks = "failed"; 
+        //         $message = "Cannot connect";
+		// 	}  else {
+		// 		 $sql = "UPDATE tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword) 
+        //                    VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword')";
+                     
+
+        //                    $data = array(); $code = 0; $errmsg= ""; $remarks = "";
+        //                    try {
+                       
+        //                        if ($res = $this->pdo->query($sql)->fetchAll()) {
+        //                            foreach ($res as $rec) { array_push($data, $rec);}
+        //                            $res = null; 
+		// 						   $code = 200; $message = "Successfully Registered"; $remarks = "success";
+        //                            return array("code"=>200, "remarks"=>"success");
+        //                        }
+        //                    } catch (\PDOException $e) {
+        //                        $errmsg = $e->getMessage();
+        //                        $code = 403;
+        //                    }
+               
+        //     }
+		// 	 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
+        // }
 
 
 
@@ -246,6 +285,7 @@
                            }
 						   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
+		
 
 
     }
