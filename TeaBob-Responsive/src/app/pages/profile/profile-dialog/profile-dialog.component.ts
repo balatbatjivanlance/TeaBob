@@ -43,9 +43,6 @@ export class ProfileDialogComponent implements OnInit {
     )
   }
 
-
-  userupdate: any [] = [];
-
   
   user_pword: any;
   new_pword: any;
@@ -70,7 +67,8 @@ export class ProfileDialogComponent implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          let id  = localStorage.getItem("id");
+          let id = localStorage.getItem("id");
+          let id2 = localStorage.getItem("id");
 
     this.userinfo.user_id =  id;
     this.userinfo.user_name =  this.user_name
@@ -78,10 +76,11 @@ export class ProfileDialogComponent implements OnInit {
     this.userinfo.user_contact = this.user_contact
     this.userinfo.user_address = this.user_address
 
-    // this.changepass.user_pword = this.cnew_pword
+    this.changepass.user_id =  id2;
+    this.changepass.user_pword = this.cnew_pword
 
       this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
-      // this.ds.sendApiRequest("ChangePassword/" + id, this.changepass).subscribe((data: { payload: any; }) => {});
+      this.ds.sendApiRequest("ChangePassword/" + id2, this.changepass).subscribe((data: { payload: any; }) => {});
       this.sendMessage();
           Swal.fire('Saved!', '', 'success')
           window.location.reload()
@@ -91,9 +90,18 @@ export class ProfileDialogComponent implements OnInit {
       })
       this.dialog.closeAll();
     }
+    
     else if(this.new_pword != this.cnew_pword){
       Swal.fire(
         'New Password and Confirm New Password did not match!',
+        'You clicked the button!',
+        'error'
+      )
+    }
+
+    else if(this.userinfo.user_pword != this.user_pword){
+      Swal.fire(
+        'Old Password is Correct Wrong',
         'You clicked the button!',
         'error'
       )

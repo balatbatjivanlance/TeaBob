@@ -16,7 +16,7 @@
 			$h=[
 				"typ"=>"JWT",
 				"alg"=>'HS256',
-				"app"=>"Mark-IT",
+				"app"=>"IT MOVERS",
 				"dev"=>"Balatbat, Laguatan, Santos"
 			];
 			return str_replace(['+','/','='],['-','_',''], base64_encode(json_encode($h)));
@@ -110,49 +110,28 @@
 			 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
 
-		 // Update Profile
-		//  public function ChangePassword($dt){
-			
-		// 	$payload = "";
-		// 	$remarks = "";
-		// 	$message = "";
-        //     $payload = $dt;
-		// 	$code = 200;
-        //     $encryptedPassword = $this->encrypt_password($dt->user_pword);
+		 //UPDATE PASSWORD
+		public function ChangePassword($table, $dt, $filter_data) {
 
-        //     $payload = array(
-        //         'uname'=>$dt->user_uname,
-        //         'pword'=>$this->encrypt_password($dt->user_pword)
-        //     );
-		// 	$sql = "SELECT * FROM tbl_user WHERE user_uname='$dt->user_uname' LIMIT 1";
-        //     $res = $this->gm->exec_query($sql, "Incorrect username or password");
-        
-        //     if($res['code'] == 200) {
-		// 		$payload = null; 
-        //         $remarks = "failed"; 
-        //         $message = "Cannot connect";
-		// 	}  else {
-		// 		 $sql = "UPDATE tbl_user( user_name, user_lname, user_uname,user_contact,user_address, user_pword) 
-        //                    VALUES ('$dt->user_name','$dt->user_lname','$dt->user_uname','$dt->user_contact','$dt->user_address', '$encryptedPassword')";
-                     
+			$this->sql = "SELECT * FROM $table WHERE user_id = $filter_data";
+			try {
+				if ($res = $this->pdo->query($this->sql)->fetchColumn()>0) {
+					$result=$this->pdo->query($this->sql)->fetchAll();
 
-        //                    $data = array(); $code = 0; $errmsg= ""; $remarks = "";
-        //                    try {
-                       
-        //                        if ($res = $this->pdo->query($sql)->fetchAll()) {
-        //                            foreach ($res as $rec) { array_push($data, $rec);}
-        //                            $res = null; 
-		// 						   $code = 200; $message = "Successfully Registered"; $remarks = "success";
-        //                            return array("code"=>200, "remarks"=>"success");
-        //                        }
-        //                    } catch (\PDOException $e) {
-        //                        $errmsg = $e->getMessage();
-        //                        $code = 403;
-        //                    }
-               
-        //     }
-		// 	 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
-        // }
+					$data = array(); $code = 0; $msg = ""; $remarks = "";
+					foreach ($result as $rec) { 
+						if($this->pwordCheck($dt->currentPassword, $rec['user_pword'])){
+							$code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+							$encryptedPassword = $this->encryptPassword($dt->newPassword);
+							return $this->gm->update($table, ["user_pword" => $encryptedPassword, "user_isPwordChanged" => 1], "user_id = $filter_data");
+						}
+					}
+				}
+				
+			} catch (\PDOException $e) {
+				$errmsg = $e->getMessage(); $code = 401; $message = "failed";
+			}
+		}
 
 
 
