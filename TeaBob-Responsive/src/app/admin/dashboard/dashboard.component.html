@@ -129,7 +129,8 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="ViewandApproved(pending)">View</button>
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewandApproved(pending)">
+                    <mat-icon>remove_red_eye</mat-icon>  View</button>
                 </div>
               </li>
             </ul>
@@ -173,7 +174,8 @@
   
                 </div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(approved)">View</button>
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(approved)">
+                    <mat-icon>remove_red_eye</mat-icon>  View</button>
                 </div>
               </li>
             </ul>
@@ -217,7 +219,8 @@
                 </div>
                 <div class="col col-5" data-label="Price">{{ondelivery.driver}}</div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(ondelivery)">View</button>
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(ondelivery)">
+                    <mat-icon>remove_red_eye</mat-icon>  View</button>
                 </div>
               </li>
             </ul>
@@ -264,7 +267,8 @@
                 </div>
                 <div class="col col-5" data-label="Price">{{delivered.driver}}</div>
                 <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" (click)="ViewOrdersOnly(delivered)">View</button>
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(delivered)">
+                    <mat-icon>remove_red_eye</mat-icon>  View</button>
                 </div>
               </li>
             </ul>

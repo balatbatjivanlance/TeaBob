@@ -52,7 +52,12 @@ h3 {
   color: #404040;
 }
 
-
+.viewbutton{
+  background-color: #4B1F0E;
+}
+.deletebutton{
+  background-color: black;
+}
 
 mat-sidenav-container,
 mat-sidenav-content {

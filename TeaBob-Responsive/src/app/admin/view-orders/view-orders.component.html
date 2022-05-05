@@ -29,7 +29,10 @@
 
     <div class="buttoncontainer">
       
-      <button mat-raised-button color="primary" (click)="updateStatus()">Approved Order</button>
-      <button mat-raised-button color="primary" (click)="updateStatusNotApproved()">Disapproved Order</button>
+      <button mat-raised-button color="primary"  class="approvedbutton" (click)="updateStatus()">
+        <mat-icon>thumb_up</mat-icon>&nbsp;&nbsp;&nbsp;Approved Order</button>
+        
+      <button mat-raised-button color="primary"  class="disapprovedbutton" (click)="updateStatusNotApproved()">
+        <mat-icon>thumb_down</mat-icon>&nbsp;&nbsp;&nbsp;Disapproved Order</button>
     </div>
 </div>

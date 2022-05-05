@@ -24,6 +24,14 @@
     display: flex;
     flex-direction: row;
   }
+
+  
+  .viewbutton{
+    background-color: #4B1F0E;
+  }
+  .deletebutton{
+    background-color: black;
+  }
   
   .dashboard-card-left {
     width: 50%;

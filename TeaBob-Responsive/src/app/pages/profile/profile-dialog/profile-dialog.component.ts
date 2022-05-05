@@ -43,72 +43,35 @@ export class ProfileDialogComponent implements OnInit {
     )
   }
 
-  
-  user_pword: any;
-  new_pword: any;
-  cnew_pword: any;
-  changepass: any;
-  
-  updateProfile() {
-    if(this.new_pword == null && this.user_name == null && this.user_lname == null && this.user_contact == null && this.user_address == null){
-      Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-      )
+updateProfile() {
+ 
+  Swal.fire({
+    title: 'Do you want to save the changes?',
+    showDenyButton: true,
+    confirmButtonText: 'Save',
+    denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      let id  = localStorage.getItem("id");
+
+ this.userinfo.user_id =  id;
+ this.userinfo.user_name =  this.user_name
+ this.userinfo.user_lname =  this.user_lname
+ this.userinfo.user_uname =  this.user_uname
+ this.userinfo.user_contact = this.user_contact
+ this.userinfo.user_address = this.user_address
+
+  this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
+  this.sendMessage();
+      Swal.fire('Saved!', '', 'success')
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
     }
-   
-    else if(this.new_pword == this.cnew_pword){
-            Swal.fire({
-        title: 'Do you want to save the changes?',
-        showDenyButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          let id = localStorage.getItem("id");
-          let id2 = localStorage.getItem("id");
+  })
+  this.dialog.closeAll();
+}  
 
-    this.userinfo.user_id =  id;
-    this.userinfo.user_name =  this.user_name
-    this.userinfo.user_lname =  this.user_lname
-    this.userinfo.user_contact = this.user_contact
-    this.userinfo.user_address = this.user_address
-
-    this.changepass.user_id =  id2;
-    this.changepass.user_pword = this.cnew_pword
-
-      this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
-      this.ds.sendApiRequest("ChangePassword/" + id2, this.changepass).subscribe((data: { payload: any; }) => {});
-      this.sendMessage();
-          Swal.fire('Saved!', '', 'success')
-          window.location.reload()
-        } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info')
-        }
-      })
-      this.dialog.closeAll();
-    }
-    
-    else if(this.new_pword != this.cnew_pword){
-      Swal.fire(
-        'New Password and Confirm New Password did not match!',
-        'You clicked the button!',
-        'error'
-      )
-    }
-
-    else if(this.userinfo.user_pword != this.user_pword){
-      Swal.fire(
-        'Old Password is Correct Wrong',
-        'You clicked the button!',
-        'error'
-      )
-    }
-    
-
-  }
   
   sendMessage(): void {
     this.ds.sendUpdate('Message from Sender Component to Receiver Component!')
@@ -116,39 +79,3 @@ export class ProfileDialogComponent implements OnInit {
 
 }
 
-
-// userupdate: any [] = [];
-
-  
-// user_pword: any;
-// new_pword: any;
-// cnew_pword: any;
-
-// updateProfile() {
- 
-//   Swal.fire({
-//     title: 'Do you want to save the changes?',
-//     showDenyButton: true,
-//     confirmButtonText: 'Save',
-//     denyButtonText: `Don't save`,
-//   }).then((result) => {
-//     /* Read more about isConfirmed, isDenied below */
-//     if (result.isConfirmed) {
-//       let id  = localStorage.getItem("id");
-
-//  this.userinfo.user_id =  id;
-//  this.userinfo.user_name =  this.user_name
-//  this.userinfo.user_lname =  this.user_lname
-//  this.userinfo.user_uname =  this.user_uname
-//  this.userinfo.user_contact = this.user_contact
-//  this.userinfo.user_address = this.user_address
-
-//   this.ds.sendApiRequest("updateProfile/" + id, this.userinfo).subscribe((data: { payload: any; }) => {});
-//   this.sendMessage();
-//       Swal.fire('Saved!', '', 'success')
-//     } else if (result.isDenied) {
-//       Swal.fire('Changes are not saved', '', 'info')
-//     }
-//   })
-//   this.dialog.closeAll();
-// }

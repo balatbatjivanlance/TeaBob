@@ -62,6 +62,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ManageAdminComponent } from './admin/manage-admin/manage-admin.component';
 import { SnackcommentComponent } from './pages/snacks/snackcomment/snackcomment.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+import { ChangepasswordComponent } from './pages/profile/changepassword/changepassword.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
     ManageAdminComponent,
     SnackcommentComponent,
     ManageUsersComponent,
+    ChangepasswordComponent,
   ],
   imports: [
     BrowserModule,

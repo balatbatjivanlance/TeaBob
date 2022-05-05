@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import {MatFormField} from '@angular/material/form-field';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -98,6 +99,15 @@ export class ProfileComponent implements OnInit {
       
   statusModal() {
     const dialog = this.dialog.open(ProfileDialogComponent, {
+      autoFocus: false, width:"70%", height:"50%"
+    });
+    dialog.afterClosed().subscribe( ()=>{
+    });
+  
+  }
+
+  ChangePasswordModal() {
+    const dialog = this.dialog.open(ChangepasswordComponent, {
       autoFocus: false, width:"70%", height:"50%"
     });
     dialog.afterClosed().subscribe( ()=>{

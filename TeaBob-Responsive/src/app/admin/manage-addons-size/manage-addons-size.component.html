@@ -106,8 +106,11 @@
           <div class="col col-4"  *ngIf ="addons.category_id == '24'" data-label="Stocks">Snacks</div>
           <div class="col col-4"  *ngIf ="addons.category_id == '26'" data-label="Stocks">Drinks</div>
           <div class="col col-3" data-label="Action">
-              <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDownAddons(addons)">View</button>
-              <button class="card-order-action" mat-stroked-button color="orangered" (click)="delAddons(addons.addon_id)">Delete</button>
+              <button mat-raised-button color="primary" class="card-order-action" class="viewbutton" (click)="openCorBreakDownAddons(addons)">
+                <mat-icon>remove_red_eye</mat-icon>View</button>
+
+              <button class="card-order-action" mat-raised-button color="orangered" class="deletebutton" (click)="delAddons(addons.addon_id)">
+                <mat-icon>delete</mat-icon>Delete</button>
           </div>
         </li>
       </ul>
@@ -127,8 +130,11 @@
         <div class="col col-4" data-label="Price">{{size.size_price}}</div>
         <div class="col col-4" data-label="Stocks">{{size.size_stocks}}</div>
         <div class="col col-3" data-label="Action">
-            <button mat-raised-button color="primary" class="card-order-action" (click)="openCorBreakDown(size)">View</button>
-            <button class="card-order-action" mat-stroked-button color="orangered" (click)="delSize(size.size_id)">Delete</button>
+            <button mat-raised-button color="primary" class="card-order-action" class="viewbutton" (click)="openCorBreakDown(size)">
+              <mat-icon>remove_red_eye</mat-icon>View</button>
+              
+            <button class="card-order-action" mat-raised-button color="primary" class="deletebutton" (click)="delSize(size.size_id)">
+              <mat-icon>delete</mat-icon>Delete</button>
         </div>
       </li>
     </ul>

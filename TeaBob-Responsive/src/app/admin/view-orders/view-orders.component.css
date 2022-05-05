@@ -30,6 +30,14 @@ table, td, th {
     width: 90%;
 
   }
+  .approvedbutton{
+    background-color: #4B1F0E;
+    color: white;
+  }
+  .disapprovedbutton{
+    background-color: black;
+    color: white;
+  }
   
   .status-container{
     margin-top: 20px;

@@ -164,7 +164,7 @@
           <button mat-raised-button color="primary" 
           [disabled]="!food_name || !food_description || !food_categoryactive || !food_categoryfeatured
           || !food_category || !food_price || !food_stocks"
-          (click)="addProducts()" class="add-button">
+          (click)="addProducts()" class="add-button"><mat-icon>add</mat-icon> 
             Add
           </button>
         </mat-card>
@@ -200,7 +200,7 @@
 
         <div class="cta">
           <button mat-raised-button color="primary" (click)="AddOns()"
-          [disabled]="!addon_name || !addon_price || !addon_category"
+          [disabled]="!addon_name || !addon_price || !addon_category" class="add-button"
           ><mat-icon>add</mat-icon> AddOns</button>
         </div>
         
@@ -231,7 +231,7 @@
 
   <div class="cta">
     <button mat-raised-button color="primary" (click)="AddSize()"
-    [disabled]="!size_name || !size_price || !size_stocks"
+    [disabled]="!size_name || !size_price || !size_stocks" class="add-button"
     ><mat-icon>add</mat-icon> Size</button>
   </div>
   

@@ -64,6 +64,13 @@
   
 }
 
+.viewbutton{
+  background-color: #4B1F0E;
+}
+.deletebutton{
+  background-color: black;
+}
+
 
 .container2{
   width: 100%;

@@ -29,21 +29,6 @@
         <mat-label>Address</mat-label>
         <input matInput type="text"  [(ngModel)]="user_address"/>
       </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Old Password</mat-label>
-        <input matInput type="text" [(ngModel)]="user_pword"/>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>New Password</mat-label>
-        <input matInput type="text" [(ngModel)]="new_pword"/>
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Confirm New Password</mat-label>
-        <input matInput type="text" [(ngModel)]="cnew_pword"/>
-      </mat-form-field>
     
     <button mat-raised-button class="button" (click)="updateProfile()"
     [disabled]="!user_name || !user_lname || !user_name || !user_uname || !user_contact || !user_address"

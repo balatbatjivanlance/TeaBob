@@ -123,6 +123,9 @@ th, td {
   padding: 15px;
 }
 
+.viewbutton{
+  background-color: #4B1F0E;
+}
 
 .toolbar {
   background-color: #f9f9f9;
