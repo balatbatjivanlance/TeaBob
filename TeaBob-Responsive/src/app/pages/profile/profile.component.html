@@ -26,6 +26,9 @@
     <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
       <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
     </button>
+    <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+      <mat-icon>comment</mat-icon>&nbsp; Comments 
+    </button>
     <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
       <mat-icon>history</mat-icon>&nbsp; History
     </button>
@@ -38,7 +41,7 @@
     <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
       <mat-icon>motorcycle</mat-icon>&nbsp; Riders
     </button>
-    <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '0'">
+    <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '0'" routerLinkActive="selected">
       <mat-icon>account_box</mat-icon>&nbsp; Profile
     </button>
     <button mat-button class="button" routerLink="/sales" *ngIf ="user_role == '0'">
@@ -56,7 +59,7 @@
     <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
       <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
     </button>
-    <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">
+    <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'" routerLinkActive="selected">
       <mat-icon>account_box</mat-icon>&nbsp; Profile
     </button>
     <button mat-button class="button" routerLink="/aboutus"  *ngIf ="user_role == '1'">

@@ -243,7 +243,8 @@
 				//  Change password
 				case 'ChangePassword':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
-					echo json_encode($auth->ChangePassword($d), JSON_PRETTY_PRINT);
+					echo json_encode($auth->ChangePassword($d), JSON_PRETTY_PRINT);    
+
 				break;
 
 				case 'verifyUser':

@@ -110,28 +110,63 @@
 			 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
 
-		 //UPDATE PASSWORD
-		public function ChangePassword($table, $dt, $filter_data) {
+		 //CHANGE PASSWORD
 
-			$this->sql = "SELECT * FROM $table WHERE user_id = $filter_data";
-			try {
-				if ($res = $this->pdo->query($this->sql)->fetchColumn()>0) {
-					$result=$this->pdo->query($this->sql)->fetchAll();
+		 public function ChangePassword($dt){
+			$payload = $dt;
+			$user_id = $dt->user_id;
+			$old_password = $dt->old_password;
+			$code = 0;
+			
+			$sql = "SELECT * FROM tbl_user WHERE user_id='$user_id' LIMIT 1";
+			$res = $this->gm->generalQuery($sql, "Incorrect username or password");
+			if($res['code'] == 200) {
 
-					$data = array(); $code = 0; $msg = ""; $remarks = "";
-					foreach ($result as $rec) { 
-						if($this->pwordCheck($dt->currentPassword, $rec['user_pword'])){
-							$code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
-							$encryptedPassword = $this->encryptPassword($dt->newPassword);
-							return $this->gm->update($table, ["user_pword" => $encryptedPassword, "user_isPwordChanged" => 1], "user_id = $filter_data");
-						}
-					}
-				}
+				if($this->pword_check($old_password, $res['data'][0]['user_pword'])) {
+					$encryptedPassword = $this->encrypt_password($dt->user_pword);
+					$sql = "UPDATE `tbl_user` SET `user_pword` = '$encryptedPassword' WHERE `tbl_user`.`user_id` = '$dt->user_id'";
+					$res = $this->gm->generalQuery($sql, "");
+					$remarks = "success";
+					$message = "Logged in successfully";
+					$payload = array(
+						"uid"=>$user_id
+						);	
 				
-			} catch (\PDOException $e) {
-				$errmsg = $e->getMessage(); $code = 401; $message = "failed";
+				} else {
+					$payload = null; 
+					$remarks = "failed"; 
+					$message = "Incorrect username or password";
+				}
+			}	else {
+				$payload = null; 
+				$remarks = "failed"; 
+				$message = $res['errmsg'];
 			}
+			return $this->gm->sendPayload($payload, $remarks, $message, $code);
 		}
+
+		// public function ChangePassword($table, $dt, $filter_data) {
+
+		// 	$this->sql = "SELECT * FROM $table WHERE user_id = $filter_data";
+		// 	try {
+		// 		if ($res = $this->pdo->query($this->sql)->fetchColumn()>0) {
+		// 			$result=$this->pdo->query($this->sql)->fetchAll();
+					
+		// 			$user_pword = $dt->user_pword;
+		// 			$data = array(); $code = 0; $msg = ""; $remarks = "";
+		// 			foreach ($result as $rec) { 
+		// 				if($this->pwordCheck($dt->currentPassword, $rec['user_pword'])){
+		// 					$code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+		// 					$encryptedPassword = $this->encryptPassword($dt->user_pword);
+		// 					return $this->gm->update($table, ["user_pword" => $encryptedPassword, "user_pword" => 1], "user_id = $filter_data");
+		// 				}
+		// 			}
+		// 		}
+				
+		// 	} catch (\PDOException $e) {
+		// 		$errmsg = $e->getMessage(); $code = 401; $message = "failed";
+		// 	}
+		// }
 
 
 

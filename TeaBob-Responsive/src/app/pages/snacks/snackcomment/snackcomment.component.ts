@@ -21,6 +21,7 @@ export class SnackcommentComponent implements OnInit {
     this.pullComment();
   }
 
+  user_role = localStorage.getItem("user_role");
 
   userinfo: any = {};
   user: any;
@@ -62,6 +63,7 @@ export class SnackcommentComponent implements OnInit {
 
         this.com_Info.com_comment = this.com_comments;
         this.com_Info.user_id = localStorage.getItem("id");
+        this.com_Info.user_role = this.user_role;
         this.com_Info.food_id = sessionStorage.getItem("prod_Id");
         this.com_Info.user_fullname = this.fullname + " " +  this.lastname;
     

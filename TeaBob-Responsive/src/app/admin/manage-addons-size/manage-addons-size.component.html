@@ -23,8 +23,11 @@
       <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
       </button>
-      <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
+      <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'" routerLinkActive="selected">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+        <mat-icon>comment</mat-icon>&nbsp; Comments 
       </button>
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
         <mat-icon>history</mat-icon>&nbsp; History
@@ -107,10 +110,10 @@
           <div class="col col-4"  *ngIf ="addons.category_id == '26'" data-label="Stocks">Drinks</div>
           <div class="col col-3" data-label="Action">
               <button mat-raised-button color="primary" class="card-order-action" class="viewbutton" (click)="openCorBreakDownAddons(addons)">
-                <mat-icon>remove_red_eye</mat-icon>View</button>
+                <mat-icon>remove_red_eye</mat-icon></button>
 
               <button class="card-order-action" mat-raised-button color="orangered" class="deletebutton" (click)="delAddons(addons.addon_id)">
-                <mat-icon>delete</mat-icon>Delete</button>
+                <mat-icon>delete</mat-icon></button>
           </div>
         </li>
       </ul>
@@ -131,10 +134,10 @@
         <div class="col col-4" data-label="Stocks">{{size.size_stocks}}</div>
         <div class="col col-3" data-label="Action">
             <button mat-raised-button color="primary" class="card-order-action" class="viewbutton" (click)="openCorBreakDown(size)">
-              <mat-icon>remove_red_eye</mat-icon>View</button>
+              <mat-icon>remove_red_eye</mat-icon></button>
               
             <button class="card-order-action" mat-raised-button color="primary" class="deletebutton" (click)="delSize(size.size_id)">
-              <mat-icon>delete</mat-icon>Delete</button>
+              <mat-icon>delete</mat-icon></button>
         </div>
       </li>
     </ul>

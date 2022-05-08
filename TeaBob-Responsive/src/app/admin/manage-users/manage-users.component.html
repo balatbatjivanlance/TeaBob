@@ -22,11 +22,14 @@
       <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
         <mat-icon>add_circle</mat-icon>&nbsp; Add Product
       </button>
-      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
+      <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'" routerLinkActive="selected">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
       </button>
       <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+        <mat-icon>comment</mat-icon>&nbsp; Comments 
       </button>
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
         <mat-icon>history</mat-icon>&nbsp; History
@@ -34,7 +37,7 @@
       <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'">
         <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
       </button>
-      <button mat-button class="button" routerLink="/manage-users" *ngIf ="user_role == '0'">
+      <button mat-button class="button" routerLink="/manage-users" *ngIf ="user_role == '0'" routerLinkActive="selected">
         <mat-icon>supervisor_account</mat-icon>&nbsp; Manage Users
       </button>
       <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
@@ -77,7 +80,7 @@
           <mat-icon style="color: #424242;" *ngIf="!isExpanded">menu</mat-icon>
           <mat-icon style="color: #424242;" *ngIf="isExpanded">menu</mat-icon>
         </button>
-        <h1 style="color: #424242; font-size: 16px;">Riders</h1>
+        <h1 style="color: #424242; font-size: 16px;">Users</h1>
   
         <span class="example-spacer"></span>
   
@@ -109,7 +112,7 @@
 
                 <div class="col col-3" data-label="Action">
                   <button class="card-order-action" mat-raised-button color="primary" class="deletebutton" (click)="delAdmin(user.user_id)">
-                    <mat-icon>delete</mat-icon>  Delete</button>
+                    <mat-icon>delete</mat-icon></button>
                 </div>
               </li>
             </ul>

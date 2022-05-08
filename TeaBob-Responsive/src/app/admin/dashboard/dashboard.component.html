@@ -28,6 +28,9 @@
     <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
       <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
     </button>
+    <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+      <mat-icon>comment</mat-icon>&nbsp; Comments 
+    </button>
     <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
       <mat-icon>history</mat-icon>&nbsp; History
     </button>
@@ -130,7 +133,7 @@
                 </div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" class="viewbutton" (click)="ViewandApproved(pending)">
-                    <mat-icon>remove_red_eye</mat-icon>  View</button>
+                    <mat-icon>remove_red_eye</mat-icon></button>
                 </div>
               </li>
             </ul>
@@ -175,7 +178,7 @@
                 </div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(approved)">
-                    <mat-icon>remove_red_eye</mat-icon>  View</button>
+                    <mat-icon>remove_red_eye</mat-icon></button>
                 </div>
               </li>
             </ul>
@@ -220,7 +223,7 @@
                 <div class="col col-5" data-label="Price">{{ondelivery.driver}}</div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(ondelivery)">
-                    <mat-icon>remove_red_eye</mat-icon>  View</button>
+                    <mat-icon>remove_red_eye</mat-icon></button>
                 </div>
               </li>
             </ul>
@@ -268,7 +271,7 @@
                 <div class="col col-5" data-label="Price">{{delivered.driver}}</div>
                 <div class="col col-4" data-label="Action">
                   <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(delivered)">
-                    <mat-icon>remove_red_eye</mat-icon>  View</button>
+                    <mat-icon>remove_red_eye</mat-icon></button>
                 </div>
               </li>
             </ul>

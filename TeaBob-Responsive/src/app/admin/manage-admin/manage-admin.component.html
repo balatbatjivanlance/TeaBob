@@ -28,10 +28,13 @@
       <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
       </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+        <mat-icon>comment</mat-icon>&nbsp; Comments 
+      </button>
       <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
         <mat-icon>history</mat-icon>&nbsp; History
       </button>
-      <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'">
+      <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'" routerLinkActive="selected">
         <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
       </button>
       <button mat-button class="button" routerLink="/manage-users" *ngIf ="user_role == '0'">
@@ -106,7 +109,7 @@
 
                 <div class="col col-3" data-label="Action">
                   <button class="card-order-action" mat-raised-button color="primary" class="deletebutton" (click)="delAdmin(admin.user_id)">
-                    <mat-icon>delete</mat-icon>  Delete</button>
+                    <mat-icon>delete</mat-icon></button>
                 </div>
               </li>
             </ul>
