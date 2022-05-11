@@ -1,19 +1,19 @@
 <div class="container">
     <div class="tablecontainer">
       <ul class="responsive-table">
-        <li class="table-header">
+        <li class="table-header" *ngFor = "let details of details">
           <div class="col col-2">Food name:</div>
           <div class="col col-3">Price:</div>
-          <div class="col col-3">AddOns:</div>
-          <div class="col col-3">Size:</div>
+          <div class="col col-3" *ngIf="details.size_name != null">Size:</div>
+          <div class="col col-3" *ngIf="details.cart_addon_name != null">AddOns:</div>
           <div class="col col-4">Quantity:</div>
           <div class="col col-4">Checkout Date:</div>
         </li>
         <li class="table-row" *ngFor = "let details of details">
           <div class="col col-2" data-label="Food name:">{{details.prod_name}}</div>
           <div class="col col-3" data-label="Price:">₱{{details.prod_price}}</div>
-          <div class="col col-3" data-label="Price:">{{details.cart_addon_name}}</div>
-          <div class="col col-3" data-label="Price:">{{details.size_name}}</div>
+          <div class="col col-4" data-label="Size:" *ngIf="details.size_name != null">{{details.size_name}}</div>
+          <div class="col col-4" data-label="Size:" *ngIf="details.cart_addon_name != null">{{details.cart_addon_name}}</div>
           <div class="col col-4" data-label="Quantity:">{{details.food_quantity}}</div>
           <div class="col col-4" data-label="Checkout Date:">{{details.checkout_date}}</div>
         </li>
