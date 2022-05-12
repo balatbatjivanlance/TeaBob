@@ -14,6 +14,7 @@ export class ChangepasswordComponent implements OnInit {
   wrongOldPassword = false;
   minCharacters = false;
   userInfo: any = {};
+  passwordInfo: any = {};
 
   user_id = localStorage.getItem("id");
 
@@ -56,11 +57,11 @@ export class ChangepasswordComponent implements OnInit {
         this.minCharacters = true;
       }
       else if(this.user_pword != null && this.passwordUpdate == true){
-        this.userInfo.old_password = this.old_password;
-        this.userInfo.user_pword = this.user_pword;
-        this.userInfo.user_id = this.user_id;
+        this.passwordInfo.old_password = this.old_password;
+        this.passwordInfo.user_pword = this.user_pword;
+        this.passwordInfo.user_id = this.user_id;
       
-        this.ds.sendApiRequest("ChangePassword" + this.user_id, this.userInfo).subscribe((data:any) =>{
+        this.ds.sendApiRequest("ChangePassword", this.passwordInfo).subscribe((data:any) =>{
           if(data.payload == null){
               this.wrongOldPassword = true;
               // alert('Wrong Old Password');

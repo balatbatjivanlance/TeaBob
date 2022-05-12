@@ -121,7 +121,9 @@
 			$sql = "SELECT * FROM tbl_user WHERE user_id='$user_id' LIMIT 1";
 			$res = $this->gm->generalQuery($sql, "Incorrect username or password");
 			if($res['code'] == 200) {
-
+				// $encryptedOldPassword = $this->encrypt_password($dt->old_password);
+				// var_dump($encryptedOldPassword);
+				
 				if($this->pword_check($old_password, $res['data'][0]['user_pword'])) {
 					$encryptedPassword = $this->encrypt_password($dt->user_pword);
 					$sql = "UPDATE `tbl_user` SET `user_pword` = '$encryptedPassword' WHERE `tbl_user`.`user_id` = '$dt->user_id'";
