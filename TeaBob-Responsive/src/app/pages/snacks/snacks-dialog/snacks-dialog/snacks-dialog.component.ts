@@ -237,6 +237,14 @@ export class SnacksDialogComponent implements OnInit {
             'Successfully Checked Out!',
             'success'
           )
+          Swal.fire({
+            title: 'You can pay via G-Cash',
+            text: 'Dont forget to save your Receipt and show it to the Delivery Rider',
+            imageUrl: './assets/gcash.jpg',
+            imageWidth: 400,
+            imageHeight: 450,
+            imageAlt: 'Custom image',
+          })
         }
           this.dialog.closeAll();
         

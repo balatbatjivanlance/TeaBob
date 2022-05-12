@@ -3,7 +3,7 @@
 
     <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
       (mouseleave)="mouseleave()">
-      <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+      <img class="user-profile" src="./assets/tealogopng.png" style="  -webkit-filter: invert(100%);
         filter: invert(100%);">
       <br>
       <mat-divider [vertical]="false"></mat-divider>
@@ -36,7 +36,7 @@
       <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '1'" >
         <mat-icon>shopping_cart</mat-icon>&nbsp; Cart 
       </button>
-      <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1'">
+      <button mat-button class="button" routerLink="/status"  *ngIf ="user_role == '1' " routerLinkActive="selected">
         <mat-icon>shopping_basket</mat-icon>&nbsp; Order Page
       </button>
       <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '1'">

@@ -4,7 +4,7 @@
 
     <mat-sidenav #drawer [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()" (mouseenter)="mouseenter()"
       (mouseleave)="mouseleave()">
-      <img class="user-profile" src="/assets/tealogopng.png" style="  -webkit-filter: invert(100%);
+      <img class="user-profile" src="./assets/tealogopng.png" style="  -webkit-filter: invert(100%);
         filter: invert(100%);">
       <br>
       <mat-divider [vertical]="false"></mat-divider>
@@ -104,7 +104,8 @@
         <p>Total Amount of Payment: &nbsp;</p>
         <p>₱ {{totalamount}}</p>
    
-        <button class="button-act" (click)="checkOutAll()"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button>
+        <button class="button-act" (click)="checkOutAll()"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button><br>
+        <button class="button-act" (click)="PaymentGcash()"><mat-icon>payment</mat-icon>&nbsp;&nbsp;&nbsp;Pay Via G-Cash</button>
 
 </div>
 </div>

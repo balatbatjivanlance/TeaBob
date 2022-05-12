@@ -97,6 +97,17 @@ export class CartComponent implements OnInit {
       })
   }
 
+  PaymentGcash(){
+    Swal.fire({
+      title: 'You can pay via G-Cash',
+      text: 'Dont forget to save your Receipt and show it to the Delivery Rider',
+      imageUrl: './assets/gcash.jpg',
+      imageWidth: 400,
+      imageHeight: 450,
+      imageAlt: 'Custom image',
+    })
+  }
+
 
 
   prodinfo: any = {}
