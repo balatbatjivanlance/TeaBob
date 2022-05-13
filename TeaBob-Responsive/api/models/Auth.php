@@ -282,8 +282,8 @@
                 'fullname'=>$fullname
             );
 
-            $sql = "INSERT INTO tbl_driver( driver_name, driver_email, driver_password) 
-                           VALUES ('$fullname','$dt->driver_email','$encryptedPassword')";
+            $sql = "INSERT INTO tbl_driver( driver_name, driver_email, driver_contact, driver_password) 
+                           VALUES ('$fullname','$dt->driver_email','$dt->driver_contact','$encryptedPassword')";
                      
 
                            $data = array(); $code = 0; $errmsg= ""; $remarks = "";

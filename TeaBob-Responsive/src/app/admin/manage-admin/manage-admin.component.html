@@ -99,6 +99,7 @@
                 <div class="col col-4">Admin ID</div>
                 <div class="col col-4">Admin Name</div>
                 <div class="col col-4">Admin Email</div>
+                <div class="col col-4">Contact Number</div>
                 <div class="col col-4">Action</div>
               </li>
               <button (click)="openModalAdmin()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Admin</button><br><br>
@@ -106,6 +107,7 @@
                 <div class="col col-3" data-label="Admin ID" >{{admin.user_id}}</div>
                 <div class="col col-3" data-label="Admin Name" >{{admin.user_name}} {{admin.user_lname}}</div>
                 <div class="col col-3" data-label="Admin Email" >{{admin.user_uname}}</div>
+                <div class="col col-3" data-label="Contact Number" >{{admin.user_contact}}</div>
 
                 <div class="col col-3" data-label="Action">
                   <button class="card-order-action" mat-raised-button color="primary" class="deletebutton" (click)="delAdmin(admin.user_id)">

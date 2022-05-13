@@ -99,7 +99,7 @@ export class CartComponent implements OnInit {
 
   PaymentGcash(){
     Swal.fire({
-      title: 'You can pay via G-Cash',
+      title: 'Scan this QR Code You can pay via G-Cash',
       text: 'Dont forget to save your Receipt and show it to the Delivery Rider',
       imageUrl: './assets/gcash.jpg',
       imageWidth: 400,

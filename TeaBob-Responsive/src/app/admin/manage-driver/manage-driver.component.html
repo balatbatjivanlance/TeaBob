@@ -99,6 +99,7 @@
                 <div class="col col-4">Driver ID</div>
                 <div class="col col-4">Driver Name</div>
                 <div class="col col-4">Driver Email</div>
+                <div class="col col-4">Driver Contact</div>
                 <div class="col col-4">Driver Status</div>
                 <div class="col col-4">Action</div>
               </li>
@@ -107,6 +108,7 @@
                 <div class="col col-3" data-label="Driver ID" >{{driver.driver_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{driver.driver_name}}</div>
                 <div class="col col-3" data-label="Driver Email" >{{driver.driver_email}}</div>
+                <div class="col col-3" data-label="Driver Contact" >{{driver.driver_contact}}</div>
                 <div class="col col-3" *ngIf ="driver.driver_status == '0'"data-label="Driver Status" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                Idle</div>
                 <div class="col col-3" *ngIf ="driver.driver_status == '1'"data-label="Driver Status" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                Busy</div>
 

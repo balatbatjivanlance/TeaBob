@@ -20,7 +20,9 @@
             
             <div class="input-box">
                 <span class="details">Password</span>
-                <input type="password" placeholder="Password" [(ngModel)]="user_pword">
+                <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword">
+                <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
+                <label for="showpassword"> Show Password</label>
             </div>
             <button class="button" (click)="loginUser()">Login</button>
             <button class="button2"  routerLink="/register">Sign Up</button>

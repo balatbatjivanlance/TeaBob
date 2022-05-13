@@ -22,12 +22,18 @@
             <input type="email" id="email" name="email" placeholder="Example: driver@gmail.com"  required>
         </div>
         <div class="input-box">
+            <span class="details">Contact Number</span>
+            <input type="number" id="contact" name="contact" placeholder="eg.09*********"  required>
+        </div>
+        <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" id="pword" name="pword" required>
+            <input [type]="show_button ? 'text' : 'password'" id="pword" name="pword" required>
         </div>
         <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" id="cpword" name="cpword" required>
+            <input [type]="show_button ? 'text' : 'password'" id="cpword" name="cpword" required>
+            <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
+            <label for="showpassword"> Show Password</label>
         </div>
         <input mat-raised-button class="btn" type="submit" value="Submit">
     

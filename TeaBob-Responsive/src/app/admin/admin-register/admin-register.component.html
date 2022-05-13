@@ -31,11 +31,13 @@
     </div>
     <div class="input-box">
         <span class="details">Password</span>
-        <input type="password" placeholder="Password" [(ngModel)]="user_pword">
+        <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword">
     </div>
     <div class="input-box">
         <span class="details">Confirm Password</span>
-        <input type="password" placeholder="Confirm Password" [(ngModel)]="user_Confpword">
+        <input [type]="show_button ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="user_Confpword">
+        <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
+        <label for="showpassword"> Show Password</label>
     </div>
 </div>
     <button mat-raised-button class="button" (click)="regUser()"

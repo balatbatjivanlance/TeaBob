@@ -72,4 +72,12 @@ export class AdminRegisterComponent implements OnInit {
    return result;
 }
 
+show_button: Boolean = false;
+show_eye: Boolean = false;
+
+showPassword() {
+  this.show_button = !this.show_button;
+  this.show_eye = !this.show_eye;
+}
+
 }
