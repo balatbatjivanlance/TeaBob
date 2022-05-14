@@ -32,6 +32,10 @@
         <div class="input-box">
             <span class="details">Confirm Password</span>
             <input [type]="show_button ? 'text' : 'password'" id="cpword" name="cpword" required>
+           
+        </div>
+        <div class="showpass">
+               
             <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
             <label for="showpassword"> Show Password</label>
         </div>

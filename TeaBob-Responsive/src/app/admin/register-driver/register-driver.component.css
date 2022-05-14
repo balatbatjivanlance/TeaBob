@@ -11,6 +11,13 @@ mat-card {
 .dashboardcontent {
   padding: 10px;
 }
+.showpass{
+  width: 80%;
+  height: auto;
+  padding-left: 20px;
+  padding-top: 20px;
+  /* background-color: red; */
+}
 
 .btn{
   width: 100%;

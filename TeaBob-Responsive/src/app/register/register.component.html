@@ -33,11 +33,15 @@
         <span class="details">Confirm Password</span>
         <input [type]="show_button ? 'text' : 'password'"  placeholder="Confirm Password" [(ngModel)]="user_Confpword"><br>
         <!-- <button type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="showPassword()"></button> -->
+    
+    </div>
+    <div class="showpass">
+               
         <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
         <label for="showpassword"> Show Password</label>
     </div>
 </div>
-    <button mat-raised-button class="button" (click)="regUser()"
+    <button  class="button" (click)="regUser()"
     [disabled]="!user_name || !user_lname || !user_uname || !user_contact || 
     !user_address || !user_pword || !user_Confpword" title="Please fill up the form"
     >Register</button>

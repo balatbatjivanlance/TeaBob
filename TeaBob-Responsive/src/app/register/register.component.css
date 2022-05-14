@@ -8,6 +8,15 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
+.showpass{
+    width: 80%;
+    height: auto;
+    padding-left: 20px;
+    padding-top: 20px;
+    /* background-color: red; */
+}
+
 body{
     display:flex;
     height: 100vh;
@@ -83,7 +92,7 @@ body{
     margin-left: 35px;
     outline: none;
     color: #Fff;
-    background: #4B1F0E ;
+    background-color: #4B1F0E ;
     border:none;
     font-size: 18px;
     font-weight: 500;
