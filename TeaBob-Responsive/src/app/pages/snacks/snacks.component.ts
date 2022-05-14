@@ -35,7 +35,7 @@ export class SnacksComponent implements OnInit {
     this.pullCategory();
   }
   user_role = localStorage.getItem("user_role");
-
+searchfood: any;
 
   // SIDENAV AND TOOLBAR CODE 
 

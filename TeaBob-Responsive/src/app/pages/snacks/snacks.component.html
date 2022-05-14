@@ -96,7 +96,7 @@
     <!-- THIS IS YOUR CONTENT CONTAINER -->
 
 
-    <div class="category_container">
+    <!-- <div class="category_container">
       <mat-form-field appearance="outline">
           <mat-label>Select Category</mat-label>
               <mat-select (selectionChange)="filterFood($event)">
@@ -106,12 +106,17 @@
                   </mat-option>
               </mat-select>
       </mat-form-field>
-  </div>
+  </div> -->
 
+      <!-- <input matInput placeholder="Ex. Shawarma" [(ngModel)]="searchfood"> -->
+      <div class="example-form">
+        <span>Search</span>
+        <input class="example-full-width" [(ngModel)]="searchfood">
+    </div>
 
     <div class="container">
       <div class="product-container">
-        <div class="prodcard" *ngFor="let food of food_info">
+        <div class="prodcard" *ngFor="let food of food_info |filter:searchfood">
   
             <div *ngIf="food_info.length != null; else blank">
                 <div class="image-container">

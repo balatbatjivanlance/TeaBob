@@ -42,6 +42,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxPrintModule } from 'ngx-print';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
@@ -128,7 +129,8 @@ import { ChangepasswordComponent } from './pages/profile/changepassword/changepa
     MatSnackBarModule,
     MatTabsModule,
     NgxPrintModule,
-    MatExpansionModule
+    MatExpansionModule,
+    Ng2SearchPipeModule
   ],
   providers: [{
     provide: LocationStrategy, useClass: HashLocationStrategy
