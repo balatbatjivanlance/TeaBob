@@ -87,6 +87,17 @@ img {
     
 }
 
+.showpass{
+    width: 80%;
+    height: auto;
+    padding-left: 20px;
+    /* background-color: red; */
+}
+
+.button-container{
+    width: 100%;
+}
+
 .button {
     height: 40px;
     width: 30%;

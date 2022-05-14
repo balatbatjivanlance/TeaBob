@@ -64,6 +64,7 @@ import { ManageAdminComponent } from './admin/manage-admin/manage-admin.componen
 import { SnackcommentComponent } from './pages/snacks/snackcomment/snackcomment.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ChangepasswordComponent } from './pages/profile/changepassword/changepassword.component';
+import { TermsconditionComponent } from './pages/termscondition/termscondition.component';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import { ChangepasswordComponent } from './pages/profile/changepassword/changepa
     SnackcommentComponent,
     ManageUsersComponent,
     ChangepasswordComponent,
+    TermsconditionComponent,
   ],
   imports: [
     BrowserModule,

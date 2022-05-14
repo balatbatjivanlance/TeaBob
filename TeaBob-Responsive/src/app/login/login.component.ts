@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { SweetAlertCustomClass } from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -73,13 +73,9 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("user_Address", res.payload.user_Address);
         window.localStorage.setItem("user_role", res.payload.user_role);
         this.checkRole(res.payload.user_role);
-        Swal.fire({
-          title: 'Login Successfully!',
-          text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!',
-          icon: 'success'
-        }
-        );
-        this.ds.setUser();
+        
+        
+        this.ds.setUser();  
         }
         
    

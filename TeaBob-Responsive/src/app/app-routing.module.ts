@@ -24,7 +24,7 @@ import { SalesReportComponent } from './admin/sales-report/sales-report.componen
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AuthGuard } from './services/auth.guard';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
-
+import { TermsconditionComponent } from './pages/termscondition/termscondition.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent,    canActivate: [AuthGuard],},
   { path: 'snacks', component: SnacksComponent,    canActivate: [AuthGuard]},
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'sales', component: SalesReportComponent,    canActivate: [AuthGuard]},  
   { path: 'aboutus', component: AboutusComponent,    canActivate: [AuthGuard]},
   { path: 'manage-users', component: ManageUsersComponent,    canActivate: [AuthGuard]},
-  
+  { path: 'terms', component: TermsconditionComponent},
   { path: '', component: LandingComponent}
 
 
