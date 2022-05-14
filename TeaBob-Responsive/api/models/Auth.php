@@ -195,6 +195,7 @@
 					$user_contact =$res['data'][0]['user_contact'];
 					$user_address = $res['data'][0]['user_address'];
 					$user_role = $res['data'][0]['user_role'];
+					$is_agree = $res['data'][0]['is_agree'];
 					$is_verified = $res['data'][0]['is_verified'];
 		
 				
@@ -202,7 +203,7 @@
 					$code = 200;
 					$remarks = "success";
 					$message = "Logged in successfully";
-					$payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "Lastname"=>$user_lname, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role, "is_verified"=>$is_verified);
+					$payload = array("user_id"=>$user_id, "Fullname"=>$user_name, "Lastname"=>$user_lname, "user_Contact"=>$user_contact, "user_Address"=>$user_address, "user_role"=>$user_role, "is_agree"=>$is_agree, "is_verified"=>$is_verified);
 				} else {
 					$payload = null; 
 					$remarks = "failed"; 

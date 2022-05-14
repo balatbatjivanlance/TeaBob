@@ -57,34 +57,10 @@ export class TermsconditionComponent implements OnInit {
 }
 
 
-user_id:any;
-
-userInfo:any = {};
-user_uname: any;
-user_pword: any;
-user_contact: any;
-user_address: any;
-
 accept(){
-  this.userInfo.user_uname = this.user_uname;
-  this.userInfo.user_pword = this.user_pword;
-  this.userInfo.user_contact = this.user_contact;
-  this.userInfo.user_address = this.user_address;
- this.ds.sendApiRequest("loginUser", this.userInfo).subscribe((res: { payload: any | null; }) => {
-    if (res.payload.is_verified == 1) {
-      window.localStorage.setItem("Fullname", res.payload.Fullname);
-          window.localStorage.setItem("Lastname", res.payload.Lastname);
-        window.localStorage.setItem("id", res.payload.user_id);
-        window.localStorage.setItem("user_Contact", res.payload.user_Contact);
-        window.localStorage.setItem("user_Address", res.payload.user_Address);
-        window.localStorage.setItem("user_role", res.payload.user_role);
-        
-        this.router.navigate(['/home']);
-        
-        this.ds.setUser(); 
-    }
-  });
 
+  this.router.navigate(['/home']);
  
 }
+
 }

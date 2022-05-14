@@ -66,15 +66,21 @@ export class LoginComponent implements OnInit {
             allowOutsideClick: () => !Swal.isLoading()
           });
         }else{
-          window.localStorage.setItem("Fullname", res.payload.Fullname);
-          window.localStorage.setItem("Lastname", res.payload.Lastname);
+        window.localStorage.setItem("Fullname", res.payload.Fullname);
+        window.localStorage.setItem("Lastname", res.payload.Lastname);
         window.localStorage.setItem("id", res.payload.user_id);
         window.localStorage.setItem("user_Contact", res.payload.user_Contact);
         window.localStorage.setItem("user_Address", res.payload.user_Address);
         window.localStorage.setItem("user_role", res.payload.user_role);
         this.checkRole(res.payload.user_role);
         
-        
+        Swal.fire({
+          title: 'Login Successfully!',
+          text: 'Welcome!' + "..."  +  this.userInfo.user_uname + '!',
+          icon: 'success'
+        }
+        );
+
         this.ds.setUser();  
         }
         
