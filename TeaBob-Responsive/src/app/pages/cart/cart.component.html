@@ -17,16 +17,40 @@
         <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
       </button>
       <button mat-button class="button" routerLink="/home" *ngIf ="user_role == '1'"  routerLinkActive="selected">
-        <mat-icon>space_dashboard</mat-icon>&nbsp; Home
+        <mat-icon>space_dashboard</mat-icon>&nbsp; Dashboard
       </button>
       <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/add-product" routerLinkActive="selected">
         <mat-icon>add_circle</mat-icon>&nbsp; Add Product
       </button>
       <button mat-button class="button" routerLink="/manage-product" *ngIf ="user_role == '0'">
-        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Order
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage Product
       </button>
-      <button mat-button class="button" routerLink="/category" *ngIf ="user_role == '0'">
-        <mat-icon>category</mat-icon>&nbsp; Category
+      <button mat-button class="button" routerLink="/manage-addons" *ngIf ="user_role == '0'">
+        <mat-icon>shopping_basket</mat-icon>&nbsp; Manage AddOns
+      </button>
+      <button mat-button class="button" *ngIf ="user_role == '0'" routerLink="/snacks" routerLinkActive="selected">
+        <mat-icon>restaurant_menu</mat-icon>&nbsp; Menu
+      </button>
+      <button mat-button class="button" routerLink="/cart" routerLinkActive="selected" *ngIf ="user_role == '0'" >
+        <mat-icon>shopping_cart</mat-icon>&nbsp; Cart ()
+      </button>
+      <button mat-button class="button" routerLink="/history" *ngIf ="user_role == '0'">
+        <mat-icon>history</mat-icon>&nbsp; History
+      </button>
+      <button mat-button class="button" routerLink="/manage-admin" *ngIf ="user_role == '0'">
+        <mat-icon>supervised_user_circle</mat-icon>&nbsp; Admins
+      </button>
+      <button mat-button class="button" routerLink="/manage-users" *ngIf ="user_role == '0'">
+        <mat-icon>supervisor_account</mat-icon>&nbsp; Manage Users
+      </button>
+      <button mat-button class="button" routerLink="/manage-driver" *ngIf ="user_role == '0'">
+        <mat-icon>motorcycle</mat-icon>&nbsp; Riders
+      </button>
+      <button mat-button class="button" routerLink="/profile"  *ngIf ="user_role == '0'">
+        <mat-icon>account_box</mat-icon>&nbsp; Profile
+      </button>
+      <button mat-button class="button" routerLink="/sales" *ngIf ="user_role == '0'">
+        <mat-icon>receipt</mat-icon>&nbsp; Sales Report
       </button>
   
       <!-- USER BUTTONS -->
@@ -104,8 +128,9 @@
         <p>Total Amount of Payment: &nbsp;</p>
         <p>₱ {{totalamount}}</p>
    
-        <button class="button-act" (click)="checkOutAll()"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button><br>
-        <button class="button-act" (click)="PaymentGcash()"><mat-icon>payment</mat-icon>&nbsp;&nbsp;&nbsp;Pay Via G-Cash</button>
+        <button class="button-act" (click)="checkOutAll()" *ngIf ="user_role == '1'"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button>
+        <button class="button-act" (click)="checkOutWalkin()" *ngIf ="user_role == '0'"><mat-icon>shopping_cart_checkout</mat-icon>&nbsp;&nbsp;&nbsp;Checkout</button><br>
+        <button class="button-act" (click)="PaymentGcash()"><mat-icon>payment</mat-icon>&nbsp;&nbsp;&nbsp;Pay Via G-Cash QR-CODE</button>
 
 </div>
 </div>

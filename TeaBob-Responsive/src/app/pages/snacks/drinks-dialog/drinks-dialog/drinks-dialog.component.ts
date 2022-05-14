@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DrinksDialogComponent implements OnInit {
   user_id = localStorage.getItem('UID');
+  user_role = localStorage.getItem("user_role");
   item: any;
 
   isDisabled: boolean = true;

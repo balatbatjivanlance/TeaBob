@@ -149,7 +149,7 @@ export class CartComponent implements OnInit {
   }
 
 
-
+//For Online Orders (CUSTOMERS)
 
   coInfo: any = {}
   cart_id: any
@@ -215,6 +215,70 @@ export class CartComponent implements OnInit {
         this.router.navigate(['/status']);
       }
     }
+
+    //for walk in orders(ADMIN)
+
+    approved: any;
+    driver: any;
+    async checkOutWalkin() {
+
+      const { value: text } = await Swal.fire({
+        input: 'textarea',
+        inputLabel: 'Landmark Near You',
+        inputPlaceholder: 'Ex: color of gate, near school, etc.',
+        inputAttributes: {
+          'aria-label': 'Type your message here'
+        },
+        showCancelButton: true
+      })
+      
+      if (text) {
+        this.remarks = text;
+  
+          var seq = Math.floor(100000000 + Math.random() * 900000000)
+            .toString()
+            .substring(1)
+          this.code = seq
+  
+          let data: any = []
+  
+          this.fullname = 'WALK'
+          this.lastname = 'IN'
+          this.approved = '4'
+          this.driver = 'WALK IN'
+  
+          this.cart_payload.forEach(item =>  {
+            this.coInfo.prod_name = item.food_name
+            this.coInfo.cart_addon_name = item.cart_addon_name
+            this.coInfo.size_name = item.size_name
+            this.coInfo.food_quantity = item.food_quantity
+            this.coInfo.user_id = localStorage.getItem('id')
+            this.coInfo.food_id = item.food_id
+            this.coInfo.size_id = item.size_id
+            this.coInfo.prod_price = item.cart_total_price
+            this.coInfo.user_name =  this.fullname + " " +  this.lastname;
+            this.coInfo.total_price = this.totalamount
+            this.coInfo.is_approved = this.approved
+            this.coInfo.driver = this.driver
+            this.coInfo.code = this.code
+            this.coInfo.cart_id = item.cart_id
+            this.coInfo.remarks = this.remarks;
+  
+            this.coInfo.food_stocks = item.food_stocks
+            this.coInfo.size_stocks = item.size_stocks
+            // console.log(this.coInfo.user_name)
+            Swal.fire('Great!', 'Check out successfully!', 'success')
+  
+            {
+              data.push(this.coInfo)
+  
+              this.coInfo = {}
+            }
+          })
+  
+          this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
+        }
+      }
 
   
 

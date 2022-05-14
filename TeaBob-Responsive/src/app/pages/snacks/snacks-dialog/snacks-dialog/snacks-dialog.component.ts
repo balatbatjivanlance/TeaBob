@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class SnacksDialogComponent implements OnInit {
   user_id = localStorage.getItem("UID");
+  user_role = localStorage.getItem("user_role");
 
   constructor(private router: Router,private ds: DataService, @Inject(MAT_DIALOG_DATA)public data: any, public dialog: MatDialog) { }
 

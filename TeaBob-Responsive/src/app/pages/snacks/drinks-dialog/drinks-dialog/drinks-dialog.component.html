@@ -117,7 +117,7 @@
       class="button"
       (click)="CheckoutOneItem()"
       [disabled]="!item_size"
-      title="Choose Size First">
+      title="Choose Size First" *ngIf ="user_role == '1'">
       Check Out
     </button>
     

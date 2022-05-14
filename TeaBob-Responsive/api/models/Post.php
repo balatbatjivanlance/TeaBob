@@ -373,6 +373,8 @@ class Post{
             $prod_price[]  = $dt[$i]->prod_price;
             $code[] = $dt[$i]->code;
             $total_price[] = $dt[$i]->total_price;
+            $is_approved[] = $dt[$i]->is_approved;
+            $driver[] = $dt[$i]->driver;
             $remarks[] = $dt[$i]->remarks;
             $user_name[]= $dt[$i]->user_name;
             $user_contact [] = $dt[$i]->user_contact;
@@ -383,7 +385,7 @@ class Post{
             $size_stocks[] = $dt[$i]->size_stocks;
 
             $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
-            $val2[] = "('$code[$i]',  '$total_price[$i]',  '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
+            $val2[] = "('$code[$i]', '$total_price[$i]', '$is_approved[$i]', '$driver[$i]', '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
             
         }
 
@@ -393,7 +395,7 @@ class Post{
         try {
             if($this->pdo->query($this->sql)) {
 
-                $this->sql = "INSERT INTO tbl_cocode (code, total_price, remarks, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
+                $this->sql = "INSERT INTO tbl_cocode (code, total_price, is_approved, driver, remarks, user_id, user_name, user_contact, user_address) VALUES $val2[0]";
            
                 if($this->pdo->query($this->sql)) {
 
