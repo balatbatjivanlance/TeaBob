@@ -26,12 +26,12 @@
                         maxlength = "11">
     </div>
     <div class="input-box">
-        <span class="details">Address</span>
-        <input type="text" placeholder="Address" [(ngModel)]="user_address">
-    </div>
-    <div class="input-box">
         <span class="details">Password</span>
         <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword">
+    </div>
+    <div class="input-box">
+        <span class="details">Address</span>
+        <input type="text" placeholder="Address" [(ngModel)]="user_address">
     </div>
     <div class="input-box">
         <span class="details">Confirm Password</span>

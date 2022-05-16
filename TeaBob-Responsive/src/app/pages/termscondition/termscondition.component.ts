@@ -59,7 +59,7 @@ export class TermsconditionComponent implements OnInit {
 
 accept(){
 
-  this.router.navigate(['/home']);
+  this.router.navigate(['/login']);
  
 }
 
