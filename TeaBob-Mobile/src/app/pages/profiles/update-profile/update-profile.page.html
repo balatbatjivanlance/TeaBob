@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile Update</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="status-container">
+    <div class="status-title">Update Profile</div>
+    <br><br>
+
+
+    <div class="user-details">
+    <div class="input-box">
+
+        <span class="details">Full Name</span>
+        <input type="text" [(ngModel)]="driver_name">
+    </div>
+    <div class="input-box">
+        <span class="details">Contact no.</span>
+        <input type="number" class="input-number" [(ngModel)]="driver_contact">
+    </div>
+
+    <br><br><br>
+    <ion-button color="success" fill="clear" class="btn" (click)="UpdateDriver()"
+    [disabled]="!driver_name || !driver_contact"
+    >Save Profile</ion-button>
+    
+</div>
+</div>
+</ion-content>

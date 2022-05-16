@@ -110,7 +110,7 @@
 			 			   return $this->gm->sendPayload($payload, $remarks, $message, $code);                
         }
 
-		 //CHANGE PASSWORD
+		 //CHANGE PASSWORD USER/ADMIN
 
 		 public function ChangePassword($dt){
 			$payload = $dt;
@@ -121,8 +121,6 @@
 			$sql = "SELECT * FROM tbl_user WHERE user_id='$user_id' LIMIT 1";
 			$res = $this->gm->generalQuery($sql, "Incorrect username or password");
 			if($res['code'] == 200) {
-				// $encryptedOldPassword = $this->encrypt_password($dt->old_password);
-				// var_dump($encryptedOldPassword);
 				
 				if($this->pword_check($old_password, $res['data'][0]['user_pword'])) {
 					$encryptedPassword = $this->encrypt_password($dt->user_pword);
@@ -147,28 +145,42 @@
 			return $this->gm->sendPayload($payload, $remarks, $message, $code);
 		}
 
-		// public function ChangePassword($table, $dt, $filter_data) {
 
-		// 	$this->sql = "SELECT * FROM $table WHERE user_id = $filter_data";
-		// 	try {
-		// 		if ($res = $this->pdo->query($this->sql)->fetchColumn()>0) {
-		// 			$result=$this->pdo->query($this->sql)->fetchAll();
-					
-		// 			$user_pword = $dt->user_pword;
-		// 			$data = array(); $code = 0; $msg = ""; $remarks = "";
-		// 			foreach ($result as $rec) { 
-		// 				if($this->pwordCheck($dt->currentPassword, $rec['user_pword'])){
-		// 					$code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
-		// 					$encryptedPassword = $this->encryptPassword($dt->user_pword);
-		// 					return $this->gm->update($table, ["user_pword" => $encryptedPassword, "user_pword" => 1], "user_id = $filter_data");
-		// 				}
-		// 			}
-		// 		}
+			//CHANGE PASSWORD Driver
+
+			public function ChangePassDriver($dt){
+			$payload = $dt;
+			$driver_id = $dt->driver_id;
+			$old_password = $dt->old_password;
+			$code = 0;
+			
+			$sql = "SELECT * FROM tbl_driver WHERE driver_id='$driver_id' LIMIT 1";
+			$res = $this->gm->generalQuery($sql, "Incorrect username or password");
+			if($res['code'] == 200) {
 				
-		// 	} catch (\PDOException $e) {
-		// 		$errmsg = $e->getMessage(); $code = 401; $message = "failed";
-		// 	}
-		// }
+				if($this->pword_check($old_password, $res['data'][0]['driver_password'])) {
+					$encryptedPassword = $this->encrypt_password($dt->driver_password);
+					$sql = "UPDATE `tbl_driver` SET `driver_password` = '$encryptedPassword' WHERE `tbl_driver`.`driver_id` = '$dt->driver_id'";
+					$res = $this->gm->generalQuery($sql, "");
+					$remarks = "success";
+					$message = "Logged in successfully";
+					$payload = array(
+						"uid"=>$driver_id
+						);	
+				
+				} else {
+					$payload = null; 
+					$remarks = "failed"; 
+					$message = "Incorrect username or password";
+				}
+			}	else {
+				$payload = null; 
+				$remarks = "failed"; 
+				$message = $res['errmsg'];
+			}
+			return $this->gm->sendPayload($payload, $remarks, $message, $code);
+		}
+
 
 
 

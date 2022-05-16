@@ -240,10 +240,16 @@
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($post->updateProfile($d), JSON_PRETTY_PRINT);
 				break;
-				//  Change password
+				//  Change password User/Admin
 				case 'ChangePassword':
 					$d = json_decode(base64_decode(file_get_contents("php://input")));
 					echo json_encode($auth->ChangePassword($d), JSON_PRETTY_PRINT);    
+
+				break;
+				//  Change password Driver
+				case 'ChangePassDriver':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($auth->ChangePassDriver($d), JSON_PRETTY_PRINT);    
 
 				break;
 
@@ -499,6 +505,7 @@
 							echo json_encode($get->PullUserCount($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					//driver
 					case 'pullDriver':
 						if(count($req)>1) {
 							echo json_encode($get->pullDriver($req[0], $req[1]), JSON_PRETTY_PRINT);
@@ -506,6 +513,19 @@
 							echo json_encode($get->pullDriver($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
+					case 'pullDriverUpdate':
+						$d = json_decode(base64_decode(file_get_contents("php://input")));
+						if(count($req)>1) {
+							echo json_encode($get->pullDriverUpdate($d), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullDriverUpdate($d), JSON_PRETTY_PRINT);
+						}
+					break;
+					//  Update Driver Profile
+				case 'UpdateDriver':
+					$d = json_decode(base64_decode(file_get_contents("php://input")));
+					echo json_encode($post->UpdateDriver($d), JSON_PRETTY_PRINT);
+				break;
 					
 					
 

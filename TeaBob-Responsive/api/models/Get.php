@@ -602,6 +602,22 @@ public function pullDriver ($d) {
 	}
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
+public function pullDriverUpdate ($driver_id) {
+
+	$sql = "SELECT * FROM tbl_driver WHERE driver_id = '$driver_id'";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
 
 public function pullUser1 ($d) {
 

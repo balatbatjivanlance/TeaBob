@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       }else{
         Swal.fire('Register Successfully');
         this.mail();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/terms']);
         
       }
     });

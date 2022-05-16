@@ -30,7 +30,11 @@ const routes: Routes = [
     path: 'conclude-order',
     loadChildren: () => import('./pages/conclude-order/conclude-order.module').then( m => m.ConcludeOrderPageModule)
     ,    canActivate: [GuardGuard]
+  },  {
+    path: 'profiles',
+    loadChildren: () => import('./pages/profiles/profiles.module').then( m => m.ProfilesPageModule)
   }
+
 
 ];
 

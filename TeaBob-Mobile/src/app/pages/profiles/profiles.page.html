@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div class="status-container" *ngFor = "let driver of driver">
+    <div class="status-title">Driver Profile</div>
+    <br><br>
+
+
+    <div class="user-details">
+    <div class="input-box">
+
+        <span class="details">Full Name</span>
+        <input disabled type="text" placeholder="{{driver.driver_name}}">
+    </div>
+    <!-- <div class="input-box">
+
+        <span class="details">Last Name</span>
+        <input disabled type="text" placeholder="">
+    </div> -->
+    <div class="input-box">
+        <span class="details">Email</span>
+        <input disabled type="text" placeholder="{{driver.driver_email}}">
+    </div>
+    <div class="input-box">
+        <span class="details">Contact no.</span>
+        <input disabled type="number" class="input-number" placeholder="{{driver.driver_contact}}">
+    </div>
+    <!-- <div class="input-box">
+        <span class="details">Address</span>
+        <input disabled type="text" placeholder="">
+    </div> -->
+
+    <br><br><br>
+    <ion-button color="success" fill="clear" class="btn" (click)="ProfileUpdate()">Update Profile</ion-button>
+    <p *ngIf="modalDataResponse">{{modalDataResponse}}</p>
+    <ion-button color="success" fill="clear" class="btn" (click)="ChangePassDriver()">Change Password</ion-button>
+    
+</div>
+</div>
+</ion-content>

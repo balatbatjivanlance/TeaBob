@@ -27,7 +27,6 @@ export class ProfileDialogComponent implements OnInit {
   user_uname: any;
   user_contact: any;
   user_address: any;
-  user_pword: any;
 
 
   pullUsers() {
@@ -39,9 +38,6 @@ export class ProfileDialogComponent implements OnInit {
     this.user_uname = this.user_payload[0].user_uname;
     this.user_contact = this.user_payload[0].user_contact;
     this.user_address = this.user_payload[0].user_address;
-    this.user_pword = this.user_payload[0].user_pword;
-    
-  console.log(this.user_pword)
     }
     )
   }
