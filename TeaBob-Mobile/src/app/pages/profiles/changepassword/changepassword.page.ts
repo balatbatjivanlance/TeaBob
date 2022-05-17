@@ -20,6 +20,7 @@ export class ChangepasswordPage implements OnInit {
 
   old_password: any
   driver_password: any;
+  driver_Cnewpassword: any;
 
   constructor(public us: UserService, public ds: DataService, private _router: Router) { }
 
@@ -32,6 +33,9 @@ export class ChangepasswordPage implements OnInit {
       this.passwordUpdate = true;
       if(this.driver_password != null && this.driver_password.length < 8 && this.passwordUpdate == true){
         this.minCharacters = true;
+      }
+      else if(this.driver_password != this.driver_Cnewpassword){
+        alert('New Password Did not Match');
       }
       else if(this.driver_password != null && this.passwordUpdate == true){
         this.passwordInfo.old_password = this.old_password;

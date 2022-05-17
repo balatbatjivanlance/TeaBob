@@ -20,6 +20,7 @@ export class ChangepasswordComponent implements OnInit {
 
   old_password: any
   user_pword: any;
+  user_newpword: any;
 
   constructor(private ds: DataService, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
 
@@ -55,6 +56,13 @@ export class ChangepasswordComponent implements OnInit {
       this.passwordUpdate = true;
       if(this.user_pword != null && this.user_pword.length < 8 && this.passwordUpdate == true){
         this.minCharacters = true;
+      }
+      else if(this.user_pword != this.user_newpword){
+        Swal.fire(
+          'Password did not match',
+          'Password did not match',
+          'error'
+        )
       }
       else if(this.user_pword != null && this.passwordUpdate == true){
         this.passwordInfo.old_password = this.old_password;
