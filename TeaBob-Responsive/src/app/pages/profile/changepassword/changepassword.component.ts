@@ -52,6 +52,7 @@ export class ChangepasswordComponent implements OnInit {
 
 
   ChangePassword(){
+    if (this.user_pword.length >= 8 ) {
     if(this.old_password != null){
       this.passwordUpdate = true;
       if(this.user_pword != null && this.user_pword.length < 8 && this.passwordUpdate == true){
@@ -100,7 +101,18 @@ export class ChangepasswordComponent implements OnInit {
         'info'
       )
     }
-    this.dialog.closeAll();
+    this.dialog.closeAll(); 
+  }
+  
+  else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Password must be greater than 8 Characters ',
+      text: 'Password must be greater than 8 Characters',
+    
+    })
+  }
+
   }
 
 

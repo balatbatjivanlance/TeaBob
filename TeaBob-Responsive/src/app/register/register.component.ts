@@ -26,34 +26,44 @@ export class RegisterComponent implements OnInit {
   user_Confpword: any;
   user_role = 1;
   regUser(){
-    if (this.user_pword == this.user_Confpword) {
-      this.userInfo.user_name = this.user_name;
-    this.userInfo.user_lname = this.user_lname;
-    this.userInfo.user_uname = this.user_uname;
-    this.userInfo.user_contact = this.user_contact;
-    this.userInfo.user_address = this.user_address;
-    this.userInfo.user_pword = this.user_pword;
-    this.userInfo.user_Confpword = this.user_Confpword;
-    this.userInfo.user_role = this.user_role;
+    if (this.user_pword.length >= 8 ) {
+      if (this.user_pword == this.user_Confpword) {
+        this.userInfo.user_name = this.user_name;
+      this.userInfo.user_lname = this.user_lname;
+      this.userInfo.user_uname = this.user_uname;
+      this.userInfo.user_contact = this.user_contact;
+      this.userInfo.user_address = this.user_address;
+      this.userInfo.user_pword = this.user_pword;
+      this.userInfo.user_Confpword = this.user_Confpword;
+      this.userInfo.user_role = this.user_role;
 
-    this.OTP = this.makeid(5);
-    this.userInfo.user_otp = this.OTP;
+      this.OTP = this.makeid(5);
+      this.userInfo.user_otp = this.OTP;
 
 
-    this.ds.sendApiRequest("regUser", JSON.parse(JSON.stringify(this.userInfo))).subscribe((data: any) => {
-      console.log(data);
-      if(data.status.remarks == 'failed'){
-        Swal.fire('Email Address is already taken.')
-      }else{
-        Swal.fire('Register Successfully');
-        this.mail();
-        this.router.navigate(['/terms']);
-        
-      }
-    });
+      this.ds.sendApiRequest("regUser", JSON.parse(JSON.stringify(this.userInfo))).subscribe((data: any) => {
+        console.log(data);
+        if(data.status.remarks == 'failed'){
+          Swal.fire('Email Address is already taken.')
+        }else{
+          Swal.fire('Register Successfully');
+          this.mail();
+          this.router.navigate(['/terms']);
+          
+        }
+      });
 
-   
+    
+    }
   }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Password must be greater than 8. ',
+        text: 'Contact no. must be 11 numbers.',
+      
+      })
+    }
    
     
 
