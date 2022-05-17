@@ -20,14 +20,16 @@
             
             <div class="input-box">
                 <span class="details">Password</span>
-                <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword" >
+                <span>
+                    <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword" id="id_password" >
+                    <mat-icon class="eye" name="showpassword" (click)="showPassword()" id="togglePassword">visibility</mat-icon>
+                </span>
+                
                 
             </div>
-            <div class="showpass">
-               
-                <input type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" name="showpassword" (click)="showPassword()">
-                <label for="showpassword"> Show Password</label>
-            </div>
+       
+
+            
             <div class="button-container">
                 <button class="button" (click)="loginUser()">Login</button>
 
@@ -38,3 +40,15 @@
     </div>
     </div>
 </div>
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('visibility_off');
+});
+</script>

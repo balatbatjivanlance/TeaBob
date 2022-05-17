@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 70vh;
+      height: auto;
   }
   
   .home-container {
@@ -62,8 +62,9 @@
 
   .product-container{
       width: 90%;
-      height: 90%;
+      height: auto;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
   }
@@ -71,16 +72,24 @@
       margin: 10px;
   }
   .prodcard{
-      width: 250px;
-      height: auto;
+      width: 260px;
+      height: 400px;
       background-color: #f9f9f9;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      padding-top: 10px;
   }
 
+  .food-name {
+    width: 100%;
+    height: 40px;
+  }
+
+  .food-det {
+    width: 100%;
+    height: 60%;
+  }
   .food-title{
     text-align: center;
     font-size: 18px;
@@ -94,8 +103,6 @@
     padding-left: 10px;
     font-family: 'Poppins', sans-serif ;
     text-align: center;
-
-
   }
 
   .prodcard:hover{
@@ -136,14 +143,14 @@
   }
   .image-container{
     width: 100%;
-    height: 80%;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .image-container img{
-      max-width: 95%;
-      max-height: 95%;
+      max-width: 90%;
+      max-height: 90%;
       border-radius: 5px;
   }
   img{
@@ -161,6 +168,11 @@
 
 
 @media (max-width:600px) {
+
+  .container {
+    width: 100%;
+    background-color: #362417;
+  }
   
   .home-container {
     margin-top:70px;
@@ -251,6 +263,23 @@
     font-size: 30px;
     font-weight: bold;
 }
+
+.icon1 , .icon2{
+ display: none;
+}
+
+.facebook h2 {
+  display: none;
+}
+
+.first-icon {
+  width: 100%;
+}
+
+.second-icon {
+  display: none;
+}
+
 }
 @media (max-width:1024px){
   .home-container {
@@ -422,12 +451,23 @@
   
 }
 
-.icon1 , .icon2{
-  padding-right: 10px;
-  font-size: 50px;
-  margin-top: 15px;
-
+.icon1 , .icon2, .icon3{
+  padding: 17px 10px 17px 30px;
+ font-size: 30px;
 }
+
+.facebook h2 {
+  padding: 17px 25px 15px 0px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.facebook h1 {
+  padding: 17px 25px 15px 0px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
 .two-container{
   display: flex;
   height: 100%;
@@ -452,8 +492,8 @@
   margin-top: 50px;
 }
 .tealogo{
-  width: 350px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
 }
 .second{
   width: 100%;
@@ -469,11 +509,34 @@
   align-items: center;
   justify-content: center;
   width: 95%;
-  height: 80%;
+  height: auto;
   text-align: justify;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
   border-radius: 15px;  
 }
+
+.facebook {
+  width: 100%;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+  border-radius: 0 0 15px 15px;  
+  display: flex;
+  border-top: 3px ;
+}
+
+.first-icon {
+  display: flex;
+  width: 80%;
+  height: 60px;
+}
+
+.second-icon {
+  display: flex;
+  width: 20%;
+  height: 60px;
+}
+
+
   
 
 .first-content p {
@@ -488,10 +551,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95%;
-  height: 60%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
-  border-radius: 15px; 
+  width: 100%;
+  height: 20%;
 }
 
 .visit {
@@ -516,8 +577,6 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  
-  background-color: pink;
 }
 
 .icons p {
