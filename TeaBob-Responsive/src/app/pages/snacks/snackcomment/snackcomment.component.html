@@ -16,8 +16,8 @@
         </div>
 
         <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
-            <mat-label>Type your comment here</mat-label>
-            <input matInput type="text" [(ngModel)]="com_comments"/>
+            <!-- <mat-label>Type your comment here</mat-label> -->
+            <input matInput type="text" [(ngModel)]="com_comments" placeholder="Type your comment here."/>
           </mat-form-field>
 
             <button class="button" mat-raised-button color="primary" [disabled]="!com_comments" (click)="AddComment()">Comment</button>

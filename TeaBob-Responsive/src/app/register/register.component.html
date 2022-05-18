@@ -7,7 +7,7 @@
     <div class="user-details">
     <div class="input-box">
         <span class="details">First Name</span>
-        <input type="text" placeholder="First Name" [(ngModel)]="user_name">
+        <input type="text" placeholder="First Name" [(ngModel)]="user_name" id="username"  pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
     </div>
     <div class="input-box">
         <span class="details">Last Name</span>
@@ -46,4 +46,23 @@
     !user_address || !user_pword || !user_Confpword" title="Please fill up the form"
     >Register</button>
 
-</div></body>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script language="Javascript" type="text/javascript">    
+    
+    $(document).ready(function() {
+            $('#username').keydown(function (e) {
+                if (e.shiftKey || e.ctrlKey || e.altKey) {
+                    e.preventDefault();
+                } else {
+                    if (!((e.keyCode == 8) || (e.keyCode == 32) || (e.keyCode == 46) || (e.keyCode >= 35 && e.keyCode <= 40) || (e.keyCode >= 65 && e.keyCode <= 90))) {
+                        $('#text-message').addClass('d-block').removeClass('d-none');
+                        return false;
+                    } else {
+                        $('#text-message').addClass('d-none').removeClass('d-block');
+                    }
+                }
+            });
+        });
+    </script> </body>
