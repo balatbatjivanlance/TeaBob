@@ -54,11 +54,11 @@
 					}
 				break;
 
-				case 'category':
+				case 'orders':
 					if($req[0]) {
-						echo json_encode($get->pullCategory($req[0]), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullOrders($req[0]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullCategory(null), JSON_PRETTY_PRINT);
+						echo json_encode($get->pullOrders(null), JSON_PRETTY_PRINT);
 					}
 				break;
 				
@@ -418,6 +418,16 @@
 						}
 						break;
 
+						case 'ordersToday':
+							if(count($req)>1) {
+								
+								echo json_encode($get->ordersToday($req[0], $req[1]), JSON_PRETTY_PRINT);
+							} else {
+							
+								echo json_encode($get->ordersToday($req[0], null), JSON_PRETTY_PRINT);
+							}
+							break;
+
 						case 'cancelledToday':
 							if(count($req)>1) {
 								
@@ -482,6 +492,13 @@
 							echo json_encode($get->pullDelivered($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
 							echo json_encode($get->pullDelivered($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'deliveredToday':
+						if(count($req)>1) {
+							echo json_encode($get->pullDeliveredToday($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullDeliveredToday($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
 					case 'pullSales':

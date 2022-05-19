@@ -277,6 +277,7 @@ export class CartComponent implements OnInit {
           })
   
           this.ds.sendApiRequest('placeOrder/', data).subscribe((data: any) => {})
+          window.location.reload();
         }
       }
 

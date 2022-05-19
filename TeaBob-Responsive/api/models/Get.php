@@ -294,8 +294,8 @@ class Get{
 
 	//admin
 
-public function pullCategory ($d) {
-	$sql = "SELECT * FROM tbl_category";
+public function pullOrders ($d) {
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE()";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -446,6 +446,22 @@ public function pullOndelivery ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+public function pullDeliveredToday ($d) {
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved IN (4) ORDER BY cocode_id DESC";
+	
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+}
+
 public function pullDelivered ($d) {
 	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (4) ORDER BY cocode_id DESC";
 	
@@ -481,6 +497,24 @@ public function pullSales ($d) {
 public function deliveryToday ($d) {
 
 	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 4";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function ordersToday ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE()";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {

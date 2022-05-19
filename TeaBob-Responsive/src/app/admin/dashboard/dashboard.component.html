@@ -94,7 +94,59 @@
 
     <!-- THIS IS YOUR CONTENT CONTAINER -->
     <div class="container">
+      <div class="dashboard-top">
+      <!-- pending orders -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/pending.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span>{{pendingCounter}}</span>
+              <span>Pending Orders</span>
+            </p>
+          </div>
+        </div>
 
+        <!-- deliveries made -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/motorbike.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span>{{total_deliveries}}</span>
+              <span>Deliveries Made</span>
+            </p>
+          </div>
+        </div>
+
+        <!--Total Orders for Today -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/product.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span>{{ordersCounter}}</span>
+              <span>Total Orders for Today</span>
+            </p>
+          </div>
+        </div>
+
+          <!-- total sales for today -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/sales.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span> ₱{{profit| number : '1.2-2'}}</span>
+              <span>Total Sales for Today</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
       <mat-tab-group class="sliding" mat-align-tabs="center">
 
@@ -141,97 +193,6 @@
               </li>
             </ul>
           </div>
-
-        </mat-tab>
-
-
-
-
-        <!-- approved datas -->
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon>recommend</mat-icon>&nbsp;Approved
-          </ng-template>
-
-          <!-- approved info -->
-          <div class="dashboard-bottom">
-          
-            <ul class="responsive-table">
-              <li class="table-header">
-                <div class="col col-4">Order Code</div>
-                <div class="col col-4">Customer</div>
-                <div class="col col-4">Contact No.</div>
-                <div class="col col-4">Address</div>
-                <div class="col col-5">Date</div>
-                <div class="col col-5">Price</div>
-                <div class="col col-4">Status</div>    
-                <div class="col col-4">Action</div>
-              </li>
-              <li class="table-row" *ngFor = "let approved of approved">
-                <div class="col col-4" data-label="Order Code">{{approved.code}}</div>
-                <div class="col col-4" data-label="Customer">{{approved.user_name}}</div>
-                <div class="col col-4" data-label="Contact No">{{approved.user_contact}}</div>
-                <div class="col col-4" data-label="Address">{{approved.user_address}}</div>
-                <div class="col col-4" data-label="Date">{{approved.date | date:'medium'}}</div>
-                <div class="col col-5" data-label="Price">₱{{approved.total_price}}.00</div>
-            
-                <div class="col col-4" data-label="Status">
-                  <span *ngIf ="approved.is_approved == '1'" style="background-color: green;">Approved</span>
-  
-                </div>
-                <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(approved)">
-                    <mat-icon>remove_red_eye</mat-icon></button>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-        </mat-tab>
-
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon>delivery_dining</mat-icon>&nbsp;On Delivery
-          </ng-template>
-        
-          <!-- on delivery info -->
-          <div class="dashboard-bottom">
-          
-            <ul class="responsive-table">
-              <li class="table-header">
-                <div class="col col-4">Order Code</div>
-                <div class="col col-4">Customer</div>
-                <div class="col col-4">Contact No.</div>
-                <div class="col col-4">Address</div>
-                <div class="col col-5">Date</div>
-                <div class="col col-5">Price</div>
-                
-                <div class="col col-4">Status</div>
-                <div class="col col-4">Driver Name</div>
-                
-                <div class="col col-4">Action</div>
-              </li>
-              <li class="table-row" *ngFor = "let ondelivery of ondelivery">
-                <div class="col col-4" data-label="Order Code">{{ondelivery.code}}</div>
-                <div class="col col-4" data-label="Customer">{{ondelivery.user_name}}</div>
-                <div class="col col-4" data-label="Contact No">{{ondelivery.user_contact}}</div>
-                <div class="col col-4" data-label="Address">{{ondelivery.user_address}}</div>
-                <div class="col col-4" data-label="Date">{{ondelivery.date | date:'medium'}}</div>
-                <div class="col col-5" data-label="Price">₱{{ondelivery.total_price}}.00</div>
-                
-                <div class="col col-4" data-label="Status">
-                  <span *ngIf ="ondelivery.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
-  
-                </div>
-                <div class="col col-5" data-label="Price">{{ondelivery.driver}}</div>
-                <div class="col col-4" data-label="Action">
-                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(ondelivery)">
-                    <mat-icon>remove_red_eye</mat-icon></button>
-                </div>
-              </li>
-            </ul>
-          </div>
-
 
         </mat-tab>
 
@@ -293,3 +254,92 @@
 
 
 
+
+<!-- 
+        approved datas
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>recommend</mat-icon>&nbsp;Approved
+          </ng-template>
+
+          approved info
+          <div class="dashboard-bottom">
+          
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                <div class="col col-4">Status</div>    
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let approved of approved">
+                <div class="col col-4" data-label="Order Code">{{approved.code}}</div>
+                <div class="col col-4" data-label="Customer">{{approved.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{approved.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{approved.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{approved.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">₱{{approved.total_price}}.00</div>
+            
+                <div class="col col-4" data-label="Status">
+                  <span *ngIf ="approved.is_approved == '1'" style="background-color: green;">Approved</span>
+  
+                </div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(approved)">
+                    <mat-icon>remove_red_eye</mat-icon></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </mat-tab> -->
+
+        <!-- <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>delivery_dining</mat-icon>&nbsp;On Delivery
+          </ng-template>
+        
+          on delivery info
+          <div class="dashboard-bottom">
+          
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-4">Order Code</div>
+                <div class="col col-4">Customer</div>
+                <div class="col col-4">Contact No.</div>
+                <div class="col col-4">Address</div>
+                <div class="col col-5">Date</div>
+                <div class="col col-5">Price</div>
+                
+                <div class="col col-4">Status</div>
+                <div class="col col-4">Driver Name</div>
+                
+                <div class="col col-4">Action</div>
+              </li>
+              <li class="table-row" *ngFor = "let ondelivery of ondelivery">
+                <div class="col col-4" data-label="Order Code">{{ondelivery.code}}</div>
+                <div class="col col-4" data-label="Customer">{{ondelivery.user_name}}</div>
+                <div class="col col-4" data-label="Contact No">{{ondelivery.user_contact}}</div>
+                <div class="col col-4" data-label="Address">{{ondelivery.user_address}}</div>
+                <div class="col col-4" data-label="Date">{{ondelivery.date | date:'medium'}}</div>
+                <div class="col col-5" data-label="Price">₱{{ondelivery.total_price}}.00</div>
+                
+                <div class="col col-4" data-label="Status">
+                  <span *ngIf ="ondelivery.is_approved == '3'" style="background-color: yellow;">On Delivery</span>
+  
+                </div>
+                <div class="col col-5" data-label="Price">{{ondelivery.driver}}</div>
+                <div class="col col-4" data-label="Action">
+                  <button mat-raised-button color="primary" class="viewbutton" (click)="ViewOrdersOnly(ondelivery)">
+                    <mat-icon>remove_red_eye</mat-icon></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+        </mat-tab> -->
