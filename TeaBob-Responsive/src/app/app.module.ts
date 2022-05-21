@@ -65,6 +65,7 @@ import { SnackcommentComponent } from './pages/snacks/snackcomment/snackcomment.
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ChangepasswordComponent } from './pages/profile/changepassword/changepassword.component';
 import { TermsconditionComponent } from './pages/termscondition/termscondition.component';
+import { ItemsTodayComponent } from './admin/items-today/items-today.component';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import { TermsconditionComponent } from './pages/termscondition/termscondition.c
     ManageUsersComponent,
     ChangepasswordComponent,
     TermsconditionComponent,
+    ItemsTodayComponent,
   ],
   imports: [
     BrowserModule,

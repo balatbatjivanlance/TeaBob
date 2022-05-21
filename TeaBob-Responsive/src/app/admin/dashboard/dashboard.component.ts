@@ -3,6 +3,7 @@ import { DataService } from '../../services/data.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ViewOrdersComponent } from '../view-orders/view-orders.component';
 import { ViewOrdersOnlyComponent } from '../view-orders-only/view-orders-only.component';
+import { ItemsTodayComponent } from '../items-today/items-today.component';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -179,6 +180,15 @@ pullSales() {
 
 }
 
+
+ViewItemsForToday() {
+  const dialog = this.dialog.open(ItemsTodayComponent, {
+    autoFocus: false, width:"40%", height:"60%"
+  });
+  dialog.afterClosed().subscribe( ()=>{
+  });
+
+}
 
 ViewandApproved(dashboard: any) {
   

@@ -1,0 +1,48 @@
+
+
+<div class="table2newhalf">
+
+    <div class="prodreduce">
+      <p>Ordered Items For Today</p>
+    </div>
+  
+  
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks of drinks_breakdown">{{drinks.snack}} : {{drinks.quantity}}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks of snacks_breakdown">{{snacks.snack}} : {{snacks.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <!-- <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons of addons_breakdown">{{addons.addons}} : {{addons.quantity}}</p>
+      </mat-expansion-panel> -->
+    </mat-accordion>
+
+  </div>

@@ -619,6 +619,102 @@
 							echo json_encode($get->driverDelivery($req[0], null), JSON_PRETTY_PRINT);
 						}
 						break;
+				// MONTHS
+				case 'January':
+					if($req[0]) {
+						echo json_encode($get->pullJanuary($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullJanuary(null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'February':
+					if($req[0]) {
+						echo json_encode($get->pullFebruary($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullFebruary(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'March':
+					if($req[0]) {
+						echo json_encode($get->pullMarch($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullMarch(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'April':
+					if($req[0]) {
+						echo json_encode($get->pullApril($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullApril(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'May':
+					if($req[0]) {
+						echo json_encode($get->pullMay($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullMay(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'June':
+					if($req[0]) {
+						echo json_encode($get->pullJune($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullJune(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'July':
+					if($req[0]) {
+						echo json_encode($get->pullJuly($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullJuly(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'August':
+					if($req[0]) {
+						echo json_encode($get->pullAugust($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullAugust(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'September':
+					if($req[0]) {
+						echo json_encode($get->pullSeptember($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullSeptember(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'October':
+					if($req[0]) {
+						echo json_encode($get->pullOctober($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullOctober(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'November':
+					if($req[0]) {
+						echo json_encode($get->pullNovember($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullNovember(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
+				case 'December':
+					if($req[0]) {
+						echo json_encode($get->pullDecember($req[0]), JSON_PRETTY_PRINT);
+					} else {
+						echo json_encode($get->pullDecember(null), JSON_PRETTY_PRINT);
+					}
+				break;
+
 
 
 					

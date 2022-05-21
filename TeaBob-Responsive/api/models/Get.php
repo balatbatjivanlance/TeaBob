@@ -295,7 +295,7 @@ class Get{
 	//admin
 
 public function pullOrders ($d) {
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE()";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE()";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -447,7 +447,7 @@ public function pullOndelivery ($d) {
 }
 
 public function pullDeliveredToday ($d) {
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved IN (4) ORDER BY cocode_id DESC";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved IN (4) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -496,7 +496,7 @@ public function pullSales ($d) {
 
 public function deliveryToday ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 4";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -514,7 +514,7 @@ public function deliveryToday ($d) {
 
 public function ordersToday ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE()";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE()";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -532,7 +532,7 @@ public function ordersToday ($d) {
 
 public function driverDelivery ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -550,7 +550,7 @@ public function driverDelivery ($d) {
 
 public function cancelledToday ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE last_updated >= CURDATE() AND is_approved = 2";
+	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 2";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -737,7 +737,7 @@ public function PullApproved () {
 }
 
 public function PullDone ($dt) {
-	$sql = "SELECT * FROM tbl_cocode WHERE (is_approved = 2 OR is_approved = 4) AND driver = '$dt->driver' ORDER BY `tbl_cocode`.`last_updated` DESC";
+	$sql = "SELECT * FROM tbl_cocode WHERE (is_approved = 2 OR is_approved = 4) AND driver = '$dt->driver' ORDER BY `tbl_cocode`.`date` DESC";
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];
@@ -768,6 +768,189 @@ public function PullDriverInfo($dt) {
 	}
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
+
+	//Months
+
+	public function pullJanuary ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='January';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullFebruary ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='February';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullMarch ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='March';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullApril ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='April';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullMay ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='May';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullJune ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='June';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullJuly ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='July';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullAugust ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='August';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullSeptember ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='September';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullOctober ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='October';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullNovember ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='November';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
+	public function pullDecember ($d) {
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='December';";
+		
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	}
 
 }
 

@@ -131,8 +131,24 @@
             <span>{{ordersCounter}}</span>
               <span>Total Orders for Today</span>
             </p>
+            <button mat-raised-button color="primary" class="viewbutton"
+            (click)="ViewItemsForToday()"><mat-icon>remove_red_eye</mat-icon></button>
           </div>
         </div>
+
+        <!-- Orders Per Item
+        <div class="dashboard-card">
+          <div class="dashboard-card-left">
+            <img src="./assets/delivery-cart.png" alt="">
+          </div>
+          <div class="dashboard-card-right">
+            <p>
+            <span>Items</span><br>
+              <span *ngFor = "let drinks of drinks_breakdown">{{drinks.snack}} : {{drinks.quantity}}</span>
+              <span *ngFor = "let snacks of snacks_breakdown">{{snacks.snack}} : {{snacks.quantity}}</span>
+            </p>
+          </div>
+        </div> -->
 
           <!-- total sales for today -->
         <div class="dashboard-card">
