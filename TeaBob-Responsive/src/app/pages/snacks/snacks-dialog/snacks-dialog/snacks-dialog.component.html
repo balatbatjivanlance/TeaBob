@@ -50,9 +50,13 @@
             </div>
         </div>
         </div>
+
+        <div class="button2">
+            <button class="button"(click)="addToCart()">Add to Cart</button>
+            <button class="button"(click)="CheckoutOneItem()"  *ngIf ="user_role == '1'" >Check Out</button>
+        </div>
     
-    <button class="button"(click)="addToCart()">Add to Cart</button>
-    <button class="button"(click)="CheckoutOneItem()"  *ngIf ="user_role == '1'" >Check Out</button>
+    
 
 </div>
 </div>

@@ -123,9 +123,12 @@
               <input disabled type="text" placeholder="{{user.user_address}}">
           </div>
       
+          <div class="button2">
+            <button mat-raised-button color="primary" (click)="statusModal()" class="btn">Update Profile</button>
+            <button mat-raised-button color="primary" (click)="ChangePasswordModal()" class="btn">Change Password</button>
+          </div>
           
-          <button mat-raised-button color="primary" (click)="statusModal()" class="btn">Update Profile</button>
-          <button mat-raised-button color="primary" (click)="ChangePasswordModal()" class="btn">Change Password</button>
+         
           
       </div>
       </div>

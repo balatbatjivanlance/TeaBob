@@ -15,7 +15,7 @@
             <img class="img-card" src="{{food_image_name}}">
         </div>
 
-        <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+        <mat-form-field class="example-full-width">
             <!-- <mat-label>Type your comment here</mat-label> -->
             <input matInput type="text" [(ngModel)]="com_comments" placeholder="Type your comment here."/>
           </mat-form-field>
@@ -33,12 +33,12 @@
         </div>
 
         <div class="right-container">
-            <div class="comcard"  *ngFor="let comment of comments">
+            <div class="comcard" *ngFor="let comment of comments">
                 <div *ngIf="comments.length != null; else blank">
-                    <mat-label class="commentname"  *ngIf="comment.user_role == '1'">{{comment.user_fullname}}</mat-label> 
+                    <mat-label style="font-weight: bold;" class="commentname"  *ngIf="comment.user_role == '1'">{{comment.user_fullname}}</mat-label>
                 <mat-label class="commentname"  *ngIf="comment.user_role == '0'"><b>Admin:</b> {{comment.user_fullname}}</mat-label> 
                 <mat-label class="commentdate">{{comment.date | date:'medium'}}</mat-label><br>
-                <div class="commentsss">
+                <div  class="commentsss">
                     <p>&nbsp;&nbsp;&nbsp;{{comment.com_comment}}</p>
                 </div>
                 <!-- <input class="inp" type="text"  disabled value="{{comment.com_comment}}"> -->

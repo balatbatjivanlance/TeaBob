@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .left-container{
@@ -109,6 +109,20 @@ img{
 
 }
 
+.example-full-width {
+    width: 95%;
+    height: auto;
+    font-size: 15px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-height: 50%;
+    margin-left: 45px;
+}
 .user-details{
     width: 100%;
     display: flex;
@@ -288,12 +302,37 @@ img{
     transform: rotate(45deg);
   }
 
-@media (max-width: 600px){
+  @media (max-width: 600px){
+
+    .input-box input {
+        width: auto;
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+        border-style: none;
+    }
+
+    .input-box {
+        width: 100%;
+    }
+
     .status-container{
         height: 65vh;
         display: grid;
         width: 100%;
     }
+
+    .example-full-width {
+       border-style: none;
+    }
+
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        max-height: 0%;
+        margin-left: 20px;
+    }
+
     .user-details{
         display: grid;
         width: 100%;
@@ -303,13 +342,14 @@ img{
     }
     .left-container{
         display: grid;
-        width: 80%;
-        background-color: green;
+        width: 100%;
+        justify-content: center;
+        align-items: center;        
     }
 
     .user-details .input-box input{
         width: 100%;
-        padding: 50 15px 0 15px;
+        padding: 0 15px 0 15px;
         
     }
     .add-ons  {
@@ -320,7 +360,45 @@ img{
           padding-top: 0%;
       }
       .button{
-          margin-left: 0%;
-          width: 100%;
+          width: 70%;
+          height: 20%;
+          font-size: 15px;
+          margin-left: 35px;
       }
+
+      .example-full-width {
+          width: 86%;
+          height: auto;
+      }
+ 
+      .right-container{
+        width: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        border: none;
+        padding: 0 2px 0 0;
+        text-align: center;
+
+    }
+
+      .comcard{ 
+        padding: 10px 12px 0 0px;
+    }
+
+    .commentdate{
+        float: none;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+    .commentname{
+        float: none;
+    }
+
+    .commentsss{
+        word-break: normal;
+        float: none;
+    }
 }

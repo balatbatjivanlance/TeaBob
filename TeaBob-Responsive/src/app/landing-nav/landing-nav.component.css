@@ -46,7 +46,8 @@ header ul {
 header ul li {
     position: relative;
     list-style: none;
-    color: #ffffff;
+    color: #c6c6c6;
+    font-weight: 800;
     cursor: pointer;
     font-size: 17px;
     text-transform: uppercase;
@@ -89,10 +90,15 @@ header ul li a {
     border: 3px solid #ffffff;
   }
 
-  .active{
-      color: #000000;
-      font-weight: bold;
-  }
+  .active {
+      color: #ffffff;
+      font-weight: bolder;
+      font-size: 23px;
+      
+
+
+    }
+
   .container{
       background-color: #f9f9f9;
       display: flex;
@@ -220,9 +226,13 @@ header ul li a {
     }
 
     .nav>ul>li {
+        padding: 15px;
         display: block;
         width: 100%;
+        background-color: #381102;
         padding-bottom: 10px;
+        border-bottom: #f9f9f9;
+        margin-bottom: 5px;
     }
 
     .nav>#nav-check:not(:checked)~ul {
