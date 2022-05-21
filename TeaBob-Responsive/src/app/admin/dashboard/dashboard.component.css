@@ -127,6 +127,13 @@ th, td {
   background-color: #4B1F0E;
 }
 
+
+.viewbutton1{
+  background-color: #4B1F0E;
+  margin-right: 10px;
+}
+
+
 .toolbar {
   background-color: #f9f9f9;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
