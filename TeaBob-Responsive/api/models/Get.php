@@ -772,7 +772,7 @@ public function PullDriverInfo($dt) {
 	//Months
 
 	public function pullJanuary ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='January';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='January' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -787,7 +787,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullFebruary ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='February';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='February' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -802,7 +802,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullMarch ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='March';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='March' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -817,7 +817,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullApril ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='April';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='April' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -832,7 +832,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullMay ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='May';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='May' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -847,7 +847,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullJune ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='June';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='June' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -862,7 +862,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullJuly ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='July';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='July' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -877,7 +877,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullAugust ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='August';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='August' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -892,7 +892,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullSeptember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='September';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='September' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -907,7 +907,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullOctober ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='October';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='October' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -922,7 +922,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullNovember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='November';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='November' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
@@ -937,7 +937,7 @@ public function PullDriverInfo($dt) {
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 	}
 	public function pullDecember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='December';";
+		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='December' AND YEAR(date) = YEAR(CURDATE());";
 		
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
