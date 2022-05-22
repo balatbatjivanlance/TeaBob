@@ -175,7 +175,7 @@ mat-card {
   align-items: center;
   justify-content: center;
   width: 95%;
-  height: 80%;
+  height: auto;
   text-align: justify;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
   border-radius: 15px;  
@@ -230,6 +230,35 @@ mat-card {
 }
 
 
+.facebook {
+  width: 100%;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+  border-radius: 0 0 15px 15px;  
+  display: flex;
+  border-top: 3px ;
+  /* background-color: red; */
+
+  justify-content: center;
+}
+
+
+.icon1 , .icon2, .icon3{
+  padding: 17px 10px 17px 30px;
+ font-size: 30px;
+}
+
+.facebook h2 {
+  padding: 17px 0 15px 0px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.facebook h1 {
+  padding: 17px 0 15px 0px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
 
 
 
@@ -259,7 +288,112 @@ mat-card {
   letter-spacing: 5px;
   
   }
+  @media (max-width:600px) {
 
+    .container {
+      width: 100%;
+      background-color: #362417;
+      margin-top: 80px;
+    }
+    
+    .home-container {
+      margin-top:70px;
+      height: 150px;
+      display: grid;
+      width: 100%;
+      background-color: #362417;
+  }
+  .menu {
+    display: grid;
+  
+    width: 100%;
+    height: 250px;
+    font-size: 20px;
+  
+  }
+  
+  .menu h1 {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    margin-top:80px;
+    margin-left: 19%;
+    font-weight: 500;
+    width: 100%;
+  }
+  
+  .menu h2 {
+    display: grid;
+    color: #ffffff;
+    font-family: cursive;
+    text-align: center;
+    margin-top: -3px;
+    margin-left: 1%;
+      font-size: 15px;
+  }
+  
+  .order-button {
+    margin-top: -19%;
+    margin-left: 90%;
+  
+  }
+  
+.about-us-home-container{
+  display: none;
+}
+  
+  
+      .product-container{
+          flex-direction: column;
+          align-items: center;
+      }
+      .container{
+          height: auto;
+      }
+  
+       
+    .dib {
+      margin-top: 100px;
+      height: 60px;
+      display: grid;
+      background-color: rgb(0,0,0,0);
+      justify-content: center;
+      align-items: center;
+      position: relative;
+  }
+  
+  .dib h1 {
+      font-size: 30px;
+      font-weight: 500;
+      padding:  20px 0px;
+      letter-spacing: 5px;
+  }
+  
+  .dib h3 {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+  }
+  
+  .icon1 , .icon2{
+   display: none;
+  }
+  
+  .facebook h2 {
+    display: none;
+  }
+  
+  /* .facebook{
+    height: 100px;
+    width: 100%;
+    background-color: red;
+    word-break: break-all;
+  } */
+  
+  
+  
+  
+  }
 
 @media (max-width:1024px){
   .container{

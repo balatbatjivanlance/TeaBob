@@ -172,6 +172,7 @@
   .container {
     width: 100%;
     background-color: #362417;
+    margin-top: 80px;
   }
   
   .home-container {
@@ -272,13 +273,15 @@
   display: none;
 }
 
-.first-icon {
+/* .facebook{
+  height: 100px;
   width: 100%;
-}
+  background-color: red;
+  word-break: break-all;
+} */
 
-.second-icon {
-  display: none;
-}
+
+
 
 }
 @media (max-width:1024px){
@@ -522,6 +525,9 @@
   border-radius: 0 0 15px 15px;  
   display: flex;
   border-top: 3px ;
+  /* background-color: red; */
+
+  justify-content: center;
 }
 
 .first-icon {

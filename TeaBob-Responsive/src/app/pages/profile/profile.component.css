@@ -82,13 +82,14 @@ mat-card {
   font-family: 'Poppins', sans-serif;
 }
 .btn{
-  width: 100%;
+  width: 45%;
+  
   height: 50px;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
     margin-left: 0px;
   margin-right: 0px;
-  border-radius: 0;
+  /* border-radius: 0; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,9 +97,19 @@ mat-card {
   flex-direction: row;
   background: #4B1F0E ;
   cursor: pointer;
+  border-radius: 10px;
 
 }
 
+.button2 > button{
+  margin: 10px  10px 10px 10px;
+}
+
+.button2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .button {
   width: 100%;

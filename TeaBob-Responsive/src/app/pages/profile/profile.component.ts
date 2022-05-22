@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit {
     localStorage.clear();
     window.localStorage.removeItem('id');
     this.ds.setUserLoggedOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
 }
 
   // END OF SIDENAV AND TOOLBAR CODE

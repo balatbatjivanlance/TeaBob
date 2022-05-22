@@ -56,7 +56,7 @@ export class ManageAdminComponent implements OnInit {
     localStorage.clear();
     window.localStorage.removeItem('id');
     this.ds.setUserLoggedOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
 }
 
 admin: any;
