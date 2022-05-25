@@ -11,9 +11,9 @@ export class DataService {
   constructor(private http: HttpClient) {}
   
 
-  apiURL = "http://localhost/TeaBob/TeaBob-Responsive/api/";
-  
-  // apiURL = "https://gordoncollegeccs.edu.ph/projects/teabob/api/";
+  // apiURL = "http://localhost/TeaBob/TeaBob-Responsive/api/";
+
+  apiURL = "http://teabob.xyz/api/";
   
 
   private subject = new Subject<any>()

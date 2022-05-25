@@ -18,6 +18,9 @@
 	define("DBASE", "teabob-order");
 	define("USER", "root");
 	define("PW", "");
+	// define("DBASE", "u369973438_TeabobOrder");
+	// define("USER", "u369973438_TeaBob_Order");
+	// define("PW", "Teabob@123");
 	define("SERVER", "localhost");
 	define("CHARSET", "utf8");
 	// define("SECRET", base64_encode("sampleSecretKey"));

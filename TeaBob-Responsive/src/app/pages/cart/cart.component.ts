@@ -224,8 +224,8 @@ export class CartComponent implements OnInit {
 
       const { value: text } = await Swal.fire({
         input: 'textarea',
-        inputLabel: 'Landmark Near You',
-        inputPlaceholder: 'Ex: color of gate, near school, etc.',
+        inputLabel: 'Name of Customer',
+        inputPlaceholder: 'Ex: Juan Dela Cruz',
         inputAttributes: {
           'aria-label': 'Type your message here'
         },
@@ -242,8 +242,7 @@ export class CartComponent implements OnInit {
   
           let data: any = []
   
-          this.fullname = 'WALK'
-          this.lastname = 'IN'
+          this.lastname = ' '
           this.approved = '4'
           this.driver = 'WALK IN'
   
@@ -256,7 +255,7 @@ export class CartComponent implements OnInit {
             this.coInfo.food_id = item.food_id
             this.coInfo.size_id = item.size_id
             this.coInfo.prod_price = item.cart_total_price
-            this.coInfo.user_name =  this.fullname + " " +  this.lastname;
+            this.coInfo.user_name =  this.remarks + " " +  this.lastname;
             this.coInfo.total_price = this.totalamount
             this.coInfo.is_approved = this.approved
             this.coInfo.driver = this.driver

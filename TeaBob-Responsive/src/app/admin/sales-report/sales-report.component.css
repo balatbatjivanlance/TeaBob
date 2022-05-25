@@ -361,6 +361,8 @@
   .table2{
     width: 50%;
     height: 650px;
+    margin-left: auto;
+    margin-right: auto;
 
   }
   .table2newhalf{

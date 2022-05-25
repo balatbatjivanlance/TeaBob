@@ -416,7 +416,7 @@
 						
 							echo json_encode($get->deliveryToday($req[0], null), JSON_PRETTY_PRINT);
 						}
-						break;
+					break;
 
 						case 'ordersToday':
 							if(count($req)>1) {
@@ -619,101 +619,226 @@
 							echo json_encode($get->driverDelivery($req[0], null), JSON_PRETTY_PRINT);
 						}
 						break;
-				// MONTHS
-				case 'January':
-					if($req[0]) {
-						echo json_encode($get->pullJanuary($req[0]), JSON_PRETTY_PRINT);
+				// MONTHS STOCKS
+				case 'stocksJanuary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksJanuary($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullJanuary(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksJanuary($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-				case 'February':
-					if($req[0]) {
-						echo json_encode($get->pullFebruary($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksFebruary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksFebruary($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullFebruary(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksFebruary($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'March':
-					if($req[0]) {
-						echo json_encode($get->pullMarch($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksMarch':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksMarch($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullMarch(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksMarch($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'April':
-					if($req[0]) {
-						echo json_encode($get->pullApril($req[0]), JSON_PRETTY_PRINT);
+				
+				case 'stocksApril':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksApril($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullApril(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksApril($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'May':
-					if($req[0]) {
-						echo json_encode($get->pullMay($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksMay':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksMay($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullMay(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksMay($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'June':
-					if($req[0]) {
-						echo json_encode($get->pullJune($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksJune':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksJune($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullJune(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksJune($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'July':
-					if($req[0]) {
-						echo json_encode($get->pullJuly($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksJuly':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksJuly($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullJuly(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksJuly($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'August':
-					if($req[0]) {
-						echo json_encode($get->pullAugust($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksAugust':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksAugust($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullAugust(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksAugust($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'September':
-					if($req[0]) {
-						echo json_encode($get->pullSeptember($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksSeptember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksSeptember($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullSeptember(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksSeptember($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'October':
-					if($req[0]) {
-						echo json_encode($get->pullOctober($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksOctober':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksOctober($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullOctober(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksOctober($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'November':
-					if($req[0]) {
-						echo json_encode($get->pullNovember($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksNovember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksNovember($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullNovember(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksNovember($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-
-				case 'December':
-					if($req[0]) {
-						echo json_encode($get->pullDecember($req[0]), JSON_PRETTY_PRINT);
+				case 'stocksDecember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->stocksDecember($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
-						echo json_encode($get->pullDecember(null), JSON_PRETTY_PRINT);
+					
+						echo json_encode($get->stocksDecember($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				// MONTHS DELIVERY
+				case 'deliveryJanuary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryJanuary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryJanuary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryFebruary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryFebruary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryFebruary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryMarch':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryMarch($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryMarch($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryApril':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryApril($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryApril($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryMay':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryMay($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryMay($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryJune':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryJune($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryJune($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryJuly':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryJuly($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryJuly($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryAugust':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryAugust($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryAugust($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliverySeptember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliverySeptember($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliverySeptember($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryOctober':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryOctober($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryOctober($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryNovember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryNovember($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryNovember($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'deliveryDecember':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryDecember($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryDecember($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
 
 
 

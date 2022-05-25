@@ -568,7 +568,9 @@ public function cancelledToday ($d) {
 
 public function stocksToday ($d) {
 
-	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code WHERE tbl_checkout.checkout_date >= CURDATE() AND tbl_cocode.is_approved != 0";
+	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout 
+	INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code
+	 WHERE tbl_checkout.checkout_date >= CURDATE() AND tbl_cocode.is_approved != 0";
 
 
 	$res = $this->gm->generalQuery($sql, "No records found");
@@ -769,11 +771,15 @@ public function PullDriverInfo($dt) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
-	//Months
+	//MONTHS STOCKS
 
-	public function pullJanuary ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='January' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksJanuary ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='January' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -785,10 +791,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullFebruary ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='February' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksFebruary ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='February' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -800,10 +811,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullMarch ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='March' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksMarch ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='March' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -815,10 +831,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullApril ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='April' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksApril ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='April' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -830,10 +851,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullMay ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='May' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksMay ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout.checkout_date)='May' 
+		AND YEAR(checkout.checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -845,10 +871,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullJune ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='June' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksJune ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='June' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -860,10 +891,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullJuly ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='July' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksJuly ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='July' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -875,10 +911,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullAugust ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='August' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksAugust ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='August' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -890,10 +931,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullSeptember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='September' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksSeptember ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='September' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -905,10 +951,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullOctober ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='October' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksOctober ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='October' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -920,10 +971,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullNovember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='November' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksNovember ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='November' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -935,10 +991,15 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
-	public function pullDecember ($d) {
-		$sql = "SELECT * from tbl_cocode WHERE monthname(date)='December' AND YEAR(date) = YEAR(CURDATE());";
-		
+	public function stocksDecember ($d) {
+
+		$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout INNER JOIN tbl_cocode 
+		ON tbl_checkout.code = tbl_cocode.code WHERE monthname(checkout_date)='December' 
+		AND YEAR(checkout_date) = YEAR(CURDATE()) AND tbl_cocode.is_approved != 0;";
+	
+	
 		$res = $this->gm->generalQuery($sql, "No records found");
 		if ($res['code'] == 200) {
 			$payload = $res['data'];
@@ -950,7 +1011,421 @@ public function PullDriverInfo($dt) {
 			$message = $res['errmsg'];
 		}
 		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
 	}
+
+	// MONTHS DELIVERY
+
+	public function deliveryJanuary ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='January' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryFebruary ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='February' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryMarch ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='March' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryApril ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='April' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryMay ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='May' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryJune ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='June' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryJuly ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='July' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryAugust ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='August' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliverySeptember ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='September' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryOctober ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='October' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryNovember ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='November' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	public function deliveryDecember ($d) {
+
+		$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='December' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4;";
+	
+		$res = $this->gm->generalQuery($sql, "No records found");
+		if ($res['code'] == 200) {
+			$payload = $res['data'];
+			$remarks = "success";
+			$message = "Successfully retrieved requested data";
+		} else {
+			$payload = null;
+			$remarks = "failed";
+			$message = $res['errmsg'];
+		}
+		return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+	
+	}
+	// DRIVER DELIVERY PER MONTH
+	
+public function driverDeliveryJanuary ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='January' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryFebruary ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='February' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryMarch ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='March' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryApril ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='April' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryMay ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='May' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryJune ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='June' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryJuly ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='July' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryAugust ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='August' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliverySeptember ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='September' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryOctober ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='October' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryNovember ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='November' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}	
+public function driverDeliveryDecember ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE monthname(date)='December' AND YEAR(date) = YEAR(CURDATE()) AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
 
 }
 

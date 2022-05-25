@@ -10,9 +10,7 @@ import { MatAccordion } from '@angular/material/expansion';
 import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
 
 
-interface LooseObject {
-  [key: string]: any
-}
+interface LooseObject {[key: string]: any}
 
 @Component({
   selector: 'app-sales-report',
@@ -29,8 +27,14 @@ export class SalesReportComponent implements OnInit {
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
   ngOnInit(): void {
+    // DAILY
     this.deliveryToday();
     this.stocksToday();
+    // WEEKLY
+    // this.deliveryWeekly();
+    // this.stocksWeekly();
+    //MONTHLY
+    this.deliveryMay();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -80,7 +84,7 @@ export class SalesReportComponent implements OnInit {
 total_deliveries: number = 0;
 delivery: any = {};
 
-profit:number =0;
+sales:number =0;
 deliveryToday(){
   
   this.ds.sendApiRequest("deliveryToday", null).subscribe((data: { payload: any; }) => {
@@ -90,7 +94,7 @@ deliveryToday(){
 
     for (let i = 0; i < data.payload.length; i++) {
 
-      this.profit += data.payload[i].total_price;
+      this.sales += data.payload[i].total_price;
     }
     this.keycount();
   });
@@ -129,7 +133,6 @@ var data = [];
  }
 
     this.driver_breakdown = data;
-
 }
 
 driver: any;
@@ -143,13 +146,14 @@ drinks:number=0;
 snacks:number=0;
 addons:number=0;
 
-drinks_profit:number=0;
-snacks_profit:number=0;
-addons_profit:number=0;
+drinks_sales:number=0;
+snacks_sales:number=0;
+addons_sales:number=0;
 stocks:any;
 stocksToday(){
   this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
   this.stocks = data.payload;
+  console.log(data.payload)
 
     // Loop of all  obj in json
     for (let i = 0; i < data.payload.length; i++) {
@@ -158,14 +162,14 @@ stocksToday(){
         //add  drinks var
         this.drinks+= data.payload[i].food_quantity;
 
-        this.drinks_profit += data.payload[i].prod_price;
+        this.drinks_sales += data.payload[i].prod_price;
     
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
         
           this.addons += addons.length*data.payload[i].food_quantity;
-          this.addons_profit+= (addons.length*10)*data.payload[i].food_quantity;
-          this.drinks_profit = this.drinks_profit-((addons.length*10)*data.payload[i].food_quantity);
+          this.addons_sales+= (addons.length*10)*data.payload[i].food_quantity;
+          this.drinks_sales = this.drinks_sales-((addons.length*10)*data.payload[i].food_quantity);
           
          
         }
@@ -173,12 +177,12 @@ stocksToday(){
       else{
         //add snacks var
         this.snacks+= data.payload[i].food_quantity;
-        this.snacks_profit+= data.payload[i].prod_price;
+        this.snacks_sales+= data.payload[i].prod_price;
 
         if(data.payload[i].cart_addon_name != ""){
           let addons =  data.payload[i].cart_addon_name.split(",");
           this.addons += addons.length*data.payload[i].food_quantity;
-          this.addons_profit+= addons.length*10;
+          this.addons_sales+= addons.length*10;
 
         }
         
@@ -192,7 +196,6 @@ stocksToday(){
 
  
 }
-
 
 drinks_breakdown:any;
 snacks_breakdown:any;
@@ -223,20 +226,11 @@ addons_breakdown:any;
         }
 
       }
-
-   
-       
-
         if(this.stocks[i]['size_name']){
             
-          
           for(var j = 0; j < this.stocks[i]["food_quantity"]; j++){
             drinks.push(this.stocks[i]["prod_name"]);
-            
-          
           }
-          
-         
         }
         else{
 
@@ -258,9 +252,6 @@ addons_breakdown:any;
     
         ++keyCount[drinks[i]];
     }
-
-    
-
   var data = [];
         for(var key in keyCount){
           var drinks_arr = { snack: key, quantity: keyCount[key]};
@@ -270,9 +261,7 @@ addons_breakdown:any;
 
       this.drinks_breakdown = data;
 
-
       var keyCount : LooseObject = {};
-
 
       for(i = 0; i < snacks2.length; ++i) {
         
@@ -283,8 +272,6 @@ addons_breakdown:any;
           ++keyCount[snacks2[i]];
       }
   
-      
-  
     var data = [];
           for(var key in keyCount){
             var snacks_arr = { snack: key, quantity: keyCount[key]};
@@ -292,11 +279,9 @@ addons_breakdown:any;
             data.push(snacks_arr);
         }
   
-   
         this.snacks_breakdown = data;
 
       var keyCount : LooseObject = {};
-
 
       for(i = 0; i < addons2.length; ++i) {
         
@@ -307,8 +292,6 @@ addons_breakdown:any;
           ++keyCount[addons2[i]];
       }
   
-      
-  
     var data = [];
           for(var key in keyCount){
             var addons_arr = { addons: key, quantity: keyCount[key]};
@@ -318,10 +301,72 @@ addons_breakdown:any;
   
   
         this.addons_breakdown = data;
-  
-  
-       
 
   }
+
+  // ********* MONTHS *********
+
+    
+total_deliveriesMay: number = 0;
+deliveriesMay: any = {};
+
+salesMay:number =0;
+deliveryMay(){
+  
+  this.ds.sendApiRequest("deliveryMay", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesMay = data.payload;
+  
+  this.total_deliveriesMay = this.deliveriesMay.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesMay += data.payload[i].total_price;
+    }
+    this.keycountMay();
+  });
+
+}
+
+driverMay_breakdown:any;
+driverMay_final:any;
+keycountMay() {
+
+  var fileLicenses = [];
+
+  for ( var i = 0, arrLen = this.deliveriesMay.length; i < arrLen; ++i ) {
+      fileLicenses.push(this.deliveriesMay[i]["driverMay"]);
+  }
+
+  var keyCountMay : LooseObject = {};
+
+
+  for(i = 0; i < fileLicenses.length; ++i) {
+    
+    if(!keyCountMay[fileLicenses[i]]){
+      keyCountMay[fileLicenses[i]] = 0;
+    }
+   
+      ++keyCountMay[fileLicenses[i]];
+  }
+
+
+var data = [];
+
+  for(var key in keyCountMay){
+    var postdata = { driverMay: key, number_deliveriesMay: keyCountMay[key]};
+  
+    data.push(postdata);
+ }
+
+    this.driverMay_breakdown = data; 
+
+}
+
+driverMay: any;
+driverDeliveryMay() {
+    this.ds.sendApiRequest("driverDeliveryMay", null).subscribe((data: { payload: any; }) => {
+    this.driverMay = data.payload;
+    })
+}
 
 }
