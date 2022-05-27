@@ -105,11 +105,13 @@ export class AddProductComponent implements OnInit {
 
 
   selectedCateg: string = '';
+  selectedCategname: string = '';
 
   categval = true;
 
   selectChangeHandler (event: any){
-    this.selectedCateg = event.target.value;
+    this.selectedCateg = event.target.value.split(',')[0];
+    this.selectedCategname = event.target.value.split(',')[1];
   }
 
   selectedCategAddon: string = '';
@@ -164,6 +166,7 @@ export class AddProductComponent implements OnInit {
         this.food_Info.food_active = this.food_categoryactive = this.selectedCategactive;
         this.food_Info.food_featured = this.food_categoryfeatured = this.selectedCategfeatured;
         this.food_Info.category_id = this.food_category = this.selectedCateg;
+        this.food_Info.category_name = this.food_category = this.selectedCategname;
         this.food_Info.food_price  = this.food_price;
         this.food_Info.food_stocks  = this.food_stocks;
         this.food_Info.food_image_name = this.imgSrc;

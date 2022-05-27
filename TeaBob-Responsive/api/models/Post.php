@@ -387,6 +387,7 @@ class Post{
             $user_id[] = $dt[$i]->user_id;
             $cart_addon_name[] = $dt[$i]->cart_addon_name;
             $food_qty[]  = $dt[$i]->food_quantity;
+            $category_name[]  = $dt[$i]->category_name;
             $size_name[]  = $dt[$i]->size_name;
             $prod_price[]  = $dt[$i]->prod_price;
             $code[] = $dt[$i]->code;
@@ -402,13 +403,13 @@ class Post{
 
             $size_stocks[] = $dt[$i]->size_stocks;
 
-            $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
+            $values[] = "('$prod_name[$i]','$cart_addon_name[$i]', '$food_qty[$i]', '$category_name[$i]', '$size_name[$i]', '$user_id[$i]', '$prod_price[$i]', '$code[$i]')";
             $val2[] = "('$code[$i]', '$total_price[$i]', '$is_approved[$i]', '$driver[$i]', '$remarks[$i]', '$user_id[$i]', '$user_name[$i]', '$user_contact[$i]', '$user_address[$i]')";
             
         }
 
             //insert the data on the checkout table
-        $this->sql = "INSERT INTO tbl_checkout(prod_name, cart_addon_name, food_quantity, size_name, user_id, prod_price, code) VALUES " . implode(', ', $values);
+        $this->sql = "INSERT INTO tbl_checkout(prod_name, cart_addon_name, food_quantity, category_name, size_name, user_id, prod_price, code) VALUES " . implode(', ', $values);
         //INNER JOIN
         try {
             if($this->pdo->query($this->sql)) {

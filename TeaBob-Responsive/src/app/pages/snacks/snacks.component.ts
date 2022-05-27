@@ -145,10 +145,10 @@ searchfood: any;
 
 
 
-  openModal(id: any, food_id: any) {
+  openModal(id: any, food_id: any, category_name: any) {
     if (id == 24) {
       const dialog = this.dialog.open(SnacksDialogComponent, {
-        autoFocus: false, width:"70%", height:"70%", data:{food_id},
+        autoFocus: false, width:"70%", height:"70%", data:{food_id}
       });
       dialog.afterClosed().subscribe( ()=>{
       });
@@ -161,6 +161,7 @@ searchfood: any;
       });
     }
     sessionStorage.setItem('prod_Id', food_id);
+    sessionStorage.setItem('category_name', category_name);
   }
 
   openComment(id: any, food_id: any) {

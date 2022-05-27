@@ -187,6 +187,7 @@ export class CartComponent implements OnInit {
           this.coInfo.cart_addon_name = item.cart_addon_name
           this.coInfo.size_name = item.size_name
           this.coInfo.food_quantity = item.food_quantity
+          this.coInfo.category_name = item.category_name
           this.coInfo.user_id = localStorage.getItem('id')
           this.coInfo.food_id = item.food_id
           this.coInfo.size_id = item.size_id
@@ -251,6 +252,7 @@ export class CartComponent implements OnInit {
             this.coInfo.cart_addon_name = item.cart_addon_name
             this.coInfo.size_name = item.size_name
             this.coInfo.food_quantity = item.food_quantity
+            this.coInfo.category_name = item.category_name
             this.coInfo.user_id = localStorage.getItem('id')
             this.coInfo.food_id = item.food_id
             this.coInfo.size_id = item.size_id

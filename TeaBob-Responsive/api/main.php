@@ -739,6 +739,24 @@
 						echo json_encode($get->deliveryJanuary($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'driverDeliverySnacksJanuary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksJanuary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksJanuary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksJanuary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksJanuary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksJanuary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'deliveryFebruary':
 					if(count($req)>1) {
 						
@@ -746,6 +764,24 @@
 					} else {
 					
 						echo json_encode($get->deliveryFebruary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliverySnacksFebruary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksFebruary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksFebruary($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksFebruary':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksFebruary($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksFebruary($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
 				case 'deliveryMarch':
@@ -757,6 +793,24 @@
 						echo json_encode($get->deliveryMarch($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'driverDeliverySnacksMarch':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksMarch($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksMarch($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksMarch':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksMarch($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksMarch($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'deliveryApril':
 					if(count($req)>1) {
 						
@@ -764,6 +818,24 @@
 					} else {
 					
 						echo json_encode($get->deliveryApril($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliverySnacksApril':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksApril($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksApril($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksApril':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksApril($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksApril($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
 				case 'deliveryMay':
@@ -775,6 +847,24 @@
 						echo json_encode($get->deliveryMay($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				case 'driverDeliverySnacksMay':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksMay($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksMay($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksMay':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksMay($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksMay($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'deliveryJune':
 					if(count($req)>1) {
 						
@@ -782,6 +872,24 @@
 					} else {
 					
 						echo json_encode($get->deliveryJune($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliverySnacksJune':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksJune($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksJune($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksJune':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksJune($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksJune($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
 				case 'deliveryJuly':
@@ -793,6 +901,25 @@
 						echo json_encode($get->deliveryJuly($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				
+				case 'driverDeliverySnacksJuly':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliverySnacksJuly($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliverySnacksJuly($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'driverDeliveryDrinksJuly':
+					if(count($req)>1) {
+						
+						echo json_encode($get->driverDeliveryDrinksJuly($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->driverDeliveryDrinksJuly($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 				case 'deliveryAugust':
 					if(count($req)>1) {
 						
@@ -802,43 +929,53 @@
 						echo json_encode($get->deliveryAugust($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-				case 'deliverySeptember':
+				case 'driverDeliverySnacksAugust':
 					if(count($req)>1) {
 						
-						echo json_encode($get->deliverySeptember($req[0], $req[1]), JSON_PRETTY_PRINT);
+						echo json_encode($get->driverDeliverySnacksAugust($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
 					
-						echo json_encode($get->deliverySeptember($req[0], null), JSON_PRETTY_PRINT);
+						echo json_encode($get->driverDeliverySnacksAugust($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
-				case 'deliveryOctober':
+				case 'driverDeliveryDrinksAugust':
 					if(count($req)>1) {
 						
-						echo json_encode($get->deliveryOctober($req[0], $req[1]), JSON_PRETTY_PRINT);
+						echo json_encode($get->driverDeliveryDrinksAugust($req[0], $req[1]), JSON_PRETTY_PRINT);
 					} else {
 					
-						echo json_encode($get->deliveryOctober($req[0], null), JSON_PRETTY_PRINT);
-					}
-				break;
-				case 'deliveryNovember':
-					if(count($req)>1) {
-						
-						echo json_encode($get->deliveryNovember($req[0], $req[1]), JSON_PRETTY_PRINT);
-					} else {
-					
-						echo json_encode($get->deliveryNovember($req[0], null), JSON_PRETTY_PRINT);
-					}
-				break;
-				case 'deliveryDecember':
-					if(count($req)>1) {
-						
-						echo json_encode($get->deliveryDecember($req[0], $req[1]), JSON_PRETTY_PRINT);
-					} else {
-					
-						echo json_encode($get->deliveryDecember($req[0], null), JSON_PRETTY_PRINT);
+						echo json_encode($get->driverDeliveryDrinksAugust($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
 				
+				case 'deliveryCurrentYear':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryCurrentYear($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryCurrentYear($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacksCurrentYear':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacksCurrentYear($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacksCurrentYear($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinksCurrentYear':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinksCurrentYear($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinksCurrentYear($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 
 
 

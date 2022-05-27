@@ -127,6 +127,7 @@ export class SnacksDialogComponent implements OnInit {
     
       this.prodInfo.user_id = localStorage.getItem("id");
       this.prodInfo.food_id = sessionStorage.getItem("prod_Id");
+      this.prodInfo.category_name = sessionStorage.getItem("category_name");
       this.prodInfo.food_name = this.food_name;
       this.prodInfo.price = this.food_price;
       this.prodInfo.food_quantity = this.food_qty;
@@ -204,6 +205,7 @@ export class SnacksDialogComponent implements OnInit {
 
     //checkout info
       let addons: any = sessionStorage.getItem('addonname');
+      this.prodInfo.category_name = sessionStorage.getItem("category_name");
       this.prodInfo.user_id = localStorage.getItem("id");
       this.prodInfo.prod_name = this.food_name;
       this.prodInfo.prod_price = this.food_price;
