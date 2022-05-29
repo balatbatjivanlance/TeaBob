@@ -360,10 +360,10 @@
 
   .table2{
     width: 50%;
-    height: 650px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-
+    border-bottom: 1px solid black;
   }
   .table2newhalf{
     height: 50%;

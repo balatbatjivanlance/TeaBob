@@ -1,4 +1,6 @@
 <app-landing-nav></app-landing-nav>
+
+
 <body>
     
 
@@ -7,7 +9,7 @@
     <div class="user-details">
     <div class="input-box">
         <span class="details">First Name</span>
-        <input type="text" placeholder="First Name" [(ngModel)]="user_name" id="username"  pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+        <input type="text" placeholder="First Name" [(ngModel)]="user_name" id="username">
     </div>
     <div class="input-box">
         <span class="details">Last Name</span>
@@ -23,7 +25,10 @@
     </div>
     <div class="input-box">
         <span class="details">Password</span>
-        <input [type]="show_button ? 'text' : 'password'" placeholder="Password" [(ngModel)]="user_pword">
+        <input  [type]="show_button ? 'text' : 'password'" placeholder="Password" 
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        
+        maxlength = "8" [(ngModel)]="user_pword">
     </div>
     <div class="input-box">
         <span class="details">Address</span>
@@ -31,7 +36,10 @@
     </div>
     <div class="input-box">
         <span class="details">Confirm Password</span>
-        <input [type]="show_button ? 'text' : 'password'"  placeholder="Confirm Password" [(ngModel)]="user_Confpword"><br>
+        <input [type]="show_button ? 'text' : 'password'"  placeholder="Confirm Password" [(ngModel)]="user_Confpword" 
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        
+        maxlength = "8"><br>
         <!-- <button type="checkbox" [class]="show_eye ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="showPassword()"></button> -->
     
     </div>
@@ -49,20 +57,4 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script language="Javascript" type="text/javascript">    
-    
-    $(document).ready(function() {
-            $('#username').keydown(function (e) {
-                if (e.shiftKey || e.ctrlKey || e.altKey) {
-                    e.preventDefault();
-                } else {
-                    if (!((e.keyCode == 8) || (e.keyCode == 32) || (e.keyCode == 46) || (e.keyCode >= 35 && e.keyCode <= 40) || (e.keyCode >= 65 && e.keyCode <= 90))) {
-                        $('#text-message').addClass('d-block').removeClass('d-none');
-                        return false;
-                    } else {
-                        $('#text-message').addClass('d-none').removeClass('d-block');
-                    }
-                }
-            });
-        });
-    </script> </body>
+ </body>
