@@ -1635,6 +1635,60 @@ public function DeliveryDrinksCurrentYear ($d) {
 
 }	
 
+
+public function deliveryCurrentMonth ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE MONTH(date) = MONTH(CURDATE()) AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacksCurrentMonth ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND MONTH(checkout_date) = MONTH(CURDATE())";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinksCurrentMonth ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND MONTH(checkout_date) = MONTH(CURDATE())";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
 }
 
 

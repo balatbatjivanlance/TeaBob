@@ -976,6 +976,35 @@
 						echo json_encode($get->DeliveryDrinksCurrentYear($req[0], null), JSON_PRETTY_PRINT);
 					}
 				break;
+				
+				case 'deliveryCurrentMonth':
+					if(count($req)>1) {
+						
+						echo json_encode($get->deliveryCurrentMonth($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->deliveryCurrentMonth($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacksCurrentMonth':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacksCurrentMonth($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacksCurrentMonth($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinksCurrentMonth':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinksCurrentMonth($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinksCurrentMonth($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
 
 
 

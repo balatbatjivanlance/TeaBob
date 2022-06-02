@@ -228,64 +228,41 @@
     Monthly
   </ng-template>
 
-  <div class="printbutton">
-    <button printTitle="Sales Report Month of January" printSectionId="January" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-  
-  </div>
   <br>
   <div class="month-container">
     <form class="month-dropdown">
       <mat-form-field appearance="fill">
         <mat-label>Select Month</mat-label>
-        <select matNativeControl  >
+        <mat-select matNativeControl id="month" [(value)]="month" >
          
-          <option  [value]="1">
-            January
-          </option>
-          <option  [value]="2">
-            February
-          </option>
-          <option  [value]="3">
-            March
-          </option>
-          <option  [value]="4">
-            April
-          </option>
-          <option  [value]="5">
-            May
-          </option>
-          <option  [value]="6">
-            June
-          </option>
-          <option  [value]="7">
-            July
-          </option>
-          <option  [value]="8">
-            August
-          </option>
-          <option  [value]="9">
-            September
-          </option>
-          <option  [value]="10">
-            October
-          </option>
-          <option  [value]="11">
-            November
-          </option>
-          <option  [value]="12">
-            December
-          </option>
+          <mat-option value="1">January</mat-option>
+          <mat-option value="2">February</mat-option>
+          <mat-option value="3">March</mat-option>
+          <mat-option value="4">April</mat-option>
+          <mat-option value="5">May</mat-option>
+          <mat-option value="6">June</mat-option>
+          <mat-option value="7">July</mat-option>
+          <mat-option value="8">August</mat-option>
+          <mat-option value="9">September</mat-option>
+          <mat-option value="10">October</mat-option>
+          <mat-option value="11">November</mat-option>
+          <mat-option value="12">December</mat-option>
 
-        </select>
+        </mat-select>
       </mat-form-field>
     </form> 
   </div>
 
 
-  <div class="selector" *ngIf ="user_role == '1'">
+  <div class="selector" *ngIf ="month == '1'">
     <div class="prodreduce">
       <p>SALES for the Month of January</p>
     </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of January" printSectionId="January" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
     
     <div class="table2" id="January">
     
@@ -305,6 +282,434 @@
           <tr>
             <th>Total Deliveries made: </th>
               <td>{{total_deliveriesJanuary}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '2'">
+    <div class="prodreduce">
+      <p>SALES for the Month of February</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of February" printSectionId="February" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="February">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksFebruary| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksFebruary| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesFebruary| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesFebruary}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '3'">
+    <div class="prodreduce">
+      <p>SALES for the Month of March</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of March" printSectionId="March" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="March">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksMarch| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksMarch| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesMarch| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesMarch}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '4'">
+    <div class="prodreduce">
+      <p>SALES for the Month of April</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of April" printSectionId="April" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="April">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksApril| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksApril| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesApril| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesApril}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '5'">
+    <div class="prodreduce">
+      <p>SALES for the Month of May</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of May" printSectionId="May" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="May">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksMay| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksMay| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesMay| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesMay}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '6'">
+    <div class="prodreduce">
+      <p>SALES for the Month of June</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of June" printSectionId="June" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="June">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksJune| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksJune| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesJune| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesJune}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '7'">
+    <div class="prodreduce">
+      <p>SALES for the Month of July</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of July" printSectionId="July" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="July">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksJuly| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksJuly| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesJuly| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesJuly}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '8'">
+    <div class="prodreduce">
+      <p>SALES for the Month of August</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of August" printSectionId="August" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="August">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksAugust| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksAugust| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesAugust| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesAugust}}</td>
+            </tr>
+            
+          
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '9'">
+    <div class="prodreduce">
+      <p>SALES for the Month of September</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of September" printSectionId="September" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="September">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr>
+    
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱0.00</td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>0</td>
+            </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '10'">
+    <div class="prodreduce">
+      <p>SALES for the Month of October</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of October" printSectionId="October" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="October">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr>
+    
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱0.00</td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>0</td>
+            </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '11'">
+    <div class="prodreduce">
+      <p>SALES for the Month of November</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of November" printSectionId="November" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="November">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr>
+    
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱0.00</td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>0</td>
+            </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector" *ngIf ="month == '12'">
+    <div class="prodreduce">
+      <p>SALES for the Month of December</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month of December" printSectionId="December" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="December">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱0.00 </td>
+          </tr>
+    
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱0.00</td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>0</td>
+            </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="selector">
+    <div class="prodreduce">
+      <p>SALES for the Current Month</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div><br><br>
+    
+    <div class="table2" id="CurrentMonth">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksCurrentMonth| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksCurrentMonth| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesCurrentMonth| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesCurrentMonth}}</td>
             </tr>
             
           
