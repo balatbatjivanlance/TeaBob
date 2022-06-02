@@ -237,9 +237,9 @@
     <form class="month-dropdown">
       <mat-form-field appearance="fill">
         <mat-label>Select Month</mat-label>
-        <select (selectionChange)="onChange($event)" matNativeControl  name="month">
+        <select matNativeControl  >
          
-          <option  value="1">
+          <option  [value]="1">
             January
           </option>
           <option  [value]="2">
@@ -282,7 +282,7 @@
   </div>
 
 
-  <div class="selector" [value]="1">
+  <div class="selector" *ngIf ="user_role == '1'">
     <div class="prodreduce">
       <p>SALES for the Month of January</p>
     </div>
