@@ -151,6 +151,11 @@
 
   </mat-accordion>
 <br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
 
@@ -220,47 +225,99 @@
 <mat-tab >
 
   <ng-template mat-tab-label>
-    1st QUARTER OF THE YEAR
+    Monthly
   </ng-template>
 
   <div class="printbutton">
     <button printTitle="Sales Report Month of January" printSectionId="January" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   
   </div>
+  <br>
+  <div class="month-container">
+    <form class="month-dropdown">
+      <mat-form-field appearance="fill">
+        <mat-label>Select Month</mat-label>
+        <select (selectionChange)="onChange($event)" matNativeControl  name="month">
+         
+          <option  value="1">
+            January
+          </option>
+          <option  [value]="2">
+            February
+          </option>
+          <option  [value]="3">
+            March
+          </option>
+          <option  [value]="4">
+            April
+          </option>
+          <option  [value]="5">
+            May
+          </option>
+          <option  [value]="6">
+            June
+          </option>
+          <option  [value]="7">
+            July
+          </option>
+          <option  [value]="8">
+            August
+          </option>
+          <option  [value]="9">
+            September
+          </option>
+          <option  [value]="10">
+            October
+          </option>
+          <option  [value]="11">
+            November
+          </option>
+          <option  [value]="12">
+            December
+          </option>
 
-  <div class="prodreduce">
-    <p>SALES for the Month of January</p>
+        </select>
+      </mat-form-field>
+    </form> 
   </div>
-  
-  <div class="table2" id="January">
-  
-    <div class="table2half">
-      <table class="table2halftable">
-        <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksJanuary| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksJanuary| number : '1.2-2'}} </td>
-        </tr>
-        <tr>
-          <th>Total Sales:</th>
-          <td> ₱{{salesJanuary| number : '1.2-2'}} </td>
-        </tr>
-        <tr>
-          <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesJanuary}}</td>
+
+
+  <div class="selector" [value]="1">
+    <div class="prodreduce">
+      <p>SALES for the Month of January</p>
+    </div>
+    
+    <div class="table2" id="January">
+    
+      <div class="table2half">
+        <table class="table2halftable">
+          <tr>
+            <th>Total Snacks Sales:</th>
+            <td> ₱{{salesSnacksJanuary| number : '1.2-2'}} </td>
+          </tr><tr>
+            <th>Total Drinks Sales:</th>
+            <td> ₱{{salesDrinksJanuary| number : '1.2-2'}} </td>
           </tr>
+          <tr>
+            <th>Total Sales:</th>
+            <td> ₱{{salesJanuary| number : '1.2-2'}} </td>
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+              <td>{{total_deliveriesJanuary}}</td>
+            </tr>
+            
           
-        
-    </table>
+      </table>
+    </div>
+    </div>
   </div>
-  </div>
-  <div class="printbutton">
-    <button printTitle="Sales Report Month of February" printSectionId="February" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   
-  </div>
-  <div class="prodreduce">
+    <!-- <div class="printbutton">
+      <button printTitle="Sales Report Month of February" printSectionId="February" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
+    
+    </div> -->
+  <!-- <div class="prodreduce">
     <p>SALES for the Month of February</p>
   </div>
   
@@ -318,12 +375,12 @@
           </tr>    
     </table>
   </div>
-  </div>
+  </div> -->
 
   
 </mat-tab>
 
-
+<!-- 
 <mat-tab >
   <ng-template mat-tab-label>
    2nd QUARTER OF THE YEAR
@@ -635,7 +692,7 @@
   </div>
   </div>  
 
-</mat-tab>
+</mat-tab> -->
 
 <mat-tab >
   <ng-template mat-tab-label>
