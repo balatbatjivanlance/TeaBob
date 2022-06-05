@@ -26,6 +26,7 @@ interface LooseObject {[key: string]: any}
 export class SalesReportComponent implements OnInit {
  
   month = '0';
+  year = '0';
 
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
@@ -68,6 +69,24 @@ export class SalesReportComponent implements OnInit {
     this.deliveryCurrentYear();
     this.DeliverySnacksCurrentYear();
     this.DeliveryDrinksCurrentYear();
+    this.delivery2022();
+    this.DeliverySnacks2022();
+    this.DeliveryDrinks2022();
+    this.delivery2023();
+    this.DeliverySnacks2023();
+    this.DeliveryDrinks2023();
+    this.delivery2024();
+    this.DeliverySnacks2024();
+    this.DeliveryDrinks2024();
+    this.delivery2025();
+    this.DeliverySnacks2025();
+    this.DeliveryDrinks2025();
+    this.delivery2026();
+    this.DeliverySnacks2026();
+    this.DeliveryDrinks2026();
+    this.delivery2027();
+    this.DeliverySnacks2027();
+    this.DeliveryDrinks2027();
     this.deliveryCurrentMonth();
     this.DeliverySnacksCurrentMonth();
     this.DeliveryDrinksCurrentMonth();
@@ -189,7 +208,7 @@ stocks:any;
 stocksToday(){
   this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
   this.stocks = data.payload;
-  // console.log(data.payload)
+  // //console.log(data.payload)
 
     // Loop of all  obj in json
     for (let i = 0; i < data.payload.length; i++) {
@@ -680,7 +699,7 @@ deliveryCurrentYear(){
   
   this.ds.sendApiRequest("deliveryCurrentYear", null).subscribe((data: { payload: any; }) => {
   this.deliveriesYear = data.payload;
-  console.log(this.deliveriesYear)
+  //console.log(this.deliveriesYear)
   
   this.total_deliveriesYear = this.deliveriesYear.length;
 
@@ -710,6 +729,240 @@ DeliveryDrinksCurrentYear(){
     }});
 }
 
+
+
+total_deliveriesYear2022: number = 0;
+deliveriesYear2022: any = {};
+
+salesYear2022:number =0;
+delivery2022(){
+  
+  this.ds.sendApiRequest("delivery2022", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2022 = data.payload;
+  //console.log(this.deliveriesYear)
+  
+  this.total_deliveriesYear2022 = this.deliveriesYear2022.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2022 += data.payload[i].total_price;
+    }
+  });
+
+}
+
+saleSnacksYear2022: any = {};
+salesSnacksYear2022:number =0;
+DeliverySnacks2022(){
+  this.ds.sendApiRequest("DeliverySnacks2022", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2022 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2022 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2022: any = {};
+salesDrinksYear2022:number =0;
+DeliveryDrinks2022(){
+  this.ds.sendApiRequest("DeliveryDrinks2022", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2022 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2022 += data.payload[i].prod_price;
+    }});
+}
+
+total_deliveriesYear2023: number = 0;
+deliveriesYear2023: any = {};
+
+salesYear2023:number =0;
+delivery2023(){
+  
+  this.ds.sendApiRequest("delivery2023", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2023 = data.payload;
+  //console.log(this.deliveriesYear2023)
+  
+  this.total_deliveriesYear2023 = this.deliveriesYear2023.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2023 += data.payload[i].total_price;
+    }
+  });
+
+}
+
+saleSnacksYear2023: any = {};
+salesSnacksYear2023:number =0;
+DeliverySnacks2023(){
+  this.ds.sendApiRequest("DeliverySnacks2023", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2023 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2023 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2023: any = {};
+salesDrinksYear2023:number =0;
+DeliveryDrinks2023(){
+  this.ds.sendApiRequest("DeliveryDrinks2023", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2023 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2023 += data.payload[i].prod_price;
+    }});
+}
+
+total_deliveriesYear2024: number = 0;
+deliveriesYear2024: any = {};
+
+salesYear2024:number =0;
+delivery2024(){
+  
+  this.ds.sendApiRequest("delivery2024", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2024 = data.payload;
+  //console.log(this.deliveriesYear2024)
+  
+  this.total_deliveriesYear2024 = this.deliveriesYear2024.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2024 += data.payload[i].total_price;
+    }
+  });
+
+}
+saleSnacksYear2024: any = {};
+salesSnacksYear2024:number =0;
+DeliverySnacks2024(){
+  this.ds.sendApiRequest("DeliverySnacks2024", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2024 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2024 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2024: any = {};
+salesDrinksYear2024:number =0;
+DeliveryDrinks2024(){
+  this.ds.sendApiRequest("DeliveryDrinks2024", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2024 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2024 += data.payload[i].prod_price;
+    }});
+}
+
+total_deliveriesYear2025: number = 0;
+deliveriesYear2025: any = {};
+
+salesYear2025:number =0;
+delivery2025(){
+  
+  this.ds.sendApiRequest("delivery2025", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2025 = data.payload;
+  //console.log(this.deliveriesYear2025)
+  
+  this.total_deliveriesYear2025 = this.deliveriesYear2025.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2025 += data.payload[i].total_price;
+    }
+  });
+
+}
+saleSnacksYear2025: any = {};
+salesSnacksYear2025:number =0;
+DeliverySnacks2025(){
+  this.ds.sendApiRequest("DeliverySnacks2025", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2025 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2025 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2025: any = {};
+salesDrinksYear2025:number =0;
+DeliveryDrinks2025(){
+  this.ds.sendApiRequest("DeliveryDrinks2025", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2025 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2025 += data.payload[i].prod_price;
+    }});
+}
+
+
+total_deliveriesYear2026: number = 0;
+deliveriesYear2026: any = {};
+
+salesYear2026:number =0;
+delivery2026(){
+  
+  this.ds.sendApiRequest("delivery2026", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2026 = data.payload;
+  //console.log(this.deliveriesYear2026)
+  
+  this.total_deliveriesYear2026 = this.deliveriesYear2026.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2026 += data.payload[i].total_price;
+    }
+  });
+
+}
+saleSnacksYear2026: any = {};
+salesSnacksYear2026:number =0;
+DeliverySnacks2026(){
+  this.ds.sendApiRequest("DeliverySnacks2026", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2026 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2026 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2026: any = {};
+salesDrinksYear2026:number =0;
+DeliveryDrinks2026(){
+  this.ds.sendApiRequest("DeliveryDrinks2026", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2026 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2026 += data.payload[i].prod_price;
+    }});
+}
+
+
+total_deliveriesYear2027: number = 0;
+deliveriesYear2027: any = {};
+
+salesYear2027:number =0;
+delivery2027(){
+  
+  this.ds.sendApiRequest("delivery2027", null).subscribe((data: { payload: any; }) => {
+  this.deliveriesYear2027 = data.payload;
+  //console.log(this.deliveriesYear2027)
+  
+  this.total_deliveriesYear2027 = this.deliveriesYear2027.length;
+
+    for (let i = 0; i < data.payload.length; i++) {
+
+      this.salesYear2027 += data.payload[i].total_price;
+    }
+  });
+
+}
+saleSnacksYear2027: any = {};
+salesSnacksYear2027:number =0;
+DeliverySnacks2027(){
+  this.ds.sendApiRequest("DeliverySnacks2027", null).subscribe((data: { payload: any; }) => {
+  this.saleSnacksYear2027 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesSnacksYear2027 += data.payload[i].prod_price;
+    }});
+}
+saleDrinksYear2027: any = {};
+salesDrinksYear2027:number =0;
+DeliveryDrinks2027(){
+  this.ds.sendApiRequest("DeliveryDrinks2027", null).subscribe((data: { payload: any; }) => {
+  this.saleDrinksYear2027 = data.payload;
+    for (let i = 0; i < data.payload.length; i++) {
+      this.salesDrinksYear2027 += data.payload[i].prod_price;
+    }});
+}
+
 total_deliveriesCurrentMonth: number = 0;
 deliveriesCurrentMonth: any = {};
 
@@ -718,7 +971,7 @@ deliveryCurrentMonth(){
   
   this.ds.sendApiRequest("deliveryCurrentMonth", null).subscribe((data: { payload: any; }) => {
   this.deliveriesCurrentMonth = data.payload;
-  console.log(this.deliveriesCurrentMonth)
+  //console.log(this.deliveriesCurrentMonth)
   
   this.total_deliveriesCurrentMonth = this.deliveriesCurrentMonth.length;
 

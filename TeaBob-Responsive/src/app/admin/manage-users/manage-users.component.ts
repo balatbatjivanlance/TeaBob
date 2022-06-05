@@ -96,8 +96,8 @@ async delAdmin(e:any) {
       window.location.reload();
       
       Swal.fire(
-        'You`re Fired!',
-        'The Driver has been fired.',
+        'User Deleted!',
+        'The User has been Deleted.',
         'success'
       )
     }

@@ -1689,6 +1689,328 @@ public function DeliveryDrinksCurrentMonth ($d) {
 
 }
 
+
+public function delivery2022 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 4 AND YEAR(date) = 2022";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2022 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2022";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2022 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2022";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+
+public function delivery2023 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE YEAR(date) = 2023 AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2023 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2023";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2023 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2023";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+
+public function delivery2024 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE YEAR(date) = 2024 AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2024 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2024";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2024 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2024";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+
+public function delivery2025 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE YEAR(date) = 2025 AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2025 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2025";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2025 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2025";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+public function delivery2026 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE YEAR(date) = 2026 AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2026 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2026";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2026 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2026";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+public function delivery2027 ($d) {
+
+	$sql = "SELECT * FROM tbl_cocode WHERE YEAR(date) = 2027 AND is_approved = 4;";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+		
+public function DeliverySnacks2027 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Snacks' AND YEAR(checkout_date) = 2027";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}		
+public function DeliveryDrinks2027 ($d) {
+
+	$sql = "SELECT * FROM tbl_checkout WHERE category_name = 'Drinks' AND YEAR(checkout_date) = 2027";
+
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+
+
 }
 
 

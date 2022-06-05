@@ -977,6 +977,182 @@
 					}
 				break;
 				
+				case 'delivery2022':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2022($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2022($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2022':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2022($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2022($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2022':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2022($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2022($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'delivery2023':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2023($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2023($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2023':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2023($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2023($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2023':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2023($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2023($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'delivery2024':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2024($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2024($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2024':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2024($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2024($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2024':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2024($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2024($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'delivery2025':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2025($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2025($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2025':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2025($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2025($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2025':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2025($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2025($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				
+				case 'delivery2026':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2026($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2026($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2026':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2026($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2026($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2026':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2026($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2026($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				
+				case 'delivery2027':
+					if(count($req)>1) {
+						
+						echo json_encode($get->delivery2027($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->delivery2027($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
+				case 'DeliverySnacks2027':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliverySnacks2027($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliverySnacks2027($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				case 'DeliveryDrinks2027':
+					if(count($req)>1) {
+						
+						echo json_encode($get->DeliveryDrinks2027($req[0], $req[1]), JSON_PRETTY_PRINT);
+					} else {
+					
+						echo json_encode($get->DeliveryDrinks2027($req[0], null), JSON_PRETTY_PRINT);
+					}
+				break;
+				
 				case 'deliveryCurrentMonth':
 					if(count($req)>1) {
 						
