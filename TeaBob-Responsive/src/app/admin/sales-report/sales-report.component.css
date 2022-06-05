@@ -1,6 +1,7 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+
 .dashboard-top {
     width: 100%;
     height: 30%;
@@ -252,7 +253,13 @@
     background-color: #794028;
     color: #ffffff;
   }
-  
+
+  .selector {
+    width: 100%;
+    height: 100%;
+
+  }
+
   .user-profile {
     display: block;
     margin-left: auto;
@@ -298,7 +305,6 @@
     height: 70px;
     align-items: center;
     justify-content: center;
-
   }
 
   .newcontainer{
@@ -418,4 +424,6 @@
 
   .sliding{ 
     width: 100%;
+    font-family: 'Poppins', sans-serif;
+
   }

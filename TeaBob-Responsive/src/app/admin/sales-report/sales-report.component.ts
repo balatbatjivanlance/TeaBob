@@ -9,6 +9,7 @@ import { MatAccordion } from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 
 import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
+import { FormControl, Validators } from '@angular/forms';
 
 export interface PeriodicElement {
 }
@@ -24,7 +25,7 @@ interface LooseObject {[key: string]: any}
 
 export class SalesReportComponent implements OnInit {
  
-  month = 'January';
+  month = '0';
 
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
@@ -231,6 +232,9 @@ stocksToday(){
 
  
 }
+
+
+
 
 drinks_breakdown:any;
 snacks_breakdown:any;
@@ -744,5 +748,10 @@ DeliveryDrinksCurrentMonth(){
     }});
 }
 
+selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
+
+selectFormControl = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
+
+nativeSelectFormControl = new FormControl('vaild',[Validators.required, Validators.pattern('valid')]);
 
 }

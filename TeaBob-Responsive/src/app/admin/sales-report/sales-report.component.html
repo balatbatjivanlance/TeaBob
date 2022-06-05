@@ -233,8 +233,8 @@
     <form class="month-dropdown">
       <mat-form-field appearance="fill">
         <mat-label>Select Month</mat-label>
-        <mat-select matNativeControl id="month" [(value)]="month" >
-         
+        <mat-select  matNativeControl id="month" [(value)]="month"  >
+          <mat-option value="0"  >Current Month</mat-option>
           <mat-option value="1">January</mat-option>
           <mat-option value="2">February</mat-option>
           <mat-option value="3">March</mat-option>
@@ -255,6 +255,7 @@
 
 
   <div class="selector" *ngIf ="month == '1'">
+    <div class="container3">
     <div class="prodreduce">
       <p>SALES for the Month of January</p>
     </div>
@@ -288,6 +289,7 @@
       </table>
     </div>
     </div>
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '2'">
@@ -682,17 +684,17 @@
     </div>
   </div>
 
-  <div class="selector">
-    <div class="prodreduce">
+  <div class="selector" *ngIf ="month == '0'">
+    <div class="prodreduce" >
       <p>SALES for the Current Month</p>
     </div>
 
-    <div class="printbutton">
+    <div class="printbutton" >
       <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
     
     </div><br><br>
     
-    <div class="table2" id="CurrentMonth">
+    <div class="table2" id="CurrentMonth"  >
     
       <div class="table2half">
         <table class="table2halftable">
