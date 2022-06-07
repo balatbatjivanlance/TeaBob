@@ -1007,4 +1007,46 @@ selectFormControl = new FormControl('valid', [Validators.required, Validators.pa
 
 nativeSelectFormControl = new FormControl('vaild',[Validators.required, Validators.pattern('valid')]);
 
+x:any;
+y:any;
+a:any;
+b:any;
+c:any;
+d:any;
+e:any;
+f:any;
+print(){
+    setTimeout(() =>{
+      this.x = document.getElementById("hide");
+      this.y = document.getElementById("hide2");
+      this.a = document.getElementById("hide3");
+      this.b = document.getElementById("hide4");
+      this.c = document.getElementById("hide5");
+      this.d = document.getElementById("hide6");
+      this.e = document.getElementById("month");
+      this.f = document.getElementById("month-label");
+
+      // this.x.style.display = "none";
+      this.y.style.display = "none";
+      this.a.style.display = "none";
+      this.e.style.display = "none";
+      this.f.style.display = "none";
+      // this.b.style.display = "none";
+      // this.c.style.display = "none";
+      // this.d.style.display = "none";
+
+      window.print();
+      this.x.style.display = "block";
+      this.y.style.display = "block";
+      this.a.style.display = "block";
+      this.b.style.display = "block";
+      this.c.style.display = "block";
+      this.d.style.display = "block";
+      this.e.style.display = "block";
+      this.f.style.display = "block";
+
+      
+    },1500);
+}
+
 }
