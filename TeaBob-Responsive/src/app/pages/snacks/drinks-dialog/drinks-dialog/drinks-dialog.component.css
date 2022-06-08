@@ -138,11 +138,19 @@
     border-color: #7a7a7a;
     
 }
+.button2 {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .button {
     height: 50px;
-    width: 90%;
-    margin-left: 35px;
+    width: 40%;
+    margin-left: 50px;
+    margin-right: 50px;
     outline: none;
     color: #ffffff;
     background: #4B1F0E ;
@@ -285,5 +293,15 @@
           margin-left: 0%;
           width: 100%;
       }
+      .button2 {
+        width: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button2 > .button {
+        margin: 1px;
+    }
 }
 

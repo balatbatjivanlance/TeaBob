@@ -4947,24 +4947,25 @@ print(){
       // this.x.style.display = "none";
       this.y.style.display = "none";
       this.a.style.display = "none";
-      this.e.style.display = "none";
-      this.f.style.display = "none";
+      // this.e.style.display = "none";
+      // this.f.style.display = "none";
       // this.b.style.display = "none";
       // this.c.style.display = "none";
       // this.d.style.display = "none";
 
       window.print();
-      this.x.style.display = "block";
-      this.y.style.display = "block";
-      this.a.style.display = "block";
-      this.b.style.display = "block";
-      this.c.style.display = "block";
-      this.d.style.display = "block";
-      this.e.style.display = "block";
-      this.f.style.display = "block";
-
-      
+      // this.x.style.display = "block";
+      // this.y.style.display = "block";
+      // this.a.style.display = "block";
+      // this.b.style.display = "block";
+      // this.c.style.display = "block";
+      // this.d.style.display = "block";
+      // this.e.style.display = "block";
+      // this.f.style.display = "block";
+      // document.title = 'My new title';
+      window.location.reload();
     },1500);
+    
 }
 
 }

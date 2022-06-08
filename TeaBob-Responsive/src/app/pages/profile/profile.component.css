@@ -56,7 +56,7 @@ h3 {
 
 mat-sidenav-container,
 mat-sidenav-content {
-  height: 100%;
+  height: 100vh;
   background-color: #f9f9f9;
 }
 

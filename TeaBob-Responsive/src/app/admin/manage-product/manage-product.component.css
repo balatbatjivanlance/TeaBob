@@ -72,7 +72,7 @@ h3 {
 
 mat-sidenav-container,
 mat-sidenav-content {
-  height: 100%;
+  height: 100vh;
   background-color: #f9f9f9;
 }
 
@@ -136,9 +136,7 @@ mat-card {
 
 /* INSERT YOUR NEW CODE HERE  */
 
-.responsive-table{
-  width: 100%;
-}
+
 
 .responsive-table li {
   border-radius: 3px;

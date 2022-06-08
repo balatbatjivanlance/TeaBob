@@ -24,16 +24,17 @@
         <input type="number" class="input-number" placeholder="eg.09*********" [(ngModel)]="user_contact">
     </div>
     <div class="input-box">
+        <span class="details">Address</span>
+        <input type="text" placeholder="Address" [(ngModel)]="user_address">
+    </div>
+    <div class="input-box">
         <span class="details">Password</span>
         <input  [type]="show_button ? 'text' : 'password'" placeholder="Password" 
         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
         
         maxlength = "8" [(ngModel)]="user_pword">
     </div>
-    <div class="input-box">
-        <span class="details">Address</span>
-        <input type="text" placeholder="Address" [(ngModel)]="user_address">
-    </div>
+    
     <div class="input-box">
         <span class="details">Confirm Password</span>
         <input [type]="show_button ? 'text' : 'password'"  placeholder="Confirm Password" [(ngModel)]="user_Confpword" 

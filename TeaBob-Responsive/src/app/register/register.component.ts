@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   user_Confpword: any;
   user_role = 1;
   regUser(){
-    if (this.user_pword.length >= 8 ) {
+    if (this.user_pword.length <= 8 ) {
       if (this.user_pword == this.user_Confpword) {
         this.userInfo.user_name = this.user_name;
       this.userInfo.user_lname = this.user_lname;
