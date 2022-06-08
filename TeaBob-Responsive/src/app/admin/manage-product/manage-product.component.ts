@@ -21,6 +21,7 @@ export class ManageProductComponent implements OnInit {
 
   user_role = localStorage.getItem("user_role");
 
+  searchfood: any;
 
   // SIDENAV AND TOOLBAR CODE 
 

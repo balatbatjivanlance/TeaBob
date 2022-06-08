@@ -93,6 +93,10 @@
   
   
       <!-- THIS IS YOUR CONTENT CONTAINER -->
+    <br><br>
+
+    <input placeholder="Search User" class="example-full-width" [(ngModel)]="searchuser">
+
       <div class="container">
   
         <div class="dashboard-bottom">
@@ -106,7 +110,7 @@
                 <div class="col col-4">Address</div>
                 <div class="col col-4">Action</div>
               </li>
-              <li class="table-row" *ngFor = "let user of user">
+              <li class="table-row" *ngFor = "let user of user |filter:searchuser">
                 <div class="col col-3" data-label="Driver ID" >{{user.user_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{user.user_name}} &nbsp;{{user.user_lname}}</div>
                 <div class="col col-3" data-label="Driver ID" >{{user.user_uname}}</div>

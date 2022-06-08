@@ -93,6 +93,9 @@
 
 
     <!-- THIS IS YOUR CONTENT CONTAINER -->
+    <br><br>
+    <input placeholder="Search Food" class="example-full-width" [(ngModel)]="searchfood">
+
     <div class="container">
       <ul class="responsive-table">
         <li class="table-header">
@@ -104,7 +107,7 @@
           <div class="col col-4">Active</div>
           <div class="col col-4">Action</div>
         </li>
-        <li class="table-row" *ngFor = "let adminfood of adminfood">
+        <li class="table-row" *ngFor = "let adminfood of adminfood |filter:searchfood">
           <div class="col col-4" data-label="Name">{{adminfood.food_name}}</div>
           <div class="col col-2" data-label="Price">{{adminfood.food_price}}</div>
           <div class="col col-2" data-label="Stocks">{{adminfood.food_stocks}}</div>

@@ -98,6 +98,9 @@
         <div class="dashboard-bottom">
           
             <ul class="responsive-table">
+              <button (click)="openModalAdmin()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Admin</button><br><br>
+              <br>
+              <input placeholder="Search Admin" class="example-full-width" [(ngModel)]="searchadmin"><br><br>
               <li class="table-header">
                 <div class="col col-4">Admin ID</div>
                 <div class="col col-4">Admin Name</div>
@@ -105,8 +108,7 @@
                 <div class="col col-4">Contact Number</div>
                 <div class="col col-4">Action</div>
               </li>
-              <button (click)="openModalAdmin()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Admin</button><br><br>
-              <li class="table-row" *ngFor = "let admin of admin">
+              <li class="table-row" *ngFor = "let admin of admin |filter:searchadmin">
                 <div class="col col-3" data-label="Admin ID" >{{admin.user_id}}</div>
                 <div class="col col-3" data-label="Admin Name" >{{admin.user_name}} {{admin.user_lname}}</div>
                 <div class="col col-3" data-label="Admin Email" >{{admin.user_uname}}</div>

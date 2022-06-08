@@ -20,6 +20,7 @@ export class ManageDriverComponent implements OnInit {
   }
 
   user_role = localStorage.getItem("user_role");
+  searchdriver: any;
 
 
   // SIDENAV AND TOOLBAR CODE 

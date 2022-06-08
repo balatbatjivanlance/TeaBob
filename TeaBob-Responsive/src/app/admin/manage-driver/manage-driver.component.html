@@ -98,6 +98,8 @@
         <div class="dashboard-bottom">
           
             <ul class="responsive-table">
+              <button (click)="openModal()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Driver</button><br><br>
+              <input placeholder="Search Driver" class="example-full-width" [(ngModel)]="searchdriver"><br><br>
               <li class="table-header">
                 <div class="col col-4">Driver ID</div>
                 <div class="col col-4">Driver Name</div>
@@ -106,8 +108,7 @@
                 <div class="col col-4">Driver Status</div>
                 <div class="col col-4">Action</div>
               </li>
-              <button (click)="openModal()" class="add-driv" ><mat-icon>add_circle</mat-icon>&nbsp;&nbsp; Driver</button><br><br>
-              <li class="table-row" *ngFor = "let driver of driver">
+              <li class="table-row" *ngFor = "let driver of driver |filter:searchdriver">
                 <div class="col col-3" data-label="Driver ID" >{{driver.driver_id}}</div>
                 <div class="col col-3" data-label="Driver Name" >{{driver.driver_name}}</div>
                 <div class="col col-3" data-label="Driver Email" >{{driver.driver_email}}</div>

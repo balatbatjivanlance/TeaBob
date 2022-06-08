@@ -19,6 +19,7 @@ export class ManageAdminComponent implements OnInit {
   }
 
   user_role = localStorage.getItem("user_role");
+  searchadmin: any;
 
 
   // SIDENAV AND TOOLBAR CODE 

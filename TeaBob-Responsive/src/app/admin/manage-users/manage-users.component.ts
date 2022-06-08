@@ -21,6 +21,7 @@ export class ManageUsersComponent implements OnInit {
 
   user_role = localStorage.getItem("user_role");
 
+  searchuser: any;
 
   // SIDENAV AND TOOLBAR CODE 
 
