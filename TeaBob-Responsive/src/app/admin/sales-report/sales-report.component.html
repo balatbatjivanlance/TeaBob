@@ -98,7 +98,7 @@
 
   <mat-tab>
     <ng-template mat-tab-label id="hide4">
-      Daily
+      DAILY
     </ng-template>  
     
   <div class="printbutton">
@@ -111,6 +111,45 @@
   </div>
   
   <div id="Daily" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinkstoday}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinkstoday of drinkstoday_breakdown">{{drinkstoday.snack}} : {{drinkstoday.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snackstoday}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snackstoday of snackstoday_breakdown">{{snackstoday.snack}} : {{snackstoday.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addonstoday}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addonstoday of addonstoday_breakdown">{{addonstoday.addonstoday}} : {{addonstoday.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
   
 
 <br>
@@ -124,23 +163,23 @@
 
         <tr>
         <th>Drinks: </th>
-          <td>₱{{drinks_sales}}.00</td>
+          <td>₱{{drinkstoday_sales}}.00</td>
       
         </tr>
         <tr>
         <th>Snacks: </th>
-          <td>₱{{snacks_sales}}.00</td>
+          <td>₱{{snackstoday_sales}}.00</td>
      
       
         </tr>
-        <!-- <tr>
+        <tr>
         <th>Add ons: </th>
-          <td>₱{{addons_sales}}.00</td>
+          <td>₱{{addonstoday_sales}}.00</td>
       
-        </tr> -->
+        </tr>
         <tr>
           <th>Total Sales:</th>
-            <td> ₱{{sales| number : '1.2-2'}} </td>
+            <td> ₱{{salestoday| number : '1.2-2'}} </td>
         
           </tr>
           
@@ -159,18 +198,18 @@
       
       <table >
 
-        <tr  *ngFor = "let driver of driver">
+        <tr  *ngFor = "let drivertoday of drivertoday">
     
         </tr>
         
-        <tr *ngFor="let driver of driver_breakdown" >
-        <th>Rider: {{driver.driver}}  </th>
-          <td> {{driver.number_deliveries}}</td>
+        <tr *ngFor="let drivertoday of drivertoday_breakdown" >
+        <th>Rider: {{drivertoday.drivertoday}}  </th>
+          <td> {{drivertoday.number_deliveriestoday}}</td>
       
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveries}}</td>
+            <td>{{total_deliveriestoday}}</td>
         
           </tr>
       </table>
@@ -188,7 +227,7 @@
 <mat-tab >
 
   <ng-template mat-tab-label id="hide5">
-    Monthly
+    MONTHLY
   </ng-template>
 
   <br>
@@ -228,30 +267,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="January">
+    <div id="January" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksjanuary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksjanuary of drinksjanuary_breakdown">{{drinksjanuary.snack}} : {{drinksjanuary.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksjanuary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksjanuary of snacksjanuary_breakdown">{{snacksjanuary.snack}} : {{snacksjanuary.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsjanuary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsjanuary of addonsjanuary_breakdown">{{addonsjanuary.addonsjanuary}} : {{addonsjanuary.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksJanuary| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksJanuary| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksjanuary_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksjanuary_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsjanuary_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesJanuary| number : '1.2-2'}} </td>
+              <td> ₱{{salesjanuary| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverjanuary of driverjanuary">
+      
+          </tr>
+          
+          <tr *ngFor="let driverjanuary of driverjanuary_breakdown" >
+          <th>Rider: {{driverjanuary.driverjanuary}}  </th>
+            <td> {{driverjanuary.number_deliveriesjanuary}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesJanuary}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesjanuary}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
   </div>
 
@@ -265,30 +387,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="February">
+    <div id="February" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksfebruary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksfebruary of drinksfebruary_breakdown">{{drinksfebruary.snack}} : {{drinksfebruary.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksfebruary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksfebruary of snacksfebruary_breakdown">{{snacksfebruary.snack}} : {{snacksfebruary.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsfebruary}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsfebruary of addonsfebruary_breakdown">{{addonsfebruary.addonsfebruary}} : {{addonsfebruary.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksFebruary| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksFebruary| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksfebruary_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksfebruary_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsfebruary_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesFebruary| number : '1.2-2'}} </td>
+              <td> ₱{{salesfebruary| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverfebruary of driverfebruary">
+      
+          </tr>
+          
+          <tr *ngFor="let driverfebruary of driverfebruary_breakdown" >
+          <th>Rider: {{driverfebruary.driverfebruary}}  </th>
+            <td> {{driverfebruary.number_deliveriesfebruary}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesFebruary}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesfebruary}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '3'">
@@ -301,30 +506,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="March">
+    <div id="March" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksmarch}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksmarch of drinksmarch_breakdown">{{drinksmarch.snack}} : {{drinksmarch.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksmarch}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksmarch of snacksmarch_breakdown">{{snacksmarch.snack}} : {{snacksmarch.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsmarch}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsmarch of addonsmarch_breakdown">{{addonsmarch.addonsmarch}} : {{addonsmarch.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksMarch| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksMarch| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksmarch_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksmarch_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsmarch_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesMarch| number : '1.2-2'}} </td>
+              <td> ₱{{salesmarch| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let drivermarch of drivermarch">
+      
+          </tr>
+          
+          <tr *ngFor="let drivermarch of drivermarch_breakdown" >
+          <th>Rider: {{drivermarch.drivermarch}}  </th>
+            <td> {{drivermarch.number_deliveriesmarch}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesMarch}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesmarch}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '4'">
@@ -337,30 +625,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="April">
+    <div id="April" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksapril}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksapril of drinksapril_breakdown">{{drinksapril.snack}} : {{drinksapril.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksapril}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksapril of snacksapril_breakdown">{{snacksapril.snack}} : {{snacksapril.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsapril}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsapril of addonsapril_breakdown">{{addonsapril.addonsapril}} : {{addonsapril.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksApril| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksApril| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksapril_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksapril_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsapril_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesApril| number : '1.2-2'}} </td>
+              <td> ₱{{salesapril| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverapril of driverapril">
+      
+          </tr>
+          
+          <tr *ngFor="let driverapril of driverapril_breakdown" >
+          <th>Rider: {{driverapril.driverapril}}  </th>
+            <td> {{driverapril.number_deliveriesapril}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesApril}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesapril}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '5'">
@@ -373,30 +744,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="May">
+    <div id="May" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksmay}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksmay of drinksmay_breakdown">{{drinksmay.snack}} : {{drinksmay.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksmay}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksmay of snacksmay_breakdown">{{snacksmay.snack}} : {{snacksmay.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsmay}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsmay of addonsmay_breakdown">{{addonsmay.addonsmay}} : {{addonsmay.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksMay| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksMay| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksmay_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksmay_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsmay_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesMay| number : '1.2-2'}} </td>
+              <td> ₱{{salesmay| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let drivermay of drivermay">
+      
+          </tr>
+          
+          <tr *ngFor="let drivermay of drivermay_breakdown" >
+          <th>Rider: {{drivermay.drivermay}}  </th>
+            <td> {{drivermay.number_deliveriesmay}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesMay}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesmay}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '6'">
@@ -409,30 +863,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="June">
+    <div id="June" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksjune}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksjune of drinksjune_breakdown">{{drinksjune.snack}} : {{drinksjune.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksjune}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksjune of snacksjune_breakdown">{{snacksjune.snack}} : {{snacksjune.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsjune}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsjune of addonsjune_breakdown">{{addonsjune.addonsjune}} : {{addonsjune.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksJune| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksJune| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksjune_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksjune_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsjune_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesJune| number : '1.2-2'}} </td>
+              <td> ₱{{salesjune| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverjune of driverjune">
+      
+          </tr>
+          
+          <tr *ngFor="let driverjune of driverjune_breakdown" >
+          <th>Rider: {{driverjune.driverjune}}  </th>
+            <td> {{driverjune.number_deliveriesjune}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesJune}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesjune}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '7'">
@@ -445,30 +982,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="July">
+    <div id="July" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksjuly}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksjuly of drinksjuly_breakdown">{{drinksjuly.snack}} : {{drinksjuly.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksjuly}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksjuly of snacksjuly_breakdown">{{snacksjuly.snack}} : {{snacksjuly.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsjuly}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsjuly of addonsjuly_breakdown">{{addonsjuly.addonsjuly}} : {{addonsjuly.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksJuly| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksJuly| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksjuly_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksjuly_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsjuly_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesJuly| number : '1.2-2'}} </td>
+              <td> ₱{{salesjuly| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverjuly of driverjuly">
+      
+          </tr>
+          
+          <tr *ngFor="let driverjuly of driverjuly_breakdown" >
+          <th>Rider: {{driverjuly.driverjuly}}  </th>
+            <td> {{driverjuly.number_deliveriesjuly}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesJuly}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesjuly}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '8'">
@@ -481,30 +1101,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="August">
+    <div id="August" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksaugust}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksaugust of drinksaugust_breakdown">{{drinksaugust.snack}} : {{drinksaugust.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksaugust}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksaugust of snacksaugust_breakdown">{{snacksaugust.snack}} : {{snacksaugust.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsaugust}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsaugust of addonsaugust_breakdown">{{addonsaugust.addonsaugust}} : {{addonsaugust.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksAugust| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksAugust| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksaugust_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksaugust_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsaugust_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesAugust| number : '1.2-2'}} </td>
+              <td> ₱{{salesaugust| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driveraugust of driveraugust">
+      
+          </tr>
+          
+          <tr *ngFor="let driveraugust of driveraugust_breakdown" >
+          <th>Rider: {{driveraugust.driveraugust}}  </th>
+            <td> {{driveraugust.number_deliveriesaugust}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesAugust}}</td>
-            </tr>
-            
+              <td>{{total_deliveriesaugust}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '9'">
@@ -517,29 +1220,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="September">
+    <div id="September" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksseptember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksseptember of drinksseptember_breakdown">{{drinksseptember.snack}} : {{drinksseptember.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksseptember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksseptember of snacksseptember_breakdown">{{snacksseptember.snack}} : {{snacksseptember.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsseptember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsseptember of addonsseptember_breakdown">{{addonsseptember.addonsseptember}} : {{addonsseptember.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱0.00 </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱0.00 </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksseptember_sales}}.00</td>
+        
           </tr>
-    
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksseptember_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsseptember_sales}}.00</td>
+        
+          </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱0.00</td>
+              <td> ₱{{salesseptember| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverseptember of driverseptember">
+      
+          </tr>
+          
+          <tr *ngFor="let driverseptember of driverseptember_breakdown" >
+          <th>Rider: {{driverseptember.driverseptember}}  </th>
+            <td> {{driverseptember.number_deliveriesseptember}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>0</td>
+              <td>{{total_deliveriesseptember}}</td>
+          
             </tr>
-      </table>
-    </div>
-    </div>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '10'">
@@ -552,29 +1339,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="October">
+    <div id="October" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksoctober}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksoctober of drinksoctober_breakdown">{{drinksoctober.snack}} : {{drinksoctober.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksoctober}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksoctober of snacksoctober_breakdown">{{snacksoctober.snack}} : {{snacksoctober.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsoctober}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsoctober of addonsoctober_breakdown">{{addonsoctober.addonsoctober}} : {{addonsoctober.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱0.00 </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱0.00 </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksoctober_sales}}.00</td>
+        
           </tr>
-    
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksoctober_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsoctober_sales}}.00</td>
+        
+          </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱0.00</td>
+              <td> ₱{{salesoctober| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driveroctober of driveroctober">
+      
+          </tr>
+          
+          <tr *ngFor="let driveroctober of driveroctober_breakdown" >
+          <th>Rider: {{driveroctober.driveroctober}}  </th>
+            <td> {{driveroctober.number_deliveriesoctober}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>0</td>
+              <td>{{total_deliveriesoctober}}</td>
+          
             </tr>
-      </table>
-    </div>
-    </div>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '11'">
@@ -587,29 +1458,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="November">
+    <div id="November" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksnovember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksnovember of drinksnovember_breakdown">{{drinksnovember.snack}} : {{drinksnovember.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksnovember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksnovember of snacksnovember_breakdown">{{snacksnovember.snack}} : {{snacksnovember.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsnovember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsnovember of addonsnovember_breakdown">{{addonsnovember.addonsnovember}} : {{addonsnovember.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱0.00 </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱0.00 </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksnovember_sales}}.00</td>
+        
           </tr>
-    
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksnovember_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsnovember_sales}}.00</td>
+        
+          </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱0.00</td>
+              <td> ₱{{salesnovember| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let drivernovember of drivernovember">
+      
+          </tr>
+          
+          <tr *ngFor="let drivernovember of drivernovember_breakdown" >
+          <th>Rider: {{drivernovember.drivernovember}}  </th>
+            <td> {{drivernovember.number_deliveriesnovember}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>0</td>
+              <td>{{total_deliveriesnovember}}</td>
+          
             </tr>
-      </table>
-    </div>
-    </div>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '12'">
@@ -622,29 +1577,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="December">
+    <div id="December" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinksdecember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinksdecember of drinksdecember_breakdown">{{drinksdecember.snack}} : {{drinksdecember.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snacksdecember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snacksdecember of snacksdecember_breakdown">{{snacksdecember.snack}} : {{snacksdecember.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonsdecember}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonsdecember of addonsdecember_breakdown">{{addonsdecember.addonsdecember}} : {{addonsdecember.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱0.00 </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱0.00 </td>
+          <th>Drinks: </th>
+            <td>₱{{drinksdecember_sales}}.00</td>
+        
           </tr>
-    
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snacksdecember_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonsdecember_sales}}.00</td>
+        
+          </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱0.00</td>
+              <td> ₱{{salesdecember| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let driverdecember of driverdecember">
+      
+          </tr>
+          
+          <tr *ngFor="let driverdecember of driverdecember_breakdown" >
+          <th>Rider: {{driverdecember.driverdecember}}  </th>
+            <td> {{driverdecember.number_deliveriesdecember}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>0</td>
+              <td>{{total_deliveriesdecember}}</td>
+          
             </tr>
-      </table>
-    </div>
-    </div>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   <div class="selector" *ngIf ="month == '0'">
@@ -657,30 +1696,113 @@
     
     </div><br><br>
     
-    <div class="table2" id="CurrentMonth"  >
+    <div id="CurrentMonth" class="table2">
+
+      <mat-accordion  multi>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              {{drinkscurrentmonth}}
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p *ngFor = "let drinkscurrentmonth of drinkscurrentmonth_breakdown">{{drinkscurrentmonth.snack}} : {{drinkscurrentmonth.quantity}}</p>
+        </mat-expansion-panel>
     
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{snackscurrentmonth}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let snackscurrentmonth of snackscurrentmonth_breakdown">{{snackscurrentmonth.snack}} : {{snackscurrentmonth.quantity}}</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+             {{addonscurrentmonth}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngFor = "let addonscurrentmonth of addonscurrentmonth_breakdown">{{addonscurrentmonth.addonscurrentmonth}} : {{addonscurrentmonth.quantity}}</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
       <div class="table2half">
         <table class="table2halftable">
+  
           <tr>
-            <th>Total Snacks Sales:</th>
-            <td> ₱{{salesSnacksCurrentMonth| number : '1.2-2'}} </td>
-          </tr><tr>
-            <th>Total Drinks Sales:</th>
-            <td> ₱{{salesDrinksCurrentMonth| number : '1.2-2'}} </td>
+          <th>Drinks: </th>
+            <td>₱{{drinkscurrentmonth_sales}}.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks: </th>
+            <td>₱{{snackscurrentmonth_sales}}.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons: </th>
+            <td>₱{{addonscurrentmonth_sales}}.00</td>
+        
           </tr>
           <tr>
             <th>Total Sales:</th>
-            <td> ₱{{salesCurrentMonth| number : '1.2-2'}} </td>
+              <td> ₱{{salescurrentmonth| number : '1.2-2'}} </td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr  *ngFor = "let drivercurrentmonth of drivercurrentmonth">
+      
+          </tr>
+          
+          <tr *ngFor="let drivercurrentmonth of drivercurrentmonth_breakdown" >
+          <th>Rider: {{drivercurrentmonth.drivercurrentmonth}}  </th>
+            <td> {{drivercurrentmonth.number_deliveriescurrentmonth}}</td>
+        
           </tr>
           <tr>
             <th>Total Deliveries made: </th>
-              <td>{{total_deliveriesCurrentMonth}}</td>
-            </tr>
-            
+              <td>{{total_deliveriescurrentmonth}}</td>
           
-      </table>
-    </div>
-    </div>
+            </tr>
+        </table>
+  
+  
+  
+  </div>
   </div>
 
   
@@ -688,7 +1810,7 @@
 
 <mat-tab >
   <ng-template mat-tab-label id="hide6">
-    SALES FOR THIS YEAR
+    YEARLY SALES
   </ng-template>
 
   <br>
@@ -719,33 +1841,113 @@
     <button printTitle="Sales Report" printSectionId="CurrentYear" id="hide3" (click)="print()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="CurrentYear">
+  <div id="CurrentYear" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinkscurrentyear}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinkscurrentyear of drinkscurrentyear_breakdown">{{drinkscurrentyear.snack}} : {{drinkscurrentyear.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snackscurrentyear}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snackscurrentyear of snackscurrentyear_breakdown">{{snackscurrentyear.snack}} : {{snackscurrentyear.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addonscurrentyear}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addonscurrentyear of addonscurrentyear_breakdown">{{addonscurrentyear.addonscurrentyear}} : {{addonscurrentyear.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinkscurrentyear_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snackscurrentyear_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addonscurrentyear_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear| number : '1.2-2'}} </td>
+            <td> ₱{{salescurrentyear| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let drivercurrentyear of drivercurrentyear">
+    
+        </tr>
+        
+        <tr *ngFor="let drivercurrentyear of drivercurrentyear_breakdown" >
+        <th>Rider: {{drivercurrentyear.drivercurrentyear}}  </th>
+          <td> {{drivercurrentyear.number_deliveriescurrentyear}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear}}</td>
-          </tr>
-          
+            <td>{{total_deliveriescurrentyear}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '1'">
@@ -757,33 +1959,113 @@
     <button printTitle="Sales Report" printSectionId="2022" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2022">
+  <div id="2022" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2022}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2022 of drinks2022_breakdown">{{drinks2022.snack}} : {{drinks2022.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2022}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2022 of snacks2022_breakdown">{{snacks2022.snack}} : {{snacks2022.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2022}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2022 of addons2022_breakdown">{{addons2022.addons2022}} : {{addons2022.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2022| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2022| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2022_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2022_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2022_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2022| number : '1.2-2'}} </td>
+            <td> ₱{{sales2022| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let driver2022 of driver2022">
+    
+        </tr>
+        
+        <tr *ngFor="let driver2022 of driver2022_breakdown" >
+        <th>Rider: {{driver2022.driver2022}}  </th>
+          <td> {{driver2022.number_deliveries2022}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2022}}</td>
-          </tr>
-          
+            <td>{{total_deliveries2022}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '2'">
@@ -795,33 +2077,113 @@
     <button printTitle="Sales Report" printSectionId="2023" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2023">
+  <div id="2023" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2023}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2023 of drinks2023_breakdown">{{drinks2023.snack}} : {{drinks2023.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2023}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2023 of snacks2023_breakdown">{{snacks2023.snack}} : {{snacks2023.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2023}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2023 of addons2023_breakdown">{{addons2023.addons2023}} : {{addons2023.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2023| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2023| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2023_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2023_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2023_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2023| number : '1.2-2'}} </td>
+            <td> ₱{{sales2023| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let driver2023 of driver2023">
+    
+        </tr>
+        
+        <tr *ngFor="let driver2023 of driver2023_breakdown" >
+        <th>Rider: {{driver2023.driver2023}}  </th>
+          <td> {{driver2023.number_deliveries2023}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2023}}</td>
-          </tr>
-          
+            <td>{{total_deliveries2023}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '3'">
@@ -833,33 +2195,113 @@
     <button printTitle="Sales Report" printSectionId="2024" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2024">
+  <div id="2024" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2024}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2024 of drinks2024_breakdown">{{drinks2024.snack}} : {{drinks2024.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2024}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2024 of snacks2024_breakdown">{{snacks2024.snack}} : {{snacks2024.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2024}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2024 of addons2024_breakdown">{{addons2024.addons2024}} : {{addons2024.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2024| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2024| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2024_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2024_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2024_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2024| number : '1.2-2'}} </td>
+            <td> ₱{{sales2024| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let driver2024 of driver2024">
+    
+        </tr>
+        
+        <tr *ngFor="let driver2024 of driver2024_breakdown" >
+        <th>Rider: {{driver2024.driver2024}}  </th>
+          <td> {{driver2024.number_deliveries2024}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2024}}</td>
-          </tr>
-          
+            <td>{{total_deliveries2024}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '4'">
@@ -871,33 +2313,113 @@
     <button printTitle="Sales Report" printSectionId="2025" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2025">
+  <div id="2025" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2025}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2025 of drinks2025_breakdown">{{drinks2025.snack}} : {{drinks2025.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2025}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2025 of snacks2025_breakdown">{{snacks2025.snack}} : {{snacks2025.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2025}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2025 of addons2025_breakdown">{{addons2025.addons2025}} : {{addons2025.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2025| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2025| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2025_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2025_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2025_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2025| number : '1.2-2'}} </td>
+            <td> ₱{{sales2025| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let driver2025 of driver2025">
+    
+        </tr>
+        
+        <tr *ngFor="let driver2025 of driver2025_breakdown" >
+        <th>Rider: {{driver2025.driver2025}}  </th>
+          <td> {{driver2025.number_deliveries2025}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2025}}</td>
-          </tr>
-          
+            <td>{{total_deliveries2025}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '5'">
@@ -909,33 +2431,113 @@
     <button printTitle="Sales Report" printSectionId="2026" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2026">
+  <div id="2026" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2026}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2026 of drinks2026_breakdown">{{drinks2026.snack}} : {{drinks2026.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2026}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2026 of snacks2026_breakdown">{{snacks2026.snack}} : {{snacks2026.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2026}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2026 of addons2026_breakdown">{{addons2026.addons2026}} : {{addons2026.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2026| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2026| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2026_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2026_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2026_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2026| number : '1.2-2'}} </td>
+            <td> ₱{{sales2026| number : '1.2-2'}} </td>
+        
+          </tr>
+          
+      </table>
+  </div>
+  
+  <div class="twotext">
+    <div class="add-ons">
+      <p>Deliveries</p>
+    </div>
+    <div class="size">
+      <p>Sales</p>
+    </div>
+  </div>
+
+      
+      <table >
+
+        <tr  *ngFor = "let driver2026 of driver2026">
+    
+        </tr>
+        
+        <tr *ngFor="let driver2026 of driver2026_breakdown" >
+        <th>Rider: {{driver2026.driver2026}}  </th>
+          <td> {{driver2026.number_deliveries2026}}</td>
+      
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2026}}</td>
-          </tr>
-          
+            <td>{{total_deliveries2026}}</td>
         
-    </table>
-  </div>
-  
-  
-  </div>
+          </tr>
+      </table>
+
+
+
+</div>
 </div>
 
 <div class="selector" *ngIf ="year == '6'">
@@ -947,202 +2549,81 @@
     <button printTitle="Sales Report" printSectionId="2027" (click)="print()"  id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
   </div><br><br>
   
-  <div class="table2" id="2027">
+  <div id="2027" class="table2">
+
+    <mat-accordion  multi>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Drinks : 
+          </mat-panel-title>
+          <mat-panel-description>
+            {{drinks2027}}
+          </mat-panel-description>
+        </mat-expansion-panel-header >
+          <p *ngFor = "let drinks2027 of drinks2027_breakdown">{{drinks2027.snack}} : {{drinks2027.quantity}}</p>
+      </mat-expansion-panel>
   
+      <mat-expansion-panel >
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            Snacks :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{snacks2027}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let snacks2027 of snacks2027_breakdown">{{snacks2027.snack}} : {{snacks2027.quantity}}</p>
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Add ons :
+          </mat-panel-title>
+          <mat-panel-description>
+           {{addons2027}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p *ngFor = "let addons2027 of addons2027_breakdown">{{addons2027.addons2027}} : {{addons2027.quantity}}</p>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  
+
+<br>
+                          <!-- palitan ng table design -->
+                          
+ 
+
+
     <div class="table2half">
       <table class="table2halftable">
+
         <tr>
-          <th>Total Snacks Sales:</th>
-          <td> ₱{{salesSnacksYear2027| number : '1.2-2'}} </td>
-        </tr><tr>
-          <th>Total Drinks Sales:</th>
-          <td> ₱{{salesDrinksYear2027| number : '1.2-2'}} </td>
+        <th>Drinks: </th>
+          <td>₱{{drinks2027_sales}}.00</td>
+      
         </tr>
-  
+        <tr>
+        <th>Snacks: </th>
+          <td>₱{{snacks2027_sales}}.00</td>
+     
+      
+        </tr>
+        <tr>
+        <th>Add ons: </th>
+          <td>₱{{addons2027_sales}}.00</td>
+      
+        </tr>
         <tr>
           <th>Total Sales:</th>
-          <td> ₱{{salesYear2027| number : '1.2-2'}} </td>
-        </tr>
-        <tr>
-          <th>Total Deliveries made: </th>
-            <td>{{total_deliveriesYear2027}}</td>
+            <td> ₱{{sales2027| number : '1.2-2'}} </td>
+        
           </tr>
           
-        
-    </table>
+      </table>
   </div>
-  
-  
-  </div>
-</div>
-
-
-</mat-tab>
-
-
-</mat-tab-group>
-
-
-    <!--
-  
-  MONTHS
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-      January
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-    
-  </mat-tab>
-  
-  
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-      February
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     March
-    </ng-template>
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     April
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-      May
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-    
-  
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-      June
-    </ng-template>
-  
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     July
-    </ng-template>
-  
-    
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  </mat-tab>
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-      August
-    </ng-template>
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-    
-  </mat-tab>
-  
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     September
-    </ng-template>
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-  
-  </mat-tab>
-  
-  
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     October
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-    
-  </mat-tab>
-  
-  
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-    November
-    </ng-template>
-  
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div>
-    
-  </mat-tab>
-  
-  
-  
-  <mat-tab >
-    <ng-template mat-tab-label>
-     December
-    </ng-template>
-    <div class="printbutton">
-      <button printTitle="Sales Report" printSectionId="print" ngxPrint class="print"><mat-icon>receipt</mat-icon>&nbsp;Print Report</button>
-    
-    </div> -->
-
-<!-- <div id="print" class="container">
-
   
   <div class="twotext">
     <div class="add-ons">
@@ -1152,116 +2633,38 @@
       <p>Sales</p>
     </div>
   </div>
-    <div class="newcontainer">
-      
-    <div class="table1">
 
       
       <table >
 
-        <tr  *ngFor = "let driver of driver">
+        <tr  *ngFor = "let driver2027 of driver2027">
     
         </tr>
         
-        <tr *ngFor="let driver of driver_breakdown" >
-        <th>Rider: {{driver.driver}}  </th>
-          <td> {{driver.number_deliveries}}</td>
+        <tr *ngFor="let driver2027 of driver2027_breakdown" >
+        <th>Rider: {{driver2027.driver2027}}  </th>
+          <td> {{driver2027.number_deliveries2027}}</td>
       
         </tr>
         <tr>
           <th>Total Deliveries made: </th>
-            <td>{{total_deliveries}}</td>
+            <td>{{total_deliveries2027}}</td>
         
           </tr>
       </table>
-  
 
 
-</div>
-
-  <div class="table2">
-    <div class="table2half">
-    <table class="table2halftable">
-
-      <tr>
-      <th>Drinks: </th>
-        <td>₱{{drinks_sales}}.00</td>
-    
-      </tr>
-      <tr>
-      <th>Snacks: </th>
-        <td>₱{{snacks_sales}}.00</td>
-   
-    
-      </tr>
-      <tr>
-      <th>Add ons: </th>
-        <td>₱{{addons_sales}}.00</td>
-    
-      </tr>
-      <tr>
-        <th>Total Sales:</th>
-          <td> ₱{{sales| number : '1.2-2'}} </td>
-      
-        </tr>
-        
-    </table>
-  </div>
-  
-<div class="table2newhalf">
-
-  <div class="prodreduce">
-    <p>Product Reduced</p>
-  </div>
-
-
-  <mat-accordion  multi>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Drinks : 
-        </mat-panel-title>
-        <mat-panel-description>
-          {{drinks}}
-        </mat-panel-description>
-      </mat-expansion-panel-header >
-     
-        <p *ngFor = "let drinks of drinks_breakdown">{{drinks.snack}} : {{drinks.quantity}}</p>
-        
-      
-      
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header >
-        <mat-panel-title>
-          Snacks :
-        </mat-panel-title>
-        <mat-panel-description>
-         {{snacks}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p *ngFor = "let snacks of snacks_breakdown">{{snacks.snack}} : {{snacks.quantity}}</p>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Add ons :
-        </mat-panel-title>
-        <mat-panel-description>
-         {{addons}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p *ngFor = "let addons of addons_breakdown">{{addons.addons}} : {{addons.quantity}}</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-
-</div>
 
 </div>
 </div>
 
-</div> -->
+
+</mat-tab>
+
+
+</mat-tab-group>
+
+
 </div>
 
 
