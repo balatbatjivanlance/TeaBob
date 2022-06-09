@@ -133,18 +133,52 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-
   }
   .print{
- 
+    display: flex;
+    justify-content:center ;
+    align-items: center;  
     margin-top: 10px;
+    margin-left: 150px;
+    font-family: 'Poppins', sans-serif;
     background-color: #4B1F0E;
     color: white;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+    width: 40%;
+    padding: 10px;
+  }
+
+  .print01 {
+    display: flex;
+    justify-content:center ;
+    align-items: center;  
+    font-family: 'Poppins', sans-serif;
+    background-color: #4B1F0E;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
     border-radius: 10px;
     width: 100%;
+    padding: 10px;
   }
+
+  .print03 {
+    display: flex;
+    justify-content:center ;
+    align-items: center;  
+    font-family: 'Poppins', sans-serif;
+    background-color: #4B1F0E;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+  
+  }
+
   
   
   .toolbar {
@@ -368,7 +402,23 @@
   }
 
   .picker {
-    width: 60%;
+    width: 100%;
+    padding: 0 0 0px 5px;
+    font-size: 15px;
+    background-color: rgb(241, 241, 241);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+  }
+
+  .picker1 {
+    width: 500px;
+      display: flex ;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .picker1 > input {
+    margin: 10px;
   }
 
   .tablenewhalf{

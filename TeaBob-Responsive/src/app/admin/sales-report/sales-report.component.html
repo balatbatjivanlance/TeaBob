@@ -103,11 +103,14 @@
     
   <div class="printbutton">
     <button  (click)="exportexcel()" printTitle="Daily Sales"  class="print" id="hide3"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
-    <input class="picker" [ngModelOptions]="{standalone: true}" [(ngModel)]="fromdate" type="date" id="datestart">
-    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="todate" type="date" id="dateend">
+    <div class="picker1">
+      <input class="picker" [ngModelOptions]="{standalone: true}" [(ngModel)]="fromdate" type="date" id="datestart">
+      <input class="picker" [ngModelOptions]="{standalone: true}" [(ngModel)]="todate" type="date" id="dateend">
+    </div>
+
   </div>
   <div class="printbutton">
-    <button class="print" (click)="showData()">Show Data</button>
+    <button class="print01" (click)="showData()">Show Data</button>
   </div>
 
 
@@ -273,18 +276,78 @@
         <mat-label id="month-label">Select Month</mat-label>
         <mat-select  matNativeControl id="month" [(value)]="month"  >
           <!-- <mat-option value="0"  >Current Month</mat-option> -->
-          <mat-option value="0000-01-00">January</mat-option>
-          <mat-option value="0000-02-00">February</mat-option>
-          <mat-option value="0000-03-00">March</mat-option>
-          <mat-option value="0000-04-00">April</mat-option>
-          <mat-option value="0000-05-00">May</mat-option>
-          <mat-option value="0000-06-00">June</mat-option>
-          <mat-option value="0000-07-00">July</mat-option>
-          <mat-option value="0000-08-00">August</mat-option>
-          <mat-option value="0000-09-00">September</mat-option>
-          <mat-option value="0000-10-00">October</mat-option>
-          <mat-option value="0000-11-00">November</mat-option>
-          <mat-option value="0000-12-00">December</mat-option>
+          <mat-option value="0000-01-00">January2022</mat-option>
+          <mat-option value="0000-02-00">February2022</mat-option>
+          <mat-option value="0000-03-00">March2022</mat-option>
+          <mat-option value="0000-04-00">April2022</mat-option>
+          <mat-option value="0000-05-00">May2022</mat-option>
+          <mat-option value="0000-06-00">June2022</mat-option>
+          <mat-option value="0000-07-00">July2022</mat-option>
+          <mat-option value="0000-08-00">August2022</mat-option>
+          <mat-option value="0000-09-00">September2022</mat-option>
+          <mat-option value="0000-10-00">October2022</mat-option>
+          <mat-option value="0000-11-00">November2022</mat-option>
+          <mat-option value="0000-12-00">December2022</mat-option>
+          <mat-option value="001">January2023</mat-option>
+          <mat-option value="001">February2023</mat-option>
+          <mat-option value="001">March2023</mat-option>
+          <mat-option value="001">April2023</mat-option>
+          <mat-option value="001">May2023</mat-option>
+          <mat-option value="001">June2023</mat-option>
+          <mat-option value="001">July2023</mat-option>
+          <mat-option value="001">August2023</mat-option>
+          <mat-option value="001">September2023</mat-option>
+          <mat-option value="001">October2023</mat-option>
+          <mat-option value="001">November2023</mat-option>
+          <mat-option value="001">December2023</mat-option>
+          <mat-option value="001">January2024</mat-option>
+          <mat-option value="001">February2024</mat-option>
+          <mat-option value="001">March2024</mat-option>
+          <mat-option value="001">April2024</mat-option>
+          <mat-option value="001">May2024</mat-option>
+          <mat-option value="001">June2024</mat-option>
+          <mat-option value="001">July2024</mat-option>
+          <mat-option value="001">August2024</mat-option>
+          <mat-option value="001">September2024</mat-option>
+          <mat-option value="001">October2024</mat-option>
+          <mat-option value="001">November2024</mat-option>
+          <mat-option value="001">December2024</mat-option>
+          <mat-option value="001">January2025</mat-option>
+          <mat-option value="001">February2025</mat-option>
+          <mat-option value="001">March2025</mat-option>
+          <mat-option value="001">April2025</mat-option>
+          <mat-option value="001">May2025</mat-option>
+          <mat-option value="001">June2025</mat-option>
+          <mat-option value="001">July2025</mat-option>
+          <mat-option value="001">August2025</mat-option>
+          <mat-option value="001">September2025</mat-option>
+          <mat-option value="001">October2025</mat-option>
+          <mat-option value="001">November2025</mat-option>
+          <mat-option value="001">December2025</mat-option>
+          <mat-option value="001">January2026</mat-option>
+          <mat-option value="001">February2026</mat-option>
+          <mat-option value="001">March2026</mat-option>
+          <mat-option value="001">April2026</mat-option>
+          <mat-option value="001">May2026</mat-option>
+          <mat-option value="001">June2026</mat-option>
+          <mat-option value="001">July2026</mat-option>
+          <mat-option value="001">August2026</mat-option>
+          <mat-option value="001">September2027</mat-option>
+          <mat-option value="001">October2027</mat-option>
+          <mat-option value="001">November2027</mat-option>
+          <mat-option value="001">December2027</mat-option>
+          <mat-option value="001">January2027</mat-option>
+          <mat-option value="001">February2027</mat-option>
+          <mat-option value="001">March2027</mat-option>
+          <mat-option value="001">April2027</mat-option>
+          <mat-option value="001">May2027</mat-option>
+          <mat-option value="001">June2027</mat-option>
+          <mat-option value="001">July2027</mat-option>
+          <mat-option value="001">August2027</mat-option>
+          <mat-option value="001">September2027</mat-option>
+          <mat-option value="001">October2027</mat-option>
+          <mat-option value="001">November2027</mat-option>
+          <mat-option value="001">December2027</mat-option>
 
         </mat-select>
       </mat-form-field>
@@ -308,6 +371,127 @@
     </form> 
   </div> -->
 
+  <div class="selector" *ngIf ="month == '001'">
+  <div class="container3">
+    <div class="prodreduce">
+      <p>SALES for the Month</p>
+    </div>
+
+    <div class="printbutton">
+      <button printTitle="Sales Report Month" printSectionId="MONTH" id="hide3" (click)="exportexcel()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    
+    </div><br><br>
+    
+    <div id="MONTH" class="table2">
+
+      <mat-accordion  multi class="daily-accordion">
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Drinks : 
+            </mat-panel-title>
+            <mat-panel-description>
+              00.0
+            </mat-panel-description>
+          </mat-expansion-panel-header >
+            <p>00.0</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              Snacks :
+            </mat-panel-title>
+            <mat-panel-description>
+              <p>00.0 : 00.0</p>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>00.0 : 00.0</p>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add ons :
+            </mat-panel-title>
+            <mat-panel-description>
+              <p>00.0</p>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>00.0 : 00.0</p>
+        </mat-expansion-panel>
+    
+      </mat-accordion>
+    
+  
+  <br>
+                            <!-- palitan ng table design -->
+                            
+   
+  
+  
+      <div class="table2half">
+        <table class="table2halftable">
+  
+          <tr>
+          <th>Drinks Total Sales: </th>
+            <td>₱0.00</td>
+        
+          </tr>
+          <tr>
+          <th>Snacks Total Sales: </th>
+            <td>₱0.00</td>
+       
+        
+          </tr>
+          <tr>
+          <th>Add ons Total Sales: </th>
+          <td>₱0.00</td>
+        
+          </tr>
+          <tr>
+            <th>Overall Sales:</th>
+            <td>₱0.00</td>
+          
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="twotext">
+      <div class="add-ons">
+        <p>Deliveries</p>
+      </div>
+      <div class="size">
+        <p>Sales</p>
+      </div>
+    </div>
+  
+        
+        <table >
+  
+          <tr>
+      
+          </tr>
+          
+          <tr>
+          <th>Rider</th>
+            <td></td>
+        
+          </tr>
+          <tr>
+            <th>Total Deliveries made: </th>
+            <td>₱0.00</td>
+          
+            </tr>
+        </table>
+  
+  
+  
+  </div>
+  </div>
+  </div>
+
 
   <div class="selector" *ngIf ="month == '0000-01-00'">
     <div class="container3">
@@ -316,7 +500,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of January" printSectionId="January" id="hide3" (click)="exportexcelJanuary()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of January" printSectionId="January" id="hide3" (click)="exportexcelJanuary()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -436,7 +620,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of February" id="hide3" printSectionId="February" (click)="exportexcelFebruary()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of February" id="hide3" printSectionId="February" (click)="exportexcelFebruary()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -555,7 +739,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of March" printSectionId="March"id="hide3" (click)="exportexcelMarch()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of March" printSectionId="March"id="hide3" (click)="exportexcelMarch()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -674,7 +858,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of April" printSectionId="April" id="hide3" (click)="exportexcelApril()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of April" printSectionId="April" id="hide3" (click)="exportexcelApril()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -793,7 +977,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of May" printSectionId="May" id="hide3" (click)="exportexcelMay()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of May" printSectionId="May" id="hide3" (click)="exportexcelMay()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -912,7 +1096,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of June" printSectionId="June"id="hide3" (click)="exportexcelJune()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of June" printSectionId="June"id="hide3" (click)="exportexcelJune()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1033,7 +1217,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of July" printSectionId="July" id="hide3" (click)="exportexcelJuly()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of July" printSectionId="July" id="hide3" (click)="exportexcelJuly()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1152,7 +1336,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of August" printSectionId="August" id="hide3" (click)="exportexcelAugust()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of August" printSectionId="August" id="hide3" (click)="exportexcelAugust()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1271,7 +1455,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of September" printSectionId="September" id="hide3" (click)="exportexcelSeptember()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of September" printSectionId="September" id="hide3" (click)="exportexcelSeptember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1390,7 +1574,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of October" printSectionId="October" id="hide3" (click)="exportexcelOctober()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of October" printSectionId="October" id="hide3" (click)="exportexcelOctober()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1509,7 +1693,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of November" printSectionId="November" id="hide3"(click)="exportexcelNovember()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of November" printSectionId="November" id="hide3"(click)="exportexcelNovember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1628,7 +1812,7 @@
     </div>
 
     <div class="printbutton">
-      <button printTitle="Sales Report Month of December" printSectionId="December"id="hide3" (click)="exportexcelDecember()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="Sales Report Month of December" printSectionId="December"id="hide3" (click)="exportexcelDecember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
@@ -1747,7 +1931,7 @@
     </div>
 
     <div class="printbutton" >
-      <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" id="hide3" (click)="print()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" id="hide3" (click)="print()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
