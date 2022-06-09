@@ -367,6 +367,10 @@
     
   }
 
+  .picker {
+    width: 60%;
+  }
+
   .tablenewhalf{
     height: 50%;
     width: 100%;
@@ -378,7 +382,7 @@
 }
   .table2{
     
-    width: 70%;
+    width: 60%;
     height: auto;
     margin-left: auto;
     margin-right: auto;

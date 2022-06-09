@@ -10,6 +10,10 @@ import {MatTableModule} from '@angular/material/table';
 
 import { HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDateRangePicker } from '@angular/material/datepicker';
+import * as XLSX from 'xlsx';
+
+
 
 export interface PeriodicElement {
 }
@@ -24,9 +28,278 @@ interface LooseObject {[key: string]: any}
 
 
 export class SalesReportComponent implements OnInit {
+  fileName= 'ExcelSheet.xlsx';
+
+  exportexcel(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('Daily');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+
+  exportexcelJanuary(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('January');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelFebruary(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('February');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelMarch(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('March');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelApril(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('April');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelMay(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('May');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelJune(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('June');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelJuly(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('July');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelAugust(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('August');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelSeptember(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('September');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelOctober(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('October');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelNovember(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('November');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcelDecember(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('December');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+
+  
  
   month = '0';
   year = '0';
+  monthlyyear = '0';
+
+  fromdate: any;
+  todate: any;
 
   constructor( private ds: DataService , public dialog: MatDialog, public router: Router) { }
 
@@ -122,18 +395,51 @@ export class SalesReportComponent implements OnInit {
     this.router.navigate(['/']);
 }
 
-//TODAY
+test(){
+  console.log(this.fromdate)
+  console.log(this.todate)
+  console.log(this.year)
+  console.log(this.month)
+
+}
+
+showData(){
+  this.stocksToday();
+  this.driverDeliveryToday();
+  this.deliveryToday();
+}
+//Date Picker
+
+// fromNg: any;
+// toNg: any;
+// moneymoney
+// selectPosBarbersWeekly() {
+//   var getDateVar1 = (<HTMLInputElement>document.getElementById("datePick1")).value;
+//   var getDateVar2 = (<HTMLInputElement>document.getElementById("datePick2")).value;
+//   this.fromNg = (getDateVar1).format('YYYY-MM-DD'); // 2019-04-22
+//   this.toNg = (getDateVar2).format('YYYY-MM-DD'); // 2019-04-22
+//   this.ds.sendApiRequest("selectPosBarbersServices2/"+"weekly/"+this.fromNg+"/"+this.toNg, null).subscribe((data: { payload: any[]; }) => {
+//     this.j = data.payload;
+//     for(var i =0; i < this.j.length; i++){
+      
+//       this.moneymoney += this.j[i].pos_payment;
+//       }
+    
+//   });
+// }
 
 //TODAY
 
 
 total_deliveriestoday: number = 0;
 deliverytoday: any = {};
-
+deliveryrequestPayloadtoday:any = {};
 salestoday:number =0;
 deliveryToday(){
-  
-  this.ds.sendApiRequest("deliveryToday", null).subscribe((data: { payload: any; }) => {
+  this.deliveryrequestPayloadtoday.fromDate = this.fromdate;
+  this.deliveryrequestPayloadtoday.toDate = this.todate;
+  this.deliveryrequestPayloadtoday.conDate = 1;
+  this.ds.sendApiRequest("deliveryToday",  JSON.parse(JSON.stringify(this.deliveryrequestPayloadtoday))).subscribe((data: { payload: any; }) => {
   this.deliverytoday = data.payload;
   
   this.total_deliveriestoday = this.deliverytoday.length;
@@ -182,11 +488,38 @@ var data = [];
 }
 
 drivertoday: any;
+driverrequestPayloadtoday:any = {};
 driverDeliveryToday() {
-    this.ds.sendApiRequest("driverDeliveryToday", null).subscribe((data: { payload: any; }) => {
+  this.driverrequestPayloadtoday.fromDate = this.fromdate;
+  this.driverrequestPayloadtoday.toDate = this.todate;
+  this.driverrequestPayloadtoday.conDate = 1;
+    this.ds.sendApiRequest("driverDeliveryToday", JSON.parse(JSON.stringify(this.driverrequestPayloadtoday))).subscribe((data: { payload: any; }) => {
     this.drivertoday = data.payload;
     })
 }
+requestPayload:any = {};
+t:any;
+stocksDaily() {
+  this.requestPayload.fromDate = this.fromdate;
+  this.requestPayload.toDate = this.todate;
+  this.requestPayload.conDate = 1;
+    this.ds.sendApiRequest("stocksDaily", JSON.parse(JSON.stringify(this.requestPayload))).subscribe((data: { payload: any; }) => {
+      this.t = data.payload;
+      this.drinkstoday = this.t.length;
+      console.log(this.t)
+    })
+}
+ts:any;
+stocksDaily2() {
+  this.requestPayload.monthDate = this.month;
+  this.requestPayload.monthyearDate = this.monthlyyear
+    this.ds.sendApiRequest("stocksDaily2", this.requestPayload).subscribe((data: { payload: any; }) => {
+      this.ts = data.payload;
+
+    })
+}
+
+
 
 drinkstoday:number=0;
 snackstoday:number=0;
@@ -196,8 +529,12 @@ drinkstoday_sales:number=0;
 snackstoday_sales:number=0;
 addonstoday_sales:number=0;
 stockstoday:any;
+requestPayloadtoday:any = {};
 stocksToday(){
-  this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
+  this.requestPayloadtoday.fromDate = this.fromdate;
+  this.requestPayloadtoday.toDate = this.todate;
+  this.requestPayloadtoday.conDate = 1;
+  this.ds.sendApiRequest("stocksToday",  JSON.parse(JSON.stringify(this.requestPayloadtoday))).subscribe((data: { payload: any; }) => {
   this.stockstoday = data.payload;
   // //console.log(data.payload)
 
@@ -238,6 +575,8 @@ stocksToday(){
     }
 
     this.items_keycounttoday();
+    this.deliveryToday();
+    this.driverDeliveryToday();
   });
 
  

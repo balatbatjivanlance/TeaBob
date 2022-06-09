@@ -44,6 +44,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { ViewOrdersComponent } from './admin/view-orders/view-orders.component';
 import { UpdateFoodComponent } from './admin/update-food/update-food.component';
@@ -134,7 +135,8 @@ import { ItemsTodayComponent } from './admin/items-today/items-today.component';
     MatTabsModule,
     NgxPrintModule,
     MatExpansionModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatDatepickerModule
   ],
   providers: [{
     provide: LocationStrategy, useClass: HashLocationStrategy

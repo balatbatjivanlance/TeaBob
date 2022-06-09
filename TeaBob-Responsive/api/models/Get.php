@@ -447,8 +447,24 @@ public function pullOndelivery ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+// public function pullDeliveredToday ($d) {
+// 	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved IN (4) ORDER BY cocode_id DESC";
+	
+// 	$res = $this->gm->generalQuery($sql, "No records found");
+// 	if ($res['code'] == 200) {
+// 		$payload = $res['data'];
+// 		$remarks = "success";
+// 		$message = "Successfully retrieved requested data";
+// 	} else {
+// 		$payload = null;
+// 		$remarks = "failed";
+// 		$message = $res['errmsg'];
+// 	}
+// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+// }
+
 public function pullDeliveredToday ($d) {
-	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved IN (4) ORDER BY cocode_id DESC";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved IN (4) ORDER BY cocode_id DESC";
 	
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -495,9 +511,27 @@ public function pullSales ($d) {
 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
 }
 
+// public function deliveryToday ($d) {
+
+// 	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4";
+
+// 	$res = $this->gm->generalQuery($sql, "No records found");
+// 	if ($res['code'] == 200) {
+// 		$payload = $res['data'];
+// 		$remarks = "success";
+// 		$message = "Successfully retrieved requested data";
+// 	} else {
+// 		$payload = null;
+// 		$remarks = "failed";
+// 		$message = $res['errmsg'];
+// 	}
+// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+// }
 public function deliveryToday ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 4 
+	AND date BETWEEN '$d->fromDate' AND '$d->toDate'";
 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
@@ -531,9 +565,27 @@ public function ordersToday ($d) {
 
 }
 
+// public function driverDeliveryToday ($d) {
+
+// 	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+// 	$res = $this->gm->generalQuery($sql, "No records found");
+// 	if ($res['code'] == 200) {
+// 		$payload = $res['data'];
+// 		$remarks = "success";
+// 		$message = "Successfully retrieved requested data";
+// 	} else {
+// 		$payload = null;
+// 		$remarks = "failed";
+// 		$message = $res['errmsg'];
+// 	}
+// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+// }
+
 public function driverDeliveryToday ($d) {
 
-	$sql = "SELECT * FROM tbl_cocode WHERE date >= CURDATE() AND is_approved = 4 AND driver = 'Jivan Balatbat' ";
+	$sql = "SELECT * FROM tbl_cocode WHERE is_approved = 4 AND driver = 'Jivan Balatbat'
+	AND date BETWEEN '$d->fromDate' AND '$d->toDate'";
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
 		$payload = $res['data'];
@@ -566,11 +618,56 @@ public function cancelledToday ($d) {
 
 }
 
+// public function stocksToday ($d) {
+
+// 	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout 
+// 	INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code
+// 	 WHERE tbl_checkout.checkout_date >= CURDATE() AND tbl_cocode.is_approved != 0";
+	 
+// 	$res = $this->gm->generalQuery($sql, "No records found");
+// 	if ($res['code'] == 200) {
+// 		$payload = $res['data'];
+// 		$remarks = "success";
+// 		$message = "Successfully retrieved requested data";
+// 	} else {
+// 		$payload = null;
+// 		$remarks = "failed";
+// 		$message = $res['errmsg'];
+// 	}
+// 	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+// }
+
 public function stocksToday ($d) {
 
 	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout 
 	INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code
-	 WHERE tbl_checkout.checkout_date >= CURDATE() AND tbl_cocode.is_approved != 0";
+	 WHERE tbl_cocode.is_approved != 0 AND tbl_checkout.checkout_date BETWEEN '$d->fromDate' AND '$d->toDate'";
+	 
+	$res = $this->gm->generalQuery($sql, "No records found");
+	if ($res['code'] == 200) {
+		$payload = $res['data'];
+		$remarks = "success";
+		$message = "Successfully retrieved requested data";
+	} else {
+		$payload = null;
+		$remarks = "failed";
+		$message = $res['errmsg'];
+	}
+	return $this->gm->sendPayload($payload, $remarks, $message, $res['code']);
+
+}
+
+public function stocksDaily ($d) {
+
+	$sql = "SELECT tbl_checkout.*,tbl_cocode.* FROM tbl_checkout 
+	INNER JOIN tbl_cocode ON tbl_checkout.code = tbl_cocode.code
+	 WHERE tbl_cocode.is_approved != 0  AND tbl_checkout.checkout_date BETWEEN '$d->fromDate' AND '$d->toDate' ORDER BY checkout_date DESC";
+
+
+// if($d->conDate == "monthly") {
+// 	$this->sql .= " AND MONTH(tbl_checkout.checkout_date) = MONTH('$d->monthDate') AND YEAR(tbl_checkout.checkout_date) = YEAR('$d->monthyearDate') ORDER BY checkout_date DESC";
+// }
 	 
 	$res = $this->gm->generalQuery($sql, "No records found");
 	if ($res['code'] == 200) {
