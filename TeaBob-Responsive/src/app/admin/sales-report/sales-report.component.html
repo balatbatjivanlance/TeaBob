@@ -102,7 +102,7 @@
     </ng-template>  
     
   <div class="printbutton">
-    <button  (click)="exportexcel()" printTitle="Daily Sales"  class="print" id="hide3"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button  (click)="exportexcel()" printTitle="Daily Sales" class="print" id="hide3"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     <div class="picker1">
       <input class="picker" [ngModelOptions]="{standalone: true}" [(ngModel)]="fromdate" type="date" id="datestart">
       <input class="picker" [ngModelOptions]="{standalone: true}" [(ngModel)]="todate" type="date" id="dateend">
@@ -120,15 +120,17 @@
   
   <div id="Daily" class="table2">
 
-    <!-- <table>
+    <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinkstoday}}</td>
       </tr>
-      <tr *ngFor = "let drinkstoday of t">
-        <th >{{drinkstoday.prod_name}}</th>
-        <td>{{drinkstoday.food_quantity}}</td>
+      <tr *ngFor = "let drinkstoday of drinkstoday_breakdown">
+        <th>{{drinkstoday.snack}}</th>
+        <td>{{drinkstoday.quantity}}</td>
       </tr>
+
+      
     </table>
 
     <table>
@@ -136,7 +138,7 @@
         <th>Snacks Sales</th>
         <td>{{snackstoday}}</td>
       </tr>
-      <tr *ngFor = "let snackstoday of t">
+      <tr *ngFor = "let snackstoday of snackstoday_breakdown">
         <th >{{snackstoday.snack}}</th>
         <td>{{snackstoday.quantity}}</td>
       </tr>
@@ -147,13 +149,13 @@
         <th>Add ons Sales</th>
         <td>{{addonstoday}}</td>
       </tr>
-      <tr *ngFor = "let addonstoday of t">
-        <th >{{addonstoday.snack}}</th>
+      <tr *ngFor = "let addonstoday of addonstoday_breakdown">
+        <th> {{addonstoday.addonstoday}}</th>
         <td>{{addonstoday.quantity}}</td>
       </tr>
-    </table> -->
+    </table>
 
-    <mat-accordion class="daily-accordion"  multi >
+    <!-- <mat-accordion class="daily-accordion"  multi >
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -190,7 +192,7 @@
         <p *ngFor = "let addonstoday of addonstoday_breakdown">{{addonstoday.addonstoday}} : {{addonstoday.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -226,6 +228,7 @@
           </tr>    
       </table>
   </div>
+  <br>
   
   <div class="twotext">
     <div class="add-ons">
@@ -237,7 +240,7 @@
   </div>
 
       
-      <table style="width: 100%;">
+      <table >
 
         <tr  *ngFor = "let drivertoday of drivertoday"></tr>
         
@@ -384,6 +387,7 @@
     
     <div id="MONTH" class="table2">
 
+      
       <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -505,8 +509,42 @@
     </div><br><br>
     
     <div id="January" class="table2">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksjanuary}}</td>
+        </tr>
+        <tr *ngFor = "let drinksjanuary of drinksjanuary_breakdown">
+          <th>{{drinksjanuary.snack}}</th>
+          <td>{{drinksjanuary.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksjanuary}}</td>
+        </tr>
+        <tr *ngFor = "let snacksjanuary of snacksjanuary_breakdown">
+          <th >{{snacksjanuary.snack}}</th>
+          <td>{{snacksjanuary.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsjanuary}}</td>
+        </tr>
+        <tr *ngFor = "let addonsjanuary of addonsjanuary_breakdown">
+          <th> {{addonsjanuary.addonsjanuary}}</th>
+          <td>{{addonsjanuary.quantity}}</td>
+        </tr>
+      </table>
 
-      <mat-accordion  multi class="daily-accordion">
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -544,7 +582,7 @@
         </mat-expansion-panel>
     
       </mat-accordion>
-    
+     -->
   
   <br>
                             <!-- palitan ng table design -->
@@ -626,7 +664,42 @@
     
     <div id="February" class="table2">
 
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksfebruary}}</td>
+        </tr>
+        <tr *ngFor = "let drinksfebruary of drinksfebruary_breakdown">
+          <th>{{drinksfebruary.snack}}</th>
+          <td>{{drinksfebruary.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksfebruary}}</td>
+        </tr>
+        <tr *ngFor = "let snacksfebruary of snacksfebruary_breakdown">
+          <th >{{snacksfebruary.snack}}</th>
+          <td>{{snacksfebruary.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsfebruary}}</td>
+        </tr>
+        <tr *ngFor = "let addonsfebruary of addonsfebruary_breakdown">
+          <th> {{addonsfebruary.addonsfebruary}}</th>
+          <td>{{addonsfebruary.quantity}}</td>
+        </tr>
+      </table>
+
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -663,7 +736,7 @@
           <p *ngFor = "let addonsfebruary of addonsfebruary_breakdown">{{addonsfebruary.addonsfebruary}} : {{addonsfebruary.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -745,7 +818,42 @@
     
     <div id="March" class="table2">
 
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksmarch}}</td>
+        </tr>
+        <tr *ngFor = "let drinksmarch of drinksmarch_breakdown">
+          <th>{{drinksmarch.snack}}</th>
+          <td>{{drinksmarch.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksmarch}}</td>
+        </tr>
+        <tr *ngFor = "let snacksmarch of snacksmarch_breakdown">
+          <th >{{snacksmarch.snack}}</th>
+          <td>{{snacksmarch.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsmarch}}</td>
+        </tr>
+        <tr *ngFor = "let addonsmarch of addonsmarch_breakdown">
+          <th> {{addonsmarch.addonsmarch}}</th>
+          <td>{{addonsmarch.quantity}}</td>
+        </tr>
+      </table>
+
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -782,7 +890,7 @@
           <p *ngFor = "let addonsmarch of addonsmarch_breakdown">{{addonsmarch.addonsmarch}} : {{addonsmarch.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -864,7 +972,42 @@
     
     <div id="April" class="table2">
 
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksapril}}</td>
+        </tr>
+        <tr *ngFor = "let drinksapril of drinksapril_breakdown">
+          <th>{{drinksapril.snack}}</th>
+          <td>{{drinksapril.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksapril}}</td>
+        </tr>
+        <tr *ngFor = "let snacksapril of snacksapril_breakdown">
+          <th >{{snacksapril.snack}}</th>
+          <td>{{snacksapril.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsapril}}</td>
+        </tr>
+        <tr *ngFor = "let addonsapril of addonsapril_breakdown">
+          <th> {{addonsapril.addonsapril}}</th>
+          <td>{{addonsapril.quantity}}</td>
+        </tr>
+      </table>
+
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -901,7 +1044,7 @@
           <p *ngFor = "let addonsapril of addonsapril_breakdown">{{addonsapril.addonsapril}} : {{addonsapril.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -982,8 +1125,41 @@
     </div><br><br>
     
     <div id="May" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksmay}}</td>
+        </tr>
+        <tr *ngFor = "let drinksmay of drinksmay_breakdown">
+          <th>{{drinksmay.snack}}</th>
+          <td>{{drinksmay.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksmay}}</td>
+        </tr>
+        <tr *ngFor = "let snacksmay of snacksmay_breakdown">
+          <th >{{snacksmay.snack}}</th>
+          <td>{{snacksmay.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsmay}}</td>
+        </tr>
+        <tr *ngFor = "let addonsmay of addonsmay_breakdown">
+          <th> {{addonsmay.addonsmay}}</th>
+          <td>{{addonsmay.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1020,7 +1196,7 @@
           <p *ngFor = "let addonsmay of addonsmay_breakdown">{{addonsmay.addonsmay}} : {{addonsmay.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1101,8 +1277,42 @@
     </div><br><br>
     
     <div id="June" class="table2">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksjune}}</td>
+        </tr>
+        <tr *ngFor = "let drinksjune of drinksjune_breakdown">
+          <th>{{drinksjune.snack}}</th>
+          <td>{{drinksjune.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksjune}}</td>
+        </tr>
+        <tr *ngFor = "let snacksjune of snacksjune_breakdown">
+          <th >{{snacksjune.snack}}</th>
+          <td>{{snacksjune.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsjune}}</td>
+        </tr>
+        <tr *ngFor = "let addonsjune of addonsjune_breakdown">
+          <th> {{addonsjune.addonsjune}}</th>
+          <td>{{addonsjune.quantity}}</td>
+        </tr>
+      </table>
 
-      <mat-accordion  multi class="daily-accordion">
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1139,7 +1349,7 @@
           <p *ngFor = "let addonsjune of addonsjune_breakdown">{{addonsjune.addonsjune}} : {{addonsjune.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1222,8 +1432,41 @@
     </div><br><br>
     
     <div id="July" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+            <td>{{drinksjuly}}</td>
+        </tr>
+        <tr *ngFor = "let drinksjuly of drinksjuly_breakdown">
+          <th>{{drinksjuly.snack}}</th>
+          <td>{{drinksjuly.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksjuly}}</td>
+        </tr>
+        <tr *ngFor = "let snacksjuly of snacksjuly_breakdown">
+          <th >{{snacksjuly.snack}}</th>
+          <td>{{snacksjuly.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsjuly}}</td>
+        </tr>
+        <tr *ngFor = "let addonsjuly of addonsjuly_breakdown">
+          <th> {{addonsjuly.addonsjuly}}</th>
+          <td>{{addonsjuly.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1261,7 +1504,7 @@
         </mat-expansion-panel>
     
       </mat-accordion>
-    
+     -->
   
   <br>
                             <!-- palitan ng table design -->
@@ -1341,8 +1584,41 @@
     </div><br><br>
     
     <div id="August" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksaugust}}</td>
+        </tr>
+        <tr *ngFor = "let drinksaugust of drinksaugust_breakdown">
+          <th>{{drinksaugust.snack}}</th>
+          <td>{{drinksaugust.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksaugust}}</td>
+        </tr>
+        <tr *ngFor = "let snacksaugust of snacksaugust_breakdown">
+          <th >{{snacksaugust.snack}}</th>
+          <td>{{snacksaugust.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsaugust}}</td>
+        </tr>
+        <tr *ngFor = "let addonsaugust of addonsaugust_breakdown">
+          <th> {{addonsaugust.addonsaugust}}</th>
+          <td>{{addonsaugust.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1380,7 +1656,7 @@
         </mat-expansion-panel>
     
       </mat-accordion>
-    
+     -->
   
   <br>
                             <!-- palitan ng table design -->
@@ -1460,8 +1736,41 @@
     </div><br><br>
     
     <div id="September" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksseptember}}</td>
+        </tr>
+        <tr *ngFor = "let drinksseptember of drinksseptember_breakdown">
+          <th>{{drinksseptember.snack}}</th>
+          <td>{{drinksseptember.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksseptember}</td>
+        </tr>
+        <tr *ngFor = "let snacksseptember of snacksseptember_breakdown">
+          <th >{{snacksseptember.snack}}</th>
+          <td>{{snacksseptember.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsseptember}}</td>
+        </tr>
+        <tr *ngFor = "let addonsseptember of addonsseptember_breakdown">
+          <th> {{addonsseptember.addonsseptember}}</th>
+          <td>{{addonsseptember.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1498,7 +1807,7 @@
           <p *ngFor = "let addonsseptember of addonsseptember_breakdown">{{addonsseptember.addonsseptember}} : {{addonsseptember.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1579,8 +1888,41 @@
     </div><br><br>
     
     <div id="October" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksoctober}}</td>
+        </tr>
+        <tr *ngFor = "let drinksoctober of drinksoctober_breakdown">
+          <th>{{drinksoctober.snack}}</th>
+          <td>{{drinksoctober.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksoctober}}</td>
+        </tr>
+        <tr *ngFor = "let snacksoctober of snacksoctober_breakdown">
+          <th >{{snacksoctober.snack}}</th>
+          <td>{{snacksoctober.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsoctober}}</td>
+        </tr>
+        <tr *ngFor = "let addonsoctober of addonsoctober_breakdown">
+          <th> {{addonsoctober.addonsoctober}}</th>
+          <td>{{addonsoctober.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1617,7 +1959,7 @@
           <p *ngFor = "let addonsoctober of addonsoctober_breakdown">{{addonsoctober.addonsoctober}} : {{addonsoctober.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1698,8 +2040,41 @@
     </div><br><br>
     
     <div id="November" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksnovember}}</td>
+        </tr>
+        <tr *ngFor = "let drinksnovember of drinksnovember_breakdown">
+          <th>{{drinksnovember.snack}}</th>
+          <td>{{drinksnovember.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksnovember}}</td>
+        </tr>
+        <tr *ngFor = "let snacksnovember of snacksnovember_breakdown">
+          <th >{{snacksnovember.snack}}</th>
+          <td>{{snacksnovember.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsnovember}</td>
+        </tr>
+        <tr *ngFor = "let addonsnovember of addonsnovember_breakdown">
+          <th> {{addonsnovember.addonsnovember}</th>
+          <td>{{addonsnovember.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1736,7 +2111,7 @@
           <p *ngFor = "let addonsnovember of addonsnovember_breakdown">{{addonsnovember.addonsnovember}} : {{addonsnovember.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1817,8 +2192,41 @@
     </div><br><br>
     
     <div id="December" class="table2">
-
-      <mat-accordion  multi class="daily-accordion">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinksdecember}}</td>
+        </tr>
+        <tr *ngFor = "let drinksdecember of drinksdecember_breakdown">
+          <th>{{drinksdecember.snack}}</th>
+          <td>{{drinksdecember.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snacksdecember}</td>
+        </tr>
+        <tr *ngFor = "let snacksdecember of snacksdecember_breakdown">
+          <th >{{snacksdecember.snack}}</th>
+          <td>{{snacksdecember.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonsdecember}}</td>
+        </tr>
+        <tr *ngFor = "let addonsdecember of addonsdecember_breakdown">
+          <th> {{addonsdecember.addonsdecember}}</th>
+          <td>{{addonsdecember.quantity}}</td>
+        </tr>
+      </table>
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1855,7 +2263,7 @@
           <p *ngFor = "let addonsdecember of addonsdecember_breakdown">{{addonsdecember.addonsdecember}} : {{addonsdecember.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -1931,13 +2339,47 @@
     </div>
 
     <div class="printbutton" >
-      <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" id="hide3" (click)="print()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+      <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" id="hide3" (click)="exportexcelCurrentMonth()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
     
     </div><br><br>
     
     <div id="CurrentMonth" class="table2">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td>{{drinkscurrentmonth}}</td>
+        </tr>
+        <tr *ngFor = "let drinkscurrentmonth of drinkscurrentmonth_breakdown">
+          <th>{{drinkscurrentmonth.snack}}</th>
+          <td>{{drinkscurrentmonth.quantity}}</td>
+        </tr>
+  
+        
+      </table>
+  
+      <table>
+        <tr>
+          <th>Snacks Sales</th>
+          <td>{{snackscurrentmonth}}</td>
+        </tr>
+        <tr *ngFor = "let snackscurrentmonth of snackscurrentmonth_breakdown">
+          <th >{{snackscurrentmonth.snack}}</th>
+          <td>{{snackscurrentmonth.quantity}}</td>
+        </tr>
+      </table>
+  
+      <table>
+        <tr>
+          <th>Add ons Sales</th>
+          <td>{{addonscurrentmonth}}</td>
+        </tr>
+        <tr *ngFor = "let addonscurrentmonth of addonscurrentmonth_breakdown">
+          <th> {{addonscurrentmonth.addonscurrentmonth}}</th>
+          <td>{{addonscurrentmonth.quantity}}</td>
+        </tr>
+      </table>
 
-      <mat-accordion  multi class="daily-accordion">
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -1974,7 +2416,7 @@
           <p *ngFor = "let addonscurrentmonth of addonscurrentmonth_breakdown">{{addonscurrentmonth.addonscurrentmonth}} : {{addonscurrentmonth.quantity}}</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -2077,12 +2519,46 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="CurrentYear" id="hide3" (click)="print()" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="CurrentYear" id="hide3" (click)="exportexcelCurrentYear()"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="CurrentYear" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinkscurrentyear}}</td>
+      </tr>
+      <tr *ngFor = "let drinkscurrentyear of drinkscurrentyear_breakdown">
+        <th>{{drinkscurrentyear.snack}}</th>
+        <td>{{drinkscurrentyear.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snackscurrentyear}}</td>
+      </tr>
+      <tr *ngFor = "let snackscurrentyear of snackscurrentyear_breakdown">
+        <th >{{snackscurrentyear.snack}}</th>
+        <td>{{snackscurrentyear.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addonscurrentyear}}</td>
+      </tr>
+      <tr *ngFor = "let addonscurrentyear of addonscurrentyear_breakdown">
+        <th> {{addonscurrentyear.addonscurrentyear}}</th>
+        <td>{{addonscurrentyear.quantity}}</td>
+      </tr>
+    </table>
+
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2119,7 +2595,7 @@
         <p *ngFor = "let addonscurrentyear of addonscurrentyear_breakdown">{{addonscurrentyear.addonscurrentyear}} : {{addonscurrentyear.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2195,12 +2671,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2022" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2022" (click)="exportexcel2022()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2022" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2022}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2022 of drinks2022_breakdown">
+        <th>{{drinks2022.snack}}</th>
+        <td>{{drinks2022.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2022}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2022 of snacks2022_breakdown">
+        <th >{{snacks2022.snack}}</th>
+        <td>{{snacks2022.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2022}}</td>
+      </tr>
+      <tr *ngFor = "let addons2022 of addons2022_breakdown">
+        <th> {{addons2022.addons2022}}</th>
+        <td>{{addons2022.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2237,7 +2746,7 @@
         <p *ngFor = "let addons2022 of addons2022_breakdown">{{addons2022.addons2022}} : {{addons2022.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2313,12 +2822,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2023" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2023" (click)="exportexcel2023()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2023" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2023}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2023 of drinks2023_breakdown">
+        <th>{{drinks2023.snack}}</th>
+        <td>{{drinks2023.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2023}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2023 of snacks2023_breakdown">
+        <th >{{snacks2023.snack}}</th>
+        <td>{{snacks2023.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2023}}</td>
+      </tr>
+      <tr *ngFor = "let addons2023 of addons2023_breakdown">
+        <th> {{addons2023.addons2023}}</th>
+        <td>{{addons2023.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2355,7 +2897,7 @@
         <p *ngFor = "let addons2023 of addons2023_breakdown">{{addons2023.addons2023}} : {{addons2023.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2431,12 +2973,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2024" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2024" (click)="exportexcel2024()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2024" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2024}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2024 of drinks2024_breakdown">
+        <th>{{drinks2024.snack}}</th>
+        <td>{{drinks2024.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2024}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2024 of snacks2024_breakdown">
+        <th >{{snacks2024.snack}}</th>
+        <td>{{snacks2024.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2024}}</td>
+      </tr>
+      <tr *ngFor = "let addons2024 of addons2024_breakdown">
+        <th> {{addons2024.addons2024}}</th>
+        <td>{{addons2024.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2473,7 +3048,7 @@
         <p *ngFor = "let addons2024 of addons2024_breakdown">{{addons2024.addons2024}} : {{addons2024.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2549,12 +3124,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2025" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2025" (click)="exportexcel2025()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2025" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2025}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2025 of drinks2025_breakdown">
+        <th>{{drinks2025.snack}}</th>
+        <td>{{drinks2025.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2025}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2025 of snacks2025_breakdown">
+        <th >{{snacks2025.snack}}</th>
+        <td>{{snacks2025.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2025}}</td>
+      </tr>
+      <tr *ngFor = "let addons2025 of addons2025_breakdown">
+        <th> {{addons2025.addons2025}}</th>
+        <td>{{addons2025.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2591,7 +3199,7 @@
         <p *ngFor = "let addons2025 of addons2025_breakdown">{{addons2025.addons2025}} : {{addons2025.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2667,12 +3275,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2026" (click)="print()" id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2026" (click)="exportexcel2026()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2026" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2026}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2026 of drinks2026_breakdown">
+        <th>{{drinks2026.snack}}</th>
+        <td>{{drinks2026.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2026}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2026 of snacks2026_breakdown">
+        <th >{{snacks2026.snack}}</th>
+        <td>{{snacks2026.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2026}}</td>
+      </tr>
+      <tr *ngFor = "let addons2026 of addons2026_breakdown">
+        <th> {{addons2026.addons2026}}</th>
+        <td>{{addons2026.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2709,7 +3350,7 @@
         <p *ngFor = "let addons2026 of addons2026_breakdown">{{addons2026.addons2026}} : {{addons2026.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>
@@ -2785,12 +3426,45 @@
   </div>
 
   <div class="printbutton">
-    <button printTitle="Sales Report" printSectionId="2027" (click)="print()"  id="hide3" class="print"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
+    <button printTitle="Sales Report" printSectionId="2027" (click)="exportexcel2027()"  id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2027" class="table2">
+    <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td>{{drinks2027}}</td>
+      </tr>
+      <tr *ngFor = "let drinks2027 of drinks2027_breakdown">
+        <th>{{drinks2027.snack}}</th>
+        <td>{{drinks2027.quantity}}</td>
+      </tr>
 
-    <mat-accordion  multi class="daily-accordion">
+      
+    </table>
+
+    <table>
+      <tr>
+        <th>Snacks Sales</th>
+        <td>{{snacks2027}}</td>
+      </tr>
+      <tr *ngFor = "let snacks2027 of snacks2027_breakdown">
+        <th >{{snacks2027.snack}}</th>
+        <td>{{snacks2027.quantity}}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Add ons Sales</th>
+        <td>{{addons2027}}</td>
+      </tr>
+      <tr *ngFor = "let addons2027 of addons2027_breakdown">
+        <th> {{addons2027.addons2027}}</th>
+        <td>{{addons2027.quantity}}</td>
+      </tr>
+    </table>
+    <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -2827,7 +3501,7 @@
         <p *ngFor = "let addons2027 of addons2027_breakdown">{{addons2027.addons2027}} : {{addons2027.quantity}}</p>
       </mat-expansion-panel>
   
-    </mat-accordion>
+    </mat-accordion> -->
   
 
 <br>

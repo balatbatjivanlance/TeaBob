@@ -51,6 +51,27 @@ export class SalesReportComponent implements OnInit {
  
   }
 
+  exportexcelCurrentMonth(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('CurrentMonth');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+
   exportexcelJanuary(): void
   {
     this.stocksToday();
@@ -292,6 +313,148 @@ export class SalesReportComponent implements OnInit {
  
   }
 
+  exportexcelCurrentYear(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('CurrentYear');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+
+  exportexcel2022(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2022');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+
+  exportexcel2023(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2023');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcel2024(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2024');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcel2025(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2025');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcel2026(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2026');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
+  exportexcel2027(): void
+  {
+    this.stocksToday();
+    this.driverDeliveryToday();
+    this.deliveryToday();
+
+    setTimeout(() =>{
+    /* pass here the table id */
+    let element = document.getElementById('2027');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+  },1500);
+ 
+  }
   
  
   month = '0';
