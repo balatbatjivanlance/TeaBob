@@ -119,8 +119,25 @@
   </div>
   
   <div id="Daily" class="table2">
-
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinkstoday of drinkstoday_breakdown">{{drinkstoday.snack}} : {{drinkstoday.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinkstoday_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snackstoday of snackstoday_breakdown">{{snackstoday.snack}} : {{snackstoday.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snackstoday_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addonstoday of addonstoday_breakdown">{{addonstoday.addonstoday}} : {{addonstoday.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addonstoday_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinkstoday}}</td>
@@ -153,7 +170,7 @@
         <th> {{addonstoday.addonstoday}}</th>
         <td>{{addonstoday.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
 
     <!-- <mat-accordion class="daily-accordion"  multi >
       <mat-expansion-panel >
@@ -206,7 +223,7 @@
     <div class="table2half">
       <table class="table2halftable" style="width: 100%;">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks total Sales: </th>
           <td>₱{{drinkstoday_sales}}.00</td>
           
@@ -221,10 +238,10 @@
         <th>Add ons total Sales: </th>
           <td>₱{{addonstoday_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{salestoday| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{salestoday| number : '1.2-2'}}</td>
+           
           </tr>    
       </table>
   </div>
@@ -245,12 +262,12 @@
         <tr  *ngFor = "let drivertoday of drivertoday"></tr>
         
         <tr *ngFor="let drivertoday of drivertoday_breakdown" >
-        <th>Rider: {{drivertoday.drivertoday}}  </th>
+        <th style="width: 50%;">Rider: {{drivertoday.drivertoday}}  </th>
           <td> {{drivertoday.number_deliveriestoday}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveriestoday}}</td>
         
           </tr>
@@ -386,9 +403,26 @@
     </div><br><br>
     
     <div id="MONTH" class="table2">
+      <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinks2027 of drinks2027_breakdown">{{drinks2027.snack}} : {{drinks2027.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinks2027_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacks2027 of snacks2027_breakdown">{{snacks2027.snack}} : {{snacks2027.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacks2027_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addons2027 of addons2027_breakdown">{{addons2027.addons2027}} : {{addons2027.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addons2027_sales}}.00</td>
+        </tr>
+      </table>
 
       
-      <mat-accordion  multi class="daily-accordion">
+      <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -425,7 +459,7 @@
           <p>00.0 : 00.0</p>
         </mat-expansion-panel>
     
-      </mat-accordion>
+      </mat-accordion> -->
     
   
   <br>
@@ -437,7 +471,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱0.00</td>
         
@@ -452,10 +486,10 @@
           <th>Add ons Total Sales: </th>
           <td>₱0.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-            <td>₱0.00</td>
+            <td>Overall Sales: ₱0.00</td>
+          
           
             </tr>
             
@@ -479,12 +513,12 @@
           </tr>
           
           <tr>
-          <th>Rider</th>
+          <th style="width: 50%;">Rider</th>
             <td></td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
             <td>₱0.00</td>
           
             </tr>
@@ -510,6 +544,23 @@
     
     <div id="January" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksjanuary of drinksjanuary_breakdown">{{drinksjanuary.snack}} : {{drinksjanuary.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksjanuary_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksjanuary of snacksjanuary_breakdown">{{snacksjanuary.snack}} : {{snacksjanuary.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksjanuary_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsjanuary of addonsjanuary_breakdown">{{addonsjanuary.addonsjanuary}} : {{addonsjanuary.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsjanuary_sales}}.00</td>
+        </tr>
+      </table>
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksjanuary}}</td>
@@ -542,7 +593,7 @@
           <th> {{addonsjanuary.addonsjanuary}}</th>
           <td>{{addonsjanuary.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -593,7 +644,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksjanuary_sales}}.00</td>
         
@@ -608,10 +659,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsjanuary_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesjanuary| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesjanuary| number : '1.2-2'}}</td>
+              
           
             </tr>
             
@@ -635,12 +686,12 @@
           </tr>
           
           <tr *ngFor="let driverjanuary of driverjanuary_breakdown" >
-          <th>Rider: {{driverjanuary.driverjanuary}}  </th>
+          <th style="width: 50%;">Rider: {{driverjanuary.driverjanuary}}  </th>
             <td> {{driverjanuary.number_deliveriesjanuary}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesjanuary}}</td>
           
             </tr>
@@ -663,8 +714,25 @@
     </div><br><br>
     
     <div id="February" class="table2">
-
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksfebruary of drinksfebruary_breakdown">{{drinksfebruary.snack}} : {{drinksfebruary.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksfebruary_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksfebruary of snacksfebruary_breakdown">{{snacksfebruary.snack}} : {{snacksfebruary.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksfebruary_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsfebruary of addonsfebruary_breakdown">{{addonsfebruary.addonsfebruary}} : {{addonsfebruary.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsfebruary_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksfebruary}}</td>
@@ -697,7 +765,7 @@
           <th> {{addonsfebruary.addonsfebruary}}</th>
           <td>{{addonsfebruary.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -748,7 +816,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksfebruary_sales}}.00</td>
         
@@ -763,10 +831,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsfebruary_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesfebruary| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesfebruary| number : '1.2-2'}}</td>
+              
           
             </tr>
             
@@ -790,12 +858,12 @@
           </tr>
           
           <tr *ngFor="let driverfebruary of driverfebruary_breakdown" >
-          <th>Rider: {{driverfebruary.driverfebruary}}  </th>
+          <th style="width: 50%;">Rider: {{driverfebruary.driverfebruary}}  </th>
             <td> {{driverfebruary.number_deliveriesfebruary}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesfebruary}}</td>
           
             </tr>
@@ -817,8 +885,25 @@
     </div><br><br>
     
     <div id="March" class="table2">
-
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksmarch of drinksmarch_breakdown">{{drinksmarch.snack}} : {{drinksmarch.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksmarch_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksmarch of snacksmarch_breakdown">{{snacksmarch.snack}} : {{snacksmarch.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksmarch_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsmarch of addonsmarch_breakdown">{{addonsmarch.addonsmarch}} : {{addonsmarch.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsmarch_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksmarch}}</td>
@@ -851,7 +936,7 @@
           <th> {{addonsmarch.addonsmarch}}</th>
           <td>{{addonsmarch.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -902,7 +987,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksmarch_sales}}.00</td>
         
@@ -917,10 +1002,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsmarch_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesmarch| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesmarch| number : '1.2-2'}}</td>
+             
           
             </tr>
             
@@ -944,12 +1029,12 @@
           </tr>
           
           <tr *ngFor="let drivermarch of drivermarch_breakdown" >
-          <th>Rider: {{drivermarch.drivermarch}}  </th>
+          <th style="width: 50%;">Rider: {{drivermarch.drivermarch}}  </th>
             <td> {{drivermarch.number_deliveriesmarch}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesmarch}}</td>
           
             </tr>
@@ -971,8 +1056,25 @@
     </div><br><br>
     
     <div id="April" class="table2">
-
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksapril of drinksapril_breakdown">{{drinksapril.snack}} : {{drinksapril.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksapril_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksapril of snacksapril_breakdown">{{snacksapril.snack}} : {{snacksapril.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksapril_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsapril of addonsapril_breakdown">{{addonsapril.addonsapril}} : {{addonsapril.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsapril_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksapril}}</td>
@@ -1005,7 +1107,7 @@
           <th> {{addonsapril.addonsapril}}</th>
           <td>{{addonsapril.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -1056,7 +1158,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksapril_sales}}.00</td>
         
@@ -1071,10 +1173,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsapril_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesapril| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesapril| number : '1.2-2'}} </td>
+            
           
             </tr>
             
@@ -1098,12 +1200,12 @@
           </tr>
           
           <tr *ngFor="let driverapril of driverapril_breakdown" >
-          <th>Rider: {{driverapril.driverapril}}  </th>
+          <th style="width: 50%;">Rider: {{driverapril.driverapril}}  </th>
             <td> {{driverapril.number_deliveriesapril}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesapril}}</td>
           
             </tr>
@@ -1126,6 +1228,23 @@
     
     <div id="May" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksmay of drinksmay_breakdown">{{drinksmay.snack}} : {{drinksmay.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksmay_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksmay of snacksmay_breakdown">{{snacksmay.snack}} : {{snacksmay.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksmay_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsmay of addonsmay_breakdown">{{addonsmay.addonsmay}} : {{addonsmay.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsmay_sales}}.00</td>
+        </tr>
+      </table>
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksmay}}</td>
@@ -1158,7 +1277,7 @@
           <th> {{addonsmay.addonsmay}}</th>
           <td>{{addonsmay.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -1202,13 +1321,10 @@
   <br>
                             <!-- palitan ng table design -->
                             
-   
-  
-  
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksmay_sales}}.00</td>
         
@@ -1223,10 +1339,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsmay_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesmay| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesmay| number : '1.2-2'}}</td>
+     
           
             </tr>
             
@@ -1250,12 +1366,12 @@
           </tr>
           
           <tr *ngFor="let drivermay of drivermay_breakdown" >
-          <th>Rider: {{drivermay.drivermay}}  </th>
+          <th style="width: 50%;">Rider: {{drivermay.drivermay}}  </th>
             <td> {{drivermay.number_deliveriesmay}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesmay}}</td>
           
             </tr>
@@ -1279,6 +1395,25 @@
     <div id="June" class="table2">
       <table>
         <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksjune of drinksjune_breakdown">{{drinksjune.snack}} : {{drinksjune.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksjune_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksjune of snacksjune_breakdown">{{snacksjune.snack}} : {{snacksjune.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksjune_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsjune of addonsjune_breakdown">{{addonsjune.addonsjune}} : {{addonsjune.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsjune_sales}}.00</td>
+        </tr>
+      </table>
+
+
+      <!-- <table> -->
+        <!-- <tr>
           <th>Drinks Sales</th>
           <td>{{drinksjune}}</td>
         </tr>
@@ -1310,7 +1445,7 @@
           <th> {{addonsjune.addonsjune}}</th>
           <td>{{addonsjune.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -1354,16 +1489,11 @@
   
   <br>
                             <!-- palitan ng table design -->
-                            
-                     
 
-
-  
-  
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksjune_sales}}.00</td>
         
@@ -1378,11 +1508,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsjune_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesjune| number : '1.2-2'}} </td>
-          
+            <td>Overall Sales: ₱{{salesjune| number : '1.2-2'}}</td>
+  
             </tr>
             
         </table>
@@ -1405,12 +1534,12 @@
           </tr>
           
           <tr *ngFor="let driverjune of driverjune_breakdown" >
-          <th>Rider: {{driverjune.driverjune}}  </th>
+          <th style="width: 50%;">Rider: {{driverjune.driverjune}}  </th>
             <td> {{driverjune.number_deliveriesjune}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesjune}}</td>
           
             </tr>
@@ -1433,6 +1562,25 @@
     
     <div id="July" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksjuly of drinksjuly_breakdown">{{drinksjuly.snack}} : {{drinksjuly.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksjuly_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksjuly of snacksjuly_breakdown">{{snacksjuly.snack}} : {{snacksjuly.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksjuly_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsjuly of addonsjuly_breakdown">{{addonsjuly.addonsjuly}} : {{addonsjuly.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsjuly_sales}}.00</td>
+        </tr>
+      </table>
+
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
             <td>{{drinksjuly}}</td>
@@ -1465,7 +1613,7 @@
           <th> {{addonsjuly.addonsjuly}}</th>
           <td>{{addonsjuly.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -1508,14 +1656,11 @@
   
   <br>
                             <!-- palitan ng table design -->
-                            
-   
-  
-  
+
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksjuly_sales}}.00</td>
         
@@ -1530,10 +1675,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsjuly_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesjuly| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesjuly| number : '1.2-2'}}</td>
+             
           
             </tr>
             
@@ -1557,12 +1702,12 @@
           </tr>
           
           <tr *ngFor="let driverjuly of driverjuly_breakdown" >
-          <th>Rider: {{driverjuly.driverjuly}}  </th>
+          <th style="width: 50%;">Rider: {{driverjuly.driverjuly}}  </th>
             <td> {{driverjuly.number_deliveriesjuly}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesjuly}}</td>
           
             </tr>
@@ -1585,6 +1730,24 @@
     
     <div id="August" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksaugust of drinksaugust_breakdown">{{drinksaugust.snack}} : {{drinksaugust.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksaugust_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksaugust of snacksaugust_breakdown">{{snacksaugust.snack}} : {{snacksaugust.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksaugust_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsaugust of addonsaugust_breakdown">{{addonsaugust.addonsaugust}} : {{addonsaugust.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsaugust_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksaugust}}</td>
@@ -1617,7 +1780,7 @@
           <th> {{addonsaugust.addonsaugust}}</th>
           <td>{{addonsaugust.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -1661,13 +1824,10 @@
   <br>
                             <!-- palitan ng table design -->
                             
-   
-  
-  
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksaugust_sales}}.00</td>
         
@@ -1682,10 +1842,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsaugust_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesaugust| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesaugust| number : '1.2-2'}}</td>
+          
           
             </tr>
             
@@ -1709,12 +1869,12 @@
           </tr>
           
           <tr *ngFor="let driveraugust of driveraugust_breakdown" >
-          <th>Rider: {{driveraugust.driveraugust}}  </th>
+          <th style="width: 50%;">Rider: {{driveraugust.driveraugust}}  </th>
             <td> {{driveraugust.number_deliveriesaugust}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesaugust}}</td>
           
             </tr>
@@ -1737,6 +1897,24 @@
     
     <div id="September" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksseptember of drinksseptember_breakdown">{{drinksseptember.snack}} : {{drinksseptember.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksseptember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksseptember of snacksseptember_breakdown">{{snacksseptember.snack}} : {{snacksseptember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksseptember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsseptember of addonsseptember_breakdown">{{addonsseptember.addonsseptember}} : {{addonsseptember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsseptember_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksseptember}}</td>
@@ -1769,7 +1947,7 @@
           <th> {{addonsseptember.addonsseptember}}</th>
           <td>{{addonsseptember.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -1812,14 +1990,12 @@
   
   <br>
                             <!-- palitan ng table design -->
-                            
-   
-  
+
   
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksseptember_sales}}.00</td>
         
@@ -1834,10 +2010,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsseptember_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesseptember| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesseptember| number : '1.2-2'}}</td>
+              
           
             </tr>
             
@@ -1861,12 +2037,12 @@
           </tr>
           
           <tr *ngFor="let driverseptember of driverseptember_breakdown" >
-          <th>Rider: {{driverseptember.driverseptember}}  </th>
+          <th style="width: 50%;">Rider: {{driverseptember.driverseptember}}  </th>
             <td> {{driverseptember.number_deliveriesseptember}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesseptember}}</td>
           
             </tr>
@@ -1889,6 +2065,24 @@
     
     <div id="October" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksoctober of drinksoctober_breakdown">{{drinksoctober.snack}} : {{drinksoctober.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksoctober_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksoctober of snacksoctober_breakdown">{{snacksoctober.snack}} : {{snacksoctober.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksoctober_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsoctober of addonsoctober_breakdown">{{addonsoctober.addonsoctober}} : {{addonsoctober.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsoctober_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksoctober}}</td>
@@ -1921,7 +2115,7 @@
           <th> {{addonsoctober.addonsoctober}}</th>
           <td>{{addonsoctober.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -1964,14 +2158,11 @@
   
   <br>
                             <!-- palitan ng table design -->
-                            
-   
-  
-  
+
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksoctober_sales}}.00</td>
         
@@ -1986,10 +2177,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsoctober_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesoctober| number : '1.2-2'}} </td>
+            <td>Overall Sales:  ₱{{salesoctober| number : '1.2-2'}}</td>
+             
           
             </tr>
             
@@ -2013,12 +2204,12 @@
           </tr>
           
           <tr *ngFor="let driveroctober of driveroctober_breakdown" >
-          <th>Rider: {{driveroctober.driveroctober}}  </th>
+          <th style="width: 50%;">Rider: {{driveroctober.driveroctober}}  </th>
             <td> {{driveroctober.number_deliveriesoctober}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesoctober}}</td>
           
             </tr>
@@ -2041,6 +2232,24 @@
     
     <div id="November" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksnovember of drinksnovember_breakdown">{{drinksnovember.snack}} : {{drinksnovember.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksnovember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksnovember of snacksnovember_breakdown">{{snacksnovember.snack}} : {{snacksnovember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksnovember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsnovember of addonsnovember_breakdown">{{addonsnovember.addonsnovember}} : {{addonsnovember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsnovember_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksnovember}}</td>
@@ -2073,7 +2282,7 @@
           <th> {{addonsnovember.addonsnovember}</th>
           <td>{{addonsnovember.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -2116,14 +2325,11 @@
   
   <br>
                             <!-- palitan ng table design -->
-                            
-   
-  
-  
+
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksnovember_sales}}.00</td>
         
@@ -2138,11 +2344,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsnovember_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesnovember| number : '1.2-2'}} </td>
-          
+            <td>Overall Sales: ₱{{salesnovember| number : '1.2-2'}}</td>
+            
             </tr>
             
         </table>
@@ -2165,12 +2370,12 @@
           </tr>
           
           <tr *ngFor="let drivernovember of drivernovember_breakdown" >
-          <th>Rider: {{drivernovember.drivernovember}}  </th>
+          <th style="width:50%;">Rider: {{drivernovember.drivernovember}}  </th>
             <td> {{drivernovember.number_deliveriesnovember}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width:50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesnovember}}</td>
           
             </tr>
@@ -2193,6 +2398,24 @@
     
     <div id="December" class="table2">
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinksdecember of drinksdecember_breakdown">{{drinksdecember.snack}} : {{drinksdecember.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinksdecember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snacksdecember of snacksdecember_breakdown">{{snacksdecember.snack}} : {{snacksdecember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snacksdecember_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonsdecember of addonsdecember_breakdown">{{addonsdecember.addonsdecember}} : {{addonsdecember.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonsdecember_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinksdecember}}</td>
@@ -2225,7 +2448,7 @@
           <th> {{addonsdecember.addonsdecember}}</th>
           <td>{{addonsdecember.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
           <mat-expansion-panel-header>
@@ -2275,7 +2498,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinksdecember_sales}}.00</td>
         
@@ -2290,10 +2513,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonsdecember_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salesdecember| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salesdecember| number : '1.2-2'}}</td>
+              
           
             </tr>
             
@@ -2317,12 +2540,12 @@
           </tr>
           
           <tr *ngFor="let driverdecember of driverdecember_breakdown" >
-          <th>Rider: {{driverdecember.driverdecember}}  </th>
+          <th style="width: 50%;">Rider: {{driverdecember.driverdecember}}  </th>
             <td> {{driverdecember.number_deliveriesdecember}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriesdecember}}</td>
           
             </tr>
@@ -2344,7 +2567,26 @@
     </div><br><br>
     
     <div id="CurrentMonth" class="table2">
+
       <table>
+        <tr>
+          <th>Drinks Sales</th>
+          <td *ngFor = "let drinkscurrentmonth of drinkscurrentmonth_breakdown">{{drinkscurrentmonth.snack}} : {{drinkscurrentmonth.quantity}}</td>
+          <td>Total Drinks Sales: ₱{{drinkscurrentmonth_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Snacks Sales</th>
+          <td  *ngFor = "let snackscurrentmonth of snackscurrentmonth_breakdown">{{snackscurrentmonth.snack}} : {{snackscurrentmonth.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{snackscurrentmonth_sales}}.00</td>
+        </tr>
+        <tr>
+          <th>Add Ons Sales</th>
+          <td *ngFor = "let addonscurrentmonth of addonscurrentmonth_breakdown">{{addonscurrentmonth.addonscurrentmonth}} : {{addonscurrentmonth.quantity}}</td>
+          <td>Total Snacks Sales: ₱{{addonscurrentmonth_sales}}.00</td>
+        </tr>
+      </table>
+
+      <!-- <table>
         <tr>
           <th>Drinks Sales</th>
           <td>{{drinkscurrentmonth}}</td>
@@ -2377,7 +2619,7 @@
           <th> {{addonscurrentmonth.addonscurrentmonth}}</th>
           <td>{{addonscurrentmonth.quantity}}</td>
         </tr>
-      </table>
+      </table> -->
 
       <!-- <mat-accordion  multi class="daily-accordion">
         <mat-expansion-panel >
@@ -2428,7 +2670,7 @@
       <div class="table2half">
         <table class="table2halftable">
   
-          <tr>
+          <!-- <tr>
           <th>Drinks Total Sales: </th>
             <td>₱{{drinkscurrentmonth_sales}}.00</td>
         
@@ -2443,10 +2685,10 @@
           <th>Add ons Total Sales: </th>
             <td>₱{{addonscurrentmonth_sales}}.00</td>
         
-          </tr>
+          </tr> -->
           <tr>
-            <th>Overall Sales:</th>
-              <td> ₱{{salescurrentmonth| number : '1.2-2'}} </td>
+            <td>Overall Sales: ₱{{salescurrentmonth| number : '1.2-2'}}</td>
+              
           
             </tr>
             
@@ -2470,12 +2712,12 @@
           </tr>
           
           <tr *ngFor="let drivercurrentmonth of drivercurrentmonth_breakdown" >
-          <th>Rider: {{drivercurrentmonth.drivercurrentmonth}}  </th>
+          <th style="width: 50%;">Rider: {{drivercurrentmonth.drivercurrentmonth}}  </th>
             <td> {{drivercurrentmonth.number_deliveriescurrentmonth}}</td>
         
           </tr>
           <tr>
-            <th>Total Deliveries made: </th>
+            <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriescurrentmonth}}</td>
           
             </tr>
@@ -2526,6 +2768,24 @@
     <table>
       <tr>
         <th>Drinks Sales</th>
+        <td *ngFor = "let drinkscurrentyear of drinkscurrentyear_breakdown">{{drinkscurrentyear.snack}} : {{drinkscurrentyear.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinkscurrentyear_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snackscurrentyear of snackscurrentyear_breakdown">{{snackscurrentyear.snack}} : {{snackscurrentyear.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snackscurrentyear_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addonscurrentyear of addonscurrentyear_breakdown">{{addonscurrentyear.addonscurrentyear}} : {{addonscurrentyear.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addonscurrentyear_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
+      <tr>
+        <th>Drinks Sales</th>
         <td>{{drinkscurrentyear}}</td>
       </tr>
       <tr *ngFor = "let drinkscurrentyear of drinkscurrentyear_breakdown">
@@ -2556,7 +2816,7 @@
         <th> {{addonscurrentyear.addonscurrentyear}}</th>
         <td>{{addonscurrentyear.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
 
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
@@ -2600,14 +2860,11 @@
 
 <br>
                           <!-- palitan ng table design -->
-                          
- 
-
 
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinkscurrentyear_sales}}.00</td>
       
@@ -2622,10 +2879,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addonscurrentyear_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{salescurrentyear| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{salescurrentyear| number : '1.2-2'}}</td>
+
         
           </tr>
           
@@ -2649,12 +2906,12 @@
         </tr>
         
         <tr *ngFor="let drivercurrentyear of drivercurrentyear_breakdown" >
-        <th>Rider: {{drivercurrentyear.drivercurrentyear}}  </th>
+        <th style="width: 50%;">Rider: {{drivercurrentyear.drivercurrentyear}}  </th>
           <td> {{drivercurrentyear.number_deliveriescurrentyear}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveriescurrentyear}}</td>
         
           </tr>
@@ -2676,6 +2933,23 @@
   
   <div id="2022" class="table2">
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2022 of drinks2022_breakdown">{{drinks2022.snack}} : {{drinks2022.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2022_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2022 of snacks2022_breakdown">{{snacks2022.snack}} : {{snacks2022.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2022_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2022 of addons2022_breakdown">{{addons2022.addons2022}} : {{addons2022.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2022_sales}}.00</td>
+      </tr>
+    </table>
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2022}}</td>
@@ -2708,7 +2982,7 @@
         <th> {{addons2022.addons2022}}</th>
         <td>{{addons2022.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -2758,7 +3032,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2022_sales}}.00</td>
       
@@ -2773,10 +3047,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2022_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2022| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{sales2022| number : '1.2-2'}}</td>
+
         
           </tr>
           
@@ -2800,12 +3074,12 @@
         </tr>
         
         <tr *ngFor="let driver2022 of driver2022_breakdown" >
-        <th>Rider: {{driver2022.driver2022}}  </th>
+        <th style="width: 50%;">Rider: {{driver2022.driver2022}}  </th>
           <td> {{driver2022.number_deliveries2022}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2022}}</td>
         
           </tr>
@@ -2827,6 +3101,23 @@
   
   <div id="2023" class="table2">
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2023 of drinks2023_breakdown">{{drinks2023.snack}} : {{drinks2023.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2023_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2023 of snacks2023_breakdown">{{snacks2023.snack}} : {{snacks2023.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2023_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2023 of addons2023_breakdown">{{addons2023.addons2023}} : {{addons2023.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2023_sales}}.00</td>
+      </tr>
+    </table>
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2023}}</td>
@@ -2859,7 +3150,7 @@
         <th> {{addons2023.addons2023}}</th>
         <td>{{addons2023.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -2909,7 +3200,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2023_sales}}.00</td>
       
@@ -2924,10 +3215,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2023_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2023| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{sales2023| number : '1.2-2'}}</td>
+         
         
           </tr>
           
@@ -2951,12 +3242,12 @@
         </tr>
         
         <tr *ngFor="let driver2023 of driver2023_breakdown" >
-        <th>Rider: {{driver2023.driver2023}}  </th>
+        <th style="width: 50%;">Rider: {{driver2023.driver2023}}  </th>
           <td> {{driver2023.number_deliveries2023}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2023}}</td>
         
           </tr>
@@ -2978,6 +3269,24 @@
   
   <div id="2024" class="table2">
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2024 of drinks2024_breakdown">{{drinks2024.snack}} : {{drinks2024.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2024_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2024 of snacks2024_breakdown">{{snacks2024.snack}} : {{snacks2024.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2024_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2024 of addons2024_breakdown">{{addons2024.addons2024}} : {{addons2024.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2024_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2024}}</td>
@@ -3010,7 +3319,7 @@
         <th> {{addons2024.addons2024}}</th>
         <td>{{addons2024.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -3060,7 +3369,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2024_sales}}.00</td>
       
@@ -3075,10 +3384,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2024_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2024| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{sales2024| number : '1.2-2'}}</td>
+
         
           </tr>
           
@@ -3102,12 +3411,12 @@
         </tr>
         
         <tr *ngFor="let driver2024 of driver2024_breakdown" >
-        <th>Rider: {{driver2024.driver2024}}  </th>
+        <th style="width: 50%;">Rider: {{driver2024.driver2024}}  </th>
           <td> {{driver2024.number_deliveries2024}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2024}}</td>
         
           </tr>
@@ -3129,6 +3438,24 @@
   
   <div id="2025" class="table2">
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2025 of drinks2025_breakdown">{{drinks2025.snack}} : {{drinks2025.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2025_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2025 of snacks2025_breakdown">{{snacks2025.snack}} : {{snacks2025.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2025_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2025 of addons2025_breakdown">{{addons2025.addons2025}} : {{addons2025.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2025_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2025}}</td>
@@ -3161,7 +3488,7 @@
         <th> {{addons2025.addons2025}}</th>
         <td>{{addons2025.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -3211,7 +3538,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2025_sales}}.00</td>
       
@@ -3226,10 +3553,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2025_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2025| number : '1.2-2'}} </td>
+          <td>Overall Sales:  ₱{{sales2025| number : '1.2-2'}}</td>
+
         
           </tr>
           
@@ -3253,12 +3580,12 @@
         </tr>
         
         <tr *ngFor="let driver2025 of driver2025_breakdown" >
-        <th>Rider: {{driver2025.driver2025}}  </th>
+        <th style="width: 50%;">Rider: {{driver2025.driver2025}}  </th>
           <td> {{driver2025.number_deliveries2025}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2025}}</td>
         
           </tr>
@@ -3280,6 +3607,24 @@
   
   <div id="2026" class="table2">
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2026 of drinks2026_breakdown">{{drinks2026.snack}} : {{drinks2026.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2026_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2026 of snacks2026_breakdown">{{snacks2026.snack}} : {{snacks2026.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2026_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2026 of addons2026_breakdown">{{addons2026.addons2026}} : {{addons2026.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2026_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2026}}</td>
@@ -3312,7 +3657,7 @@
         <th> {{addons2026.addons2026}}</th>
         <td>{{addons2026.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -3362,7 +3707,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2026_sales}}.00</td>
       
@@ -3377,10 +3722,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2026_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2026| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{sales2026| number : '1.2-2'}} </td>
+       
         
           </tr>
           
@@ -3404,12 +3749,12 @@
         </tr>
         
         <tr *ngFor="let driver2026 of driver2026_breakdown" >
-        <th>Rider: {{driver2026.driver2026}}  </th>
+        <th style="width: 50%;">Rider: {{driver2026.driver2026}}  </th>
           <td> {{driver2026.number_deliveries2026}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2026}}</td>
         
           </tr>
@@ -3430,7 +3775,26 @@
   </div><br><br>
   
   <div id="2027" class="table2">
+
     <table>
+      <tr>
+        <th>Drinks Sales</th>
+        <td *ngFor = "let drinks2027 of drinks2027_breakdown">{{drinks2027.snack}} : {{drinks2027.quantity}}</td>
+        <td>Total Drinks Sales: ₱{{drinks2027_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Snacks Sales</th>
+        <td  *ngFor = "let snacks2027 of snacks2027_breakdown">{{snacks2027.snack}} : {{snacks2027.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{snacks2027_sales}}.00</td>
+      </tr>
+      <tr>
+        <th>Add Ons Sales</th>
+        <td *ngFor = "let addons2027 of addons2027_breakdown">{{addons2027.addons2027}} : {{addons2027.quantity}}</td>
+        <td>Total Snacks Sales: ₱{{addons2027_sales}}.00</td>
+      </tr>
+    </table>
+
+    <!-- <table>
       <tr>
         <th>Drinks Sales</th>
         <td>{{drinks2027}}</td>
@@ -3463,7 +3827,7 @@
         <th> {{addons2027.addons2027}}</th>
         <td>{{addons2027.quantity}}</td>
       </tr>
-    </table>
+    </table> -->
     <!-- <mat-accordion  multi class="daily-accordion">
       <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -3513,7 +3877,7 @@
     <div class="table2half">
       <table class="table2halftable">
 
-        <tr>
+        <!-- <tr>
         <th>Drinks Total Sales: </th>
           <td>₱{{drinks2027_sales}}.00</td>
       
@@ -3528,10 +3892,10 @@
         <th>Add ons Total Sales: </th>
           <td>₱{{addons2027_sales}}.00</td>
       
-        </tr>
+        </tr> -->
         <tr>
-          <th>Overall Sales:</th>
-            <td> ₱{{sales2027| number : '1.2-2'}} </td>
+          <td>Overall Sales: ₱{{sales2027| number : '1.2-2'}}</td>
+
         
           </tr>
           
@@ -3555,12 +3919,12 @@
         </tr>
         
         <tr *ngFor="let driver2027 of driver2027_breakdown" >
-        <th>Rider: {{driver2027.driver2027}}  </th>
+        <th style="width: 50%;">Rider: {{driver2027.driver2027}}  </th>
           <td> {{driver2027.number_deliveries2027}}</td>
       
         </tr>
         <tr>
-          <th>Total Deliveries made: </th>
+          <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2027}}</td>
         
           </tr>
