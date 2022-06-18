@@ -28,7 +28,27 @@ interface LooseObject {[key: string]: any}
 
 
 export class SalesReportComponent implements OnInit {
-  fileName= 'ExcelSheet.xlsx';
+  fileNamedaily= 'Daily Sales.xlsx';
+  fileNameCurrentMonth= 'CurrentMonth Sales.xlsx';
+  fileNameJanuary= 'January Sales.xlsx';
+  fileNameFebruary= 'February Sales.xlsx';
+  fileNameMarch= 'March Sales.xlsx';
+  fileNameApril= 'April Sales.xlsx';
+  fileNameMay= 'May Sales.xlsx';
+  fileNameJune= 'June Sales.xlsx';
+  fileNameJuly= 'July Sales.xlsx';
+  fileNameAugust= 'August Sales.xlsx';
+  fileNameSeptember= 'September Sales.xlsx';
+  fileNameOctober= 'October Sales.xlsx';
+  fileNameNovember= 'November Sales.xlsx';
+  fileNameDecember= 'December Sales.xlsx';
+  fileNameCurrentYear= 'CurrentYear Sales.xlsx';
+  fileName2022= '2022 Sales.xlsx';
+  fileName2023= '2023 Sales.xlsx';
+  fileName2024= '2024 Sales.xlsx';
+  fileName2025= '2025 Sales.xlsx';
+  fileName2026= '2026 Sales.xlsx';
+  fileName2027= '2027 Sales.xlsx';
 
   exportexcel(): void
   {
@@ -46,7 +66,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNamedaily);
   },1500);
  
   }
@@ -67,7 +87,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameCurrentMonth);
   },1500);
  
   }
@@ -88,7 +108,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameJanuary);
   },1500);
  
   }
@@ -108,7 +128,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameFebruary);
   },1500);
  
   }
@@ -128,7 +148,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameMarch);
   },1500);
  
   }
@@ -148,7 +168,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameApril);
   },1500);
  
   }
@@ -168,7 +188,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameMay);
   },1500);
  
   }
@@ -188,7 +208,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameJune);
   },1500);
  
   }
@@ -208,7 +228,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameJuly);
   },1500);
  
   }
@@ -228,7 +248,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameAugust);
   },1500);
  
   }
@@ -248,7 +268,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameSeptember);
   },1500);
  
   }
@@ -268,7 +288,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameOctober);
   },1500);
  
   }
@@ -288,7 +308,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameNovember);
   },1500);
  
   }
@@ -308,7 +328,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameDecember);
   },1500);
  
   }
@@ -329,7 +349,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileNameCurrentYear);
   },1500);
  
   }
@@ -350,7 +370,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2022);
   },1500);
  
   }
@@ -371,7 +391,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2023);
   },1500);
  
   }
@@ -391,7 +411,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2024);
   },1500);
  
   }
@@ -411,7 +431,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2025);
   },1500);
  
   }
@@ -431,7 +451,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2026);
   },1500);
  
   }
@@ -451,7 +471,7 @@ export class SalesReportComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
  
     /* save to file */  
-    XLSX.writeFile(wb, this.fileName);
+    XLSX.writeFile(wb, this.fileName2027);
   },1500);
  
   }
@@ -516,6 +536,8 @@ export class SalesReportComponent implements OnInit {
   }
 
   user_role = localStorage.getItem("user_role");
+  Fullname = localStorage.getItem("Fullname");
+  Lastname = localStorage.getItem("Lastname");
 
 
   // SIDENAV AND TOOLBAR CODE 

@@ -164,6 +164,12 @@
     padding: 10px;
   }
 
+  .title{
+    font-size: 50px;
+    text-align: center;
+    border-color: whitesmoke;
+  }
+
   .print03 {
     display: flex;
     justify-content:center ;

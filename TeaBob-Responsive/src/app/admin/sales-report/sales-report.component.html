@@ -114,11 +114,18 @@
   </div>
 
 
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>Daily Sales</p>
-  </div>
+  </div> -->
   
   <div id="Daily" class="table2">
+    
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">Custom Date Sales</td>
+        </tr>
+    </table>
+
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -240,8 +247,9 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{salestoday| number : '1.2-2'}}</td>
-           
+          <th>Overall Sales:</th>
+          <td>₱{{salestoday| number : '1.2-2'}}</td>
+  
           </tr>    
       </table>
   </div>
@@ -269,6 +277,14 @@
         <tr>
           <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveriestoday}}</td>
+        
+          </tr>
+      </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
         
           </tr>
       </table>
@@ -393,9 +409,9 @@
 
   <div class="selector" *ngIf ="month == '001'">
   <div class="container3">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month" printSectionId="MONTH" id="hide3" (click)="exportexcel()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -403,6 +419,11 @@
     </div><br><br>
     
     <div id="MONTH" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">YEAR 2027 SALES</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -488,7 +509,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱0.00</td>
+            <th>Overall Sales:</th>
+            <td>₱0.00</td>
           
           
             </tr>
@@ -523,6 +545,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -533,9 +563,9 @@
 
   <div class="selector" *ngIf ="month == '0000-01-00'">
     <div class="container3">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of January</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of January" printSectionId="January" id="hide3" (click)="exportexcelJanuary()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -543,6 +573,11 @@
     </div><br><br>
     
     <div id="January" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of January</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -661,7 +696,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesjanuary| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesjanuary| number : '1.2-2'}}</td>
               
           
             </tr>
@@ -696,6 +732,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -704,9 +748,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-02-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of February</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of February" id="hide3" printSectionId="February" (click)="exportexcelFebruary()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -714,6 +758,11 @@
     </div><br><br>
     
     <div id="February" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of February</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -833,7 +882,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesfebruary| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesfebruary| number : '1.2-2'}}</td>
               
           
             </tr>
@@ -868,6 +918,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -875,9 +933,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-03-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of March</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of March" printSectionId="March"id="hide3" (click)="exportexcelMarch()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -885,6 +943,11 @@
     </div><br><br>
     
     <div id="March" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of March</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1004,7 +1067,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesmarch| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesmarch| number : '1.2-2'}}</td>
              
           
             </tr>
@@ -1039,6 +1103,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1046,9 +1118,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-04-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of April</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of April" printSectionId="April" id="hide3" (click)="exportexcelApril()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1056,6 +1128,11 @@
     </div><br><br>
     
     <div id="April" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of April</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1175,7 +1252,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesapril| number : '1.2-2'}} </td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesapril| number : '1.2-2'}} </td>
             
           
             </tr>
@@ -1210,6 +1288,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1217,9 +1303,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-05-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of May</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of May" printSectionId="May" id="hide3" (click)="exportexcelMay()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1227,6 +1313,11 @@
     </div><br><br>
     
     <div id="May" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of May</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1341,7 +1432,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesmay| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesmay| number : '1.2-2'}}</td>
      
           
             </tr>
@@ -1376,6 +1468,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1383,9 +1483,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-06-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of June</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of June" printSectionId="June"id="hide3" (click)="exportexcelJune()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1393,6 +1493,11 @@
     </div><br><br>
     
     <div id="June" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of June</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1510,7 +1615,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesjune| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesjune| number : '1.2-2'}}</td>
   
             </tr>
             
@@ -1544,6 +1650,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1551,9 +1665,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-07-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of July</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of July" printSectionId="July" id="hide3" (click)="exportexcelJuly()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1561,6 +1675,11 @@
     </div><br><br>
     
     <div id="July" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of July</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1677,7 +1796,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesjuly| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesjuly| number : '1.2-2'}}</td>
              
           
             </tr>
@@ -1712,6 +1832,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1719,9 +1847,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-08-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of August</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of August" printSectionId="August" id="hide3" (click)="exportexcelAugust()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1729,6 +1857,11 @@
     </div><br><br>
     
     <div id="August" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of August</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -1844,7 +1977,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesaugust| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesaugust| number : '1.2-2'}}</td>
           
           
             </tr>
@@ -1879,6 +2013,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -1886,9 +2028,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-09-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of September</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of September" printSectionId="September" id="hide3" (click)="exportexcelSeptember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -1896,6 +2038,11 @@
     </div><br><br>
     
     <div id="September" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of September</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -2012,7 +2159,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesseptember| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesseptember| number : '1.2-2'}}</td>
               
           
             </tr>
@@ -2047,6 +2195,14 @@
           
             </tr>
         </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
   
   
   
@@ -2054,9 +2210,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-10-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of October</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of October" printSectionId="October" id="hide3" (click)="exportexcelOctober()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -2064,6 +2220,11 @@
     </div><br><br>
     
     <div id="October" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of October</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -2179,7 +2340,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales:  ₱{{salesoctober| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesoctober| number : '1.2-2'}}</td>
              
           
             </tr>
@@ -2214,6 +2376,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -2221,9 +2391,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-11-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of November</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of November" printSectionId="November" id="hide3"(click)="exportexcelNovember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -2231,6 +2401,11 @@
     </div><br><br>
     
     <div id="November" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of November</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -2346,7 +2521,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesnovember| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesnovember| number : '1.2-2'}}</td>
             
             </tr>
             
@@ -2380,6 +2556,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -2387,9 +2571,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0000-12-00'">
-    <div class="prodreduce">
+    <!-- <div class="prodreduce">
       <p>SALES for the Month of December</p>
-    </div>
+    </div> -->
 
     <div class="printbutton">
       <button printTitle="Sales Report Month of December" printSectionId="December"id="hide3" (click)="exportexcelDecember()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -2397,6 +2581,11 @@
     </div><br><br>
     
     <div id="December" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Month of December</td>
+          </tr>
+      </table>
       <table>
         <tr>
           <th>Drinks Sales</th>
@@ -2515,7 +2704,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salesdecember| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salesdecember| number : '1.2-2'}}</td>
               
           
             </tr>
@@ -2550,6 +2740,14 @@
           
             </tr>
         </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
+          
+            </tr>
+        </table>
   
   
   
@@ -2557,9 +2755,9 @@
   </div>
 
   <div class="selector" *ngIf ="month == '0'">
-    <div class="prodreduce" >
+    <!-- <div class="prodreduce" >
       <p>SALES for the Current Month</p>
-    </div>
+    </div> -->
 
     <div class="printbutton" >
       <button printTitle="SALES for the Current Month" printSectionId="CurrentMonth" id="hide3" (click)="exportexcelCurrentMonth()" class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
@@ -2567,6 +2765,11 @@
     </div><br><br>
     
     <div id="CurrentMonth" class="table2">
+      <br><table >
+        <tr>
+          <td style="width: 100%;" class="title">SALES for the Current Month</td>
+          </tr>
+      </table>
 
       <table>
         <tr>
@@ -2687,7 +2890,8 @@
         
           </tr> -->
           <tr>
-            <td>Overall Sales: ₱{{salescurrentmonth| number : '1.2-2'}}</td>
+            <th>Overall Sales:</th>
+            <td>₱{{salescurrentmonth| number : '1.2-2'}}</td>
               
           
             </tr>
@@ -2719,6 +2923,14 @@
           <tr>
             <th style="width: 50%;">Total Deliveries made: </th>
               <td>{{total_deliveriescurrentmonth}}</td>
+          
+            </tr>
+        </table>
+        <table >
+  
+          <tr>
+            <th style="width: 50%;">Prepared by Admin:</th>
+              <td>{{Fullname}}{{Lastname}}</td>
           
             </tr>
         </table>
@@ -2756,15 +2968,20 @@
   </div>
 
   <div class="selector" *ngIf ="year == '0'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES THIS YEAR</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="CurrentYear" id="hide3" (click)="exportexcelCurrentYear()"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="CurrentYear" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES THIS YEAR</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -2881,7 +3098,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{salescurrentyear| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{salescurrentyear| number : '1.2-2'}}</td>
 
         
           </tr>
@@ -2916,6 +3134,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -2923,15 +3149,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '1'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2022</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2022" (click)="exportexcel2022()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2022" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2022</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -3049,7 +3280,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{sales2022| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2022| number : '1.2-2'}}</td>
 
         
           </tr>
@@ -3084,6 +3316,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -3091,15 +3331,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '2'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2023</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2023" (click)="exportexcel2023()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2023" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2023</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -3217,7 +3462,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{sales2023| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2023| number : '1.2-2'}}</td>
          
         
           </tr>
@@ -3252,6 +3498,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -3259,15 +3513,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '3'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2024</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2024" (click)="exportexcel2024()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2024" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2024</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -3386,7 +3645,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{sales2024| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2024| number : '1.2-2'}}</td>
 
         
           </tr>
@@ -3421,6 +3681,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -3428,15 +3696,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '4'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2025</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2025" (click)="exportexcel2025()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2025" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2025</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -3555,7 +3828,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales:  ₱{{sales2025| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2025| number : '1.2-2'}}</td>
 
         
           </tr>
@@ -3590,6 +3864,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -3597,15 +3879,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '5'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2026</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2026" (click)="exportexcel2026()" id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2026" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2026</td>
+        </tr>
+    </table>
     <table>
       <tr>
         <th>Drinks Sales</th>
@@ -3724,7 +4011,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{sales2026| number : '1.2-2'}} </td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2026| number : '1.2-2'}} </td>
        
         
           </tr>
@@ -3759,6 +4047,14 @@
         
           </tr>
       </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
+        
+          </tr>
+      </table>
 
 
 
@@ -3766,15 +4062,20 @@
 </div>
 
 <div class="selector" *ngIf ="year == '6'">
-  <div class="prodreduce">
+  <!-- <div class="prodreduce">
     <p>SALES YEAR 2027</p>
-  </div>
+  </div> -->
 
   <div class="printbutton">
     <button printTitle="Sales Report" printSectionId="2027" (click)="exportexcel2027()"  id="hide3"class="print03"><mat-icon>receipt</mat-icon>&nbsp;Generate Report</button>
   </div><br><br>
   
   <div id="2027" class="table2">
+    <br><table >
+      <tr>
+        <td style="width: 100%;" class="title">SALES YEAR 2027</td>
+        </tr>
+    </table>
 
     <table>
       <tr>
@@ -3894,7 +4195,8 @@
       
         </tr> -->
         <tr>
-          <td>Overall Sales: ₱{{sales2027| number : '1.2-2'}}</td>
+          <th>Overall Sales:</th>
+          <td>₱{{sales2027| number : '1.2-2'}}</td>
 
         
           </tr>
@@ -3926,6 +4228,14 @@
         <tr>
           <th style="width: 50%;">Total Deliveries made: </th>
             <td>{{total_deliveries2027}}</td>
+        
+          </tr>
+      </table>
+      <table >
+
+        <tr>
+          <th style="width: 50%;">Prepared by Admin:</th>
+            <td>{{Fullname}}{{Lastname}}</td>
         
           </tr>
       </table>
