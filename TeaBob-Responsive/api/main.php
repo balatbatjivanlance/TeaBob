@@ -441,6 +441,16 @@
 							}
 							break;
 
+							case 'stocksTodayDashboard':
+								if(count($req)>1) {
+									
+									echo json_encode($get->stocksTodayDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);
+								} else {
+								
+									echo json_encode($get->stocksTodayDashboard($req[0], null), JSON_PRETTY_PRINT);
+								}
+								break;
+
 							case 'stocksToday':
 								$d = json_decode(base64_decode(file_get_contents("php://input"))); 
 								echo json_encode($get->stocksToday($d), JSON_PRETTY_PRINT);	
@@ -497,6 +507,13 @@
 							echo json_encode($get->pullDelivered($req[0], $req[1]), JSON_PRETTY_PRINT);
 						} else {
 							echo json_encode($get->pullDelivered($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'deliveredTodayDashboard':
+						if(count($req)>1) {
+							echo json_encode($get->pullDeliveredTodayDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+							echo json_encode($get->pullDeliveredTodayDashboard($req[0], null), JSON_PRETTY_PRINT);
 						}
 					break;
 					case 'deliveredToday':
@@ -615,6 +632,26 @@
 						$d = json_decode(base64_decode(file_get_contents("php://input")));
 						echo json_encode($get->PullDriverInfo($d), JSON_PRETTY_PRINT);    
 					break;
+					case 'driverDeliveryTodayDashboard':
+						
+						if(count($req)>1) {
+							
+							echo json_encode($get->driverDeliveryTodayDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+						
+							echo json_encode($get->driverDeliveryTodayDashboard($req[0], null), JSON_PRETTY_PRINT);
+						}
+					break;
+					case 'deliveryTodayDashboard':
+						
+						if(count($req)>1) {
+							
+							echo json_encode($get->deliveryTodayDashboard($req[0], $req[1]), JSON_PRETTY_PRINT);
+						} else {
+						
+							echo json_encode($get->deliveryTodayDashboard($req[0], null), JSON_PRETTY_PRINT);
+						}
+						break;
 					case 'driverDeliveryToday':
 						
 						$d = json_decode(base64_decode(file_get_contents("php://input"))); 

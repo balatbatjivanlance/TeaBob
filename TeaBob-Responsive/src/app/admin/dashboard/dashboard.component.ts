@@ -31,9 +31,9 @@ export class DashboardComponent implements OnInit {
     this.pullPending();
     this.pullApprovedOrders();
     this.pullOndelivery();
-    this.pullDeliveredToday();
-    this.stocksToday();
-    this.deliveryToday();
+    this.pullDeliveredTodayDashboard();
+    this.stocksTodayDashboard();
+    this.deliveryTodayDashboard();
   }
 
   user_role = localStorage.getItem("user_role");
@@ -163,8 +163,8 @@ pullOndelivery() {
   })
 }
 delivered: any; 
-pullDeliveredToday() {
-  this.ds.sendApiRequest("deliveredToday", null).subscribe((data: { payload: any; }) => {
+pullDeliveredTodayDashboard() {
+  this.ds.sendApiRequest("deliveredTodayDashboard", null).subscribe((data: { payload: any; }) => {
     this.delivered = data.payload;
 
   })
@@ -245,9 +245,9 @@ total_deliveries: number = 0;
 delivery: any = {};
 
 profit:number =0;
-deliveryToday(){
+deliveryTodayDashboard(){
   
-  this.ds.sendApiRequest("deliveryToday", null).subscribe((data: { payload: any; }) => {
+  this.ds.sendApiRequest("deliveryTodayDashboard", null).subscribe((data: { payload: any; }) => {
   this.delivery = data.payload;
   
   this.total_deliveries = this.delivery.length;
@@ -304,8 +304,8 @@ drinks_profit:number=0;
 snacks_profit:number=0;
 addons_profit:number=0;
 stocks:any;
-stocksToday(){
-  this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
+stocksTodayDashboard(){
+  this.ds.sendApiRequest("stocksTodayDashboard", null).subscribe((data: { payload: any; }) => {
   this.stocks = data.payload;
 
     // Loop of all  obj in json

@@ -15,7 +15,7 @@ export class ItemsTodayComponent implements OnInit {
   constructor( private ds: DataService) { }
 
   ngOnInit(): void {
-    this.stocksToday();
+    this.stocksTodayDashboard();
   }
 
   
@@ -27,8 +27,8 @@ drinks_profit:number=0;
 snacks_profit:number=0;
 addons_profit:number=0;
 stocks:any;
-stocksToday(){
-  this.ds.sendApiRequest("stocksToday", null).subscribe((data: { payload: any; }) => {
+stocksTodayDashboard(){
+  this.ds.sendApiRequest("stocksTodayDashboard", null).subscribe((data: { payload: any; }) => {
   this.stocks = data.payload;
 
     // Loop of all  obj in json
